@@ -59,7 +59,7 @@ class ChapterDetail extends StatelessWidget {
                           textDirection: TextDirection.rtl,
                           style: const TextStyle(
                             fontWeight: FontWeight.w400,
-                            fontSize: 25,
+                            fontSize: 20,
                             color: Colors.white,
                             shadows: [
                               Shadow(
