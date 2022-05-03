@@ -68,6 +68,10 @@ flutter:
     - images/chapter7.png
     - images/chapter8.png
     - images/chapter9.png
+    - images/chapter10.png
+    - images/chapter11.png
+    - images/chapter12.png
+    
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

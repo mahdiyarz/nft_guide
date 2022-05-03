@@ -18,7 +18,7 @@ List<Nfts> nftsData = [
   ),
   Nfts(
     chapter: 'فصل دوم',
-    title: 'NFT چیست؟',
+    title: 'توابع NFT چگونه هستند؟',
     descriptions: 'EXP',
     image: 'images/chapter2.png',
   ),
@@ -30,19 +30,19 @@ List<Nfts> nftsData = [
   ),
   Nfts(
     chapter: 'فصل چهارم',
-    title: 'NFT چیست؟',
+    title: 'جدول زمانی یبیب یبیبی یبیبی یبیبی فروشهای قابل توجه NFT',
     descriptions: 'EXP',
     image: 'images/chapter4.png',
   ),
   Nfts(
     chapter: 'فصل پنجم',
-    title: 'NFT چیست؟',
+    title: 'اثبات کار PoW',
     descriptions: 'EXP',
     image: 'images/chapter5.png',
   ),
   Nfts(
     chapter: 'فصل ششم',
-    title: 'NFT چیست؟',
+    title: 'اثبات کار PoW',
     descriptions: 'EXP',
     image: 'images/chapter6.png',
   ),
@@ -54,7 +54,7 @@ List<Nfts> nftsData = [
   ),
   Nfts(
     chapter: 'فصل هشتم',
-    title: 'NFT چیست؟',
+    title: 'کنترل اطلاعات زیاد',
     descriptions: 'EXP',
     image: 'images/chapter8.png',
   ),
@@ -66,20 +66,20 @@ List<Nfts> nftsData = [
   ),
   Nfts(
     chapter: 'فصل دهم',
-    title: 'NFT چیست؟',
+    title: 'یکپارچگی پردازش اطلاعات و معامله ها',
     descriptions: 'EXP',
-    image: 'images/chapter1.png',
+    image: 'images/chapter10.png',
   ),
   Nfts(
     chapter: 'فصل یازدهم',
     title: 'NFT چیست؟',
     descriptions: 'EXP',
-    image: 'images/chapter1.png',
+    image: 'images/chapter11.png',
   ),
   Nfts(
     chapter: 'فصل دوازدهم',
-    title: 'NFT چیست؟',
+    title: 'کاهش هزینه معاملات',
     descriptions: 'EXP',
-    image: 'images/chapter1.png',
+    image: 'images/chapter12.png',
   ),
 ];
