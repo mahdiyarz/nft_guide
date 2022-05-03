@@ -65,12 +65,15 @@ class Home extends StatelessWidget {
                         ),
                         FittedBox(
                           fit: BoxFit.fill,
-                          child: Text(
-                            nftsData[index].title,
-                            textDirection: TextDirection.rtl,
-                            style: const TextStyle(
-                              fontWeight: FontWeight.w400,
-                              fontSize: 25,
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 15),
+                            child: Text(
+                              nftsData[index].title,
+                              textDirection: TextDirection.rtl,
+                              style: const TextStyle(
+                                fontWeight: FontWeight.w400,
+                                fontSize: 25,
+                              ),
                             ),
                           ),
                         ),
