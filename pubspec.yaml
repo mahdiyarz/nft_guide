@@ -61,6 +61,13 @@ flutter:
   assets:
     - images/chapter1.png
     - images/chapter2.png
+    - images/chapter3.png
+    - images/chapter4.png
+    - images/chapter5.png
+    - images/chapter6.png
+    - images/chapter7.png
+    - images/chapter8.png
+    - images/chapter9.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
