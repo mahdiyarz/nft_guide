@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../screens/chapterDetail.dart';
+import '../models/nftModel.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -7,13 +8,18 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.indigo[600],
       body: ListView.builder(
           itemCount: 12,
           itemBuilder: (context, index) {
             return InkWell(
               onTap: () => Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => ChapterDetail(),
+                  builder: (_) => ChapterDetail(
+                    title: nftsData[index].title,
+                    descriptions: nftsData[index].descriptions,
+                    image: nftsData[index].image,
+                  ),
                 ),
               ),
               child: Card(
@@ -29,35 +35,42 @@ class Home extends StatelessWidget {
 
                 child: Container(
                     decoration: BoxDecoration(
-                      gradient: const LinearGradient(
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
-                        colors: [
-                          Colors.green,
-                          Colors.lightGreen,
-                        ],
+                      image: DecorationImage(
+                        image: AssetImage(nftsData[index].image),
+                        fit: BoxFit.cover,
+                        opacity: 200,
                       ),
+                      color: Colors.indigo[300],
+                      // gradient: const LinearGradient(
+                      //   begin: Alignment.topLeft,
+                      //   end: Alignment.bottomRight,
+                      //   colors: [
+                      //     Colors.green,
+                      //     Colors.lightGreen,
+                      //   ],
+                      // ),
                       borderRadius: BorderRadius.circular(15),
                     ),
                     width: MediaQuery.of(context).size.width,
-                    height: 90,
+                    height: 120,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          'شماره فصل',
-                          style: TextStyle(
+                          nftsData[index].chapter,
+                          style: const TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 18,
+                            fontSize: 20,
                           ),
                         ),
                         FittedBox(
                           fit: BoxFit.fill,
                           child: Text(
-                            'موضوع فصل مورد نظر',
-                            style: TextStyle(
+                            nftsData[index].title,
+                            textDirection: TextDirection.rtl,
+                            style: const TextStyle(
                               fontWeight: FontWeight.w400,
-                              fontSize: 20,
+                              fontSize: 25,
                             ),
                           ),
                         ),
