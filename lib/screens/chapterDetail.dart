@@ -48,9 +48,9 @@ class ChapterDetail extends StatelessWidget {
                     ),
                   ),
                   Flexible(
-                    fit: FlexFit.tight,
+                    fit: FlexFit.loose,
                     child: FittedBox(
-                      fit: BoxFit.fill,
+                      fit: BoxFit.cover,
                       alignment: Alignment.center,
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 10),
