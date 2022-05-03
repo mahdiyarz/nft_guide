@@ -30,7 +30,7 @@ List<Nfts> nftsData = [
   ),
   Nfts(
     chapter: 'فصل چهارم',
-    title: 'جدول زمانی یبیب یبیبی یبیبی یبیبی فروشهای قابل توجه NFT',
+    title: 'جدول زمانی فروشهای قابل توجه NFT',
     descriptions: 'EXP',
     image: 'images/chapter4.png',
   ),
