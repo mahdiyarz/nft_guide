@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../screens/chapterDetail.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -10,6 +11,11 @@ class Home extends StatelessWidget {
           itemCount: 12,
           itemBuilder: (context, index) {
             return InkWell(
+              onTap: () => Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => ChapterDetail(),
+                ),
+              ),
               child: Card(
                 margin: const EdgeInsets.symmetric(
                   horizontal: 10,
