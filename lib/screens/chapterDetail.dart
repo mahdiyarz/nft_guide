@@ -18,7 +18,7 @@ class ChapterDetail extends StatelessWidget {
           children: [
             Container(
               width: MediaQuery.of(context).size.width,
-              height: 150,
+              height: 200,
               padding: const EdgeInsets.only(bottom: 15),
               decoration: BoxDecoration(
                 image: DecorationImage(
@@ -26,57 +26,31 @@ class ChapterDetail extends StatelessWidget {
                   fit: BoxFit.cover,
                 ),
               ),
-              child: Container(
-                margin: const EdgeInsets.only(
-                  top: 95,
-                  left: 8,
-                  right: 8,
-                ),
-                width: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                  color: Colors.indigo[400],
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    CircleAvatar(
-                      backgroundColor: Colors.white,
-                      child: IconButton(
-                        onPressed: () => Navigator.of(context).pop(),
-                        icon: const Icon(Icons.arrow_back_sharp),
-                        color: Colors.indigo[400],
-                      ),
-                    ),
-                    Flexible(
-                      fit: FlexFit.loose,
-                      child: FittedBox(
-                        fit: BoxFit.cover,
-                        alignment: Alignment.center,
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 10),
-                          child: Text(
-                            title,
-                            textDirection: TextDirection.rtl,
-                            style: const TextStyle(
-                              fontWeight: FontWeight.w400,
-                              fontSize: 20,
-                              color: Colors.white,
-                              shadows: [
-                                Shadow(
-                                  blurRadius: 10.0,
-                                  color: Colors.white38,
-                                  offset: Offset(0.5, 0.5),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                title,
+                textDirection: TextDirection.rtl,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 22,
+                  color: Colors.white,
+                  shadows: [
+                    Shadow(
+                      blurRadius: 25.0,
+                      color: Colors.white38,
+                      offset: Offset(0.5, 0.5),
                     ),
                   ],
                 ),
               ),
+            ),
+            const Divider(
+              thickness: 2,
+              indent: 45,
+              endIndent: 45,
             ),
             Padding(
               padding: const EdgeInsets.symmetric(
@@ -97,6 +71,18 @@ class ChapterDetail extends StatelessWidget {
           ],
         ),
       ),
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 8),
+        child: FloatingActionButton(
+          onPressed: () => Navigator.of(context).pop(),
+          child: const Icon(Icons.home),
+          elevation: 8,
+          backgroundColor: Colors.indigo[300],
+          mini: true,
+        ),
+      ),
+      floatingActionButtonLocation:
+          FloatingActionButtonLocation.miniStartDocked,
     );
   }
 }
