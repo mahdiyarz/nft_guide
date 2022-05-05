@@ -8,7 +8,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.indigo[600],
+      backgroundColor: const Color(0xff455a64),
       body: ListView.builder(
         itemCount: 12,
         itemBuilder: (context, index) {
@@ -36,11 +36,10 @@ class Home extends StatelessWidget {
               child: Container(
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage(nftsData[index].image),
-                      fit: BoxFit.cover,
-                      opacity: 200,
-                    ),
-                    color: Colors.indigo[300],
+                        image: AssetImage(nftsData[index].image),
+                        fit: BoxFit.cover,
+                        opacity: 400),
+                    color: Color.fromARGB(255, 255, 255, 255),
                     // gradient: const LinearGradient(
                     //   begin: Alignment.topLeft,
                     //   end: Alignment.bottomRight,
@@ -60,7 +59,7 @@ class Home extends StatelessWidget {
                         nftsData[index].chapter,
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 20,
+                          fontSize: 23,
                         ),
                       ),
                       FittedBox(
@@ -71,7 +70,7 @@ class Home extends StatelessWidget {
                             nftsData[index].title,
                             textDirection: TextDirection.rtl,
                             style: const TextStyle(
-                              fontWeight: FontWeight.w400,
+                              fontWeight: FontWeight.bold,
                               fontSize: 25,
                             ),
                           ),
