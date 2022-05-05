@@ -22,10 +22,10 @@ class XDGooglePixel66 extends StatelessWidget {
             Pin(size: 43.0, end: 77.0),
             child: TextButton(
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Home()),
-                );
+                Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(builder: (context) => Home()),
+                    (route) => false);
               },
               child: Text(
                 'بزن بریم',
@@ -455,10 +455,11 @@ class XDGooglePixel66 extends StatelessWidget {
             child: Text(
               'آماده سفر به دنیای بلاکچین هستی؟ ',
               style: TextStyle(
-                fontFamily: 'Modern No. 20',
-                fontSize: 20,
-                color: const Color(0xffffffff),
-              ),
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'Modern No. 20',
+                  fontSize: 21,
+                  color: const Color(0xffffffff),
+                  overflow: TextOverflow.visible),
               softWrap: false,
             ),
           ),

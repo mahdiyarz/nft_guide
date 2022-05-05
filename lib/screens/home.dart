@@ -8,6 +8,14 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+          title: Text(
+            'NFTراهنمای مقدماتی ',
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+          ),
+          toolbarHeight: 35,
+          centerTitle: true,
+          backgroundColor: const Color(0xff455a64)),
       backgroundColor: const Color(0xff455a64),
       body: ListView.builder(
         itemCount: 12,
@@ -102,7 +110,7 @@ class Home extends StatelessWidget {
 
   Container _buildBottomSheet(BuildContext context) {
     return Container(
-      color: Colors.indigo[300],
+      color: Color.fromARGB(255, 31, 42, 48),
       height: 150,
       padding: const EdgeInsets.all(8),
       child: Column(
@@ -111,7 +119,7 @@ class Home extends StatelessWidget {
           Container(
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
-              color: Colors.indigo[500],
+              color: const Color(0xff455a64),
               borderRadius: BorderRadius.circular(15),
             ),
             child: const Text(
@@ -137,7 +145,7 @@ class Home extends StatelessWidget {
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
-                  color: Colors.indigo[500],
+                  color: const Color(0xff455a64),
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -179,7 +187,7 @@ class Home extends StatelessWidget {
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
-                  color: Colors.indigo[500],
+                  color: const Color(0xff455a64),
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,

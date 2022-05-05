@@ -140,6 +140,7 @@ class XDGooglePixel65 extends StatelessWidget {
             child: Text(
               'تمامی اطلاعات مورد نیاز شما تنها با یک کلیک',
               style: TextStyle(
+                fontWeight: FontWeight.bold,
                 fontFamily: 'Modern No. 20',
                 fontSize: 21,
                 color: const Color(0xffffffff),
@@ -152,10 +153,10 @@ class XDGooglePixel65 extends StatelessWidget {
             Pin(size: 45.0, start: 50.0),
             child: TextButton(
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Home()),
-                );
+                Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(builder: (context) => Home()),
+                    (route) => false);
               },
               child: Text(
                 'رد کردن',

@@ -20,10 +20,10 @@ class XDGooglePixel64 extends StatelessWidget {
             Pin(size: 45.0, start: 50.0),
             child: TextButton(
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Home()),
-                );
+                Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(builder: (context) => Home()),
+                    (route) => false);
               },
               child: Text(
                 'رد کردن',
@@ -130,10 +130,12 @@ class XDGooglePixel64 extends StatelessWidget {
               child: Text(
                 'NFTپکیج مقدماتی آشنایی با ',
                 style: TextStyle(
+                  fontWeight: FontWeight.bold,
                   fontSize: 20,
                   color: const Color(0xffffffff),
                 ),
                 softWrap: false,
+                overflow: TextOverflow.visible,
               ),
             ),
           ),
