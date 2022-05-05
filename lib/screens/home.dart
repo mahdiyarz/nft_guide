@@ -8,7 +8,16 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.indigo[600],
+      appBar: AppBar(
+        title: Text(
+          'NFTراهنمای ',
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        ),
+        centerTitle: true,
+        toolbarHeight: 40,
+        backgroundColor: Color.fromARGB(255, 28, 27, 29),
+      ),
+      backgroundColor: Color.fromARGB(255, 255, 255, 255),
       body: ListView.builder(
         itemCount: 12,
         itemBuilder: (context, index) {
@@ -24,25 +33,21 @@ class Home extends StatelessWidget {
             ),
             child: Card(
               margin: const EdgeInsets.symmetric(
-                horizontal: 10,
-                vertical: 5,
+                vertical: 2,
               ),
-              elevation: 7,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15),
-              ),
+              elevation: 2,
               child: Container(
                   decoration: BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage(nftsData[index].image),
                       fit: BoxFit.cover,
-                      opacity: 180,
+                      opacity: 140,
                     ),
-                    color: Theme.of(context).colorScheme.primary,
-                    borderRadius: BorderRadius.circular(15),
+                    color: Color.fromARGB(255, 34, 33, 33),
+                    // borderRadius: BorderRadius.circular(15),
                   ),
                   width: MediaQuery.of(context).size.width,
-                  height: 120,
+                  height: 175,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -50,8 +55,9 @@ class Home extends StatelessWidget {
                         nftsData[index].chapter,
                         textAlign: TextAlign.center,
                         style: const TextStyle(
+                          color: Colors.white,
                           fontWeight: FontWeight.bold,
-                          fontSize: 20,
+                          fontSize: 30,
                         ),
                       ),
                       FittedBox(
@@ -62,6 +68,7 @@ class Home extends StatelessWidget {
                             nftsData[index].title,
                             textDirection: TextDirection.rtl,
                             style: const TextStyle(
+                              color: Colors.white,
                               fontWeight: FontWeight.w400,
                               fontSize: 25,
                             ),
