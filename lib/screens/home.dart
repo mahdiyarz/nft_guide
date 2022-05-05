@@ -8,7 +8,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.indigo[600],
+      // backgroundColor: Colors.indigo[600],
       body: ListView.builder(
         itemCount: 12,
         itemBuilder: (context, index) {
@@ -27,28 +27,18 @@ class Home extends StatelessWidget {
                 horizontal: 10,
                 vertical: 5,
               ),
-              // color: Colors.amberAccent,
               elevation: 7,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(15),
               ),
-
               child: Container(
                   decoration: BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage(nftsData[index].image),
                       fit: BoxFit.cover,
-                      opacity: 200,
+                      opacity: 180,
                     ),
-                    color: Colors.indigo[300],
-                    // gradient: const LinearGradient(
-                    //   begin: Alignment.topLeft,
-                    //   end: Alignment.bottomRight,
-                    //   colors: [
-                    //     Colors.green,
-                    //     Colors.lightGreen,
-                    //   ],
-                    // ),
+                    color: Theme.of(context).colorScheme.primary,
                     borderRadius: BorderRadius.circular(15),
                   ),
                   width: MediaQuery.of(context).size.width,
@@ -58,6 +48,7 @@ class Home extends StatelessWidget {
                     children: [
                       Text(
                         nftsData[index].chapter,
+                        textAlign: TextAlign.center,
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 20,
@@ -92,7 +83,7 @@ class Home extends StatelessWidget {
           ),
           child: const Icon(Icons.alternate_email_rounded),
           elevation: 8,
-          backgroundColor: Colors.indigo[300],
+          backgroundColor: Theme.of(context).colorScheme.secondary,
           mini: true,
         ),
       ),
@@ -103,7 +94,7 @@ class Home extends StatelessWidget {
 
   Container _buildBottomSheet(BuildContext context) {
     return Container(
-      color: Colors.indigo[300],
+      color: Theme.of(context).colorScheme.secondary,
       height: 150,
       padding: const EdgeInsets.all(8),
       child: Column(
@@ -112,7 +103,7 @@ class Home extends StatelessWidget {
           Container(
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
-              color: Colors.indigo[500],
+              color: Theme.of(context).colorScheme.primary,
               borderRadius: BorderRadius.circular(15),
             ),
             child: const Text(
@@ -138,7 +129,7 @@ class Home extends StatelessWidget {
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
-                  color: Colors.indigo[500],
+                  color: Theme.of(context).colorScheme.primary,
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -180,7 +171,7 @@ class Home extends StatelessWidget {
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
-                  color: Colors.indigo[500],
+                  color: Theme.of(context).colorScheme.primary,
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
