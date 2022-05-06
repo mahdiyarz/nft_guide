@@ -6,7 +6,11 @@ void main() => runApp(
       Directionality(
         textDirection: TextDirection.rtl,
         child: MaterialApp(
+
+         
+
           home: XDGooglePixel64(),
+
         ),
       ),
     );
