@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 import 'package:nft_guide/screens/home.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'xd_google_pixel65.dart';
 import 'xd_google_pixel66.dart';
@@ -9,6 +10,11 @@ class XDGooglePixel64 extends StatelessWidget {
   XDGooglePixel64({
     Key? key,
   }) : super(key: key);
+  addBoolToSF() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setBool('firsttime', false);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,6 +26,7 @@ class XDGooglePixel64 extends StatelessWidget {
             Pin(size: 45.0, start: 50.0),
             child: TextButton(
               onPressed: () {
+                addBoolToSF();
                 Navigator.pushAndRemoveUntil(
                     context,
                     MaterialPageRoute(builder: (context) => Home()),
