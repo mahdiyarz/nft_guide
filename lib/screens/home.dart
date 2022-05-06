@@ -8,7 +8,18 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.indigo[600],
+      appBar: AppBar(
+
+        title: Text(
+          'NFTراهنمای ',
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        ),
+        centerTitle: true,
+        toolbarHeight: 40,
+        backgroundColor: Color.fromARGB(255, 28, 27, 29),
+      ),
+      backgroundColor: Color.fromARGB(255, 255, 255, 255),
+
       body: ListView.builder(
         itemCount: 12,
         itemBuilder: (context, index) {
@@ -24,43 +35,35 @@ class Home extends StatelessWidget {
             ),
             child: Card(
               margin: const EdgeInsets.symmetric(
-                horizontal: 10,
-                vertical: 5,
+                vertical: 2,
               ),
-              // color: Colors.amberAccent,
-              elevation: 7,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15),
-              ),
-
+              elevation: 2,
               child: Container(
                   decoration: BoxDecoration(
                     image: DecorationImage(
+
                       image: AssetImage(nftsData[index].image),
                       fit: BoxFit.cover,
-                      opacity: 200,
+                      opacity: 140,
                     ),
-                    color: Colors.indigo[300],
-                    // gradient: const LinearGradient(
-                    //   begin: Alignment.topLeft,
-                    //   end: Alignment.bottomRight,
-                    //   colors: [
-                    //     Colors.green,
-                    //     Colors.lightGreen,
-                    //   ],
-                    // ),
-                    borderRadius: BorderRadius.circular(15),
+                    color: Color.fromARGB(255, 34, 33, 33),
+                    // borderRadius: BorderRadius.circular(15),
+
                   ),
                   width: MediaQuery.of(context).size.width,
-                  height: 120,
+                  height: 175,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
                         nftsData[index].chapter,
+                        textAlign: TextAlign.center,
                         style: const TextStyle(
+                          color: Colors.white,
                           fontWeight: FontWeight.bold,
-                          fontSize: 20,
+
+                          fontSize: 30,
+
                         ),
                       ),
                       FittedBox(
@@ -71,7 +74,10 @@ class Home extends StatelessWidget {
                             nftsData[index].title,
                             textDirection: TextDirection.rtl,
                             style: const TextStyle(
+
+                              color: Colors.white,
                               fontWeight: FontWeight.w400,
+
                               fontSize: 25,
                             ),
                           ),
@@ -92,7 +98,7 @@ class Home extends StatelessWidget {
           ),
           child: const Icon(Icons.alternate_email_rounded),
           elevation: 8,
-          backgroundColor: Colors.indigo[300],
+          backgroundColor: Theme.of(context).colorScheme.secondary,
           mini: true,
         ),
       ),
@@ -103,7 +109,9 @@ class Home extends StatelessWidget {
 
   Container _buildBottomSheet(BuildContext context) {
     return Container(
-      color: Colors.indigo[300],
+
+      color: Theme.of(context).colorScheme.secondary,
+
       height: 150,
       padding: const EdgeInsets.all(8),
       child: Column(
@@ -112,7 +120,9 @@ class Home extends StatelessWidget {
           Container(
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
-              color: Colors.indigo[500],
+
+              color: Theme.of(context).colorScheme.primary,
+
               borderRadius: BorderRadius.circular(15),
             ),
             child: const Text(
@@ -138,7 +148,9 @@ class Home extends StatelessWidget {
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
-                  color: Colors.indigo[500],
+
+                  color: Theme.of(context).colorScheme.primary,
+
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -180,7 +192,9 @@ class Home extends StatelessWidget {
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
-                  color: Colors.indigo[500],
+
+                  color: Theme.of(context).colorScheme.primary,
+
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
