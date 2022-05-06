@@ -12,7 +12,9 @@ class ChapterDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.indigo[400],
+
+      backgroundColor: const Color(0xff455a64),
+
       body: SingleChildScrollView(
         child: Column(
           children: [
