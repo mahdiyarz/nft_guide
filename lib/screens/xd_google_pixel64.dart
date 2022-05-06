@@ -29,15 +29,15 @@ class XDGooglePixel64 extends StatelessWidget {
                 addBoolToSF();
                 Navigator.pushAndRemoveUntil(
                     context,
-                    MaterialPageRoute(builder: (context) => Home()),
+                    MaterialPageRoute(builder: (context) => const Home()),
                     (route) => false);
               },
-              child: Text(
+              child: const Text(
                 'رد کردن',
                 style: TextStyle(
                   fontFamily: 'Modern No. 20',
                   fontSize: 20,
-                  color: const Color(0xffffffff),
+                  color: Color(0xffffffff),
                 ),
                 softWrap: false,
               ),
@@ -53,12 +53,12 @@ class XDGooglePixel64 extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => XDGooglePixel65()),
                 );
               },
-              child: Text(
+              child: const Text(
                 'بعدی',
                 style: TextStyle(
                   fontFamily: 'Modern No. 20',
                   fontSize: 20,
-                  color: const Color(0xffffffff),
+                  color: Color(0xffffffff),
                 ),
                 softWrap: false,
               ),
@@ -75,8 +75,8 @@ class XDGooglePixel64 extends StatelessWidget {
                   child: Container(
                     decoration: BoxDecoration(
                       color: const Color(0xffda4bf3),
-                      borderRadius:
-                          BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                      borderRadius: const BorderRadius.all(
+                          Radius.elliptical(9999.0, 9999.0)),
                       border: Border.all(
                           width: 1.0, color: const Color(0xff707070)),
                     ),
@@ -96,8 +96,8 @@ class XDGooglePixel64 extends StatelessWidget {
                     child: Container(
                       decoration: BoxDecoration(
                         color: const Color(0xffffffff),
-                        borderRadius:
-                            BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                        borderRadius: const BorderRadius.all(
+                            Radius.elliptical(9999.0, 9999.0)),
                         border: Border.all(
                             width: 1.0, color: const Color(0xff707070)),
                       ),
@@ -118,8 +118,8 @@ class XDGooglePixel64 extends StatelessWidget {
                     child: Container(
                       decoration: BoxDecoration(
                         color: const Color(0xffffffff),
-                        borderRadius:
-                            BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                        borderRadius: const BorderRadius.all(
+                            Radius.elliptical(9999.0, 9999.0)),
                         border: Border.all(
                             width: 1.0, color: const Color(0xff707070)),
                       ),
@@ -129,8 +129,8 @@ class XDGooglePixel64 extends StatelessWidget {
               ],
             ),
           ),
-          Align(
-            alignment: Alignment(0.0, 0.516),
+          const Align(
+            alignment: const Alignment(0.0, 0.516),
             child: SizedBox(
               width: 215.0,
               height: 28.0,
@@ -139,7 +139,7 @@ class XDGooglePixel64 extends StatelessWidget {
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 20,
-                  color: const Color(0xffffffff),
+                  color: Color(0xffffffff),
                 ),
                 softWrap: false,
                 overflow: TextOverflow.visible,
@@ -153,8 +153,8 @@ class XDGooglePixel64 extends StatelessWidget {
                 // Adobe XD layer: 'untitled' (shape)
                 Container(
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage('assets/images/wp_goal.png'),
+                image: const DecorationImage(
+                  image: AssetImage('assets/images/wp_goal.png'),
                   fit: BoxFit.fill,
                 ),
               ),

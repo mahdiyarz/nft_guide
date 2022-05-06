@@ -1,23 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:nft_guide/screens/xd_google_pixel64.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../screens/xd_google_pixel64.dart';
 import '../screens/home.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
   Future checkFirstSeen() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    bool firsttime = (prefs.getBool('firsttime') ?? true);
+    bool firstTime = (prefs.getBool('firstTime') ?? true);
     String welcome = 'welcome';
     String home = 'home';
 
-    if (firsttime) {
+    if (firstTime) {
       return welcome;
     } else {
       return home;
@@ -30,14 +31,14 @@ class MyApp extends StatelessWidget {
         future: checkFirstSeen(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(),
             );
           } else {
             return MaterialApp(
               initialRoute: snapshot.data.toString(),
               routes: {
-                'home': (context) => Home(),
+                'home': (context) => const Home(),
                 'welcome': (context) => XDGooglePixel64(),
               },
             );

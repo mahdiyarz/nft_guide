@@ -32,15 +32,15 @@ class XDGooglePixel66 extends StatelessWidget {
 
                 Navigator.pushAndRemoveUntil(
                     context,
-                    MaterialPageRoute(builder: (context) => Home()),
+                    MaterialPageRoute(builder: (context) => const Home()),
                     (route) => false);
               },
               child: Text(
                 'بزن بریم',
-                style: TextStyle(
+                style: const TextStyle(
                   fontFamily: 'Modern No. 20',
                   fontSize: 20,
-                  color: const Color(0xffffffff),
+                  color: Color(0xffffffff),
                 ),
                 softWrap: false,
               ),
@@ -65,8 +65,8 @@ class XDGooglePixel66 extends StatelessWidget {
                     child: Container(
                       decoration: BoxDecoration(
                         color: const Color(0xffffffff),
-                        borderRadius:
-                            BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                        borderRadius: const BorderRadius.all(
+                            Radius.elliptical(9999.0, 9999.0)),
                         border: Border.all(
                             width: 1.0, color: const Color(0xff707070)),
                       ),
@@ -87,8 +87,8 @@ class XDGooglePixel66 extends StatelessWidget {
                     child: Container(
                       decoration: BoxDecoration(
                         color: const Color(0xffffffff),
-                        borderRadius:
-                            BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                        borderRadius: const BorderRadius.all(
+                            const Radius.elliptical(9999.0, 9999.0)),
                         border: Border.all(
                             width: 1.0, color: const Color(0xff707070)),
                       ),
@@ -101,8 +101,8 @@ class XDGooglePixel66 extends StatelessWidget {
                   child: Container(
                     decoration: BoxDecoration(
                       color: const Color(0xffda4bf3),
-                      borderRadius:
-                          BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                      borderRadius: const BorderRadius.all(
+                          Radius.elliptical(9999.0, 9999.0)),
                       border: Border.all(
                           width: 1.0, color: const Color(0xff707070)),
                     ),
@@ -131,7 +131,7 @@ class XDGooglePixel66 extends StatelessWidget {
                       ),
                     ),
                     Align(
-                      alignment: Alignment(0.319, -0.628),
+                      alignment: const Alignment(0.319, -0.628),
                       child: SizedBox(
                         width: 9.0,
                         height: 9.0,
@@ -178,7 +178,7 @@ class XDGooglePixel66 extends StatelessWidget {
                       ),
                     ),
                     Align(
-                      alignment: Alignment(-0.054, -1.0),
+                      alignment: const Alignment(-0.054, -1.0),
                       child: SizedBox(
                         width: 9.0,
                         height: 9.0,
@@ -189,7 +189,7 @@ class XDGooglePixel66 extends StatelessWidget {
                       ),
                     ),
                     Align(
-                      alignment: Alignment(-0.079, 0.13),
+                      alignment: const Alignment(-0.079, 0.13),
                       child: SizedBox(
                         width: 9.0,
                         height: 9.0,
@@ -203,15 +203,15 @@ class XDGooglePixel66 extends StatelessWidget {
                       Pin(size: 4.3, start: 37.8),
                       Pin(size: 4.3, middle: 0.5956),
                       child: Container(
-                        decoration: BoxDecoration(
-                          color: const Color(0xffffffff),
+                        decoration: const BoxDecoration(
+                          color: Color(0xffffffff),
                           borderRadius: BorderRadius.all(
                               Radius.elliptical(9999.0, 9999.0)),
                         ),
                       ),
                     ),
                     Align(
-                      alignment: Alignment(-0.296, 0.25),
+                      alignment: const Alignment(-0.296, 0.25),
                       child: SizedBox(
                         width: 4.0,
                         height: 4.0,
@@ -222,7 +222,7 @@ class XDGooglePixel66 extends StatelessWidget {
                       ),
                     ),
                     Align(
-                      alignment: Alignment(-0.206, -0.325),
+                      alignment: const Alignment(-0.206, -0.325),
                       child: SizedBox(
                         width: 9.0,
                         height: 9.0,
@@ -233,7 +233,7 @@ class XDGooglePixel66 extends StatelessWidget {
                       ),
                     ),
                     Align(
-                      alignment: Alignment(-0.422, -0.198),
+                      alignment: const Alignment(-0.422, -0.198),
                       child: SizedBox(
                         width: 4.0,
                         height: 4.0,
@@ -244,7 +244,7 @@ class XDGooglePixel66 extends StatelessWidget {
                       ),
                     ),
                     Align(
-                      alignment: Alignment(0.166, 0.53),
+                      alignment: const Alignment(0.166, 0.53),
                       child: SizedBox(
                         width: 4.0,
                         height: 4.0,
@@ -255,7 +255,7 @@ class XDGooglePixel66 extends StatelessWidget {
                       ),
                     ),
                     Align(
-                      alignment: Alignment(0.304, 0.08),
+                      alignment: const Alignment(0.304, 0.08),
                       child: SizedBox(
                         width: 4.0,
                         height: 4.0,
@@ -266,7 +266,7 @@ class XDGooglePixel66 extends StatelessWidget {
                       ),
                     ),
                     Align(
-                      alignment: Alignment(-0.159, -0.526),
+                      alignment: const Alignment(-0.159, -0.526),
                       child: SizedBox(
                         width: 4.0,
                         height: 4.0,
@@ -277,7 +277,7 @@ class XDGooglePixel66 extends StatelessWidget {
                       ),
                     ),
                     Align(
-                      alignment: Alignment(0.105, -0.229),
+                      alignment: const Alignment(0.105, -0.229),
                       child: SizedBox(
                         width: 4.0,
                         height: 4.0,
@@ -315,7 +315,7 @@ class XDGooglePixel66 extends StatelessWidget {
                       ),
                     ),
                     Align(
-                      alignment: Alignment(0.486, 1.0),
+                      alignment: const Alignment(0.486, 1.0),
                       child: SizedBox(
                         width: 4.0,
                         height: 4.0,
@@ -335,26 +335,26 @@ class XDGooglePixel66 extends StatelessWidget {
                       ),
                     ),
                     Align(
-                      alignment: Alignment(0.433, -0.59),
+                      alignment: const Alignment(0.433, -0.59),
                       child: Container(
                         width: 4.0,
                         height: 4.0,
-                        decoration: BoxDecoration(
-                          color: const Color(0xffffffff),
+                        decoration: const BoxDecoration(
+                          color: Color(0xffffffff),
                           borderRadius: BorderRadius.all(
                               Radius.elliptical(9999.0, 9999.0)),
                         ),
                       ),
                     ),
                     Align(
-                      alignment: Alignment(0.176, 0.314),
+                      alignment: const Alignment(0.176, 0.314),
                       child: Transform.rotate(
                         angle: -1.5149,
                         child: Container(
                           width: 14.0,
                           height: 14.0,
-                          decoration: BoxDecoration(
-                            color: const Color(0xffffffff),
+                          decoration: const BoxDecoration(
+                            color: Color(0xffffffff),
                             borderRadius: BorderRadius.all(
                                 Radius.elliptical(9999.0, 9999.0)),
                           ),
@@ -367,8 +367,8 @@ class XDGooglePixel66 extends StatelessWidget {
                       child: Transform.rotate(
                         angle: -0.025,
                         child: Container(
-                          decoration: BoxDecoration(
-                            color: const Color(0xffffffff),
+                          decoration: const BoxDecoration(
+                            color: Color(0xffffffff),
                             borderRadius: BorderRadius.all(
                                 Radius.elliptical(9999.0, 9999.0)),
                           ),
@@ -394,7 +394,7 @@ class XDGooglePixel66 extends StatelessWidget {
                       ),
                     ),
                     Align(
-                      alignment: Alignment(0.102, 0.271),
+                      alignment: const Alignment(0.102, 0.271),
                       child: SizedBox(
                         width: 9.0,
                         height: 9.0,
@@ -405,7 +405,7 @@ class XDGooglePixel66 extends StatelessWidget {
                       ),
                     ),
                     Align(
-                      alignment: Alignment(1.0, 0.181),
+                      alignment: const Alignment(1.0, 0.181),
                       child: SizedBox(
                         width: 9.0,
                         height: 9.0,
@@ -421,8 +421,8 @@ class XDGooglePixel66 extends StatelessWidget {
                       child: Transform.rotate(
                         angle: -0.025,
                         child: Container(
-                          decoration: BoxDecoration(
-                            color: const Color(0xffffffff),
+                          decoration: const BoxDecoration(
+                            color: Color(0xffffffff),
                             borderRadius: BorderRadius.all(
                                 Radius.elliptical(9999.0, 9999.0)),
                           ),
@@ -449,9 +449,9 @@ class XDGooglePixel66 extends StatelessWidget {
             child:
                 // Adobe XD layer: 'Screenshot 2022-05-…' (shape)
                 Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 image: DecorationImage(
-                  image: const AssetImage('assets/images/wp_astro2.png'),
+                  image: AssetImage('assets/images/wp_astro2.png'),
                   fit: BoxFit.fill,
                 ),
               ),
@@ -462,11 +462,11 @@ class XDGooglePixel66 extends StatelessWidget {
             Pin(size: 28.0, middle: 0.7578),
             child: Text(
               'آماده سفر به دنیای بلاکچین هستی؟ ',
-              style: TextStyle(
+              style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontFamily: 'Modern No. 20',
                   fontSize: 21,
-                  color: const Color(0xffffffff),
+                  color: Color(0xffffffff),
                   overflow: TextOverflow.visible),
               softWrap: false,
             ),

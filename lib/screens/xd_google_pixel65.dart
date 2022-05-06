@@ -41,12 +41,12 @@ class XDGooglePixel65 extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => XDGooglePixel66()),
                 );
               },
-              child: Text(
+              child: const Text(
                 'بعدی',
                 style: TextStyle(
                   fontFamily: 'Modern No. 20',
                   fontSize: 20,
-                  color: const Color(0xffffffff),
+                  color: Color(0xffffffff),
                 ),
                 softWrap: false,
               ),
@@ -71,8 +71,8 @@ class XDGooglePixel65 extends StatelessWidget {
                     child: Container(
                       decoration: BoxDecoration(
                         color: const Color(0xffffffff),
-                        borderRadius:
-                            BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                        borderRadius: const BorderRadius.all(
+                            Radius.elliptical(9999.0, 9999.0)),
                         border: Border.all(
                             width: 1.0, color: const Color(0xff707070)),
                       ),
@@ -85,8 +85,8 @@ class XDGooglePixel65 extends StatelessWidget {
                   child: Container(
                     decoration: BoxDecoration(
                       color: const Color(0xffda4bf3),
-                      borderRadius:
-                          BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                      borderRadius: const BorderRadius.all(
+                          const Radius.elliptical(9999.0, 9999.0)),
                       border: Border.all(
                           width: 1.0, color: const Color(0xff707070)),
                     ),
@@ -106,8 +106,8 @@ class XDGooglePixel65 extends StatelessWidget {
                     child: Container(
                       decoration: BoxDecoration(
                         color: const Color(0xffffffff),
-                        borderRadius:
-                            BorderRadius.all(Radius.elliptical(9999.0, 9999.0)),
+                        borderRadius: const BorderRadius.all(
+                            Radius.elliptical(9999.0, 9999.0)),
                         border: Border.all(
                             width: 1.0, color: const Color(0xff707070)),
                       ),
@@ -123,9 +123,9 @@ class XDGooglePixel65 extends StatelessWidget {
             child:
                 // Adobe XD layer: 'untitled (1)' (shape)
                 Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 image: DecorationImage(
-                  image: const AssetImage('assets/images/wp_board.png'),
+                  image: AssetImage('assets/images/wp_board.png'),
                   fit: BoxFit.fill,
                 ),
               ),
@@ -143,13 +143,13 @@ class XDGooglePixel65 extends StatelessWidget {
           Pinned.fromPins(
             Pin(start: 73.0, end: 72.0),
             Pin(size: 67.0, middle: 0.7901),
-            child: Text(
+            child: const Text(
               'تمامی اطلاعات مورد نیاز شما تنها با یک کلیک',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontFamily: 'Modern No. 20',
                 fontSize: 21,
-                color: const Color(0xffffffff),
+                color: Color(0xffffffff),
               ),
               textAlign: TextAlign.center,
             ),
@@ -162,10 +162,10 @@ class XDGooglePixel65 extends StatelessWidget {
                 addBoolToSF();
                 Navigator.pushAndRemoveUntil(
                     context,
-                    MaterialPageRoute(builder: (context) => Home()),
+                    MaterialPageRoute(builder: (context) => const Home()),
                     (route) => false);
               },
-              child: Text(
+              child: const Text(
                 'رد کردن',
                 style: TextStyle(
                   fontFamily: 'Modern No. 20',
