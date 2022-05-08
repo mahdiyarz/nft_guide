@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import '../screens/chapterDetail.dart';
-import '../models/nftModel.dart';
+import '../widgets/nftListView.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -24,75 +23,47 @@ class Home extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: 200,
-            ),
-            ListView.builder(
+            ListView(
               physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
-              itemCount: 12,
-              itemBuilder: (context, index) {
-                return InkWell(
-                  onTap: () => Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (_) => ChapterDetail(
-                        title: nftsData[index].title,
-                        descriptions: nftsData[index].descriptions,
-                        image: nftsData[index].image,
-                      ),
-                    ),
-                  ),
-                  child: Card(
-                    margin: const EdgeInsets.symmetric(
-                      vertical: 2,
-                    ),
-                    elevation: 2,
-                    child: Container(
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage(nftsData[index].image),
-                            fit: BoxFit.cover,
-                            opacity: 140,
-                          ),
-                          color: const Color.fromARGB(255, 34, 33, 33),
-                          // borderRadius: BorderRadius.circular(15),
-                        ),
-                        width: MediaQuery.of(context).size.width,
-                        height: 175,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              nftsData[index].chapter,
-                              textAlign: TextAlign.center,
-                              style: const TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 30,
-                              ),
-                            ),
-                            FittedBox(
-                              fit: BoxFit.fill,
-                              child: Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 15),
-                                child: Text(
-                                  nftsData[index].title,
-                                  textDirection: TextDirection.rtl,
-                                  style: const TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 25,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        )),
-                  ),
-                );
-              },
+              children: [
+                NftListView(index: 0),
+                NftListView(index: 1),
+                NftListView(index: 2),
+              ],
+            ),
+            // First Ads Box
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: 175,
+              color: Colors.black45,
+              child: Center(
+                child: Text('محل قرارگیری تبلیغات'),
+              ),
+            ),
+            ListView(
+              physics: const NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              children: [
+                NftListView(index: 3),
+                NftListView(index: 4),
+                NftListView(index: 5),
+                NftListView(index: 6),
+                NftListView(index: 7),
+                NftListView(index: 8),
+                NftListView(index: 9),
+                NftListView(index: 10),
+                NftListView(index: 11),
+              ],
+            ),
+            // Seconde Ads Box
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: 175,
+              color: Colors.black45,
+              child: Center(
+                child: Text('محل قرارگیری تبلیغات'),
+              ),
             ),
           ],
         ),
