@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nft_guide/widgets/adBanner.dart';
 import '../widgets/nftListView.dart';
 
 class Home extends StatelessWidget {
@@ -20,53 +21,24 @@ class Home extends StatelessWidget {
         backgroundColor: const Color(0xff707070),
       ),
       backgroundColor: const Color.fromARGB(255, 255, 255, 255),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            ListView(
-              physics: const NeverScrollableScrollPhysics(),
-              shrinkWrap: true,
-              children: [
-                NftListView(index: 0),
-                NftListView(index: 1),
-                NftListView(index: 2),
-              ],
-            ),
-            // First Ads Box
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: 175,
-              color: Colors.black45,
-              child: Center(
-                child: Text('محل قرارگیری تبلیغات'),
-              ),
-            ),
-            ListView(
-              physics: const NeverScrollableScrollPhysics(),
-              shrinkWrap: true,
-              children: [
-                NftListView(index: 3),
-                NftListView(index: 4),
-                NftListView(index: 5),
-                NftListView(index: 6),
-                NftListView(index: 7),
-                NftListView(index: 8),
-                NftListView(index: 9),
-                NftListView(index: 10),
-                NftListView(index: 11),
-              ],
-            ),
-            // Seconde Ads Box
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: 175,
-              color: Colors.black45,
-              child: Center(
-                child: Text('محل قرارگیری تبلیغات'),
-              ),
-            ),
-          ],
-        ),
+      body: ListView(
+        shrinkWrap: true,
+        children: [
+          NftListView(index: 0),
+          NftListView(index: 1),
+          NftListView(index: 2),
+          NftListView(index: 3),
+          AdBanner(),
+          NftListView(index: 4),
+          NftListView(index: 5),
+          NftListView(index: 6),
+          NftListView(index: 7),
+          NftListView(index: 8),
+          NftListView(index: 9),
+          NftListView(index: 10),
+          NftListView(index: 11),
+          AdBanner()
+        ],
       ),
       floatingActionButton: Padding(
         padding: const EdgeInsets.symmetric(vertical: 8),
