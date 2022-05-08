@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
   Future checkFirstSeen() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    bool firstTime = (prefs.getBool('firstTime') ?? true);
+    bool firstTime = (prefs.getBool('firsttime') ?? true);
     String welcome = 'welcome';
     String home = 'home';
 
