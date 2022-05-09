@@ -29,7 +29,7 @@ class XDGooglePixel64 extends StatelessWidget {
                 addBoolToSF();
                 Navigator.pushAndRemoveUntil(
                     context,
-                    MaterialPageRoute(builder: (context) => const Home()),
+                    MaterialPageRoute(builder: (context) => Home()),
                     (route) => false);
               },
               child: const Text(

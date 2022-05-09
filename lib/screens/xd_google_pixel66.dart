@@ -32,7 +32,7 @@ class XDGooglePixel66 extends StatelessWidget {
 
                 Navigator.pushAndRemoveUntil(
                     context,
-                    MaterialPageRoute(builder: (context) => const Home()),
+                    MaterialPageRoute(builder: (context) => Home()),
                     (route) => false);
               },
               child: Text(
