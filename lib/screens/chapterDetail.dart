@@ -12,9 +12,7 @@ class ChapterDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-      backgroundColor: const Color(0xff455a64),
-
+      backgroundColor: Color(0xff707070),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -38,11 +36,11 @@ class ChapterDetail extends StatelessWidget {
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 22,
-                  // color: Colors.white,
+                  color: Colors.white,
                   shadows: [
                     Shadow(
                       blurRadius: 25.0,
-                      color: Colors.black54,
+                      color: Colors.white70,
                       offset: Offset(0.5, 0.5),
                     ),
                   ],
@@ -64,7 +62,7 @@ class ChapterDetail extends StatelessWidget {
                 textDirection: TextDirection.rtl,
                 textAlign: TextAlign.justify,
                 style: const TextStyle(
-                  // color: Colors.white,
+                  color: Colors.white70,
                   fontWeight: FontWeight.bold,
                   fontSize: 18,
                 ),
@@ -77,9 +75,12 @@ class ChapterDetail extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 8),
         child: FloatingActionButton(
           onPressed: () => Navigator.of(context).pop(),
-          child: const Icon(Icons.home),
+          child: const Icon(
+            Icons.home,
+            color: Colors.white70,
+          ),
           elevation: 8,
-          backgroundColor: Theme.of(context).colorScheme.primary,
+          backgroundColor: const Color.fromARGB(180, 218, 75, 243),
           mini: true,
         ),
       ),
