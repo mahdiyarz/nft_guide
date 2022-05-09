@@ -35,10 +35,10 @@ class BuildBottomsheet extends StatelessWidget {
           GridView(
             shrinkWrap: true,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
+              crossAxisCount: 1,
               crossAxisSpacing: 5,
               mainAxisSpacing: 5,
-              mainAxisExtent: 80,
+              mainAxisExtent: 50,
             ),
             children: [
               Container(
@@ -47,7 +47,7 @@ class BuildBottomsheet extends StatelessWidget {
                   borderRadius: BorderRadius.circular(15),
                   color: const Color.fromARGB(180, 218, 75, 243),
                 ),
-                child: Column(
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: const [
                     Flexible(
@@ -55,11 +55,11 @@ class BuildBottomsheet extends StatelessWidget {
                       child: FittedBox(
                         fit: BoxFit.cover,
                         child: Text(
-                          'مهدیار ارباب زی',
+                          'فول فیک کامپنی',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 15,
+                            fontSize: 18,
                             color: Colors.white70,
                           ),
                         ),
@@ -70,53 +70,11 @@ class BuildBottomsheet extends StatelessWidget {
                       child: FittedBox(
                         fit: BoxFit.cover,
                         child: Text(
-                          'm.arbabzi@gmail.com',
+                          'fullFake@gmail.com',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 15,
-                            color: Colors.white70,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                padding: const EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  color: const Color.fromARGB(180, 218, 75, 243),
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: const [
-                    Flexible(
-                      fit: FlexFit.loose,
-                      child: FittedBox(
-                        fit: BoxFit.cover,
-                        child: Text(
-                          'سینا زره پوش',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 15,
-                            color: Colors.white70,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Flexible(
-                      fit: FlexFit.loose,
-                      child: FittedBox(
-                        fit: BoxFit.cover,
-                        child: Text(
-                          'sina.zrp@gmail.com',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 15,
+                            fontSize: 18,
                             color: Colors.white70,
                           ),
                         ),
@@ -126,6 +84,25 @@ class BuildBottomsheet extends StatelessWidget {
                 ),
               ),
             ],
+          ),
+          Flexible(
+            fit: FlexFit.loose,
+            child: FittedBox(
+              fit: BoxFit.cover,
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width,
+                child: const Text(
+                  'در صورت تمایل، برای حمایت از ما بر روی لینک تبلیغات کلیک کنید.',
+                  textAlign: TextAlign.center,
+                  textDirection: TextDirection.rtl,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                    color: Colors.white60,
+                  ),
+                ),
+              ),
+            ),
           ),
         ],
       ),
