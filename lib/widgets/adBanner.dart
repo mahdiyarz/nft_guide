@@ -1,17 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:tapsell_plus/tapsell_plus.dart';
 
 class AdBanner extends StatelessWidget {
-  const AdBanner({Key? key}) : super(key: key);
+  NativeAdData data;
+  AdBanner({
+    Key? key,
+    required this.data,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
       height: 175,
-      color: Colors.black45,
-      child: Center(
-        child: Text('محل قرارگیری تبلیغات'),
-      ),
+      decoration: BoxDecoration(
+          color: Colors.black,
+          image: DecorationImage(
+            image: NetworkImage(
+              data.landscapeImageUrl.toString(),
+            ),
+            fit: BoxFit.fill,
+            opacity: 300,
+          )),
     );
   }
 }

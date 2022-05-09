@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:tapsell_plus/tapsell_plus.dart';
 
 import '../screens/xd_google_pixel64.dart';
 import '../screens/home.dart';
@@ -8,10 +9,20 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   runApp(const MyApp());
+  const appId =
+      'nomtsmkpbgotkghmestkadrtsagaemenhchohbibpgbbdjiqicpicajmaltnamobjjrjli';
+
+  TapsellPlus.instance.initialize(appId);
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   Future checkFirstSeen() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     bool firstTime = (prefs.getBool('firsttime') ?? true);
@@ -38,7 +49,7 @@ class MyApp extends StatelessWidget {
             return MaterialApp(
               initialRoute: snapshot.data.toString(),
               routes: {
-                'home': (context) => const Home(),
+                'home': (context) => Home(),
                 'welcome': (context) => XDGooglePixel64(),
               },
             );
