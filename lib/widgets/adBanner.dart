@@ -10,18 +10,25 @@ class AdBanner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      height: 175,
-      decoration: BoxDecoration(
-          color: Colors.black,
-          image: DecorationImage(
-            image: NetworkImage(
-              data.landscapeImageUrl.toString(),
-            ),
-            fit: BoxFit.fill,
-            opacity: 300,
-          )),
+    return InkWell(
+      onTap: () {
+        TapsellPlus.instance.nativeBannerAdClicked(data.responseId.toString());
+
+        print(data.responseId);
+      },
+      child: Container(
+        width: MediaQuery.of(context).size.width,
+        height: 175,
+        decoration: BoxDecoration(
+            color: Colors.black,
+            image: DecorationImage(
+              image: NetworkImage(
+                data.landscapeImageUrl.toString(),
+              ),
+              fit: BoxFit.fill,
+              opacity: 300,
+            )),
+      ),
     );
   }
 }
