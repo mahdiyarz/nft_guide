@@ -95,12 +95,12 @@ class _HomeState extends State<Home> {
           NftListView(index: 0),
           NftListView(index: 1),
           NftListView(index: 2),
-          NftListView(index: 3),
           (bannerDataMid != null)
               ? AdBanner(data: bannerDataMid!)
               : const SizedBox(
                   height: 0.1,
                 ),
+          NftListView(index: 3),
           NftListView(index: 4),
           NftListView(index: 5),
           NftListView(index: 6),

@@ -92,7 +92,7 @@ class BuildBottomsheet extends StatelessWidget {
               child: SizedBox(
                 width: MediaQuery.of(context).size.width,
                 child: const Text(
-                  'در صورت تمایل، برای حمایت از ما بر روی لینک تبلیغات کلیک کنید.',
+                  'در صورت تمایل، برای حمایت از ما بر روی تبلیغات کلیک کنید.',
                   textAlign: TextAlign.center,
                   textDirection: TextDirection.rtl,
                   style: TextStyle(
