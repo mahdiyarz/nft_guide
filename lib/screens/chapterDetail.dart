@@ -64,7 +64,7 @@ class ChapterDetail extends StatelessWidget {
                       .map((e) => Text(
                             e,
                             textDirection: TextDirection.rtl,
-                            textAlign: TextAlign.justify,
+                            textAlign: TextAlign.right,
                             style: const TextStyle(
                               color: Colors.white70,
                               fontWeight: FontWeight.bold,
