@@ -1,5 +1,6 @@
 class Nfts {
-  String title, chapter, descriptions, image;
+  String title, chapter, image;
+  List<String> descriptions;
 
   Nfts({
     required this.chapter,
@@ -13,74 +14,79 @@ List<Nfts> nftsData = [
   Nfts(
     chapter: 'فصل اول',
     title: 'NFT چیست؟',
-    descriptions:
-        'NFT  به معنی توکن های غیر قابل معاوضه می باشد این توکن ها روی فناوری بلاکچین رمزگذاری و ذخیره شده اند . آیتمی که قابل معاوضه باشد را می توان با یک  چیز دیگر مبادله و جایگزین کرد به طور مثال یک بیت کوین را میتوان با یک بیت کوین دیگر مبادله کرد یعنی اینکه یک بیت کوین که در کیف پول شما است با یک بیت کوین که در کیف پول دوست شما است تفاوتی ندارد و شما میتوانید آنها را معاوضه کنید ولی آیتم های غیر قابل تعویض کاملا یکتا و منحصر به فرد هستند و فقط یکی از آنها وجود دارد پس اگر آن را با چیز دیگری معاوضه کنید کاملا آیتمی متفاوت با ارزش متفاوت بدست می آورید، نکته جذاب دیگر راجبع به NFT ها این است که حتی وقتی توسط کسی خریده می شود همچنان در دسترس هستند و افراد دیگر می توانند کاملا آزادانه آنها را مشاهده کنند.',
+    descriptions: [],
     image: 'images/chapter1.png',
   ),
   Nfts(
     chapter: 'فصل دوم',
     title: 'توابع NFT چگونه هستند؟',
-    descriptions: 'EXP',
+    descriptions: [
+      'گواه اثبات کار (PoW) شکلی از افزودن بلاک های جدید به زنجیره بلاک چین است که به عنوان یک روش اعتبار سنجی معتبر شناخته می شود ، این مکانسیم نشان می دهد که چه مقدار تلاش ،انرژی و زمان برای رسیدن به یک هدف صرف شده است.',
+      'در معاملات  NFT، مانند  بیت کوین قبل از اینکه معامله تایید و ثبت دفترکل بشود هر استخراج جدید باید سهم خود را در یک معادله رمزنگاری شده، نشان داده شود.',
+      'پس از انجام معاملات ، NFTها در کیف پول دیجیتال مانند الباقی رمز ارزهای دیجیتالی محافظت و نگه داری می شوند.که در مقایسه با اقلام فیزیکی  از نظر سارقان پنهانند.',
+      'مقدار فراوانی NFT در بلاکچین در بستر اترییوم وجود دارد که باعث شده مردم بتوانند دارایی های خود را به صورت الکترونیکی و هوش مندانه در بستر های مختلف معامله کنند.',
+      'CryptoKitties یکی از مثال های متداول NFTهای اترییوم هستند. در این نرم افزار، هر شخص می تواند خرید و فروش گربه های دیجیتالی انجام بدهد. حتی یک گربه دیجیتالی با قیمت 17.000 دلار فروخته شده.',
+    ],
     image: 'images/chapter2.png',
   ),
   Nfts(
     chapter: 'فصل سوم',
     title: 'NFT چیست؟',
-    descriptions: 'EXP',
+    descriptions: ['EXP'],
     image: 'images/chapter3.png',
   ),
   Nfts(
     chapter: 'فصل چهارم',
     title: 'جدول زمانی فروشهای قابل توجه NFT',
-    descriptions: 'EXP',
+    descriptions: ['EXP'],
     image: 'images/chapter4.png',
   ),
   Nfts(
     chapter: 'فصل پنجم',
     title: 'اثبات کار PoW',
-    descriptions: 'EXP',
+    descriptions: ['EXP'],
     image: 'images/chapter5.png',
   ),
   Nfts(
     chapter: 'فصل ششم',
     title: 'اثبات کار PoW',
-    descriptions: 'EXP',
+    descriptions: ['EXP'],
     image: 'images/chapter6.png',
   ),
   Nfts(
     chapter: 'فصل هفتم',
     title: 'NFT چیست؟',
-    descriptions: 'EXP',
+    descriptions: ['EXP'],
     image: 'images/chapter7.png',
   ),
   Nfts(
     chapter: 'فصل هشتم',
     title: 'کنترل اطلاعات زیاد',
-    descriptions: 'EXP',
+    descriptions: ['EXP'],
     image: 'images/chapter8.png',
   ),
   Nfts(
     chapter: 'فصل نهم',
     title: 'NFT چیست؟',
-    descriptions: 'EXP',
+    descriptions: ['EXP'],
     image: 'images/chapter9.png',
   ),
   Nfts(
     chapter: 'فصل دهم',
     title: 'یکپارچگی پردازش اطلاعات و معامله ها',
-    descriptions: 'EXP',
+    descriptions: ['EXP'],
     image: 'images/chapter10.png',
   ),
   Nfts(
     chapter: 'فصل یازدهم',
     title: 'NFT چیست؟',
-    descriptions: 'EXP',
+    descriptions: ['EXP'],
     image: 'images/chapter11.png',
   ),
   Nfts(
     chapter: 'فصل دوازدهم',
     title: 'کاهش هزینه معاملات',
-    descriptions: 'EXP',
+    descriptions: ['EXP'],
     image: 'images/chapter12.png',
   ),
 ];

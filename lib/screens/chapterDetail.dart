@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ChapterDetail extends StatelessWidget {
-  String title, image, descriptions;
+  String title, image;
+  List<String> descriptions;
   ChapterDetail({
     Key? key,
     required this.title,
@@ -57,15 +58,21 @@ class ChapterDetail extends StatelessWidget {
                 horizontal: 15,
                 vertical: 10,
               ),
-              child: Text(
-                descriptions,
-                textDirection: TextDirection.rtl,
-                textAlign: TextAlign.justify,
-                style: const TextStyle(
-                  color: Colors.white70,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18,
-                ),
+              child: Column(
+                children: [
+                  ...descriptions
+                      .map((e) => Text(
+                            e,
+                            textDirection: TextDirection.rtl,
+                            textAlign: TextAlign.justify,
+                            style: const TextStyle(
+                              color: Colors.white70,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                            ),
+                          ))
+                      .toList(),
+                ],
               ),
             ),
           ],
