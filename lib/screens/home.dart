@@ -19,6 +19,12 @@ class _HomeState extends State<Home> {
 
   NativeAdData? bannerDataMid;
   NativeAdData? bannerDataDown;
+  NativeAdData? ad2;
+  void setAd2Data(NativeAdData nativeAd) {
+    setState(() {
+      ad2 = nativeAd;
+    });
+  }
 
   void setMIdData(NativeAdData data) {
     setState(() {
@@ -35,6 +41,25 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
     // TODO: implement initState
+    TapsellPlus.instance
+        .requestNativeAd('627ff1c9faefa477a635d931')
+        .then((responseId) {
+      TapsellPlus.instance.showNativeAd(responseId, onOpened: (nativeAd) {
+        setAd2Data(nativeAd);
+        print(nativeAd.title);
+        if (ad2 != null) {
+          print('true');
+        } else {
+          print('false');
+        }
+      }, onError: (errorPayload) {
+        // Error when getting ad info
+      });
+
+      print(responseId);
+    }).catchError((error) {
+      // Error requesting for an ad
+    });
 
     TapsellPlus.instance.requestNativeAd(zoneIdBannerMid).then((responseId) {
       TapsellPlus.instance.showNativeAd(responseId, onOpened: (nativeAd) {
@@ -92,23 +117,23 @@ class _HomeState extends State<Home> {
       body: ListView(
         shrinkWrap: true,
         children: [
-          NftListView(index: 0),
-          NftListView(index: 1),
-          NftListView(index: 2),
-          NftListView(index: 3),
+          NftListView(index: 0, ad2: ad2),
+          NftListView(index: 1, ad2: ad2),
+          NftListView(index: 2, ad2: ad2),
           (bannerDataMid != null)
               ? AdBanner(data: bannerDataMid!)
               : const SizedBox(
                   height: 0.1,
                 ),
-          NftListView(index: 4),
-          NftListView(index: 5),
-          NftListView(index: 6),
-          NftListView(index: 7),
-          NftListView(index: 8),
-          NftListView(index: 9),
-          NftListView(index: 10),
-          NftListView(index: 11),
+          NftListView(index: 3, ad2: ad2),
+          NftListView(index: 4, ad2: ad2),
+          NftListView(index: 5, ad2: ad2),
+          NftListView(index: 6, ad2: ad2),
+          NftListView(index: 7, ad2: ad2),
+          NftListView(index: 8, ad2: ad2),
+          NftListView(index: 9, ad2: ad2),
+          NftListView(index: 10, ad2: ad2),
+          NftListView(index: 11, ad2: ad2),
           (bannerDataDown != null)
               ? AdBanner(data: bannerDataDown!)
               : const SizedBox(

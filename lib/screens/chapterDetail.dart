@@ -1,19 +1,74 @@
 import 'package:flutter/material.dart';
+import 'package:tapsell_plus/tapsell_plus.dart';
 
-class ChapterDetail extends StatelessWidget {
+class ChapterDetail extends StatefulWidget {
   String title, image;
   List<String> descriptions;
-  ChapterDetail({
-    Key? key,
-    required this.title,
-    required this.descriptions,
-    required this.image,
-  }) : super(key: key);
+
+  NativeAdData? ad2;
+  ChapterDetail(
+      {Key? key,
+      required this.title,
+      required this.descriptions,
+      required this.image,
+      this.ad2})
+      : super(key: key);
+
+  @override
+  State<ChapterDetail> createState() => _ChapterDetailState();
+}
+
+class _ChapterDetailState extends State<ChapterDetail> {
+  @override
+  void initState() {
+    // TODO: implement initState
+
+    super.initState();
+  }
+
+  Color backgroundColor = Color(0xff707070);
+  Color textColor = Colors.white70;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff707070),
+      bottomNavigationBar: (widget.ad2 != null)
+          ? BottomAppBar(
+              child: Container(
+              color: Color.fromARGB(255, 0, 0, 0),
+              height: 50,
+              child: Row(children: [
+                ElevatedButton(
+                    onPressed: (() {
+                      TapsellPlus.instance.nativeBannerAdClicked(
+                          widget.ad2!.responseId.toString());
+                    }),
+                    child: Text(
+                      'کلیک کنید',
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                    )),
+                Text(
+                  widget.ad2!.description.toString(),
+                  overflow: TextOverflow.fade,
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15),
+                ),
+                IconButton(
+                  icon: Image.network(widget.ad2!.iconUrl.toString()),
+                  onPressed: () {
+                    TapsellPlus.instance.nativeBannerAdClicked(
+                        widget.ad2!.responseId.toString());
+                  },
+                ),
+              ], mainAxisAlignment: MainAxisAlignment.spaceEvenly),
+            ))
+          : BottomAppBar(
+              color: Colors.transparent,
+            ),
+      backgroundColor: backgroundColor,
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -23,7 +78,7 @@ class ChapterDetail extends StatelessWidget {
               padding: const EdgeInsets.only(bottom: 15),
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage(image),
+                  image: AssetImage(widget.image),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -31,13 +86,13 @@ class ChapterDetail extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                title,
+                widget.title,
                 textDirection: TextDirection.rtl,
                 textAlign: TextAlign.center,
-                style: const TextStyle(
+                style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 22,
-                  color: Colors.white,
+                  color: textColor,
                   shadows: [
                     Shadow(
                       blurRadius: 25.0,
@@ -47,6 +102,61 @@ class ChapterDetail extends StatelessWidget {
                   ],
                 ),
               ),
+            ),
+            Container(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: const Color.fromARGB(180, 218, 75, 243)),
+              width: 120,
+              height: 40,
+              child:
+                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                Padding(
+                  padding: const EdgeInsets.all(4.0),
+                  child: InkWell(
+                    onTap: () {
+                      setState(() {
+                        backgroundColor = Color.fromARGB(255, 230, 230, 230);
+                        textColor = Colors.black;
+                      });
+                    },
+                    child: CircleAvatar(
+                      backgroundColor: Color.fromARGB(255, 230, 230, 230),
+                      maxRadius: 15,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(4.0),
+                  child: InkWell(
+                    onTap: () {
+                      setState(() {
+                        backgroundColor = Colors.black;
+                        textColor = Colors.white;
+                      });
+                    },
+                    child: CircleAvatar(
+                      backgroundColor: Colors.black,
+                      maxRadius: 15,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(4.0),
+                  child: InkWell(
+                    onTap: () {
+                      setState(() {
+                        backgroundColor = Color(0xff707070);
+                        textColor = Colors.white70;
+                      });
+                    },
+                    child: CircleAvatar(
+                      backgroundColor: Color(0xff707070),
+                      maxRadius: 15,
+                    ),
+                  ),
+                ),
+              ]),
             ),
             const Divider(
               thickness: 2,
@@ -60,7 +170,7 @@ class ChapterDetail extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  ...descriptions
+                  ...widget.descriptions
                       .map((e) => Text(
                             e,
                             textDirection: TextDirection.rtl,
@@ -75,13 +185,18 @@ class ChapterDetail extends StatelessWidget {
                 ],
               ),
             ),
+            SizedBox(
+              height: 50,
+            ),
           ],
         ),
       ),
       floatingActionButton: Padding(
         padding: const EdgeInsets.symmetric(vertical: 8),
         child: FloatingActionButton(
-          onPressed: () => Navigator.of(context).pop(),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
           child: const Icon(
             Icons.home,
             color: Colors.white70,

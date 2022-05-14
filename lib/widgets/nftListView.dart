@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:tapsell_plus/tapsell_plus.dart';
 
-import '../screens/chapterDetail.dart';
 import '../models/nftModel.dart';
+import '../screens/chapterDetail.dart';
 
 class NftListView extends StatelessWidget {
   int index;
-
-  NftListView({
-    Key? key,
-    required this.index,
-  }) : super(key: key);
+  NativeAdData? ad2;
+  NftListView({Key? key, required this.index, this.ad2}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +18,7 @@ class NftListView extends StatelessWidget {
             title: nftsData[index].title,
             descriptions: nftsData[index].descriptions,
             image: nftsData[index].image,
+            ad2: ad2,
           ),
         ),
       ),
