@@ -105,8 +105,9 @@ class _ChapterDetailState extends State<ChapterDetail> {
             ),
             Container(
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: const Color.fromARGB(180, 218, 75, 243)),
+                borderRadius: BorderRadius.circular(10),
+                //color: Color.fromARGB(180, 208, 113, 224)
+              ),
               width: 120,
               height: 40,
               child:
@@ -164,7 +165,7 @@ class _ChapterDetailState extends State<ChapterDetail> {
               endIndent: 45,
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(
+              padding: EdgeInsets.symmetric(
                 horizontal: 15,
                 vertical: 10,
               ),
@@ -175,8 +176,8 @@ class _ChapterDetailState extends State<ChapterDetail> {
                             e,
                             textDirection: TextDirection.rtl,
                             textAlign: TextAlign.right,
-                            style: const TextStyle(
-                              color: Colors.white70,
+                            style: TextStyle(
+                              color: textColor,
                               fontWeight: FontWeight.bold,
                               fontSize: 18,
                             ),
