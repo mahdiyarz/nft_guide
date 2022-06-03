@@ -1,7 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.nft_guide">
+    package="com.pars.string.nft_guide">
+    <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="nft_guide"
+        android:label="راهنمای جامع NFT"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
