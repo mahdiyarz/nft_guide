@@ -6,6 +6,7 @@ import '../models/nftModel.dart';
 import '../screens/chapterDetail.dart';
 
 class GameCard extends StatelessWidget {
+  // this is the card that shown in the first screen of the app
   @override
   Widget build(BuildContext context) {
     return InkWell(

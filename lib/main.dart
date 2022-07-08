@@ -47,9 +47,7 @@ class _MyAppState extends State<MyApp> {
         future: checkFirstSeen(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
+            return const Center();
           } else {
             return MaterialApp(
               initialRoute: snapshot.data.toString(),

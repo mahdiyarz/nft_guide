@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -42,12 +43,121 @@ class _HomeState extends State<Home> {
 
   @override
   void initState() {
-    loadad();
+    adloadmid();
+    Timer(Duration(seconds: 10), () => adloaddown());
+    Timer(Duration(seconds: 15), () => adloadsecondpage());
 
     super.initState();
   }
 
-  loadad() async {
+  adloadmid() async {
+    var _isConnectionSuccessful;
+    try {
+      final response = await InternetAddress.lookup('www.tapsell.ir');
+
+      setState(() {
+        _isConnectionSuccessful = response.isNotEmpty;
+      });
+    } on SocketException catch (e) {
+      setState(() {
+        _isConnectionSuccessful = false;
+      });
+    }
+
+    if (_isConnectionSuccessful) {
+      TapsellPlus.instance.requestNativeAd(zoneIdBannerMid).then((responseId) {
+        if (responseId.isNotEmpty) {
+          TapsellPlus.instance.showNativeAd(responseId, onOpened: (nativeAd) {
+            setMIdData(nativeAd);
+            print(nativeAd.title);
+            if (bannerDataMid != null) {
+              print('true');
+            } else {
+              print('false');
+            }
+          }, onError: (errorPayload) {
+            // Error when getting ad info
+          });
+        }
+      }).catchError((error) {
+        // Error requesting for an ad
+      });
+    }
+  }
+
+  adloaddown() async {
+    var _isConnectionSuccessful;
+    try {
+      final response = await InternetAddress.lookup('www.tapsell.ir');
+
+      setState(() {
+        _isConnectionSuccessful = response.isNotEmpty;
+      });
+    } on SocketException catch (e) {
+      setState(() {
+        _isConnectionSuccessful = false;
+      });
+    }
+
+    if (_isConnectionSuccessful) {
+      TapsellPlus.instance.requestNativeAd(zoneIdBannerDown).then((responseId) {
+        if (responseId.isNotEmpty) {
+          TapsellPlus.instance.showNativeAd(responseId, onOpened: (nativeAd) {
+            setDownData(nativeAd);
+            print(nativeAd.title);
+            if (bannerDataDown != null) {
+              print('true');
+            } else {
+              print('false');
+            }
+          }, onError: (errorPayload) {
+            // Error when getting ad info
+          });
+        }
+      }).catchError((error) {
+        // Error requesting for an ad
+      });
+    }
+  }
+
+  adloadsecondpage() async {
+    var _isConnectionSuccessful;
+    try {
+      final response = await InternetAddress.lookup('www.tapsell.ir');
+
+      setState(() {
+        _isConnectionSuccessful = response.isNotEmpty;
+      });
+    } on SocketException catch (e) {
+      setState(() {
+        _isConnectionSuccessful = false;
+      });
+    }
+
+    if (_isConnectionSuccessful) {
+      TapsellPlus.instance
+          .requestNativeAd('627ff1c9faefa477a635d931')
+          .then((responseId) {
+        if (responseId.isNotEmpty) {
+          TapsellPlus.instance.showNativeAd(responseId, onOpened: (nativeAd) {
+            setAd2Data(nativeAd);
+            print(nativeAd.title);
+            if (ad2 != null) {
+              print('true');
+            } else {
+              print('false');
+            }
+          }, onError: (errorPayload) {
+            // Error when getting ad info
+          });
+        }
+      }).catchError((error) {
+        // Error requesting for an ad
+      });
+    }
+  }
+
+  /*  loadad() async {
     var _isConnectionSuccessful;
     try {
       final response = await InternetAddress.lookup('www.tapsell.ir');
@@ -83,7 +193,7 @@ class _HomeState extends State<Home> {
         // Error requesting for an ad
       });
 
-      /* TapsellPlus.instance.requestNativeAd(zoneIdBannerMid).then((responseId) {
+      TapsellPlus.instance.requestNativeAd(zoneIdBannerMid).then((responseId) {
         if (responseId.isNotEmpty) {
           TapsellPlus.instance.showNativeAd(responseId, onOpened: (nativeAd) {
             setMIdData(nativeAd);
@@ -99,9 +209,9 @@ class _HomeState extends State<Home> {
         }
       }).catchError((error) {
         // Error requesting for an ad
-      }); */
+      });
 
-      /* TapsellPlus.instance.requestNativeAd(zoneIdBannerDown).then((responseId) {
+      TapsellPlus.instance.requestNativeAd(zoneIdBannerDown).then((responseId) {
         if (responseId.isNotEmpty) {
           TapsellPlus.instance.showNativeAd(responseId, onOpened: (nativeAd) {
             setDownData(nativeAd);
@@ -117,9 +227,9 @@ class _HomeState extends State<Home> {
         }
       }).catchError((error) {
         // Error requesting for an ad
-      }); */
+      });
     }
-  }
+  } */
 
   @override
   Widget build(BuildContext context) {

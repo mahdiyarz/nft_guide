@@ -25,7 +25,7 @@ class GameList extends StatelessWidget {
                     children: [
                       Container(
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
+                          borderRadius: BorderRadius.circular(10),
                           color: Color.fromARGB(255, 61, 61, 61),
                         ),
                         height: 400,
@@ -33,7 +33,9 @@ class GameList extends StatelessWidget {
                       Container(
                         height: 280,
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15),
+                            borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(10),
+                                topRight: Radius.circular(10)),
                             image: DecorationImage(
                                 image: AssetImage(
                                   'images/gamepic.webp',
@@ -44,14 +46,16 @@ class GameList extends StatelessWidget {
                         child: Align(
                           alignment: Alignment.bottomCenter,
                           child: Text(
-                            'هفت روش برای درآمد بیشتر از بازی های بلاکچین',
+                            '  هفت روش برای درآمد بیشتر از بازی های بلاکچین ',
                             style: TextStyle(
                                 fontSize: 20,
-                                fontWeight: FontWeight.bold,
+                                fontWeight: FontWeight.w600,
+                                fontFamily: 'Vazir',
                                 color: Colors.white),
+                            textAlign: TextAlign.center,
                           ),
                         ),
-                        bottom: 40,
+                        bottom: 30,
                       )
                     ],
                   ),
@@ -75,8 +79,10 @@ class GameList extends StatelessWidget {
                     ),
                     Text(
                       'برای مشاهده جزئیات بر روی عکس بازی کلیک کنید',
-                      style:
-                          TextStyle(fontWeight: FontWeight.w700, fontSize: 15),
+                      style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 15,
+                          fontFamily: 'Vazir'),
                     )
                   ],
                 ),

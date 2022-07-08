@@ -19,13 +19,6 @@ class ChapterDetail extends StatefulWidget {
 }
 
 class _ChapterDetailState extends State<ChapterDetail> {
-  @override
-  void initState() {
-    // TODO: implement initState
-
-    super.initState();
-  }
-
   Color backgroundColor = Color(0xff707070);
   Color textColor = Colors.white70;
 
@@ -90,7 +83,8 @@ class _ChapterDetailState extends State<ChapterDetail> {
                 textDirection: TextDirection.rtl,
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w700,
+                  fontFamily: 'Vazir',
                   fontSize: 22,
                   color: textColor,
                   shadows: [
@@ -177,10 +171,10 @@ class _ChapterDetailState extends State<ChapterDetail> {
                             textDirection: TextDirection.rtl,
                             textAlign: TextAlign.right,
                             style: TextStyle(
-                              color: textColor,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                            ),
+                                color: textColor,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 18,
+                                fontFamily: 'Vazir'),
                           ))
                       .toList(),
                 ],
