@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:nft_guide/Games/gameModel.dart';
 import 'package:nft_guide/Games/gameSecondCard.dart';
 
+import 'articlepage.dart';
+
 class GameList extends StatelessWidget {
   const GameList({Key? key}) : super(key: key);
+  // this is the page that shown when u click in vizhe name
+  //the first screen of vizhe name
 
   @override
   Widget build(BuildContext context) {
@@ -12,9 +16,9 @@ class GameList extends StatelessWidget {
           title: Text('ویژه نامه بازی'),
           centerTitle: true,
           toolbarHeight: 50,
-          backgroundColor: Color.fromARGB(255, 43, 43, 43),
+          backgroundColor: Color.fromARGB(255, 39, 39, 39),
         ),
-        backgroundColor: Color.fromARGB(255, 43, 43, 43),
+        backgroundColor: Color.fromARGB(255, 39, 39, 39),
         body: Container(
           child: ListView(
             children: [
@@ -26,7 +30,7 @@ class GameList extends StatelessWidget {
                       Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
-                          color: Color.fromARGB(255, 61, 61, 61),
+                          color: Color.fromARGB(255, 52, 56, 59),
                         ),
                         height: 400,
                       ),
@@ -51,7 +55,7 @@ class GameList extends StatelessWidget {
                                 fontSize: 20,
                                 fontWeight: FontWeight.w600,
                                 fontFamily: 'Vazir',
-                                color: Colors.white),
+                                color: Color.fromARGB(255, 171, 171, 171)),
                             textAlign: TextAlign.center,
                           ),
                         ),
@@ -61,7 +65,9 @@ class GameList extends StatelessWidget {
                   ),
                 ),
                 onTap: () {
-                  // Navigator.of(context).push(MaterialPageRoute(builder: (_) => ))
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => ArticlePage(),
+                  ));
                 },
               ),
               SizedBox(

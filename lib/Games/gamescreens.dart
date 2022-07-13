@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'gameModel.dart';
 
 class GameThumb extends StatefulWidget {
+  // its the page that introduce games
   final Game game;
 
   GameThumb(this.game, {Key? key}) : super(key: key);
