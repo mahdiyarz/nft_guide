@@ -60,6 +60,7 @@ class SlidePageWidget extends StatelessWidget {
                 child: Center(
                     child: Text(
                   title,
+                  textAlign: TextAlign.center,
                   style: TextStyle(
                       color: Color.fromARGB(255, 142, 183, 65), fontSize: 25),
                 )),
@@ -126,7 +127,7 @@ class SlidePageWidget extends StatelessWidget {
                             borderRadius: BorderRadius.circular(15),
                             image: DecorationImage(
                                 image: AssetImage(image2.toString()),
-                                fit: BoxFit.cover)),
+                                fit: BoxFit.fill)),
                       ),
                     )
                   : SizedBox(),
