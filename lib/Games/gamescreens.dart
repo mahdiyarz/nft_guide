@@ -21,7 +21,11 @@ class _GameThumbState extends State<GameThumb> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xfff5f5f5),
+      /* appBar: AppBar(
+          toolbarHeight: 35,
+          backgroundColor: Color.fromARGB(255, 39, 39, 39),
+          elevation: 0), */
+      backgroundColor: Color.fromARGB(255, 39, 39, 39),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -48,10 +52,10 @@ class _GameThumbState extends State<GameThumb> {
                 ),
                 Container(
                   decoration: const BoxDecoration(
-                      gradient: LinearGradient(
-                          colors: [Color(0x00f5f5f5), Color(0xfff5f5f5)],
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter)),
+                      gradient: LinearGradient(colors: [
+                    Color.fromARGB(6, 70, 66, 66),
+                    Color.fromARGB(255, 39, 39, 39),
+                  ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
                   height: 80,
                 ),
               ],
@@ -65,6 +69,7 @@ class _GameThumbState extends State<GameThumb> {
                           width: 0.0,
                         )
                       : Card(
+                          color: Color.fromARGB(255, 39, 39, 39),
                           child: ClipRRect(
                             borderRadius:
                                 const BorderRadius.all(Radius.circular((10))),
@@ -98,12 +103,18 @@ class _GameThumbState extends State<GameThumb> {
                       Text(
                         widget.game.name,
                         style: TextStyle(
-                            fontWeight: FontWeight.w500, fontSize: 30),
+                          fontWeight: FontWeight.w500,
+                          fontSize: 30,
+                          color: Color.fromARGB(255, 142, 183, 65),
+                        ),
                       ),
                       Text.rich(
                         TextSpan(
                             style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 15),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15,
+                              color: Color.fromARGB(255, 171, 171, 171),
+                            ),
                             children: [
                               TextSpan(text: widget.game.alldescription),
                             ]),
@@ -164,7 +175,9 @@ class _GameThumbState extends State<GameThumb> {
                         Text(
                           'Posters'.toUpperCase(),
                           style: TextStyle(
-                              fontSize: 14, fontWeight: FontWeight.w500),
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
+                              color: Color.fromARGB(255, 142, 183, 65)),
                         ),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
@@ -208,6 +221,23 @@ class _GameThumbState extends State<GameThumb> {
           ],
         ),
       ),
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 8),
+        child: FloatingActionButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          child: const Icon(
+            Icons.arrow_back_ios_new,
+            color: Colors.white70,
+          ),
+          elevation: 8,
+          backgroundColor: Color.fromARGB(255, 197, 161, 70),
+          mini: true,
+        ),
+      ),
+      floatingActionButtonLocation:
+          FloatingActionButtonLocation.miniStartDocked,
     );
   }
 
@@ -220,6 +250,7 @@ class _GameThumbState extends State<GameThumb> {
           style: TextStyle(
             fontSize: 12,
             fontWeight: FontWeight.w600,
+            color: Color.fromARGB(255, 197, 161, 70),
           ),
         ),
         Expanded(

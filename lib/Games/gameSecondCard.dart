@@ -16,7 +16,7 @@ class GameSecondCard extends StatelessWidget {
     return InkWell(
       onTap: () {
         Navigator.of(context)
-            .push(MaterialPageRoute(builder: (_) => GameThumb(game)));
+            .push(MaterialPageRoute(builder: (context) => GameThumb(game)));
       },
       child: Card(
         margin: const EdgeInsets.symmetric(
