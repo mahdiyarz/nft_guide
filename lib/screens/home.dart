@@ -244,9 +244,9 @@ class _HomeState extends State<Home> {
         ),
         centerTitle: true,
         toolbarHeight: 40,
-        backgroundColor: const Color(0xff707070),
+        backgroundColor: Color.fromARGB(255, 39, 39, 39),
       ),
-      backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+      backgroundColor: Color.fromARGB(255, 39, 39, 39),
       body: ListView(
         shrinkWrap: true,
         children: [

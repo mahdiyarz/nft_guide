@@ -16,18 +16,21 @@ class AdBanner extends StatelessWidget {
 
         print(data.responseId);
       },
-      child: Container(
-        width: MediaQuery.of(context).size.width,
-        height: 175,
-        decoration: BoxDecoration(
-            color: Colors.black,
-            image: DecorationImage(
-              image: NetworkImage(
-                data.landscapeImageUrl.toString(),
-              ),
-              fit: BoxFit.fill,
-              opacity: 300,
-            )),
+      child: Padding(
+        padding: const EdgeInsets.only(top: 2.0),
+        child: Container(
+          width: MediaQuery.of(context).size.width,
+          height: 175,
+          decoration: BoxDecoration(
+              color: Colors.black,
+              image: DecorationImage(
+                image: NetworkImage(
+                  data.landscapeImageUrl.toString(),
+                ),
+                fit: BoxFit.fill,
+                opacity: 300,
+              )),
+        ),
       ),
     );
   }

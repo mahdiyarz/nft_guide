@@ -10,7 +10,7 @@ class BuildBottomsheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color(0xff707070),
+      color: Color.fromARGB(255, 39, 39, 39),
       height: 150,
       padding: const EdgeInsets.all(8),
       child: Column(
