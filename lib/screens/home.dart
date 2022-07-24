@@ -1,13 +1,15 @@
 import 'dart:async';
-import 'dart:math';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:nft_guide/Games/gameCard.dart';
-import 'package:nft_guide/widgets/adBanner.dart';
-import 'package:nft_guide/widgets/buildbottomsheet.dart';
+import 'package:flutter/services.dart';
 import 'package:tapsell_plus/tapsell_plus.dart';
+
+import '../Games/gameCard.dart';
+import '../widgets/custom_drawer.dart';
+import '../widgets/adBanner.dart';
+import '../widgets/buildbottomsheet.dart';
 import '../widgets/nftListView.dart';
-import 'dart:io';
 
 class Home extends StatefulWidget {
   Home({Key? key}) : super(key: key);
@@ -16,7 +18,20 @@ class Home extends StatefulWidget {
   State<Home> createState() => _HomeState();
 }
 
-class _HomeState extends State<Home> {
+class _HomeState extends State<Home> with TickerProviderStateMixin {
+  AnimationController? _controller;
+  Animation<double>? _animation1;
+  Animation<double>? _animation2;
+  Animation<double>? _animation3;
+
+  bool _bool = true;
+
+  @override
+  void dispose() {
+    _controller!.dispose();
+    super.dispose();
+  }
+
   String zoneIdBannerMid = '6278076347a6dd582add9bab';
   String zoneIdBannerDown = '62795b1847a6dd582add9c56';
 
@@ -46,6 +61,35 @@ class _HomeState extends State<Home> {
     adloadmid();
     Timer(Duration(seconds: 10), () => adloaddown());
     Timer(Duration(seconds: 15), () => adloadsecondpage());
+
+    _controller = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 600));
+
+    _animation1 = Tween<double>(begin: 0, end: 20).animate(CurvedAnimation(
+      parent: _controller as Animation<double>,
+      curve: Curves.easeOut,
+      reverseCurve: Curves.easeIn,
+    ))
+      ..addListener(() {
+        setState(() {});
+      })
+      ..addStatusListener((status) {
+        if (status == AnimationStatus.dismissed) {
+          _bool = true;
+        }
+      });
+    _animation2 = Tween<double>(begin: 0, end: 1)
+        .animate(_controller as Animation<double>)
+      ..addListener(() {
+        setState(() {});
+      });
+    _animation3 = Tween<double>(begin: .9, end: 1).animate(CurvedAnimation(
+        parent: _controller as Animation<double>,
+        curve: Curves.fastLinearToSlowEaseIn,
+        reverseCurve: Curves.ease))
+      ..addListener(() {
+        setState(() {});
+      });
 
     super.initState();
   }
@@ -233,8 +277,44 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+    double _width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
+        leading: InkWell(
+          highlightColor: Colors.transparent,
+          splashColor: Colors.transparent,
+          onTap: () {
+            HapticFeedback.lightImpact();
+            if (_bool == true) {
+              _controller!.forward();
+            } else {
+              _controller!.reverse();
+            }
+            _bool = false;
+          },
+          child: Container(
+            height: _width / 8.5,
+            width: _width / 8.5,
+            decoration: BoxDecoration(
+              color: Colors.black.withOpacity(.05),
+              shape: BoxShape.circle,
+            ),
+            child: Center(
+              child: Icon(
+                _bool == true ? Icons.settings : Icons.home,
+                size: _width / 20,
+                color: Colors.white70,
+              ),
+            ),
+          ),
+        ),
+        // AppDrawer(
+        //   controller: _controller,
+        //   isBool: _bool,
+        // ),
+        //     InkWell(
+        //   child: Icon(Icons.settings),
+        // ),
         title: const Text(
           'NFTراهنمای ',
           style: TextStyle(
@@ -247,52 +327,45 @@ class _HomeState extends State<Home> {
         backgroundColor: Color.fromARGB(255, 39, 39, 39),
       ),
       backgroundColor: Color.fromARGB(255, 39, 39, 39),
-      body: ListView(
-        shrinkWrap: true,
+      body: Stack(
         children: [
-          GameCard(),
-          NftListView(index: 0, ad2: ad2),
-          NftListView(index: 1, ad2: ad2),
-          NftListView(index: 2, ad2: ad2),
-          (bannerDataMid != null)
-              ? AdBanner(data: bannerDataMid!)
-              : const SizedBox(
-                  height: 0.1,
-                ),
-          NftListView(index: 3, ad2: ad2),
-          NftListView(index: 4, ad2: ad2),
-          NftListView(index: 5, ad2: ad2),
-          NftListView(index: 6, ad2: ad2),
-          NftListView(index: 7, ad2: ad2),
-          NftListView(index: 8, ad2: ad2),
-          NftListView(index: 9, ad2: ad2),
-          NftListView(index: 10, ad2: ad2),
-          NftListView(index: 11, ad2: ad2),
-          (bannerDataDown != null)
-              ? AdBanner(data: bannerDataDown!)
-              : const SizedBox(
-                  height: 0.1,
-                ),
+          ListView(
+            shrinkWrap: true,
+            children: [
+              GameCard(),
+              NftListView(index: 0, ad2: ad2),
+              NftListView(index: 1, ad2: ad2),
+              NftListView(index: 2, ad2: ad2),
+              (bannerDataMid != null)
+                  ? AdBanner(data: bannerDataMid!)
+                  : const SizedBox(
+                      height: 0.1,
+                    ),
+              NftListView(index: 3, ad2: ad2),
+              NftListView(index: 4, ad2: ad2),
+              NftListView(index: 5, ad2: ad2),
+              NftListView(index: 6, ad2: ad2),
+              NftListView(index: 7, ad2: ad2),
+              NftListView(index: 8, ad2: ad2),
+              NftListView(index: 9, ad2: ad2),
+              NftListView(index: 10, ad2: ad2),
+              NftListView(index: 11, ad2: ad2),
+              (bannerDataDown != null)
+                  ? AdBanner(data: bannerDataDown!)
+                  : const SizedBox(
+                      height: 0.1,
+                    ),
+            ],
+          ),
+          CustomDrawer(
+            isBool: _bool,
+            animation1: _animation1,
+            animation2: _animation2,
+            animation3: _animation3,
+            controller: _controller,
+          ),
         ],
       ),
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 8),
-        child: FloatingActionButton(
-          onPressed: () => showModalBottomSheet(
-            context: context,
-            builder: (ctx) => BuildBottomsheet(context: ctx),
-          ),
-          child: const Icon(
-            Icons.alternate_email_rounded,
-            color: Colors.white70,
-          ),
-          elevation: 8,
-          backgroundColor: Color(0xff707070),
-          mini: true,
-        ),
-      ),
-      floatingActionButtonLocation:
-          FloatingActionButtonLocation.miniStartDocked,
     );
   }
 }
