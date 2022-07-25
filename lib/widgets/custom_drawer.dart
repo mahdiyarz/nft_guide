@@ -50,6 +50,19 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
+                    InkWell(
+                      onTap: () {},
+                      child: Padding(
+                        padding: const EdgeInsets.only(right: 20),
+                        child: Container(
+                          alignment: Alignment.topRight,
+                          child: Icon(
+                            Icons.close_rounded,
+                            color: Colors.white70,
+                          ),
+                        ),
+                      ),
+                    ),
                     CircleAvatar(
                       backgroundColor: Colors.white70,
                       radius: 55,
