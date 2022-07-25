@@ -111,9 +111,10 @@ class _GameThumbState extends State<GameThumb> {
                       Text.rich(
                         TextSpan(
                             style: TextStyle(
-                              fontWeight: FontWeight.bold,
+                              fontWeight: FontWeight.normal,
                               fontSize: 15,
                               color: Color.fromARGB(255, 171, 171, 171),
+                              fontFamily: 'Vazir',
                             ),
                             children: [
                               TextSpan(text: widget.game.alldescription),
@@ -130,7 +131,8 @@ class _GameThumbState extends State<GameThumb> {
                             Text(isReadmore ? 'پنهان کردن متن' : 'ادامه مطلب',
                                 style: TextStyle(
                                   color: newIMDBblue,
-                                  fontWeight: FontWeight.w900,
+                                  fontWeight: FontWeight.bold,
+                                  fontFamily: 'Vazir',
                                 )),
                         onTap: () {
                           setState(() {
