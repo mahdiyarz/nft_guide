@@ -89,7 +89,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
           title: "Kids and teens",
           body:
               "Kids and teens can track their stocks 24/7 and place trades that you approve.",
-          image: _buildImage('fdfdfd.jpg'),
+          image: _buildImage('welcome3.jpg'),
           decoration: pageDecoration,
         ),
         PageViewModel(

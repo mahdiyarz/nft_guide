@@ -38,7 +38,7 @@ class NftListView extends StatelessWidget {
               // borderRadius: BorderRadius.circular(15),
             ),
             width: MediaQuery.of(context).size.width,
-            height: 175,
+            height: MediaQuery.of(context).size.width / 2,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
