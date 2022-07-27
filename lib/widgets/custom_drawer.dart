@@ -8,8 +8,8 @@ class CustomDrawer extends StatefulWidget {
   final Animation<double>? animation1;
   final Animation<double>? animation2;
   final Animation<double>? animation3;
-  final bool isBool;
-  const CustomDrawer({
+  bool isBool;
+  CustomDrawer({
     required this.controller,
     required this.animation1,
     required this.animation2,
@@ -51,7 +51,10 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        widget.controller!.reverse();
+                        widget.isBool = false;
+                      },
                       child: Padding(
                         padding: const EdgeInsets.only(right: 20),
                         child: Container(
