@@ -13,9 +13,15 @@ class GameList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('ویژه نامه بازی'),
+          title: Text(
+            'ویژه نامه بازی',
+            style: TextStyle(
+              color: Colors.white70,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
           centerTitle: true,
-          toolbarHeight: 50,
+          toolbarHeight: 40,
           backgroundColor: Color.fromARGB(255, 39, 39, 39),
         ),
         backgroundColor: Color.fromARGB(255, 39, 39, 39),

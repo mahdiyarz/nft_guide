@@ -49,6 +49,7 @@ class _MyAppState extends State<MyApp> {
             return const Center();
           } else {
             return MaterialApp(
+              theme: ThemeData(fontFamily: 'vazir'),
               initialRoute: snapshot.data.toString(),
               routes: {
                 'home': (context) => Home(),
