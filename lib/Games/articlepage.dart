@@ -78,6 +78,7 @@ class _ArticlePageState extends State<ArticlePage>
                   controller: _controller,
                   itemBuilder: (ctx, index) {
                     return SlidePageWidget(
+                      titleCount: articleData[index].titleCount,
                       describtion: articleData[index].text,
                       image: articleData[index].image,
                       title: articleData[index].title,

@@ -9,6 +9,7 @@ class SlidePageWidget extends StatelessWidget {
   String? image2;
   String? describtion2;
   String? starnote2;
+  String? titleCount;
 
   SlidePageWidget(
       {Key? key,
@@ -18,7 +19,8 @@ class SlidePageWidget extends StatelessWidget {
       this.starnote,
       this.describtion2,
       this.image2,
-      this.starnote2})
+      this.starnote2,
+      this.titleCount})
       : super(key: key);
 
   @override
@@ -56,16 +58,45 @@ class SlidePageWidget extends StatelessWidget {
                     )
                   : SizedBox(),
               title.isNotEmpty
-                  ? Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Center(
-                          child: Text(
-                        title,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            color: Color.fromARGB(255, 142, 183, 65),
-                            fontSize: 25),
-                      )),
+                  ? Directionality(
+                      textDirection: TextDirection.rtl,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 15, vertical: 3),
+                        child: Center(
+                            child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            CircleAvatar(
+                              radius: 16,
+                              backgroundColor:
+                                  Color.fromARGB(255, 142, 183, 65),
+                              child: Center(
+                                child: Text(titleCount as String,
+                                    style: TextStyle(
+                                      color: Color.fromARGB(255, 39, 39, 39),
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                    )),
+                              ),
+                            ),
+                            SizedBox(width: 5),
+                            Flexible(
+                              child: FittedBox(
+                                fit: BoxFit.cover,
+                                child: Text(
+                                  title,
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      color: Color.fromARGB(255, 142, 183, 65),
+                                      fontSize: 25,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                            ),
+                          ],
+                        )),
+                      ),
                     )
                   : SizedBox(),
               Padding(
