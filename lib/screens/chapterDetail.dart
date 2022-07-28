@@ -29,9 +29,6 @@ class ChapterDetail extends StatefulWidget {
 }
 
 class _ChapterDetailState extends State<ChapterDetail> {
-  Color backgroundColor = Color(0xff707070);
-  Color textColor = Colors.white70;
-
   @override
   Widget build(BuildContext context) {
     double _width = MediaQuery.of(context).size.width;

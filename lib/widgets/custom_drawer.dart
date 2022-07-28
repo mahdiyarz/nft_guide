@@ -3,6 +3,9 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../screens/contact_us.dart';
+import '../screens/more_info.dart';
+
 class CustomDrawer extends StatefulWidget {
   final AnimationController? controller;
   final Animation<double>? animation1;
@@ -79,16 +82,20 @@ class _CustomDrawerState extends State<CustomDrawer> {
                         MyTile(Icons.settings_outlined, 'سایر مقالات', () {
                           HapticFeedback.lightImpact();
                         }),
-                        MyTile(Icons.feedback_outlined, 'انتقادات و پیشنهادات',
-                            () {
-                          HapticFeedback.lightImpact();
-                        }),
+                        // MyTile(Icons.feedback_outlined, 'انتقادات و پیشنهادات',
+                        //     () {
+                        //   HapticFeedback.lightImpact();
+                        // }),
                         MyTile(Icons.info_outline_rounded, 'اطلاعات بیشتر', () {
                           HapticFeedback.lightImpact();
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (_) => MoreInformation()));
                         }),
                         MyTile(Icons.alternate_email_rounded, 'راه های ارتباطی',
                             () {
                           HapticFeedback.lightImpact();
+                          Navigator.of(context).push(
+                              MaterialPageRoute(builder: (_) => ContactUs()));
                         }),
                       ],
                     ),
