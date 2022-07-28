@@ -13,9 +13,15 @@ class GameList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('ویژه نامه بازی'),
+          title: Text(
+            'ویژه نامه بازی',
+            style: TextStyle(
+              color: Colors.white70,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
           centerTitle: true,
-          toolbarHeight: 50,
+          toolbarHeight: 40,
           backgroundColor: Color.fromARGB(255, 39, 39, 39),
         ),
         backgroundColor: Color.fromARGB(255, 39, 39, 39),
@@ -32,7 +38,7 @@ class GameList extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10),
                           color: Color.fromARGB(255, 52, 56, 59),
                         ),
-                        height: 400,
+                        height: 340,
                       ),
                       Container(
                         height: 280,
@@ -49,17 +55,20 @@ class GameList extends StatelessWidget {
                       Positioned.fill(
                         child: Align(
                           alignment: Alignment.bottomCenter,
-                          child: Text(
-                            '  هفت روش برای درآمد بیشتر از بازی های بلاکچین ',
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w600,
-                                fontFamily: 'Vazir',
-                                color: Color.fromARGB(255, 171, 171, 171)),
-                            textAlign: TextAlign.center,
+                          child: FittedBox(
+                            fit: BoxFit.cover,
+                            child: Text(
+                              '  هفت روش برای درآمد بیشتر از بازی های بلاکچین ',
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w600,
+                                  fontFamily: 'Vazir',
+                                  color: Color.fromARGB(255, 171, 171, 171)),
+                              textAlign: TextAlign.center,
+                            ),
                           ),
                         ),
-                        bottom: 30,
+                        bottom: 15,
                       )
                     ],
                   ),
@@ -71,7 +80,7 @@ class GameList extends StatelessWidget {
                 },
               ),
               SizedBox(
-                height: 25,
+                height: 15,
               ),
               Card(
                 color: Color.fromARGB(255, 219, 187, 88),

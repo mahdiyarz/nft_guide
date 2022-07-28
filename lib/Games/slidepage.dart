@@ -9,6 +9,7 @@ class SlidePageWidget extends StatelessWidget {
   String? image2;
   String? describtion2;
   String? starnote2;
+  String? titleCount;
 
   SlidePageWidget(
       {Key? key,
@@ -18,7 +19,8 @@ class SlidePageWidget extends StatelessWidget {
       this.starnote,
       this.describtion2,
       this.image2,
-      this.starnote2})
+      this.starnote2,
+      this.titleCount})
       : super(key: key);
 
   @override
@@ -55,27 +57,65 @@ class SlidePageWidget extends StatelessWidget {
                       ],
                     )
                   : SizedBox(),
+              title.isNotEmpty
+                  ? Directionality(
+                      textDirection: TextDirection.rtl,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 15, vertical: 3),
+                        child: Center(
+                            child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            CircleAvatar(
+                              radius: 16,
+                              backgroundColor:
+                                  Color.fromARGB(255, 142, 183, 65),
+                              child: Center(
+                                child: Text(titleCount as String,
+                                    style: TextStyle(
+                                      color: Color.fromARGB(255, 39, 39, 39),
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                    )),
+                              ),
+                            ),
+                            SizedBox(width: 5),
+                            Flexible(
+                              child: FittedBox(
+                                fit: BoxFit.cover,
+                                child: Text(
+                                  title,
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      color: Color.fromARGB(255, 142, 183, 65),
+                                      fontSize: 25,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                            ),
+                          ],
+                        )),
+                      ),
+                    )
+                  : SizedBox(),
               Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Center(
-                    child: Text(
-                  title,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      color: Color.fromARGB(255, 142, 183, 65), fontSize: 25),
-                )),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(15.0),
+                padding: const EdgeInsets.only(
+                  top: 10,
+                  right: 15,
+                  left: 15,
+                ),
                 child: Container(
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(describtion,
                         style: TextStyle(
-                            color: Color.fromARGB(255, 171, 171, 171),
-                            fontSize: 18.5,
-                            fontWeight: FontWeight.bold,
-                            height: 1.55),
+                          color: Color.fromARGB(255, 171, 171, 171),
+                          fontSize: 18.5,
+                          fontWeight: FontWeight.normal,
+                          height: 1.55,
+                          fontFamily: 'Vazir',
+                        ),
                         textDirection: TextDirection.rtl,
                         textAlign: TextAlign.center),
                   ),
@@ -86,8 +126,13 @@ class SlidePageWidget extends StatelessWidget {
               ),
               starnote != null
                   ? Padding(
-                      padding: const EdgeInsets.all(15.0),
+                      padding: const EdgeInsets.only(
+                        top: 10,
+                        right: 15,
+                        left: 15,
+                      ),
                       child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Icon(
                             Icons.event_note,
@@ -110,7 +155,11 @@ class SlidePageWidget extends StatelessWidget {
                               ),
                               decoration: BoxDecoration(
                                   color: Color.fromARGB(255, 115, 102, 68),
-                                  borderRadius: BorderRadius.circular(8)),
+                                  borderRadius: BorderRadius.only(
+                                      bottomLeft: Radius.circular(8),
+                                      bottomRight: Radius.circular(8),
+                                      topRight: Radius.circular(8),
+                                      topLeft: Radius.circular(3))),
                             ),
                           ),
                         ],
@@ -119,7 +168,11 @@ class SlidePageWidget extends StatelessWidget {
                   : SizedBox(),
               image2 != null
                   ? Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.only(
+                        top: 10,
+                        right: 15,
+                        left: 15,
+                      ),
                       child: Container(
                         width: _width,
                         height: _width / 2,
@@ -133,16 +186,22 @@ class SlidePageWidget extends StatelessWidget {
                   : SizedBox(),
               describtion2 != null
                   ? Padding(
-                      padding: const EdgeInsets.all(15.0),
+                      padding: const EdgeInsets.only(
+                        top: 10,
+                        right: 15,
+                        left: 15,
+                      ),
                       child: Container(
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(describtion2.toString(),
                               style: TextStyle(
-                                  color: Color.fromARGB(255, 171, 171, 171),
-                                  fontSize: 18.5,
-                                  fontWeight: FontWeight.bold,
-                                  height: 1.55),
+                                color: Color.fromARGB(255, 171, 171, 171),
+                                fontSize: 18.5,
+                                fontWeight: FontWeight.normal,
+                                height: 1.55,
+                                fontFamily: 'Vazir',
+                              ),
                               textDirection: TextDirection.rtl,
                               textAlign: TextAlign.center),
                         ),
@@ -154,8 +213,13 @@ class SlidePageWidget extends StatelessWidget {
                   : SizedBox(),
               starnote2 != null
                   ? Padding(
-                      padding: const EdgeInsets.all(15.0),
+                      padding: const EdgeInsets.only(
+                        top: 10,
+                        right: 15,
+                        left: 15,
+                      ),
                       child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Flexible(
                             child: Container(
@@ -174,7 +238,11 @@ class SlidePageWidget extends StatelessWidget {
                               ),
                               decoration: BoxDecoration(
                                   color: Color.fromARGB(255, 115, 102, 68),
-                                  borderRadius: BorderRadius.circular(8)),
+                                  borderRadius: BorderRadius.only(
+                                      bottomLeft: Radius.circular(8),
+                                      bottomRight: Radius.circular(8),
+                                      topLeft: Radius.circular(8),
+                                      topRight: Radius.circular(3))),
                             ),
                           ),
                           Icon(
@@ -185,6 +253,9 @@ class SlidePageWidget extends StatelessWidget {
                       ),
                     )
                   : SizedBox(),
+              SizedBox(
+                height: 10,
+              )
             ],
           ),
         ));

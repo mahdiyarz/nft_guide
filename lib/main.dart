@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:nft_guide/screens/onboardingpage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/services.dart';
 import 'package:tapsell_plus/tapsell_plus.dart';
-
-import '../screens/xd_google_pixel64.dart';
 import '../screens/home.dart';
 
 Future<void> main() async {
@@ -50,10 +49,11 @@ class _MyAppState extends State<MyApp> {
             return const Center();
           } else {
             return MaterialApp(
+              theme: ThemeData(fontFamily: 'vazir'),
               initialRoute: snapshot.data.toString(),
               routes: {
                 'home': (context) => Home(),
-                'welcome': (context) => XDGooglePixel64(),
+                'welcome': (context) => OnBoardingPage(),
               },
             );
           }

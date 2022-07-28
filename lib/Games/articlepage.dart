@@ -40,8 +40,8 @@ class _ArticlePageState extends State<ArticlePage>
           color: Color.fromARGB(255, 39, 39, 39),
           child: Container(
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(25), topRight: Radius.circular(25)),
+              // borderRadius: BorderRadius.only(
+              //     topLeft: Radius.circular(25), topRight: Radius.circular(25)),
               color: Color.fromARGB(255, 50, 55, 61),
             ),
             child: Center(
@@ -54,10 +54,17 @@ class _ArticlePageState extends State<ArticlePage>
           )),
       backgroundColor: Color.fromARGB(255, 39, 39, 39),
       appBar: AppBar(
-        title: Text('هفت روش برای درآمد بیشتر '),
+        title: Text(
+          'هفت روش برای درآمد بیشتر',
+          style: TextStyle(
+            color: Colors.white70,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
         centerTitle: true,
         elevation: 0,
         backgroundColor: Color.fromARGB(255, 39, 39, 39),
+        toolbarHeight: 40,
       ),
       body: Column(
         children: [
@@ -71,6 +78,7 @@ class _ArticlePageState extends State<ArticlePage>
                   controller: _controller,
                   itemBuilder: (ctx, index) {
                     return SlidePageWidget(
+                      titleCount: articleData[index].titleCount,
                       describtion: articleData[index].text,
                       image: articleData[index].image,
                       title: articleData[index].title,

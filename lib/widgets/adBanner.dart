@@ -18,7 +18,7 @@ class AdBanner extends StatelessWidget {
       },
       child: Container(
         width: MediaQuery.of(context).size.width,
-        height: 175,
+        height: MediaQuery.of(context).size.width / 2.2,
         decoration: BoxDecoration(
             color: Colors.black,
             image: DecorationImage(
