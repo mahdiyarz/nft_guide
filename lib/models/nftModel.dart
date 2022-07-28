@@ -1,12 +1,22 @@
 class Nfts {
   String title, chapter, image;
   List<String> descriptions;
+  String? descriptionsImage;
+  String? starNote;
+  List<String>? descriptions2;
+  String? descriptionsImage2;
+  String? starNote2;
 
   Nfts({
     required this.chapter,
     required this.title,
-    required this.descriptions,
     required this.image,
+    required this.descriptions,
+    this.descriptionsImage,
+    this.starNote,
+    this.descriptions2,
+    this.descriptionsImage2,
+    this.starNote2,
   });
 }
 

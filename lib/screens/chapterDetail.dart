@@ -4,6 +4,11 @@ import 'package:tapsell_plus/tapsell_plus.dart';
 class ChapterDetail extends StatefulWidget {
   String title, image;
   List<String> descriptions;
+  String? descriptionsImage;
+  String? starNote;
+  List<String>? descriptions2;
+  String? descriptionsImage2;
+  String? starNote2;
 
   NativeAdData? ad2;
   ChapterDetail(
@@ -11,6 +16,11 @@ class ChapterDetail extends StatefulWidget {
       required this.title,
       required this.descriptions,
       required this.image,
+      this.descriptionsImage,
+      this.starNote,
+      this.descriptions2,
+      this.descriptionsImage2,
+      this.starNote2,
       this.ad2})
       : super(key: key);
 
@@ -24,23 +34,41 @@ class _ChapterDetailState extends State<ChapterDetail> {
 
   @override
   Widget build(BuildContext context) {
+    double _width = MediaQuery.of(context).size.width;
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          widget.title,
+          textDirection: TextDirection.rtl,
+          style: TextStyle(
+            color: Colors.white70,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        centerTitle: true,
+        elevation: 0,
+        backgroundColor: Color.fromARGB(255, 39, 39, 39),
+        toolbarHeight: 40,
+      ),
       bottomNavigationBar: (widget.ad2 != null)
           ? BottomAppBar(
               child: Container(
-              color: Color.fromARGB(255, 0, 0, 0),
+              color: Color.fromARGB(255, 50, 55, 61),
               height: 50,
               child: Row(children: [
                 ElevatedButton(
-                    onPressed: (() {
-                      TapsellPlus.instance.nativeBannerAdClicked(
-                          widget.ad2!.responseId.toString());
-                    }),
-                    child: Text(
-                      'کلیک کنید',
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-                    )),
+                  onPressed: (() {
+                    TapsellPlus.instance.nativeBannerAdClicked(
+                        widget.ad2!.responseId.toString());
+                  }),
+                  child: Text(
+                    'کلیک کنید',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    primary: Color.fromARGB(255, 142, 183, 65),
+                  ),
+                ),
                 Text(
                   widget.ad2!.description.toString(),
                   overflow: TextOverflow.fade,
@@ -61,148 +89,206 @@ class _ChapterDetailState extends State<ChapterDetail> {
           : BottomAppBar(
               color: Colors.transparent,
             ),
-      backgroundColor: backgroundColor,
+      backgroundColor: Color.fromARGB(255, 39, 39, 39),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: 200,
-              padding: const EdgeInsets.only(bottom: 15),
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(widget.image),
-                  fit: BoxFit.cover,
+            Stack(
+              alignment: Alignment.bottomCenter,
+              children: [
+                Container(
+                  width: _width,
+                  height: _width / 2,
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage(widget.image.toString()),
+                          fit: BoxFit.cover)),
                 ),
-              ),
+                Container(
+                  decoration: const BoxDecoration(
+                      gradient: LinearGradient(colors: [
+                    Color.fromARGB(6, 70, 66, 66),
+                    Color.fromARGB(255, 39, 39, 39),
+                  ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
+                  height: 80,
+                ),
+              ],
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                widget.title,
-                textDirection: TextDirection.rtl,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontWeight: FontWeight.w700,
-                  fontFamily: 'Vazir',
-                  fontSize: 22,
-                  color: textColor,
-                  shadows: [
-                    Shadow(
-                      blurRadius: 25.0,
-                      color: Colors.white70,
-                      offset: Offset(0.5, 0.5),
-                    ),
-                  ],
-                ),
+              padding: const EdgeInsets.only(
+                top: 10,
+                right: 15,
+                left: 15,
               ),
-            ),
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                //color: Color.fromARGB(180, 208, 113, 224)
-              ),
-              width: 120,
-              height: 40,
-              child:
-                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                Padding(
-                  padding: const EdgeInsets.all(4.0),
-                  child: InkWell(
-                    onTap: () {
-                      setState(() {
-                        backgroundColor = Color.fromARGB(255, 230, 230, 230);
-                        textColor = Colors.black;
-                      });
-                    },
-                    child: CircleAvatar(
-                      backgroundColor: Color.fromARGB(255, 230, 230, 230),
-                      maxRadius: 15,
-                    ),
+              child: Container(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    children: [
+                      ...widget.descriptions
+                          .map(
+                            (e) => Text(
+                              e,
+                              textDirection: TextDirection.rtl,
+                              textAlign: TextAlign.right,
+                              style: TextStyle(
+                                color: Color.fromARGB(255, 171, 171, 171),
+                                fontSize: 18.5,
+                                fontWeight: FontWeight.normal,
+                                height: 1.55,
+                              ),
+                            ),
+                          )
+                          .toList(),
+                    ],
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(4.0),
-                  child: InkWell(
-                    onTap: () {
-                      setState(() {
-                        backgroundColor = Colors.black;
-                        textColor = Colors.white;
-                      });
-                    },
-                    child: CircleAvatar(
-                      backgroundColor: Colors.black,
-                      maxRadius: 15,
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(4.0),
-                  child: InkWell(
-                    onTap: () {
-                      setState(() {
-                        backgroundColor = Color(0xff707070);
-                        textColor = Colors.white70;
-                      });
-                    },
-                    child: CircleAvatar(
-                      backgroundColor: Color(0xff707070),
-                      maxRadius: 15,
-                    ),
-                  ),
-                ),
-              ]),
-            ),
-            const Divider(
-              thickness: 2,
-              indent: 45,
-              endIndent: 45,
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: 15,
-                vertical: 10,
-              ),
-              child: Column(
-                children: [
-                  ...widget.descriptions
-                      .map((e) => Text(
-                            e,
-                            textDirection: TextDirection.rtl,
-                            textAlign: TextAlign.right,
-                            style: TextStyle(
-                                color: textColor,
-                                fontWeight: FontWeight.w500,
-                                fontSize: 18,
-                                fontFamily: 'Vazir'),
-                          ))
-                      .toList(),
-                ],
+                decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 52, 56, 59),
+                    borderRadius: BorderRadius.circular(8)),
               ),
             ),
-            SizedBox(
-              height: 50,
-            ),
+            widget.starNote != null
+                ? Padding(
+                    padding: const EdgeInsets.only(
+                      top: 10,
+                      right: 15,
+                      left: 15,
+                    ),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Icon(
+                          Icons.event_note,
+                          color: Colors.amberAccent,
+                        ),
+                        Flexible(
+                          child: Container(
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(widget.starNote.toString(),
+                                  softWrap: true,
+                                  style: TextStyle(
+                                      color: Color.fromARGB(255, 227, 227, 225),
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                      height: 1.5),
+                                  textDirection: TextDirection.rtl,
+                                  textAlign: TextAlign.center),
+                            ),
+                            decoration: BoxDecoration(
+                                color: Color.fromARGB(255, 115, 102, 68),
+                                borderRadius: BorderRadius.only(
+                                    bottomLeft: Radius.circular(8),
+                                    bottomRight: Radius.circular(8),
+                                    topRight: Radius.circular(8),
+                                    topLeft: Radius.circular(3))),
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
+                : SizedBox(),
+            widget.descriptionsImage != null
+                ? Padding(
+                    padding: const EdgeInsets.only(
+                      top: 10,
+                      right: 15,
+                      left: 15,
+                    ),
+                    child: Container(
+                      width: _width,
+                      height: _width / 2,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          image: DecorationImage(
+                              image: AssetImage(
+                                  widget.descriptionsImage.toString()),
+                              fit: BoxFit.fill)),
+                    ),
+                  )
+                : SizedBox(),
+            widget.descriptions2 != null
+                ? Padding(
+                    padding: const EdgeInsets.only(
+                      top: 10,
+                      right: 15,
+                      left: 15,
+                    ),
+                    child: Container(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          children: [
+                            ...widget.descriptions2!
+                                .map(
+                                  (e) => Text(
+                                    e,
+                                    textDirection: TextDirection.rtl,
+                                    textAlign: TextAlign.right,
+                                    style: TextStyle(
+                                      color: Color.fromARGB(255, 171, 171, 171),
+                                      fontSize: 18.5,
+                                      fontWeight: FontWeight.normal,
+                                      height: 1.55,
+                                    ),
+                                  ),
+                                )
+                                .toList(),
+                          ],
+                        ),
+                      ),
+                      decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 52, 56, 59),
+                          borderRadius: BorderRadius.circular(8)),
+                    ),
+                  )
+                : SizedBox(),
+            widget.starNote2 != null
+                ? Padding(
+                    padding: const EdgeInsets.only(
+                      top: 10,
+                      right: 15,
+                      left: 15,
+                    ),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Flexible(
+                          child: Container(
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(widget.starNote2.toString(),
+                                  softWrap: true,
+                                  style: TextStyle(
+                                      color: Color.fromARGB(255, 227, 227, 225),
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                      height: 1.5),
+                                  textDirection: TextDirection.rtl,
+                                  textAlign: TextAlign.center),
+                            ),
+                            decoration: BoxDecoration(
+                                color: Color.fromARGB(255, 115, 102, 68),
+                                borderRadius: BorderRadius.only(
+                                    bottomLeft: Radius.circular(8),
+                                    bottomRight: Radius.circular(8),
+                                    topLeft: Radius.circular(8),
+                                    topRight: Radius.circular(3))),
+                          ),
+                        ),
+                        Icon(
+                          Icons.event_note,
+                          color: Colors.amberAccent,
+                        ),
+                      ],
+                    ),
+                  )
+                : SizedBox(),
+            SizedBox(height: 10),
           ],
         ),
       ),
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 8),
-        child: FloatingActionButton(
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-          child: const Icon(
-            Icons.home,
-            color: Colors.white70,
-          ),
-          elevation: 8,
-          backgroundColor: const Color.fromARGB(180, 218, 75, 243),
-          mini: true,
-        ),
-      ),
-      floatingActionButtonLocation:
-          FloatingActionButtonLocation.miniStartDocked,
     );
   }
 }

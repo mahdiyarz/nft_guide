@@ -234,13 +234,6 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
             ),
           ),
         ),
-        // AppDrawer(
-        //   controller: _controller,
-        //   isBool: _bool,
-        // ),
-        //     InkWell(
-        //   child: Icon(Icons.settings),
-        // ),
         title: const Text(
           'NFTراهنمای ',
           style: TextStyle(
