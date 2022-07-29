@@ -150,6 +150,7 @@ class _GameThumbState extends State<GameThumb> {
                 child: Column(
                   children: [
                     const Divider(
+                      color: Color.fromARGB(255, 68, 67, 67),
                       thickness: 1,
                       height: 20,
                       endIndent: 5,
@@ -166,6 +167,7 @@ class _GameThumbState extends State<GameThumb> {
                     ),
                     gameFields(field: 'Mode', value: widget.game.mode),
                     const Divider(
+                      color: Color.fromARGB(255, 68, 67, 67),
                       thickness: 1,
                       height: 20,
                       endIndent: 5,
