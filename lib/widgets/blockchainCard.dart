@@ -1,22 +1,13 @@
 import 'package:flutter/material.dart';
 
-class BlockChainCard extends StatelessWidget {
-  BuildContext contexts;
-  BlockChainCard({
-    Key? key,
-    required this.contexts,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    var width = MediaQuery.of(contexts).size.width;
-    return Card(
-      margin: EdgeInsets.symmetric(vertical: 20, horizontal: 13),
-      child: Container(
-        color: Colors.red,
-        width: width / 4,
-        height: width / 4,
-      ),
-    );
-  }
+Widget BlocChainCard(BuildContext context) {
+  var width = MediaQuery.of(context).size.width;
+  return Card(
+    margin: EdgeInsets.symmetric(vertical: 20, horizontal: 13),
+    child: Container(
+      color: Colors.red,
+      width: width / 4,
+      height: width / 4,
+    ),
+  );
 }

@@ -231,7 +231,6 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
       body: Stack(
         children: [
           ListView(
-            shrinkWrap: true,
             children: [
               CarouselSlider(
                 options: CarouselOptions(
@@ -248,17 +247,12 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
               Container(
                 height: MediaQuery.of(context).size.width / 2.5,
                 color: Color.fromARGB(104, 8, 8, 8),
-                child: Center(
-                  child: ListView.builder(
-                    shrinkWrap: false,
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index) {
-                      return BlockChainCard(
-                        contexts: context,
-                      );
-                    },
-                    itemCount: 4,
-                  ),
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    return BlocChainCard(context);
+                  },
+                  itemCount: 4,
                 ),
               ),
               DividerNew(context, 'NFT آشنایی با ', Icons.abc_rounded),
