@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:tapsell_plus/tapsell_plus.dart';
@@ -8,7 +9,6 @@ import 'package:tapsell_plus/tapsell_plus.dart';
 import '../Games/gameCard.dart';
 import '../widgets/custom_drawer.dart';
 import '../widgets/adBanner.dart';
-import '../widgets/buildbottomsheet.dart';
 import '../widgets/nftListView.dart';
 
 class Home extends StatefulWidget {
@@ -23,8 +23,25 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
   Animation<double>? _animation1;
   Animation<double>? _animation2;
   Animation<double>? _animation3;
-
+  String zoneIdBannerMid = '6278076347a6dd582add9bab';
+  String zoneIdBannerDown = '62795b1847a6dd582add9c56';
+  NativeAdData? bannerDataMid;
+  NativeAdData? bannerDataDown;
+  NativeAdData? ad2;
   bool _bool = true;
+  final List<String> imgList = [
+    'assets/images/article-ch7.jpeg',
+    'images/un1.png',
+    'images/un2.png',
+  ];
+  final List<String> textList = [
+    ' هشسیش شیش شسی',
+    'سییبی شیص الا ث',
+    'یبس سعناسببس س',
+  ];
+
+  final CarouselController _controllerCr = CarouselController();
+  int _currentCr = 0;
 
   @override
   void dispose() {
@@ -32,12 +49,6 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
     super.dispose();
   }
 
-  String zoneIdBannerMid = '6278076347a6dd582add9bab';
-  String zoneIdBannerDown = '62795b1847a6dd582add9c56';
-
-  NativeAdData? bannerDataMid;
-  NativeAdData? bannerDataDown;
-  NativeAdData? ad2;
   void setAd2Data(NativeAdData nativeAd) {
     setState(() {
       ad2 = nativeAd;
@@ -113,12 +124,6 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
         if (responseId.isNotEmpty) {
           TapsellPlus.instance.showNativeAd(responseId, onOpened: (nativeAd) {
             setMIdData(nativeAd);
-            print(nativeAd.title);
-            if (bannerDataMid != null) {
-              print('true');
-            } else {
-              print('false');
-            }
           }, onError: (errorPayload) {
             // Error when getting ad info
           });
@@ -148,12 +153,6 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
         if (responseId.isNotEmpty) {
           TapsellPlus.instance.showNativeAd(responseId, onOpened: (nativeAd) {
             setDownData(nativeAd);
-            print(nativeAd.title);
-            if (bannerDataDown != null) {
-              print('true');
-            } else {
-              print('false');
-            }
           }, onError: (errorPayload) {
             // Error when getting ad info
           });
@@ -186,11 +185,6 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
           TapsellPlus.instance.showNativeAd(responseId, onOpened: (nativeAd) {
             setAd2Data(nativeAd);
             print(nativeAd.title);
-            if (ad2 != null) {
-              print('true');
-            } else {
-              print('false');
-            }
           }, onError: (errorPayload) {
             // Error when getting ad info
           });
@@ -201,8 +195,52 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
     }
   }
 
+  Widget divider() {
+    return Divider(
+      height: 25,
+      thickness: 1,
+      color: Color.fromARGB(255, 142, 183, 65),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    final List<Widget> imageSliders = imgList
+        .map((item) => Container(
+              child: Container(
+                child: ClipRRect(
+                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                    child: Stack(
+                      fit: StackFit.expand,
+                      children: [
+                        Image.asset(
+                          item,
+                          fit: BoxFit.cover,
+                        ),
+                        Positioned(
+                            bottom: 0,
+                            left: 0,
+                            right: 0,
+                            child: Container(
+                              color: Colors.black45,
+                              padding: EdgeInsets.symmetric(
+                                  vertical: 10.0, horizontal: 20.0),
+                              child: Center(
+                                child: Text(
+                                  textList[imgList.indexOf(item)],
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 20.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                            ))
+                      ],
+                    )),
+              ),
+            ))
+        .toList();
     double _width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
@@ -251,7 +289,21 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
           ListView(
             shrinkWrap: true,
             children: [
+              SizedBox(
+                height: 10,
+              ),
+              CarouselSlider(
+                options: CarouselOptions(
+                  autoPlay: true,
+                  aspectRatio: 2.0,
+                  enlargeCenterPage: true,
+                ),
+                items: imageSliders,
+              ),
+              divider(),
               GameCard(),
+              GameCard(),
+              divider(),
               NftListView(index: 0, ad2: ad2),
               NftListView(index: 1, ad2: ad2),
               NftListView(index: 2, ad2: ad2),
