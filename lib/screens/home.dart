@@ -209,8 +209,8 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
             ),
             child: Center(
               child: Icon(
-                _bool == true ? Icons.settings : Icons.home,
-                size: _width / 20,
+                _bool == true ? Icons.menu : Icons.home,
+                size: _width / 16,
                 color: Colors.white70,
               ),
             ),
