@@ -246,8 +246,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
               GameCard(),
               DividerNew(context, 'آشنایی با بلاکچین', Icons.abc_rounded),
               Container(
-                width: MediaQuery.of(context).size.width,
-                height: 200,
+                height: MediaQuery.of(context).size.width / 2.5,
                 color: Color.fromARGB(104, 8, 8, 8),
                 child: Center(
                   child: ListView.builder(

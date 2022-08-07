@@ -11,7 +11,7 @@ class BlockChainCard extends StatelessWidget {
   Widget build(BuildContext context) {
     var width = MediaQuery.of(contexts).size.width;
     return Card(
-      margin: EdgeInsets.all(8),
+      margin: EdgeInsets.symmetric(vertical: 20, horizontal: 13),
       child: Container(
         color: Colors.red,
         width: width / 4,
