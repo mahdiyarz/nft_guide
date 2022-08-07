@@ -231,6 +231,8 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
       body: Stack(
         children: [
           ListView(
+            physics: const BouncingScrollPhysics(
+                parent: AlwaysScrollableScrollPhysics()),
             children: [
               CarouselSlider(
                 options: CarouselOptions(
@@ -248,6 +250,8 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                 height: MediaQuery.of(context).size.width / 2.5,
                 color: Color.fromARGB(40, 8, 8, 8),
                 child: ListView.builder(
+                  physics: const BouncingScrollPhysics(
+                      parent: AlwaysScrollableScrollPhysics()),
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
                     return BlocChainCard(context);

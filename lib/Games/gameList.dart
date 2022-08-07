@@ -27,6 +27,8 @@ class GameList extends StatelessWidget {
         backgroundColor: Color.fromARGB(255, 39, 39, 39),
         body: Container(
           child: ListView(
+            physics: const BouncingScrollPhysics(
+                parent: AlwaysScrollableScrollPhysics()),
             children: [
               InkWell(
                 child: Padding(
