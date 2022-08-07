@@ -1,11 +1,9 @@
 import 'dart:async';
-import 'dart:io';
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:nft_guide/widgets/divider.dart';
 import 'package:tapsell_plus/tapsell_plus.dart';
-
 import '../Games/gameCard.dart';
 import '../widgets/custom_drawer.dart';
 import '../widgets/adBanner.dart';
@@ -39,9 +37,6 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
     'سییبی شیص الا ث',
     'یبس سعناسببس س',
   ];
-
-  final CarouselController _controllerCr = CarouselController();
-  int _currentCr = 0;
 
   @override
   void dispose() {
@@ -106,107 +101,55 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
   }
 
   adloadmid() async {
-    var _isConnectionSuccessful;
-    try {
-      final response = await InternetAddress.lookup('www.tapsell.ir');
-
-      setState(() {
-        _isConnectionSuccessful = response.isNotEmpty;
-      });
-    } on SocketException catch (e) {
-      setState(() {
-        _isConnectionSuccessful = false;
-      });
-    }
-
-    if (_isConnectionSuccessful) {
-      TapsellPlus.instance.requestNativeAd(zoneIdBannerMid).then((responseId) {
-        if (responseId.isNotEmpty) {
-          TapsellPlus.instance.showNativeAd(responseId, onOpened: (nativeAd) {
-            setMIdData(nativeAd);
-          }, onError: (errorPayload) {
-            // Error when getting ad info
-          });
-        }
-      }).catchError((error) {
-        // Error requesting for an ad
-      });
-    }
+    TapsellPlus.instance.requestNativeAd(zoneIdBannerMid).then((responseId) {
+      if (responseId.isNotEmpty) {
+        TapsellPlus.instance.showNativeAd(responseId, onOpened: (nativeAd) {
+          setMIdData(nativeAd);
+        }, onError: (errorPayload) {
+          // Error when getting ad info
+        });
+      }
+    }).catchError((error) {
+      // Error requesting for an ad
+    });
   }
 
   adloaddown() async {
-    var _isConnectionSuccessful;
-    try {
-      final response = await InternetAddress.lookup('www.tapsell.ir');
-
-      setState(() {
-        _isConnectionSuccessful = response.isNotEmpty;
-      });
-    } on SocketException catch (e) {
-      setState(() {
-        _isConnectionSuccessful = false;
-      });
-    }
-
-    if (_isConnectionSuccessful) {
-      TapsellPlus.instance.requestNativeAd(zoneIdBannerDown).then((responseId) {
-        if (responseId.isNotEmpty) {
-          TapsellPlus.instance.showNativeAd(responseId, onOpened: (nativeAd) {
-            setDownData(nativeAd);
-          }, onError: (errorPayload) {
-            // Error when getting ad info
-          });
-        }
-      }).catchError((error) {
-        // Error requesting for an ad
-      });
-    }
+    TapsellPlus.instance.requestNativeAd(zoneIdBannerDown).then((responseId) {
+      if (responseId.isNotEmpty) {
+        TapsellPlus.instance.showNativeAd(responseId, onOpened: (nativeAd) {
+          setDownData(nativeAd);
+        }, onError: (errorPayload) {
+          // Error when getting ad info
+        });
+      }
+    }).catchError((error) {
+      // Error requesting for an ad
+    });
   }
 
   adloadsecondpage() async {
-    var _isConnectionSuccessful;
-    try {
-      final response = await InternetAddress.lookup('www.tapsell.ir');
-
-      setState(() {
-        _isConnectionSuccessful = response.isNotEmpty;
-      });
-    } on SocketException catch (e) {
-      setState(() {
-        _isConnectionSuccessful = false;
-      });
-    }
-
-    if (_isConnectionSuccessful) {
-      TapsellPlus.instance
-          .requestNativeAd('627ff1c9faefa477a635d931')
-          .then((responseId) {
-        if (responseId.isNotEmpty) {
-          TapsellPlus.instance.showNativeAd(responseId, onOpened: (nativeAd) {
-            setAd2Data(nativeAd);
-            print(nativeAd.title);
-          }, onError: (errorPayload) {
-            // Error when getting ad info
-          });
-        }
-      }).catchError((error) {
-        // Error requesting for an ad
-      });
-    }
-  }
-
-  Widget divider() {
-    return Divider(
-      height: 25,
-      thickness: 1,
-      color: Color.fromARGB(255, 142, 183, 65),
-    );
+    TapsellPlus.instance
+        .requestNativeAd('627ff1c9faefa477a635d931')
+        .then((responseId) {
+      if (responseId.isNotEmpty) {
+        TapsellPlus.instance.showNativeAd(responseId, onOpened: (nativeAd) {
+          setAd2Data(nativeAd);
+          print(nativeAd.title);
+        }, onError: (errorPayload) {
+          // Error when getting ad info
+        });
+      }
+    }).catchError((error) {
+      // Error requesting for an ad
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     final List<Widget> imageSliders = imgList
         .map((item) => Container(
+              margin: EdgeInsets.only(top: 15, bottom: 5),
               child: Container(
                 child: ClipRRect(
                     borderRadius: BorderRadius.all(Radius.circular(10.0)),
@@ -289,9 +232,6 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
           ListView(
             shrinkWrap: true,
             children: [
-              SizedBox(
-                height: 10,
-              ),
               CarouselSlider(
                 options: CarouselOptions(
                   autoPlay: true,
@@ -300,10 +240,10 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                 ),
                 items: imageSliders,
               ),
-              divider(),
+              DividerNew(context, 'ویژه نامه ها', Icons.not_accessible),
               GameCard(),
               GameCard(),
-              divider(),
+              DividerNew(context, 'سر فصل ها', Icons.abc_rounded),
               NftListView(index: 0, ad2: ad2),
               NftListView(index: 1, ad2: ad2),
               NftListView(index: 2, ad2: ad2),
