@@ -146,6 +146,37 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
     });
   }
 
+  Future<bool?> showWarning(BuildContext context) async => showDialog<bool>(
+        context: context,
+        builder: (context) => Directionality(
+          textDirection: TextDirection.rtl,
+          child: AlertDialog(
+            backgroundColor: Color.fromARGB(255, 115, 102, 68),
+            title: Text(
+              'آیا می خواهید از برنامه خارج شوید؟',
+              style: TextStyle(color: Colors.white),
+            ),
+            actions: [
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  elevation: 5,
+                  primary: Color.fromARGB(255, 142, 183, 65),
+                ),
+                onPressed: () => Navigator.pop(context, false),
+                child: Text('نه هنوز'),
+              ),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: Color.fromARGB(255, 142, 183, 65),
+                ),
+                onPressed: () => Navigator.pop(context, true),
+                child: Text('بله'),
+              ),
+            ],
+          ),
+        ),
+      );
+
   @override
   Widget build(BuildContext context) {
     final List<Widget> imageSliders = imgList
@@ -186,112 +217,123 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
             ))
         .toList();
     double _width = MediaQuery.of(context).size.width;
-    return Scaffold(
-      appBar: AppBar(
-        leading: InkWell(
-          highlightColor: Colors.transparent,
-          splashColor: Colors.transparent,
-          onTap: () {
-            HapticFeedback.lightImpact();
-            if (_bool == true) {
-              _controller!.forward();
-            } else {
-              _controller!.reverse();
-            }
-            _bool = false;
-          },
-          child: Container(
-            height: _width / 8.5,
-            width: _width / 8.5,
-            decoration: BoxDecoration(
-              color: Colors.black.withOpacity(.05),
-              shape: BoxShape.circle,
-            ),
-            child: Center(
-              child: Icon(
-                _bool == true ? Icons.menu : Icons.home,
-                size: _width / 16,
-                color: Colors.white70,
+    return WillPopScope(
+      onWillPop: () async {
+        if (_bool == false) {
+          _controller!.reverse();
+          return false;
+        } else {
+          final shouldPop = await showWarning(context);
+          return shouldPop ?? false;
+        }
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          leading: InkWell(
+            highlightColor: Colors.transparent,
+            splashColor: Colors.transparent,
+            onTap: () {
+              HapticFeedback.lightImpact();
+              if (_bool == true) {
+                _controller!.forward();
+              } else {
+                _controller!.reverse();
+              }
+              _bool = false;
+            },
+            child: Container(
+              height: _width / 8.5,
+              width: _width / 8.5,
+              decoration: BoxDecoration(
+                color: Colors.black.withOpacity(.05),
+                shape: BoxShape.circle,
+              ),
+              child: Center(
+                child: Icon(
+                  _bool == true ? Icons.menu : Icons.home,
+                  size: _width / 16,
+                  color: Colors.white70,
+                ),
               ),
             ),
           ),
-        ),
-        title: const Text(
-          'NFTراهنمای ',
-          style: TextStyle(
-            color: Colors.white70,
-            fontWeight: FontWeight.bold,
+          title: const Text(
+            'NFTراهنمای ',
+            style: TextStyle(
+              color: Colors.white70,
+              fontWeight: FontWeight.bold,
+            ),
           ),
+          centerTitle: true,
+          toolbarHeight: 40,
+          backgroundColor: Color.fromARGB(255, 39, 39, 39),
         ),
-        centerTitle: true,
-        toolbarHeight: 40,
         backgroundColor: Color.fromARGB(255, 39, 39, 39),
-      ),
-      backgroundColor: Color.fromARGB(255, 39, 39, 39),
-      body: Stack(
-        children: [
-          ListView(
-            physics: const BouncingScrollPhysics(
-                parent: AlwaysScrollableScrollPhysics()),
-            children: [
-              CarouselSlider(
-                options: CarouselOptions(
-                  autoPlay: true,
-                  aspectRatio: 2.0,
-                  enlargeCenterPage: true,
+        body: Stack(
+          children: [
+            ListView(
+              physics: const BouncingScrollPhysics(
+                  parent: AlwaysScrollableScrollPhysics()),
+              children: [
+                CarouselSlider(
+                  options: CarouselOptions(
+                    autoPlay: true,
+                    aspectRatio: 2.0,
+                    enlargeCenterPage: true,
+                  ),
+                  items: imageSliders,
                 ),
-                items: imageSliders,
-              ),
-              DividerNew(context, 'ویژه نامه ', Icons.not_accessible),
-              GameCard(),
-              GameCard(),
-              DividerNew(context, 'آشنایی با بلاکچین', Icons.abc_rounded),
-              Container(
-                height: MediaQuery.of(context).size.width / 2.5,
-                color: Color.fromARGB(40, 8, 8, 8),
-                child: ListView.builder(
-                  physics: const BouncingScrollPhysics(
-                      parent: AlwaysScrollableScrollPhysics()),
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) {
-                    return BlocChainCard(context);
-                  },
-                  itemCount: 4,
+                DividerNew(context, 'ویژه نامه ', Icons.not_accessible),
+                GameCard(),
+                GameCard(),
+                DividerNew(context, 'آشنایی با بلاکچین', Icons.abc_rounded),
+                Container(
+                  height: MediaQuery.of(context).size.width / 2.5,
+                  color: Color.fromARGB(40, 8, 8, 8),
+                  child: ListView.builder(
+                    physics: const BouncingScrollPhysics(
+                        parent: AlwaysScrollableScrollPhysics()),
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      return BlocChainCard(context);
+                    },
+                    itemCount: 4,
+                  ),
                 ),
-              ),
-              DividerNew(context, 'NFT آشنایی با ', Icons.abc_rounded),
-              NftListView(index: 0, ad2: ad2),
-              NftListView(index: 1, ad2: ad2),
-              NftListView(index: 2, ad2: ad2),
-              (bannerDataMid != null)
-                  ? AdBanner(data: bannerDataMid!)
-                  : const SizedBox(
-                      height: 0.1,
-                    ),
-              NftListView(index: 3, ad2: ad2),
-              NftListView(index: 4, ad2: ad2),
-              NftListView(index: 5, ad2: ad2),
-              NftListView(index: 6, ad2: ad2),
-              NftListView(index: 7, ad2: ad2),
-              NftListView(index: 8, ad2: ad2),
-              NftListView(index: 9, ad2: ad2),
-              NftListView(index: 10, ad2: ad2),
-              NftListView(index: 11, ad2: ad2),
-              (bannerDataDown != null)
-                  ? AdBanner(data: bannerDataDown!)
-                  : const SizedBox(
-                      height: 0.1,
-                    ),
-            ],
-          ),
-          CustomDrawer(
-            isBool: _bool,
-            animation1: _animation1,
-            animation2: _animation2,
-            animation3: _animation3,
-            controller: _controller,
-          ),
-        ],
+                DividerNew(context, 'NFT آشنایی با ', Icons.abc_rounded),
+                NftListView(index: 0, ad2: ad2),
+                NftListView(index: 1, ad2: ad2),
+                NftListView(index: 2, ad2: ad2),
+                (bannerDataMid != null)
+                    ? AdBanner(data: bannerDataMid!)
+                    : const SizedBox(
+                        height: 0.1,
+                      ),
+                NftListView(index: 3, ad2: ad2),
+                NftListView(index: 4, ad2: ad2),
+                NftListView(index: 5, ad2: ad2),
+                NftListView(index: 6, ad2: ad2),
+                NftListView(index: 7, ad2: ad2),
+                NftListView(index: 8, ad2: ad2),
+                NftListView(index: 9, ad2: ad2),
+                NftListView(index: 10, ad2: ad2),
+                NftListView(index: 11, ad2: ad2),
+                (bannerDataDown != null)
+                    ? AdBanner(data: bannerDataDown!)
+                    : const SizedBox(
+                        height: 0.1,
+                      ),
+              ],
+            ),
+            CustomDrawer(
+              isBool: _bool,
+              animation1: _animation1,
+              animation2: _animation2,
+              animation3: _animation3,
+              controller: _controller,
+            ),
+          ],
+        ),
       ),
     );
   }
