@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:nft_guide/widgets/divider.dart';
 import 'package:tapsell_plus/tapsell_plus.dart';
 import '../Games/gameCard.dart';
+import '../widgets/blockchainCard.dart';
 import '../widgets/custom_drawer.dart';
 import '../widgets/adBanner.dart';
 import '../widgets/nftListView.dart';
@@ -240,10 +241,28 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                 ),
                 items: imageSliders,
               ),
-              DividerNew(context, 'ویژه نامه ها', Icons.not_accessible),
+              DividerNew(context, 'ویژه نامه ', Icons.not_accessible),
               GameCard(),
               GameCard(),
-              DividerNew(context, 'سر فصل ها', Icons.abc_rounded),
+              DividerNew(context, 'آشنایی با بلاکچین', Icons.abc_rounded),
+              Container(
+                width: MediaQuery.of(context).size.width,
+                height: 200,
+                color: Color.fromARGB(104, 8, 8, 8),
+                child: Center(
+                  child: ListView.builder(
+                    shrinkWrap: false,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      return BlockChainCard(
+                        contexts: context,
+                      );
+                    },
+                    itemCount: 4,
+                  ),
+                ),
+              ),
+              DividerNew(context, 'NFT آشنایی با ', Icons.abc_rounded),
               NftListView(index: 0, ad2: ad2),
               NftListView(index: 1, ad2: ad2),
               NftListView(index: 2, ad2: ad2),
