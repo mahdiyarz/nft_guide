@@ -29,9 +29,11 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
   NativeAdData? bannerDataDown;
   NativeAdData? ad2;
   bool _bool = true;
-  late PageController _pageController;
+  PageController _pageController =
+      PageController(viewportFraction: 0.8, initialPage: 1);
   var activePage = 1;
   var pageIndex = 1;
+  late Timer _timer;
 
   @override
   void dispose() {
@@ -91,10 +93,19 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
       ..addListener(() {
         setState(() {});
       });
+    _timer = Timer.periodic(Duration(seconds: 5), (Timer timer) {
+      if (pageIndex < 2) {
+        pageIndex++;
+      } else {
+        pageIndex = 0;
+      }
 
-    _pageController =
-        PageController(viewportFraction: 0.8, initialPage: pageIndex);
-
+      _pageController.animateToPage(
+        pageIndex,
+        duration: Duration(milliseconds: 500),
+        curve: Curves.easeIn,
+      );
+    });
     super.initState();
   }
 
