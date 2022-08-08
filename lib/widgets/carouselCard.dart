@@ -11,9 +11,13 @@ final List<String> textList = [
   'یبس سعناسببس س',
 ];
 
-Widget CarouselCard(int pagePosition) {
-  return Container(
-    margin: EdgeInsets.symmetric(horizontal: 10),
+Widget CarouselCard(int pagePosition, int activePage) {
+  bool active = pagePosition == activePage;
+  double margin = active ? 10 : 20;
+  return AnimatedContainer(
+    duration: Duration(milliseconds: 500),
+    curve: Curves.easeInOutCubic,
+    margin: EdgeInsets.all(margin),
     child: ClipRRect(
         borderRadius: BorderRadius.all(Radius.circular(10.0)),
         child: Stack(

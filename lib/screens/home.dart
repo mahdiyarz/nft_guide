@@ -30,6 +30,8 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
   NativeAdData? ad2;
   bool _bool = true;
   late PageController _pageController;
+  var activePage = 1;
+  var pageIndex = 1;
 
   @override
   void dispose() {
@@ -89,7 +91,9 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
       ..addListener(() {
         setState(() {});
       });
-    _pageController = PageController(viewportFraction: 0.8, initialPage: 1);
+
+    _pageController =
+        PageController(viewportFraction: 0.8, initialPage: pageIndex);
 
     super.initState();
   }
@@ -239,12 +243,17 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                       pageSnapping: true,
                       controller: _pageController,
                       onPageChanged: (page) {
-                        setState(() {});
+                        setState(() {
+                          activePage = page;
+                        });
                       },
                       children: [
-                        InkWell(child: CarouselCard(0), onTap: () {}),
-                        InkWell(child: CarouselCard(1), onTap: () {}),
-                        InkWell(child: CarouselCard(2), onTap: () {}),
+                        InkWell(
+                            child: CarouselCard(0, activePage), onTap: () {}),
+                        InkWell(
+                            child: CarouselCard(1, activePage), onTap: () {}),
+                        InkWell(
+                            child: CarouselCard(2, activePage), onTap: () {}),
                       ],
                     ),
                   ),
