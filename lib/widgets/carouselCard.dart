@@ -16,10 +16,12 @@ Widget CarouselCard(
         child: Stack(
           fit: StackFit.expand,
           children: [
-            Image.asset(
-              image,
-              fit: BoxFit.cover,
-            ),
+            image.contains('http')
+                ? Image.network(image)
+                : Image.asset(
+                    image,
+                    fit: BoxFit.cover,
+                  ),
             Positioned(
                 bottom: 0,
                 left: 0,

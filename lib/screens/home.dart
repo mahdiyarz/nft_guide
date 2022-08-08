@@ -104,7 +104,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
         setState(() {});
       });
     Timer.periodic(Duration(seconds: 5), (Timer timer) {
-      if (pageIndex < 3) {
+      if (pageIndex < 5) {
         pageIndex++;
       } else {
         pageIndex = 0;
@@ -328,6 +328,17 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                                 builder: (context) =>
                                     GameThumb(gameList[randomGameIndex2])));
                           }),
+                      if (bannerDataDown != null)
+                        InkWell(
+                            child: CarouselCard(
+                                pagePosition: 4,
+                                activePage: activePage,
+                                image: bannerDataDown!.landscapeImageUrl
+                                    .toString(),
+                                text: bannerDataDown!.title.toString()),
+                            onTap: () => TapsellPlus.instance
+                                .nativeBannerAdClicked(
+                                    bannerDataDown!.responseId.toString())),
                     ],
                   ),
                 ),
