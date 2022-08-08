@@ -6,6 +6,7 @@ import 'package:nft_guide/widgets/divider.dart';
 import 'package:tapsell_plus/tapsell_plus.dart';
 import '../Games/gameCard.dart';
 import '../widgets/blockchainCard.dart';
+import '../widgets/carouselCard.dart';
 import '../widgets/custom_drawer.dart';
 import '../widgets/adBanner.dart';
 import '../widgets/nftListView.dart';
@@ -28,16 +29,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
   NativeAdData? bannerDataDown;
   NativeAdData? ad2;
   bool _bool = true;
-  final List<String> imgList = [
-    'assets/images/article-ch7.jpeg',
-    'images/un1.png',
-    'images/un2.png',
-  ];
-  final List<String> textList = [
-    ' هشسیش شیش شسی',
-    'سییبی شیص الا ث',
-    'یبس سعناسببس س',
-  ];
+  late PageController _pageController;
 
   @override
   void dispose() {
@@ -97,6 +89,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
       ..addListener(() {
         setState(() {});
       });
+    _pageController = PageController(viewportFraction: 0.8, initialPage: 1);
 
     super.initState();
   }
@@ -179,43 +172,6 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    final List<Widget> imageSliders = imgList
-        .map((item) => Container(
-              margin: EdgeInsets.only(top: 15, bottom: 5),
-              child: Container(
-                child: ClipRRect(
-                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                    child: Stack(
-                      fit: StackFit.expand,
-                      children: [
-                        Image.asset(
-                          item,
-                          fit: BoxFit.cover,
-                        ),
-                        Positioned(
-                            bottom: 0,
-                            left: 0,
-                            right: 0,
-                            child: Container(
-                              color: Colors.black45,
-                              padding: EdgeInsets.symmetric(
-                                  vertical: 10.0, horizontal: 20.0),
-                              child: Center(
-                                child: Text(
-                                  textList[imgList.indexOf(item)],
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 20.0,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
-                            ))
-                      ],
-                    )),
-              ),
-            ))
-        .toList();
     double _width = MediaQuery.of(context).size.width;
     return WillPopScope(
       onWillPop: () async {
@@ -271,59 +227,78 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
         backgroundColor: Color.fromARGB(255, 39, 39, 39),
         body: Stack(
           children: [
-            ListView(
-              physics: const BouncingScrollPhysics(
-                  parent: AlwaysScrollableScrollPhysics()),
-              children: [
-                CarouselSlider(
-                  options: CarouselOptions(
-                    autoPlay: true,
-                    aspectRatio: 2.0,
-                    enlargeCenterPage: true,
+            Center(
+              child: ListView(
+                physics: const BouncingScrollPhysics(
+                    parent: AlwaysScrollableScrollPhysics()),
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(top: 20),
+                    height: 190,
+                    child: PageView(
+                      pageSnapping: true,
+                      controller: _pageController,
+                      onPageChanged: (page) {
+                        setState(() {});
+                      },
+                      children: [
+                        InkWell(child: CarouselCard(0), onTap: () {}),
+                        InkWell(child: CarouselCard(1), onTap: () {}),
+                        InkWell(child: CarouselCard(2), onTap: () {}),
+                      ],
+                    ),
                   ),
-                  items: imageSliders,
-                ),
-                DividerNew(context, 'ویژه نامه ', Icons.not_accessible),
-                GameCard(),
-                GameCard(),
-                DividerNew(context, 'آشنایی با بلاکچین', Icons.abc_rounded),
-                Container(
-                  height: MediaQuery.of(context).size.width / 2.5,
-                  color: Color.fromARGB(40, 8, 8, 8),
-                  child: ListView.builder(
-                    physics: const BouncingScrollPhysics(
-                        parent: AlwaysScrollableScrollPhysics()),
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index) {
-                      return BlocChainCard(context);
-                    },
-                    itemCount: 4,
+                  /* CarouselSlider(
+                    options: CarouselOptions(
+                      autoPlay: true,
+                      aspectRatio: 2.0,
+                      enlargeCenterPage: true,
+                    ),
+                    items: imageSliders,
+                  ), */
+
+                  DividerNew(context, 'ویژه نامه ', Icons.not_accessible),
+                  GameCard(),
+                  GameCard(),
+                  DividerNew(context, 'آشنایی با بلاکچین', Icons.abc_rounded),
+                  Container(
+                    height: MediaQuery.of(context).size.width / 2.5,
+                    color: Color.fromARGB(40, 8, 8, 8),
+                    child: ListView.builder(
+                      physics: const BouncingScrollPhysics(
+                          parent: AlwaysScrollableScrollPhysics()),
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (context, index) {
+                        return BlocChainCard(context);
+                      },
+                      itemCount: 4,
+                    ),
                   ),
-                ),
-                DividerNew(context, 'NFT آشنایی با ', Icons.abc_rounded),
-                NftListView(index: 0, ad2: ad2),
-                NftListView(index: 1, ad2: ad2),
-                NftListView(index: 2, ad2: ad2),
-                (bannerDataMid != null)
-                    ? AdBanner(data: bannerDataMid!)
-                    : const SizedBox(
-                        height: 0.1,
-                      ),
-                NftListView(index: 3, ad2: ad2),
-                NftListView(index: 4, ad2: ad2),
-                NftListView(index: 5, ad2: ad2),
-                NftListView(index: 6, ad2: ad2),
-                NftListView(index: 7, ad2: ad2),
-                NftListView(index: 8, ad2: ad2),
-                NftListView(index: 9, ad2: ad2),
-                NftListView(index: 10, ad2: ad2),
-                NftListView(index: 11, ad2: ad2),
-                (bannerDataDown != null)
-                    ? AdBanner(data: bannerDataDown!)
-                    : const SizedBox(
-                        height: 0.1,
-                      ),
-              ],
+                  DividerNew(context, 'NFT آشنایی با ', Icons.abc_rounded),
+                  NftListView(index: 0, ad2: ad2),
+                  NftListView(index: 1, ad2: ad2),
+                  NftListView(index: 2, ad2: ad2),
+                  (bannerDataMid != null)
+                      ? AdBanner(data: bannerDataMid!)
+                      : const SizedBox(
+                          height: 0.1,
+                        ),
+                  NftListView(index: 3, ad2: ad2),
+                  NftListView(index: 4, ad2: ad2),
+                  NftListView(index: 5, ad2: ad2),
+                  NftListView(index: 6, ad2: ad2),
+                  NftListView(index: 7, ad2: ad2),
+                  NftListView(index: 8, ad2: ad2),
+                  NftListView(index: 9, ad2: ad2),
+                  NftListView(index: 10, ad2: ad2),
+                  NftListView(index: 11, ad2: ad2),
+                  (bannerDataDown != null)
+                      ? AdBanner(data: bannerDataDown!)
+                      : const SizedBox(
+                          height: 0.1,
+                        ),
+                ],
+              ),
             ),
             CustomDrawer(
               isBool: _bool,
