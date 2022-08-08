@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:nft_guide/Games/articledatamodel.dart';
-import 'package:nft_guide/Games/slidepage.dart';
 
-class ArticlePage extends StatefulWidget {
-  ArticlePage({Key? key}) : super(key: key);
+import 'package:nft_guide/Games/articledatamodel.dart';
+import 'package:nft_guide/models/nftModel.dart';
+import 'package:nft_guide/screens/chapterSlidePage.dart';
+
+class ChapterPage extends StatefulWidget {
+  ChapterPage({
+    Key? key,
+  }) : super(key: key);
 
   @override
-  State<ArticlePage> createState() => _ArticlePageState();
+  State<ChapterPage> createState() => _ChapterPageState();
 }
 
-class _ArticlePageState extends State<ArticlePage>
+class _ChapterPageState extends State<ChapterPage>
     with SingleTickerProviderStateMixin {
   PageController _controller = PageController(
     initialPage: 0,
@@ -34,6 +38,7 @@ class _ArticlePageState extends State<ArticlePage>
 
   @override
   Widget build(BuildContext context) {
+    var _width = MediaQuery.of(context).size.width;
     return Scaffold(
       bottomNavigationBar: BottomAppBar(
           elevation: 0,
@@ -66,26 +71,31 @@ class _ArticlePageState extends State<ArticlePage>
         backgroundColor: Color.fromARGB(255, 39, 39, 39),
         toolbarHeight: 40,
       ),
-      body: Container(
-        height: MediaQuery.of(context).size.height,
-        child: PageView.builder(
+      body: Column(
+        children: [
+          Flexible(
+            child: Container(
+              height: MediaQuery.of(context).size.height,
+              child: PageView.builder(
 
-            // allowImplicitScrolling: true,
-            onPageChanged: changeDot,
-            itemCount: articleData.length,
-            controller: _controller,
-            itemBuilder: (ctx, index) {
-              return SlidePageWidget(
-                titleCount: articleData[index].titleCount,
-                describtion: articleData[index].text,
-                image: articleData[index].image,
-                title: articleData[index].title,
-                starnote: articleData[index].starnote,
-                describtion2: articleData[index].text2,
-                image2: articleData[index].image2,
-                starnote2: articleData[index].starnote2,
-              );
-            }),
+                  // allowImplicitScrolling: true,
+                  onPageChanged: changeDot,
+                  itemCount: nftsData.length,
+                  controller: _controller,
+                  itemBuilder: (ctx, index) {
+                    return ChapterSlidePage(
+                      titleCount: articleData[index].titleCount,
+                      describtion: articleData[index].text,
+                      image: articleData[index].image,
+                      title: articleData[index].title,
+                      starnote: articleData[index].starnote,
+                      describtion2: articleData[index].text2,
+                      starnote2: articleData[index].starnote2,
+                    );
+                  }),
+            ),
+          ),
+        ],
       ),
     );
   }

@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:math';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:nft_guide/Games/gameModel.dart';
@@ -112,7 +111,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
       if (_pageController.hasClients) {
         _pageController.animateToPage(
           pageIndex,
-          duration: Duration(milliseconds: 500),
+          duration: Duration(milliseconds: 600),
           curve: Curves.easeIn,
         );
       }
