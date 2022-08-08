@@ -1,15 +1,20 @@
 import 'dart:async';
+import 'dart:math';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:nft_guide/Games/gameModel.dart';
 import 'package:nft_guide/widgets/divider.dart';
 import 'package:tapsell_plus/tapsell_plus.dart';
 import '../Games/gameCard.dart';
+import '../Games/gamescreens.dart';
+import '../models/nftModel.dart';
 import '../widgets/blockchainCard.dart';
 import '../widgets/carouselCard.dart';
 import '../widgets/custom_drawer.dart';
 import '../widgets/adBanner.dart';
 import '../widgets/nftListView.dart';
+import 'chapterDetail.dart';
 
 class Home extends StatefulWidget {
   Home({Key? key}) : super(key: key);
@@ -31,9 +36,14 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
   bool _bool = true;
   PageController _pageController =
       PageController(viewportFraction: 0.8, initialPage: 1);
+  Random random = new Random();
+  late int randomChapterIndex;
+  late int randomGameIndex;
+  late int randomChapterIndex2;
+  late int randomGameIndex2;
+
   var activePage = 1;
   var pageIndex = 1;
-  late Timer _timer;
 
   @override
   void dispose() {
@@ -93,19 +103,21 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
       ..addListener(() {
         setState(() {});
       });
-    _timer = Timer.periodic(Duration(seconds: 5), (Timer timer) {
-      if (pageIndex < 2) {
+    Timer.periodic(Duration(seconds: 5), (Timer timer) {
+      if (pageIndex < 3) {
         pageIndex++;
       } else {
         pageIndex = 0;
       }
-
-      _pageController.animateToPage(
-        pageIndex,
-        duration: Duration(milliseconds: 500),
-        curve: Curves.easeIn,
-      );
+      if (_pageController.hasClients) {
+        _pageController.animateToPage(
+          pageIndex,
+          duration: Duration(milliseconds: 500),
+          curve: Curves.easeIn,
+        );
+      }
     });
+    createRandomNumber();
     super.initState();
   }
 
@@ -242,83 +254,133 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
         backgroundColor: Color.fromARGB(255, 39, 39, 39),
         body: Stack(
           children: [
-            Center(
-              child: ListView(
-                physics: const BouncingScrollPhysics(
-                    parent: AlwaysScrollableScrollPhysics()),
-                children: [
-                  Container(
-                    margin: EdgeInsets.only(top: 20),
-                    height: 190,
-                    child: PageView(
-                      pageSnapping: true,
-                      controller: _pageController,
-                      onPageChanged: (page) {
-                        setState(() {
-                          activePage = page;
-                        });
-                      },
-                      children: [
-                        InkWell(
-                            child: CarouselCard(0, activePage), onTap: () {}),
-                        InkWell(
-                            child: CarouselCard(1, activePage), onTap: () {}),
-                        InkWell(
-                            child: CarouselCard(2, activePage), onTap: () {}),
-                      ],
-                    ),
+            ListView(
+              physics: const BouncingScrollPhysics(
+                  parent: AlwaysScrollableScrollPhysics()),
+              children: [
+                Container(
+                  margin: EdgeInsets.only(top: 20),
+                  height: 190,
+                  child: PageView(
+                    pageSnapping: true,
+                    controller: _pageController,
+                    onPageChanged: (page) {
+                      setState(() {
+                        activePage = page;
+                      });
+                    },
+                    children: [
+                      InkWell(
+                        child: CarouselCard(
+                            pagePosition: 0,
+                            activePage: activePage,
+                            image: nftsData[randomChapterIndex].image,
+                            text: nftsData[randomChapterIndex].title),
+                        onTap: () => Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (_) => ChapterDetail(
+                              title: nftsData[randomChapterIndex].title,
+                              descriptions:
+                                  nftsData[randomChapterIndex].descriptions,
+                              image: nftsData[randomChapterIndex].image,
+                              ad2: ad2,
+                            ),
+                          ),
+                        ),
+                      ),
+                      InkWell(
+                          child: CarouselCard(
+                              pagePosition: 1,
+                              activePage: activePage,
+                              image: gameList[randomGameIndex].image[0],
+                              text: gameList[randomGameIndex].name),
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) =>
+                                    GameThumb(gameList[randomGameIndex])));
+                          }),
+                      InkWell(
+                        child: CarouselCard(
+                            pagePosition: 2,
+                            activePage: activePage,
+                            image: nftsData[randomChapterIndex2].image,
+                            text: nftsData[randomChapterIndex2].title),
+                        onTap: () => Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (_) => ChapterDetail(
+                              title: nftsData[randomChapterIndex2].title,
+                              descriptions:
+                                  nftsData[randomChapterIndex2].descriptions,
+                              image: nftsData[randomChapterIndex2].image,
+                              ad2: ad2,
+                            ),
+                          ),
+                        ),
+                      ),
+                      InkWell(
+                          child: CarouselCard(
+                              pagePosition: 3,
+                              activePage: activePage,
+                              image: gameList[randomGameIndex2].image[0],
+                              text: gameList[randomGameIndex2].name),
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) =>
+                                    GameThumb(gameList[randomGameIndex2])));
+                          }),
+                    ],
                   ),
-                  /* CarouselSlider(
-                    options: CarouselOptions(
-                      autoPlay: true,
-                      aspectRatio: 2.0,
-                      enlargeCenterPage: true,
-                    ),
-                    items: imageSliders,
-                  ), */
+                ),
+                /* CarouselSlider(
+                  options: CarouselOptions(
+                    autoPlay: true,
+                    aspectRatio: 2.0,
+                    enlargeCenterPage: true,
+                  ),
+                  items: imageSliders,
+                ), */
 
-                  DividerNew(context, 'ویژه نامه ', Icons.not_accessible),
-                  GameCard(),
-                  GameCard(),
-                  DividerNew(context, 'آشنایی با بلاکچین', Icons.abc_rounded),
-                  Container(
-                    height: MediaQuery.of(context).size.width / 2.5,
-                    color: Color.fromARGB(40, 8, 8, 8),
-                    child: ListView.builder(
-                      physics: const BouncingScrollPhysics(
-                          parent: AlwaysScrollableScrollPhysics()),
-                      scrollDirection: Axis.horizontal,
-                      itemBuilder: (context, index) {
-                        return BlocChainCard(context);
-                      },
-                      itemCount: 4,
-                    ),
+                DividerNew(context, 'ویژه نامه ', Icons.not_accessible),
+                GameCard(),
+                GameCard(),
+                DividerNew(context, 'آشنایی با بلاکچین', Icons.abc_rounded),
+                Container(
+                  height: MediaQuery.of(context).size.width / 2.5,
+                  color: Color.fromARGB(40, 8, 8, 8),
+                  child: ListView.builder(
+                    physics: const BouncingScrollPhysics(
+                        parent: AlwaysScrollableScrollPhysics()),
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      return BlocChainCard(context);
+                    },
+                    itemCount: 4,
                   ),
-                  DividerNew(context, 'NFT آشنایی با ', Icons.abc_rounded),
-                  NftListView(index: 0, ad2: ad2),
-                  NftListView(index: 1, ad2: ad2),
-                  NftListView(index: 2, ad2: ad2),
-                  (bannerDataMid != null)
-                      ? AdBanner(data: bannerDataMid!)
-                      : const SizedBox(
-                          height: 0.1,
-                        ),
-                  NftListView(index: 3, ad2: ad2),
-                  NftListView(index: 4, ad2: ad2),
-                  NftListView(index: 5, ad2: ad2),
-                  NftListView(index: 6, ad2: ad2),
-                  NftListView(index: 7, ad2: ad2),
-                  NftListView(index: 8, ad2: ad2),
-                  NftListView(index: 9, ad2: ad2),
-                  NftListView(index: 10, ad2: ad2),
-                  NftListView(index: 11, ad2: ad2),
-                  (bannerDataDown != null)
-                      ? AdBanner(data: bannerDataDown!)
-                      : const SizedBox(
-                          height: 0.1,
-                        ),
-                ],
-              ),
+                ),
+                DividerNew(context, 'NFT آشنایی با ', Icons.abc_rounded),
+                NftListView(index: 0, ad2: ad2),
+                NftListView(index: 1, ad2: ad2),
+                NftListView(index: 2, ad2: ad2),
+                (bannerDataMid != null)
+                    ? AdBanner(data: bannerDataMid!)
+                    : const SizedBox(
+                        height: 0.1,
+                      ),
+                NftListView(index: 3, ad2: ad2),
+                NftListView(index: 4, ad2: ad2),
+                NftListView(index: 5, ad2: ad2),
+                NftListView(index: 6, ad2: ad2),
+                NftListView(index: 7, ad2: ad2),
+                NftListView(index: 8, ad2: ad2),
+                NftListView(index: 9, ad2: ad2),
+                NftListView(index: 10, ad2: ad2),
+                NftListView(index: 11, ad2: ad2),
+                (bannerDataDown != null)
+                    ? AdBanner(data: bannerDataDown!)
+                    : const SizedBox(
+                        height: 0.1,
+                      ),
+              ],
             ),
             CustomDrawer(
               isBool: _bool,
@@ -331,5 +393,19 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
         ),
       ),
     );
+  }
+
+  void createRandomNumber() {
+    randomChapterIndex = random.nextInt(nftsData.length);
+    randomGameIndex = random.nextInt(gameList.length);
+    randomChapterIndex2 = random.nextInt(nftsData.length);
+    randomGameIndex2 = random.nextInt(gameList.length);
+    while (randomChapterIndex == randomChapterIndex2) {
+      randomChapterIndex2 = random.nextInt(nftsData.length);
+    }
+    while (randomGameIndex == randomGameIndex2) {
+      randomGameIndex2 = random.nextInt(gameList.length);
+    }
+    print(randomChapterIndex2);
   }
 }

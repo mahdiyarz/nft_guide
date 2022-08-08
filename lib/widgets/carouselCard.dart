@@ -1,17 +1,10 @@
 import 'package:flutter/material.dart';
 
-final List<String> imgList = [
-  'assets/images/article-ch7.jpeg',
-  'images/un1.png',
-  'images/un2.png',
-];
-final List<String> textList = [
-  ' هشسیش شیش شسی',
-  'سییبی شیص الا ث',
-  'یبس سعناسببس س',
-];
-
-Widget CarouselCard(int pagePosition, int activePage) {
+Widget CarouselCard(
+    {required int pagePosition,
+    required int activePage,
+    required String image,
+    required String text}) {
   bool active = pagePosition == activePage;
   double margin = active ? 10 : 20;
   return AnimatedContainer(
@@ -24,7 +17,7 @@ Widget CarouselCard(int pagePosition, int activePage) {
           fit: StackFit.expand,
           children: [
             Image.asset(
-              imgList[pagePosition],
+              image,
               fit: BoxFit.cover,
             ),
             Positioned(
@@ -37,12 +30,14 @@ Widget CarouselCard(int pagePosition, int activePage) {
                       EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
                   child: Center(
                     child: Text(
-                      textList[pagePosition],
+                      text,
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 20.0,
                         fontWeight: FontWeight.bold,
                       ),
+                      textAlign: TextAlign.center,
+                      textDirection: TextDirection.rtl,
                     ),
                   ),
                 ))
