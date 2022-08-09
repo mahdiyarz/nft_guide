@@ -1,26 +1,114 @@
+class ChapterDetail {
+  String? image;
+
+  String text;
+  String? starnote;
+  String? image2;
+  String? text2;
+  String? starnote2;
+  String? titleSection;
+  ChapterDetail({
+    this.image,
+    required this.text,
+    this.starnote,
+    this.text2,
+    this.image2,
+    this.starnote2,
+    this.titleSection,
+  });
+}
+
 class Nfts {
   String title, chapter, image;
-  List<String> descriptions;
-  String? descriptionsImage;
-  String? starNote;
-  List<String>? descriptions2;
-  String? descriptionsImage2;
-  String? starNote2;
+  List<ChapterDetail> chapterDetailList;
 
   Nfts({
+    required this.chapterDetailList,
     required this.chapter,
     required this.title,
     required this.image,
-    required this.descriptions,
-    this.descriptionsImage,
-    this.starNote,
-    this.descriptions2,
-    this.descriptionsImage2,
-    this.starNote2,
   });
 }
 
 List<Nfts> nftsData = [
+  Nfts(
+    chapter: 'فصل اول',
+    title: 'NFT چیست؟',
+    chapterDetailList: [
+      ChapterDetail(
+          image2: 'images/chapter2.png',
+          starnote2: 'Invidunt dolore sit sadipscing duo.',
+          starnote: ' Neer his degree are cared save, childe. ',
+          titleSection: 'this is title section',
+          text2:
+              ' See wide this shore vainly thy. The get raven name the floating the we i, reply and air of decorum.. ',
+          text:
+              'Ipsum voluptua rebum et sed sed aliquyam diam ipsum dolor dolor, erat diam lorem et dolores et vero et takimata,.',
+          image: 'images/chapter1.png'),
+      ChapterDetail(
+        image2: 'images/chapter2.png',
+        starnote2: 'Invidunt dolore sit sadipscing duo.',
+        starnote: ' Neer his degree are cared save, childe. ',
+        titleSection: 'this is title section',
+        text2:
+            ' See wide this shore vainly thy. The get raven name the floating the we i, reply and air of decorum.. ',
+        text:
+            'Ipsum voluptua rebum et sed sed aliquyam diam ipsum dolor dolor, erat diam lorem et dolores et vero et takimata,.',
+      ),
+    ],
+    image: 'images/chapter1.png',
+  ),
+  Nfts(
+    chapter: 'فصل دوم',
+    title: 'توابع NFT چگونه هستند؟',
+    chapterDetailList: [
+      ChapterDetail(
+          text:
+              'Ipsum voluptua rebum et sed sed aliquyam diam ipsum dolor dolor, erat diam lorem et dolores et vero et takimata,.',
+          image: 'images/chapter2.png'),
+      ChapterDetail(text: 'En la acxetis ke sed la mi, nur por duonhore. ')
+    ],
+    image: 'images/chapter2.png',
+  ),
+  Nfts(
+    chapter: 'فصل سوم',
+    title: 'چراNFT  ها ارزشمند هستند؟',
+    chapterDetailList: [
+      ChapterDetail(
+          text:
+              'Ipsum voluptua rebum et sed sed aliquyam diam ipsum dolor dolor, erat diam lorem et dolores et vero et takimata,.',
+          image: 'images/chapter3.png'),
+      ChapterDetail(text: 'En la acxetis ke sed la mi, nur por duonhore. ')
+    ],
+    image: 'images/chapter3.png',
+  ),
+  Nfts(
+    chapter: 'فصل چهارم',
+    title: 'جدول زمانی فروشهای قابل توجه NFT',
+    chapterDetailList: [
+      ChapterDetail(
+          text:
+              'Ipsum voluptua rebum et sed sed aliquyam diam ipsum dolor dolor, erat diam lorem et dolores et vero et takimata,.',
+          image: 'images/chapter4.png'),
+      ChapterDetail(text: 'En la acxetis ke sed la mi, nur por duonhore. ')
+    ],
+    image: 'images/chapter4.png',
+  ),
+  Nfts(
+    chapter: 'فصل پنجم',
+    title: 'فصل پنجم',
+    chapterDetailList: [
+      ChapterDetail(
+          text:
+              'Ipsum voluptua rebum et sed sed aliquyam diam ipsum dolor dolor, erat diam lorem et dolores et vero et takimata,.',
+          image: 'images/chapter5.png'),
+      ChapterDetail(text: 'En la acxetis ke sed la mi, nur por duonhore. ')
+    ],
+    image: 'images/chapter5.png',
+  ),
+];
+
+/* List<Nfts> nftsData = [
   Nfts(
     chapter: 'فصل اول',
     title: 'NFT چیست؟',
@@ -167,3 +255,4 @@ List<Nfts> nftsData = [
     image: 'images/chapter12.png',
   ),
 ];
+ */

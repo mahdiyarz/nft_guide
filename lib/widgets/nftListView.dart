@@ -12,7 +12,10 @@ class NftListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () => Navigator.of(context).push(
-        MaterialPageRoute(builder: (_) => ChapterPage()),
+        MaterialPageRoute(
+            builder: (_) => ChapterPage(
+                  nft: nftsData[index],
+                )),
       ),
       child: Card(
         margin: const EdgeInsets.symmetric(

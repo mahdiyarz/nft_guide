@@ -3,10 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:nft_guide/Games/articledatamodel.dart';
 import 'package:nft_guide/models/nftModel.dart';
 import 'package:nft_guide/screens/chapterSlidePage.dart';
+import 'package:tapsell_plus/tapsell_plus.dart';
 
 class ChapterPage extends StatefulWidget {
+  Nfts nft;
+  NativeAdData? ad2;
+
   ChapterPage({
     Key? key,
+    this.ad2,
+    required this.nft,
   }) : super(key: key);
 
   @override
@@ -30,7 +36,7 @@ class _ChapterPageState extends State<ChapterPage>
   void initState() {
     super.initState();
     _dotcontroller = TabController(
-      length: articleData.length,
+      length: widget.nft.chapterDetailList.length,
       initialIndex: dotindex,
       vsync: this,
     );
@@ -60,7 +66,7 @@ class _ChapterPageState extends State<ChapterPage>
       backgroundColor: Color.fromARGB(255, 39, 39, 39),
       appBar: AppBar(
         title: Text(
-          'هفت روش برای درآمد بیشتر',
+          widget.nft.title,
           style: TextStyle(
             color: Colors.white70,
             fontWeight: FontWeight.bold,
@@ -80,18 +86,20 @@ class _ChapterPageState extends State<ChapterPage>
 
                   // allowImplicitScrolling: true,
                   onPageChanged: changeDot,
-                  itemCount: nftsData.length,
+                  itemCount: widget.nft.chapterDetailList.length,
                   controller: _controller,
                   itemBuilder: (ctx, index) {
                     return ChapterSlidePage(
-                      titleCount: articleData[index].titleCount,
-                      describtion: articleData[index].text,
-                      image: articleData[index].image,
-                      title: articleData[index].title,
-                      starnote: articleData[index].starnote,
-                      describtion2: articleData[index].text2,
-                      starnote2: articleData[index].starnote2,
-                    );
+                        describtion: widget.nft.chapterDetailList[index].text,
+                        describtion2: widget.nft.chapterDetailList[index].text2,
+                        image: widget.nft.chapterDetailList[index].image,
+                        image2: widget.nft.chapterDetailList[index].image2,
+                        starnote: widget.nft.chapterDetailList[index].starnote,
+                        starnote2:
+                            widget.nft.chapterDetailList[index].starnote2,
+                        titleSection: 'gjhgkjhkj'
+                        //widget.nft.chapterDetailList[index].titleSection,
+                        );
                   }),
             ),
           ),

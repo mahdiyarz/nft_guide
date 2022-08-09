@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:nft_guide/Games/gameModel.dart';
+import 'package:nft_guide/screens/chapterPage.dart';
 import 'package:nft_guide/widgets/divider.dart';
 import 'package:tapsell_plus/tapsell_plus.dart';
 import '../Games/gameCard.dart';
@@ -13,7 +14,6 @@ import '../widgets/carouselCard.dart';
 import '../widgets/custom_drawer.dart';
 import '../widgets/adBanner.dart';
 import '../widgets/nftListView.dart';
-import 'chapterDetail.dart';
 
 class Home extends StatefulWidget {
   Home({Key? key}) : super(key: key);
@@ -277,11 +277,8 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                             text: nftsData[randomChapterIndex].title),
                         onTap: () => Navigator.of(context).push(
                           MaterialPageRoute(
-                            builder: (_) => ChapterDetail(
-                              title: nftsData[randomChapterIndex].title,
-                              descriptions:
-                                  nftsData[randomChapterIndex].descriptions,
-                              image: nftsData[randomChapterIndex].image,
+                            builder: (_) => ChapterPage(
+                              nft: nftsData[randomChapterIndex],
                               ad2: ad2,
                             ),
                           ),
@@ -300,17 +297,14 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                           }),
                       InkWell(
                         child: CarouselCard(
-                            pagePosition: 2,
+                            pagePosition: 0,
                             activePage: activePage,
                             image: nftsData[randomChapterIndex2].image,
                             text: nftsData[randomChapterIndex2].title),
                         onTap: () => Navigator.of(context).push(
                           MaterialPageRoute(
-                            builder: (_) => ChapterDetail(
-                              title: nftsData[randomChapterIndex2].title,
-                              descriptions:
-                                  nftsData[randomChapterIndex2].descriptions,
-                              image: nftsData[randomChapterIndex2].image,
+                            builder: (_) => ChapterPage(
+                              nft: nftsData[randomChapterIndex],
                               ad2: ad2,
                             ),
                           ),
@@ -378,13 +372,13 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                       ),
                 NftListView(index: 3, ad2: ad2),
                 NftListView(index: 4, ad2: ad2),
-                NftListView(index: 5, ad2: ad2),
+                /*  NftListView(index: 5, ad2: ad2),
                 NftListView(index: 6, ad2: ad2),
                 NftListView(index: 7, ad2: ad2),
                 NftListView(index: 8, ad2: ad2),
                 NftListView(index: 9, ad2: ad2),
                 NftListView(index: 10, ad2: ad2),
-                NftListView(index: 11, ad2: ad2),
+                NftListView(index: 11, ad2: ad2), */
                 (bannerDataDown != null)
                     ? AdBanner(data: bannerDataDown!)
                     : const SizedBox(

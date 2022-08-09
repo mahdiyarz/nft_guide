@@ -3,23 +3,23 @@ import 'package:flutter/material.dart';
 class ChapterSlidePage extends StatelessWidget {
   // its a slide screen in article page screen
   String describtion;
-
-  String title;
-  String? starnote;
   String? image;
+
+  String? starnote;
+  String? image2;
   String? describtion2;
   String? starnote2;
-  String? titleCount;
+  String? titleSection;
 
   ChapterSlidePage(
       {Key? key,
+      this.image,
       required this.describtion,
-      required this.title,
       this.starnote,
       this.describtion2,
-      this.image,
+      this.image2,
       this.starnote2,
-      this.titleCount})
+      this.titleSection})
       : super(key: key);
 
   @override
@@ -30,44 +30,49 @@ class ChapterSlidePage extends StatelessWidget {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              title.isNotEmpty
+              image != null
+                  ? Stack(
+                      alignment: Alignment.bottomCenter,
+                      children: [
+                        Container(
+                          width: _width,
+                          height: _width / 1.4,
+                          decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: AssetImage(image.toString()),
+                                  fit: BoxFit.cover)),
+                        ),
+                        Container(
+                          decoration: const BoxDecoration(
+                              gradient: LinearGradient(
+                                  colors: [
+                                Color.fromARGB(6, 70, 66, 66),
+                                Color.fromARGB(255, 39, 39, 39),
+                              ],
+                                  begin: Alignment.topCenter,
+                                  end: Alignment.bottomCenter)),
+                          height: 80,
+                        ),
+                      ],
+                    )
+                  : SizedBox(),
+              titleSection != null
                   ? Directionality(
                       textDirection: TextDirection.rtl,
                       child: Padding(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 15, vertical: 3),
                         child: Center(
-                            child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            CircleAvatar(
-                              radius: 16,
-                              backgroundColor:
-                                  Color.fromARGB(255, 142, 183, 65),
-                              child: Center(
-                                child: Text(titleCount as String,
-                                    style: TextStyle(
-                                      color: Color.fromARGB(255, 39, 39, 39),
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold,
-                                    )),
-                              ),
-                            ),
-                            SizedBox(width: 5),
-                            Flexible(
-                              child: FittedBox(
-                                fit: BoxFit.cover,
-                                child: Text(
-                                  title,
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      color: Color.fromARGB(255, 142, 183, 65),
-                                      fontSize: 25,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ),
-                            ),
-                          ],
+                            child: FittedBox(
+                          fit: BoxFit.cover,
+                          child: Text(
+                            titleSection.toString(),
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                color: Color.fromARGB(255, 142, 183, 65),
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold),
+                          ),
                         )),
                       ),
                     )
@@ -139,7 +144,7 @@ class ChapterSlidePage extends StatelessWidget {
                       ),
                     )
                   : SizedBox(),
-              image != null
+              image2 != null
                   ? Padding(
                       padding: const EdgeInsets.only(
                         top: 10,
@@ -152,7 +157,7 @@ class ChapterSlidePage extends StatelessWidget {
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(15),
                             image: DecorationImage(
-                                image: AssetImage(image.toString()),
+                                image: AssetImage(image2.toString()),
                                 fit: BoxFit.fill)),
                       ),
                     )
