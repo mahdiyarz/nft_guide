@@ -66,31 +66,26 @@ class _ArticlePageState extends State<ArticlePage>
         backgroundColor: Color.fromARGB(255, 39, 39, 39),
         toolbarHeight: 40,
       ),
-      body: Column(
-        children: [
-          Container(
-            child: Expanded(
-              child: PageView.builder(
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        child: PageView.builder(
 
-                  // allowImplicitScrolling: true,
-                  onPageChanged: changeDot,
-                  itemCount: articleData.length,
-                  controller: _controller,
-                  itemBuilder: (ctx, index) {
-                    return SlidePageWidget(
-                      titleCount: articleData[index].titleCount,
-                      describtion: articleData[index].text,
-                      image: articleData[index].image,
-                      title: articleData[index].title,
-                      starnote: articleData[index].starnote,
-                      describtion2: articleData[index].text2,
-                      image2: articleData[index].image2,
-                      starnote2: articleData[index].starnote2,
-                    );
-                  }),
-            ),
-          ),
-        ],
+            // allowImplicitScrolling: true,
+            onPageChanged: changeDot,
+            itemCount: articleData.length,
+            controller: _controller,
+            itemBuilder: (ctx, index) {
+              return SlidePageWidget(
+                titleCount: articleData[index].titleCount,
+                describtion: articleData[index].text,
+                image: articleData[index].image,
+                title: articleData[index].title,
+                starnote: articleData[index].starnote,
+                describtion2: articleData[index].text2,
+                image2: articleData[index].image2,
+                starnote2: articleData[index].starnote2,
+              );
+            }),
       ),
     );
   }

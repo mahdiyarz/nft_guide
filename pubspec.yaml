@@ -29,7 +29,6 @@ environment:
 dependencies:
   tapsell_plus: ^2.1.7
   shared_preferences: ^2.0.13
-  adobe_xd: ^2.0.0
   flutter:
     sdk: flutter
 

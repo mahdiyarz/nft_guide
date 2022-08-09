@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:nft_guide/Games/gameList.dart';
-import 'package:tapsell_plus/tapsell_plus.dart';
-
-import '../models/nftModel.dart';
-import '../screens/chapterDetail.dart';
 
 class GameCard extends StatelessWidget {
   // this is the card that shown in the first screen of the app
@@ -15,12 +11,12 @@ class GameCard extends StatelessWidget {
             .push(MaterialPageRoute(builder: (_) => GameList()));
       },
       child: Card(
-        margin: const EdgeInsets.symmetric(
-          vertical: 2,
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        margin: EdgeInsets.symmetric(vertical: 6, horizontal: 10),
         elevation: 2,
         child: Container(
             decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
               image: DecorationImage(
                 image: AssetImage('images/gamepic.webp'),
                 fit: BoxFit.cover,
@@ -30,7 +26,7 @@ class GameCard extends StatelessWidget {
               // borderRadius: BorderRadius.circular(15),
             ),
             width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.width / 2,
+            height: MediaQuery.of(context).size.width / 3.4,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

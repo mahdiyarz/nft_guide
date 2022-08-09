@@ -2,7 +2,6 @@ import 'package:nft_guide/screens/home.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 
 class OnBoardingPage extends StatefulWidget {
@@ -109,7 +108,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
       onDone: () => _onIntroEnd(context),
       //onSkip: () => _onIntroEnd(context), // You can override onSkip callback
       showBackButton: false,
-      showSkipButton: true,
+      showSkipButton: false,
       skipOrBackFlex: 0,
       nextFlex: 0,
 

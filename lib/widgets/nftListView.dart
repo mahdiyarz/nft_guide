@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:nft_guide/screens/chapterPage.dart';
 import 'package:tapsell_plus/tapsell_plus.dart';
-
 import '../models/nftModel.dart';
-import '../screens/chapterDetail.dart';
 
 class NftListView extends StatelessWidget {
   int index;
@@ -14,13 +13,9 @@ class NftListView extends StatelessWidget {
     return InkWell(
       onTap: () => Navigator.of(context).push(
         MaterialPageRoute(
-          builder: (_) => ChapterDetail(
-            title: nftsData[index].title,
-            descriptions: nftsData[index].descriptions,
-            image: nftsData[index].image,
-            ad2: ad2,
-          ),
-        ),
+            builder: (_) => ChapterPage(
+                  nft: nftsData[index],
+                )),
       ),
       child: Card(
         margin: const EdgeInsets.symmetric(

@@ -50,74 +50,91 @@ class _CustomDrawerState extends State<CustomDrawer> {
                       .withOpacity(widget.animation2!.value),
                   borderRadius: BorderRadius.circular(8),
                 ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                child: Stack(
                   children: [
-                    InkWell(
-                      onTap: () {
-                        widget.controller!.reverse();
-                        widget.isBool = false;
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.only(right: 20),
-                        child: Container(
-                          alignment: Alignment.topRight,
-                          child: Icon(
-                            Icons.close_rounded,
-                            color: Colors.white70,
+                    Positioned(
+                      top: _width / 90,
+                      left: _width / 90,
+                      child: InkWell(
+                        onTap: () {
+                          widget.controller!.reverse();
+                          widget.isBool = false;
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.only(right: 20),
+                          child: Container(
+                            width: 35,
+                            height: 35,
+                            decoration: BoxDecoration(
+                              color: Colors.white38,
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            child: Center(
+                              child: Icon(
+                                Icons.close_rounded,
+                                color: Color.fromARGB(255, 115, 102, 68)
+                                    .withOpacity(widget.animation2!.value),
+                              ),
+                            ),
                           ),
                         ),
                       ),
                     ),
-                    CircleAvatar(
-                      backgroundColor: Colors.white70,
-                      radius: 55,
-                      child: Image.asset(
-                        'assets/images/pars-string.png',
-                        fit: BoxFit.cover,
-                      ),
-                    ),
                     Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        MyTile(Icons.settings_outlined, 'سایر مقالات', () {
-                          HapticFeedback.lightImpact();
-                        }),
-                        // MyTile(Icons.feedback_outlined, 'انتقادات و پیشنهادات',
-                        //     () {
-                        //   HapticFeedback.lightImpact();
-                        // }),
-                        MyTile(Icons.info_outline_rounded, 'اطلاعات بیشتر', () {
-                          HapticFeedback.lightImpact();
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (_) => MoreInformation()));
-                        }),
-                        MyTile(Icons.alternate_email_rounded, 'راه های ارتباطی',
-                            () {
-                          HapticFeedback.lightImpact();
-                          Navigator.of(context).push(
-                              MaterialPageRoute(builder: (_) => ContactUs()));
-                        }),
-                      ],
-                    ),
-                    const SizedBox(),
-                    Column(
-                      children: const [
-                        Text(
-                          'Designed & Developed by Pars String Group',
-                          style: TextStyle(
-                            color: Colors.white54,
-                            fontSize: 10,
+                        CircleAvatar(
+                          backgroundColor: Colors.white70,
+                          radius: 55,
+                          child: Image.asset(
+                            'assets/images/pars-string.png',
+                            fit: BoxFit.cover,
                           ),
                         ),
-                        Text(
-                          'pars.string@gmail.com',
-                          style: TextStyle(
-                            color: Colors.white54,
-                            fontSize: 10,
-                          ),
+                        Column(
+                          children: [
+                            MyTile(Icons.settings_outlined, 'سایر مقالات', () {
+                              HapticFeedback.lightImpact();
+                            }),
+                            // MyTile(Icons.feedback_outlined, 'انتقادات و پیشنهادات',
+                            //     () {
+                            //   HapticFeedback.lightImpact();
+                            // }),
+                            MyTile(Icons.info_outline_rounded, 'اطلاعات بیشتر',
+                                () {
+                              HapticFeedback.lightImpact();
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (_) => MoreInformation()));
+                            }),
+                            MyTile(Icons.alternate_email_rounded,
+                                'راه های ارتباطی', () {
+                              HapticFeedback.lightImpact();
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (_) => ContactUs()));
+                            }),
+                          ],
+                        ),
+                        const SizedBox(),
+                        Column(
+                          children: const [
+                            Text(
+                              'Designed & Developed by Pars String Group',
+                              style: TextStyle(
+                                color: Colors.white54,
+                                fontSize: 10,
+                              ),
+                            ),
+                            Text(
+                              'pars.string@gmail.com',
+                              style: TextStyle(
+                                color: Colors.white54,
+                                fontSize: 10,
+                              ),
+                            )
+                          ],
                         )
                       ],
-                    )
+                    ),
                   ],
                 ),
               ),
