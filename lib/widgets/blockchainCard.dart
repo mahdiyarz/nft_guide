@@ -22,7 +22,7 @@ Widget BlocChainCard(BuildContext context) {
             ),
             fit: BoxFit.cover,
             opacity: 0.4)),
-    width: width / 4,
+    width: width / 3.2,
     height: width / 4,
   );
 }

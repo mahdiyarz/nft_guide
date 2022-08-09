@@ -259,7 +259,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
               children: [
                 Container(
                   margin: EdgeInsets.only(top: 20),
-                  height: 190,
+                  height: 200,
                   child: PageView(
                     pageSnapping: true,
                     controller: _pageController,
@@ -297,14 +297,14 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                           }),
                       InkWell(
                         child: CarouselCard(
-                            pagePosition: 0,
+                            pagePosition: 2,
                             activePage: activePage,
                             image: nftsData[randomChapterIndex2].image,
                             text: nftsData[randomChapterIndex2].title),
                         onTap: () => Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (_) => ChapterPage(
-                              nft: nftsData[randomChapterIndex],
+                              nft: nftsData[randomChapterIndex2],
                               ad2: ad2,
                             ),
                           ),
