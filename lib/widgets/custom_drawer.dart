@@ -93,7 +93,8 @@ class _CustomDrawerState extends State<CustomDrawer> {
                         ),
                         Column(
                           children: [
-                            MyTile(Icons.settings_outlined, 'سایر مقالات', () {
+                            MyTile(Icons.settings_outlined,
+                                'ما رو به صرف قهوه مهمون کن', () {
                               HapticFeedback.lightImpact();
                             }),
                             // MyTile(Icons.feedback_outlined, 'انتقادات و پیشنهادات',

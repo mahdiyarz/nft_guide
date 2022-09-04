@@ -191,6 +191,13 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                 onPressed: () => Navigator.pop(context, true),
                 child: Text('بله'),
               ),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: Color.fromARGB(255, 142, 183, 65).withOpacity(.6),
+                ),
+                onPressed: () => Navigator.pop(context, true),
+                child: Text('قهوه تون با من!'),
+              ),
             ],
           ),
         ),
@@ -296,8 +303,15 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                                     GameThumb(gameList[randomGameIndex])));
                           }),
                       InkWell(
+                          child: CarouselCard(
+                              pagePosition: 2,
+                              activePage: activePage,
+                              image: 'assets/images/buy-coffee.jpg',
+                              text: 'ما رو به صرف قهوه مهمون کن'),
+                          onTap: () {}),
+                      InkWell(
                         child: CarouselCard(
-                            pagePosition: 2,
+                            pagePosition: 3,
                             activePage: activePage,
                             image: nftsData[randomChapterIndex2].image,
                             text: nftsData[randomChapterIndex2].title),
@@ -312,7 +326,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                       ),
                       InkWell(
                           child: CarouselCard(
-                              pagePosition: 3,
+                              pagePosition: 4,
                               activePage: activePage,
                               image: gameList[randomGameIndex2].image[0],
                               text: gameList[randomGameIndex2].name),
@@ -324,7 +338,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                       if (bannerDataDown != null)
                         InkWell(
                             child: CarouselCard(
-                                pagePosition: 4,
+                                pagePosition: 5,
                                 activePage: activePage,
                                 image: bannerDataDown!.landscapeImageUrl
                                     .toString(),
