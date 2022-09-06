@@ -29,6 +29,7 @@ environment:
 dependencies:
   tapsell_plus: ^2.1.7
   shared_preferences: ^2.0.13
+  lottie: ^1.4.2
   flutter:
     sdk: flutter
 
@@ -68,6 +69,7 @@ flutter:
   assets:
     - images/
     - assets/images/
+    - assets/lottie/
 
   #   - images/a_dot_ham.jpeg
 
