@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-
-import 'package:nft_guide/Games/articledatamodel.dart';
-import 'package:nft_guide/models/nftModel.dart';
-import 'package:nft_guide/screens/chapterSlidePage.dart';
 import 'package:tapsell_plus/tapsell_plus.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:lottie/lottie.dart';
+
+import '../Games/articledatamodel.dart';
+import '../models/nftModel.dart';
+import '../screens/chapterSlidePage.dart';
 
 class ChapterPage extends StatefulWidget {
   Nfts nft;
@@ -21,6 +23,28 @@ class ChapterPage extends StatefulWidget {
 
 class _ChapterPageState extends State<ChapterPage>
     with SingleTickerProviderStateMixin {
+  bool _isPullRight = true;
+  Future isFirstPull() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool firstPull = prefs.getBool('firstPull') ?? true;
+
+    if (firstPull) {
+      await prefs.setBool('firstPull', false);
+      setState(() {
+        _isPullRight = false;
+      });
+    } else {
+      setState(() {
+        _isPullRight = true;
+      });
+    }
+  }
+
+  Future dragHorizontal() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('firstPull', false);
+  }
+
   PageController _controller = PageController(
     initialPage: 0,
   );
@@ -33,7 +57,10 @@ class _ChapterPageState extends State<ChapterPage>
 
   late final TabController _dotcontroller;
   int dotindex = 0;
+
   void initState() {
+    isFirstPull();
+
     super.initState();
     _dotcontroller = TabController(
       length: widget.nft.chapterDetailList.length,
@@ -77,33 +104,54 @@ class _ChapterPageState extends State<ChapterPage>
         backgroundColor: Color.fromARGB(255, 39, 39, 39),
         toolbarHeight: 40,
       ),
-      body: Column(
-        children: [
-          Flexible(
-            child: Container(
-              height: MediaQuery.of(context).size.height,
-              child: PageView.builder(
+      body: GestureDetector(
+        onHorizontalDragStart: ((details) {
+          dragHorizontal();
+          setState(() {
+            _isPullRight = true;
+          });
+        }),
+        child: Stack(
+          children: [
+            Column(
+              children: [
+                Flexible(
+                  child: Container(
+                    height: MediaQuery.of(context).size.height,
+                    child: PageView.builder(
 
-                  // allowImplicitScrolling: true,
-                  onPageChanged: changeDot,
-                  itemCount: widget.nft.chapterDetailList.length,
-                  controller: _controller,
-                  itemBuilder: (ctx, index) {
-                    return ChapterSlidePage(
-                        describtion: widget.nft.chapterDetailList[index].text,
-                        describtion2: widget.nft.chapterDetailList[index].text2,
-                        image: widget.nft.chapterDetailList[index].image,
-                        image2: widget.nft.chapterDetailList[index].image2,
-                        starnote: widget.nft.chapterDetailList[index].starnote,
-                        starnote2:
-                            widget.nft.chapterDetailList[index].starnote2,
-                        titleSection: 'gjhgkjhkj'
-                        //widget.nft.chapterDetailList[index].titleSection,
-                        );
-                  }),
+                        // allowImplicitScrolling: true,
+                        onPageChanged: changeDot,
+                        itemCount: widget.nft.chapterDetailList.length,
+                        controller: _controller,
+                        itemBuilder: (ctx, index) {
+                          return ChapterSlidePage(
+                              describtion:
+                                  widget.nft.chapterDetailList[index].text,
+                              describtion2:
+                                  widget.nft.chapterDetailList[index].text2,
+                              image: widget.nft.chapterDetailList[index].image,
+                              image2:
+                                  widget.nft.chapterDetailList[index].image2,
+                              starnote:
+                                  widget.nft.chapterDetailList[index].starnote,
+                              starnote2:
+                                  widget.nft.chapterDetailList[index].starnote2,
+                              titleSection: 'gjhgkjhkj'
+                              //widget.nft.chapterDetailList[index].titleSection,
+                              );
+                        }),
+                  ),
+                ),
+              ],
             ),
-          ),
-        ],
+            _isPullRight == false
+                ? Center(
+                    child: Lottie.asset('assets/lottie/swipe-left.json'),
+                  )
+                : SizedBox(),
+          ],
+        ),
       ),
     );
   }

@@ -1,11 +1,15 @@
 import 'dart:async';
 import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:nft_guide/Games/gameModel.dart';
-import 'package:nft_guide/screens/chapterPage.dart';
-import 'package:nft_guide/widgets/divider.dart';
 import 'package:tapsell_plus/tapsell_plus.dart';
+import 'package:lottie/lottie.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import '../Games/gameModel.dart';
+import '../screens/chapterPage.dart';
+import '../widgets/divider.dart';
 import '../Games/gameCard.dart';
 import '../Games/gamescreens.dart';
 import '../models/nftModel.dart';
@@ -44,6 +48,50 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
   var activePage = 1;
   var pageIndex = 1;
 
+  bool _isClick = true;
+  Future isFirstClick() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool firstClick = prefs.getBool('firstClick') ?? true;
+
+    if (firstClick) {
+      await prefs.setBool('firstClick', false);
+      setState(() {
+        _isClick = false;
+      });
+    } else {
+      setState(() {
+        _isClick = true;
+      });
+    }
+  }
+
+  Future clickOnChapter() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('firstClick', false);
+  }
+
+  bool _isDrag = true;
+  Future isFirstDrag() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool firstDrag = prefs.getBool('firstDrag') ?? true;
+
+    if (firstDrag) {
+      await prefs.setBool('firstdrag', false);
+      setState(() {
+        _isDrag = false;
+      });
+    } else {
+      setState(() {
+        _isDrag = true;
+      });
+    }
+  }
+
+  Future dragVerticalDown() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('firstDrag', false);
+  }
+
   @override
   void dispose() {
     _controller!.dispose();
@@ -70,6 +118,9 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
 
   @override
   void initState() {
+    isFirstDrag();
+    isFirstClick();
+
     adloadmid();
     Timer(Duration(seconds: 10), () => adloaddown());
     Timer(Duration(seconds: 15), () => adloadsecondpage());
@@ -260,145 +311,172 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
         backgroundColor: Color.fromARGB(255, 39, 39, 39),
         body: Stack(
           children: [
-            ListView(
-              physics: const BouncingScrollPhysics(
-                  parent: AlwaysScrollableScrollPhysics()),
-              children: [
-                Container(
-                  margin: EdgeInsets.only(top: 20),
-                  height: 200,
-                  child: PageView(
-                    pageSnapping: true,
-                    controller: _pageController,
-                    onPageChanged: (page) {
-                      setState(() {
-                        activePage = page;
-                      });
-                    },
-                    children: [
-                      InkWell(
-                        child: CarouselCard(
-                            pagePosition: 0,
-                            activePage: activePage,
-                            image: nftsData[randomChapterIndex].image,
-                            text: nftsData[randomChapterIndex].title),
-                        onTap: () => Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (_) => ChapterPage(
-                              nft: nftsData[randomChapterIndex],
-                              ad2: ad2,
+            GestureDetector(
+              onVerticalDragDown: (details) {
+                dragVerticalDown();
+                setState(() {
+                  _isDrag = true;
+                });
+              },
+              child: ListView(
+                physics: const BouncingScrollPhysics(
+                    parent: AlwaysScrollableScrollPhysics()),
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(top: 20),
+                    height: 200,
+                    child: PageView(
+                      pageSnapping: true,
+                      controller: _pageController,
+                      onPageChanged: (page) {
+                        setState(() {
+                          activePage = page;
+                        });
+                      },
+                      children: [
+                        InkWell(
+                          child: CarouselCard(
+                              pagePosition: 0,
+                              activePage: activePage,
+                              image: nftsData[randomChapterIndex].image,
+                              text: nftsData[randomChapterIndex].title),
+                          onTap: () => Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (_) => ChapterPage(
+                                nft: nftsData[randomChapterIndex],
+                                ad2: ad2,
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                      InkWell(
-                          child: CarouselCard(
-                              pagePosition: 1,
-                              activePage: activePage,
-                              image: gameList[randomGameIndex].image[0],
-                              text: gameList[randomGameIndex].name),
-                          onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) =>
-                                    GameThumb(gameList[randomGameIndex])));
-                          }),
-                      InkWell(
-                          child: CarouselCard(
-                              pagePosition: 2,
-                              activePage: activePage,
-                              image: 'assets/images/buy-coffee.jpg',
-                              text: 'ما رو به صرف قهوه مهمون کن'),
-                          onTap: () {}),
-                      InkWell(
-                        child: CarouselCard(
-                            pagePosition: 3,
-                            activePage: activePage,
-                            image: nftsData[randomChapterIndex2].image,
-                            text: nftsData[randomChapterIndex2].title),
-                        onTap: () => Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (_) => ChapterPage(
-                              nft: nftsData[randomChapterIndex2],
-                              ad2: ad2,
-                            ),
-                          ),
-                        ),
-                      ),
-                      InkWell(
-                          child: CarouselCard(
-                              pagePosition: 4,
-                              activePage: activePage,
-                              image: gameList[randomGameIndex2].image[0],
-                              text: gameList[randomGameIndex2].name),
-                          onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) =>
-                                    GameThumb(gameList[randomGameIndex2])));
-                          }),
-                      if (bannerDataDown != null)
                         InkWell(
                             child: CarouselCard(
-                                pagePosition: 5,
+                                pagePosition: 1,
                                 activePage: activePage,
-                                image: bannerDataDown!.landscapeImageUrl
-                                    .toString(),
-                                text: bannerDataDown!.title.toString()),
-                            onTap: () => TapsellPlus.instance
-                                .nativeBannerAdClicked(
-                                    bannerDataDown!.responseId.toString())),
-                    ],
+                                image: gameList[randomGameIndex].image[0],
+                                text: gameList[randomGameIndex].name),
+                            onTap: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) =>
+                                      GameThumb(gameList[randomGameIndex])));
+                            }),
+                        InkWell(
+                            child: CarouselCard(
+                                pagePosition: 2,
+                                activePage: activePage,
+                                image: 'assets/images/buy-coffee.jpg',
+                                text: 'ما رو به صرف قهوه مهمون کن'),
+                            onTap: () {}),
+                        InkWell(
+                          child: CarouselCard(
+                              pagePosition: 3,
+                              activePage: activePage,
+                              image: nftsData[randomChapterIndex2].image,
+                              text: nftsData[randomChapterIndex2].title),
+                          onTap: () => Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (_) => ChapterPage(
+                                nft: nftsData[randomChapterIndex2],
+                                ad2: ad2,
+                              ),
+                            ),
+                          ),
+                        ),
+                        InkWell(
+                            child: CarouselCard(
+                                pagePosition: 4,
+                                activePage: activePage,
+                                image: gameList[randomGameIndex2].image[0],
+                                text: gameList[randomGameIndex2].name),
+                            onTap: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) =>
+                                      GameThumb(gameList[randomGameIndex2])));
+                            }),
+                        if (bannerDataDown != null)
+                          InkWell(
+                              child: CarouselCard(
+                                  pagePosition: 5,
+                                  activePage: activePage,
+                                  image: bannerDataDown!.landscapeImageUrl
+                                      .toString(),
+                                  text: bannerDataDown!.title.toString()),
+                              onTap: () => TapsellPlus.instance
+                                  .nativeBannerAdClicked(
+                                      bannerDataDown!.responseId.toString())),
+                      ],
+                    ),
                   ),
-                ),
-                /* CarouselSlider(
-                  options: CarouselOptions(
-                    autoPlay: true,
-                    aspectRatio: 2.0,
-                    enlargeCenterPage: true,
-                  ),
-                  items: imageSliders,
-                ), */
+                  /* CarouselSlider(
+                      options: CarouselOptions(
+                        autoPlay: true,
+                        aspectRatio: 2.0,
+                        enlargeCenterPage: true,
+                      ),
+                      items: imageSliders,
+                    ), */
 
-                DividerNew(context, 'ویژه نامه ', Icons.not_accessible),
-                GameCard(),
-                GameCard(),
-                DividerNew(context, 'آشنایی با بلاکچین', Icons.abc_rounded),
-                Container(
-                  height: MediaQuery.of(context).size.width / 2.5,
-                  color: Color.fromARGB(40, 8, 8, 8),
-                  child: ListView.builder(
-                    physics: const BouncingScrollPhysics(
-                        parent: AlwaysScrollableScrollPhysics()),
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index) {
-                      return BlocChainCard(context);
-                    },
-                    itemCount: 4,
+                  DividerNew(context, 'ویژه نامه ', Icons.not_accessible),
+                  GameCard(),
+                  GameCard(),
+                  DividerNew(context, 'آشنایی با بلاکچین', Icons.abc_rounded),
+                  Container(
+                    height: MediaQuery.of(context).size.width / 2.5,
+                    color: Color.fromARGB(40, 8, 8, 8),
+                    child: ListView.builder(
+                      physics: const BouncingScrollPhysics(
+                          parent: AlwaysScrollableScrollPhysics()),
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (context, index) {
+                        return BlocChainCard(context);
+                      },
+                      itemCount: 4,
+                    ),
                   ),
-                ),
-                DividerNew(context, 'NFT آشنایی با ', Icons.abc_rounded),
-                NftListView(index: 0, ad2: ad2),
-                NftListView(index: 1, ad2: ad2),
-                NftListView(index: 2, ad2: ad2),
-                (bannerDataMid != null)
-                    ? AdBanner(data: bannerDataMid!)
-                    : const SizedBox(
-                        height: 0.1,
-                      ),
-                NftListView(index: 3, ad2: ad2),
-                NftListView(index: 4, ad2: ad2),
-                /*  NftListView(index: 5, ad2: ad2),
-                NftListView(index: 6, ad2: ad2),
-                NftListView(index: 7, ad2: ad2),
-                NftListView(index: 8, ad2: ad2),
-                NftListView(index: 9, ad2: ad2),
-                NftListView(index: 10, ad2: ad2),
-                NftListView(index: 11, ad2: ad2), */
-                (bannerDataDown != null)
-                    ? AdBanner(data: bannerDataDown!)
-                    : const SizedBox(
-                        height: 0.1,
-                      ),
-              ],
+                  DividerNew(context, 'NFT آشنایی با ', Icons.abc_rounded),
+                  Stack(children: [
+                    GestureDetector(
+                      onTapDown: (details) {
+                        clickOnChapter();
+                        setState(() {
+                          _isClick = true;
+                        });
+                      },
+                      onTapUp: (details) {
+                        clickOnChapter();
+                        setState(() {
+                          _isClick = true;
+                        });
+                      },
+                      child: NftListView(index: 0, ad2: ad2),
+                    ),
+                    _isClick == false
+                        ? Lottie.asset('assets/lottie/click-animation.json')
+                        : SizedBox(),
+                  ]),
+                  NftListView(index: 1, ad2: ad2),
+                  NftListView(index: 2, ad2: ad2),
+                  (bannerDataMid != null)
+                      ? AdBanner(data: bannerDataMid!)
+                      : const SizedBox(
+                          height: 0.1,
+                        ),
+                  NftListView(index: 3, ad2: ad2),
+                  NftListView(index: 4, ad2: ad2),
+                  /*  NftListView(index: 5, ad2: ad2),
+                    NftListView(index: 6, ad2: ad2),
+                    NftListView(index: 7, ad2: ad2),
+                    NftListView(index: 8, ad2: ad2),
+                    NftListView(index: 9, ad2: ad2),
+                    NftListView(index: 10, ad2: ad2),
+                    NftListView(index: 11, ad2: ad2), */
+                  (bannerDataDown != null)
+                      ? AdBanner(data: bannerDataDown!)
+                      : const SizedBox(
+                          height: 0.1,
+                        ),
+                ],
+              ),
             ),
             CustomDrawer(
               isBool: _bool,
@@ -407,6 +485,15 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
               animation3: _animation3,
               controller: _controller,
             ),
+            _isDrag == false
+                ? Positioned(
+                    bottom: 25,
+                    left: 25,
+                    child: Container(
+                        height: _width / 2,
+                        child: Lottie.asset('assets/lottie/swipe-up.json')),
+                  )
+                : SizedBox(),
           ],
         ),
       ),
