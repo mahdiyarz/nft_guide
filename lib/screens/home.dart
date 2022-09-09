@@ -464,6 +464,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                         ),
                   NftListView(index: 3, ad2: ad2),
                   NftListView(index: 4, ad2: ad2),
+
                   /*  NftListView(index: 5, ad2: ad2),
                     NftListView(index: 6, ad2: ad2),
                     NftListView(index: 7, ad2: ad2),
@@ -476,6 +477,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                       : const SizedBox(
                           height: 0.1,
                         ),
+                  GameCard(),
                 ],
               ),
             ),
