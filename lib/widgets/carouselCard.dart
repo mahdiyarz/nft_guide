@@ -6,7 +6,7 @@ Widget CarouselCard(
     required String image,
     required String text}) {
   bool active = pagePosition == activePage;
-  double margin = active ? 10 : 20;
+  double margin = active ? 5 : 20;
   return AnimatedContainer(
     duration: Duration(milliseconds: 500),
     curve: Curves.easeInOutCubic,

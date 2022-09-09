@@ -38,7 +38,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
   NativeAdData? ad2;
   bool _bool = true;
   PageController _pageController =
-      PageController(viewportFraction: 0.8, initialPage: 1);
+      PageController(viewportFraction: 0.85, initialPage: 1);
   Random random = new Random();
   late int randomChapterIndex;
   late int randomGameIndex;
@@ -324,7 +324,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                 children: [
                   Container(
                     margin: EdgeInsets.only(top: 20),
-                    height: 200,
+                    height: 230,
                     child: PageView(
                       pageSnapping: true,
                       controller: _pageController,
@@ -415,11 +415,12 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                       ),
                       items: imageSliders,
                     ), */
-
+/* 
                   DividerNew(context, 'ویژه نامه ', Icons.not_accessible),
                   GameCard(),
-                  GameCard(),
-                  DividerNew(context, 'آشنایی با بلاکچین', Icons.abc_rounded),
+                  GameCard(), */
+                  DividerNew(
+                      context, 'پیش نیاز :مفاهیم بلاکچین', Icons.abc_rounded),
                   Container(
                     height: MediaQuery.of(context).size.width / 2.5,
                     color: Color.fromARGB(40, 8, 8, 8),
