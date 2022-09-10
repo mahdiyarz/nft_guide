@@ -73,7 +73,7 @@ class _Chapter3CardState extends State<Chapter2Card> {
                             onTap: () => Navigator.of(context).push(
                               MaterialPageRoute(
                                   builder: (_) => ChapterPage(
-                                        nft: nftsData[1],
+                                        nft: nftsData[5],
                                       )),
                             ),
                             child: ListTile(
@@ -107,7 +107,7 @@ class _Chapter3CardState extends State<Chapter2Card> {
                             onTap: () => Navigator.of(context).push(
                               MaterialPageRoute(
                                   builder: (_) => ChapterPage(
-                                        nft: nftsData[2],
+                                        nft: nftsData[6],
                                       )),
                             ),
                             child: ListTile(
@@ -141,7 +141,7 @@ class _Chapter3CardState extends State<Chapter2Card> {
                             onTap: () => Navigator.of(context).push(
                               MaterialPageRoute(
                                   builder: (_) => ChapterPage(
-                                        nft: nftsData[2],
+                                        nft: nftsData[7],
                                       )),
                             ),
                             child: ListTile(
@@ -175,7 +175,7 @@ class _Chapter3CardState extends State<Chapter2Card> {
                             onTap: () => Navigator.of(context).push(
                               MaterialPageRoute(
                                   builder: (_) => ChapterPage(
-                                        nft: nftsData[3],
+                                        nft: nftsData[8],
                                       )),
                             ),
                             child: ListTile(
