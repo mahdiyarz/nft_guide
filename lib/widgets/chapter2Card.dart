@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import '../models/nftModel.dart';
 import '../screens/chapterPage.dart';
 
-class Chapter3Card extends StatefulWidget {
+class Chapter2Card extends StatefulWidget {
   @override
-  State<Chapter3Card> createState() => _Chapter3CardState();
+  State<Chapter2Card> createState() => _Chapter3CardState();
 }
 
-class _Chapter3CardState extends State<Chapter3Card> {
+class _Chapter3CardState extends State<Chapter2Card> {
   bool isPressed = false;
   // double width = MediaQuery.of(widget.contexty).size.width;
   // this is the card that shown in the first screen of the app

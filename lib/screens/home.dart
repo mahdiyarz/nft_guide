@@ -3,7 +3,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:nft_guide/widgets/chapter3Card.dart';
+import 'package:nft_guide/widgets/chapter2Card.dart';
 import 'package:tapsell_plus/tapsell_plus.dart';
 import 'package:lottie/lottie.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -429,8 +429,9 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                       physics: const BouncingScrollPhysics(
                           parent: AlwaysScrollableScrollPhysics()),
                       scrollDirection: Axis.horizontal,
+                      reverse: true,
                       itemBuilder: (context, index) {
-                        return BlocChainCard(context);
+                        return BlocChainCard(context, index);
                       },
                       itemCount: 4,
                     ),
@@ -463,7 +464,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                       : const SizedBox(
                           height: 0.1,
                         ),
-                  Chapter3Card(),
+                  Chapter2Card(),
                   NftListView(index: 4, ad2: ad2),
 
                   /*  NftListView(index: 5, ad2: ad2),
