@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../screens/contact_us.dart';
 import '../screens/more_info.dart';
@@ -26,6 +27,14 @@ class CustomDrawer extends StatefulWidget {
 }
 
 class _CustomDrawerState extends State<CustomDrawer> {
+  final Uri _url = Uri.parse('https://www.coffeete.ir/ParsString');
+
+  Future<void> _launchUrl() async {
+    if (!await launchUrl(_url)) {
+      throw 'Could not launch $_url';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     double _height = MediaQuery.of(context).size.height;
@@ -96,11 +105,8 @@ class _CustomDrawerState extends State<CustomDrawer> {
                             MyTile(Icons.settings_outlined,
                                 'ما رو به صرف قهوه مهمون کن', () {
                               HapticFeedback.lightImpact();
+                              _launchUrl();
                             }),
-                            // MyTile(Icons.feedback_outlined, 'انتقادات و پیشنهادات',
-                            //     () {
-                            //   HapticFeedback.lightImpact();
-                            // }),
                             MyTile(Icons.info_outline_rounded, 'اطلاعات بیشتر',
                                 () {
                               HapticFeedback.lightImpact();
