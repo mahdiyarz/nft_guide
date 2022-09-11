@@ -30,7 +30,7 @@ class GameCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'فصل دهم',
+                  'فصل هشتم',
                   textAlign: TextAlign.center,
                   style: const TextStyle(
                     color: Colors.white,
