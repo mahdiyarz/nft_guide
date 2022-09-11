@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:nft_guide/widgets/chapter2Card.dart';
+import 'package:nft_guide/widgets/chapter7Card.dart';
 import 'package:tapsell_plus/tapsell_plus.dart';
 import 'package:lottie/lottie.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -480,6 +481,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                       : const SizedBox(
                           height: 0.1,
                         ),
+                  Chapter7Card(),
                   GameCard(),
                 ],
               ),

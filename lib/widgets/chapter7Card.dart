@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import '../models/nftModel.dart';
 import '../screens/chapterPage.dart';
 
-class Chapter2Card extends StatefulWidget {
+class Chapter7Card extends StatefulWidget {
   @override
-  State<Chapter2Card> createState() => _Chapter3CardState();
+  State<Chapter7Card> createState() => _Chapter7CardState();
 }
 
-class _Chapter3CardState extends State<Chapter2Card> {
+class _Chapter7CardState extends State<Chapter7Card> {
   bool isPressed = false;
   bool startCounting = false;
   // double width = MediaQuery.of(widget.contexty).size.width;
@@ -74,35 +74,38 @@ class _Chapter3CardState extends State<Chapter2Card> {
                             ),
                           ), */
 
-                        Padding(
-                          padding: const EdgeInsets.only(top: 4),
-                          child: InkWell(
-                            onTap: () => Navigator.of(context).push(
-                              MaterialPageRoute(
-                                  builder: (_) => ChapterPage(
-                                        nft: nftsData[5],
-                                      )),
-                            ),
-                            child: ListTile(
-                              tileColor: Color.fromARGB(157, 32, 24, 24),
-                              title: Text('مینت کردن ',
-                                  style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold,
-                                      fontFamily: 'Vazir',
-                                      color:
-                                          Color.fromARGB(255, 171, 171, 171))),
-                              leading: CircleAvatar(
-                                radius: 20,
-                                backgroundColor:
-                                    Color.fromARGB(255, 142, 183, 65),
-                                child: Center(
-                                  child: Text('1',
-                                      style: TextStyle(
-                                        color: Color.fromARGB(255, 39, 39, 39),
+                        Center(
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 4),
+                            child: InkWell(
+                              onTap: () => Navigator.of(context).push(
+                                MaterialPageRoute(
+                                    builder: (_) => ChapterPage(
+                                          nft: nftsData[5],
+                                        )),
+                              ),
+                              child: ListTile(
+                                tileColor: Color.fromARGB(157, 32, 24, 24),
+                                title: Text('مقدمه',
+                                    style: TextStyle(
                                         fontSize: 20,
                                         fontWeight: FontWeight.bold,
-                                      )),
+                                        fontFamily: 'Vazir',
+                                        color: Color.fromARGB(
+                                            255, 171, 171, 171))),
+                                leading: CircleAvatar(
+                                  radius: 20,
+                                  backgroundColor:
+                                      Color.fromARGB(255, 142, 183, 65),
+                                  child: Center(
+                                    child: Text('1',
+                                        style: TextStyle(
+                                          color:
+                                              Color.fromARGB(255, 39, 39, 39),
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold,
+                                        )),
+                                  ),
                                 ),
                               ),
                             ),
@@ -119,7 +122,7 @@ class _Chapter3CardState extends State<Chapter2Card> {
                             ),
                             child: ListTile(
                               tileColor: Color.fromARGB(157, 32, 24, 24),
-                              title: Text('گس فی چیست',
+                              title: Text('روش ها',
                                   style: TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold,
@@ -153,7 +156,7 @@ class _Chapter3CardState extends State<Chapter2Card> {
                             ),
                             child: ListTile(
                               tileColor: Color.fromARGB(157, 32, 24, 24),
-                              title: Text('لزی مینتیگ',
+                              title: Text('سخن پایانی',
                                   style: TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold,
@@ -166,40 +169,6 @@ class _Chapter3CardState extends State<Chapter2Card> {
                                     Color.fromARGB(255, 142, 183, 65),
                                 child: Center(
                                   child: Text('3',
-                                      style: TextStyle(
-                                        color: Color.fromARGB(255, 39, 39, 39),
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.bold,
-                                      )),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 4),
-                          child: InkWell(
-                            onTap: () => Navigator.of(context).push(
-                              MaterialPageRoute(
-                                  builder: (_) => ChapterPage(
-                                        nft: nftsData[8],
-                                      )),
-                            ),
-                            child: ListTile(
-                              tileColor: Color.fromARGB(157, 32, 24, 24),
-                              title: Text('NFT ساخت ',
-                                  style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold,
-                                      fontFamily: 'Vazir',
-                                      color:
-                                          Color.fromARGB(255, 171, 171, 171))),
-                              leading: CircleAvatar(
-                                radius: 20,
-                                backgroundColor:
-                                    Color.fromARGB(255, 142, 183, 65),
-                                child: Center(
-                                  child: Text('4',
                                       style: TextStyle(
                                         color: Color.fromARGB(255, 39, 39, 39),
                                         fontSize: 20,
@@ -230,7 +199,7 @@ class _Chapter3CardState extends State<Chapter2Card> {
                       decoration: BoxDecoration(
                         shape: isPressed ? BoxShape.circle : BoxShape.rectangle,
                         image: DecorationImage(
-                          image: AssetImage('images/Chapter3CreateNFT.jpg'),
+                          image: AssetImage('images/7-scam2.jpg'),
                           fit: BoxFit.cover,
                           opacity: 140,
                         ),
@@ -245,7 +214,7 @@ class _Chapter3CardState extends State<Chapter2Card> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  'فصل دوم',
+                                  'فصل هفتم',
                                   textAlign: TextAlign.center,
                                   style: const TextStyle(
                                     color: Colors.white,
@@ -259,7 +228,7 @@ class _Chapter3CardState extends State<Chapter2Card> {
                                     padding: const EdgeInsets.symmetric(
                                         horizontal: 15),
                                     child: Text(
-                                      'روش ساخت NFT',
+                                      'روش های معمول کلاه برداری',
                                       textDirection: TextDirection.rtl,
                                       style: const TextStyle(
                                         color: Colors.white,
