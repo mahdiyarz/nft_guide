@@ -10,6 +10,7 @@ class Chapter2Card extends StatefulWidget {
 
 class _Chapter3CardState extends State<Chapter2Card> {
   bool isPressed = false;
+  bool startCounting = false;
   // double width = MediaQuery.of(widget.contexty).size.width;
   // this is the card that shown in the first screen of the app
   @override
@@ -22,7 +23,8 @@ class _Chapter3CardState extends State<Chapter2Card> {
       margin: const EdgeInsets.symmetric(
         vertical: 2,
       ),
-      child: Container(
+      child: AnimatedContainer(
+        duration: Duration(milliseconds: 500),
         color: Color.fromARGB(221, 0, 0, 0),
         width: width1,
         height: isPressed ? 340 : width1 / 2,
@@ -33,38 +35,50 @@ class _Chapter3CardState extends State<Chapter2Card> {
                 : () {
                     setState(() {
                       isPressed = !isPressed;
+                      Future.delayed(Duration(milliseconds: 600), () {
+                        setState(() {
+                          startCounting = true;
+                        });
+                      });
                     });
                   },
             child: Stack(
               fit: StackFit.expand,
               children: [
-                if (isPressed == true)
-                  Center(
+                AnimatedCrossFade(
+                  duration: Duration(milliseconds: 1000),
+                  secondCurve: Curves.easeIn,
+                  crossFadeState: isPressed & startCounting
+                      ? CrossFadeState.showSecond
+                      : CrossFadeState.showFirst,
+                  firstChild: SizedBox(),
+                  secondChild: Center(
                     child: Column(
                       children: [
                         /*  InkWell(
-                          onTap: () {
-                            isPressed = false;
-                          },
-                          child: Container(
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(Icons.close, color: Colors.white),
-                                Text(
-                                  'بستن',
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                              ],
+                            onTap: () {
+                              isPressed = false;
+                            },
+                            child: Container(
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(Icons.close, color: Colors.white),
+                                  Text(
+                                    'بستن',
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                ],
+                              ),
                             ),
-                          ),
-                        ), */
+                          ), */
                         ElevatedButton(
                             style: ButtonStyle(
                                 backgroundColor: MaterialStateProperty.all(
-                                    Color.fromARGB(255, 115, 102, 68))),
+                                    Color.fromARGB(255, 92, 63, 91))),
                             onPressed: () => setState(() {
                                   isPressed = false;
+                                  startCounting = false;
                                 }),
                             child: Icon(Icons.close_fullscreen_rounded)),
                         Padding(
@@ -206,6 +220,7 @@ class _Chapter3CardState extends State<Chapter2Card> {
                       ],
                     ),
                   ),
+                ),
                 AnimatedContainer(
                     duration: Duration(milliseconds: 1500),
                     curve: Curves.bounceInOut,
