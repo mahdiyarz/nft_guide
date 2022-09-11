@@ -243,7 +243,7 @@ class _Chapter3CardState extends State<Chapter2Card> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                'فصل سوم',
+                                'فصل دوم',
                                 textAlign: TextAlign.center,
                                 style: const TextStyle(
                                   color: Colors.white,

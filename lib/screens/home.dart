@@ -451,21 +451,21 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                           _isClick = true;
                         });
                       },
-                      child: NftListView(index: 0, ad2: ad2),
+                      child: NftListView(index: 4, ad2: ad2),
                     ),
                     _isClick == false
                         ? Lottie.asset('assets/lottie/click-animation.json')
                         : SizedBox(),
                   ]),
-                  NftListView(index: 1, ad2: ad2),
-                  NftListView(index: 2, ad2: ad2),
+                  Chapter2Card(),
+                  NftListView(index: 9, ad2: ad2),
+                  NftListView(index: 10, ad2: ad2),
                   (bannerDataMid != null)
                       ? AdBanner(data: bannerDataMid!)
                       : const SizedBox(
                           height: 0.1,
                         ),
-                  Chapter2Card(),
-                  NftListView(index: 4, ad2: ad2),
+                  NftListView(index: 11, ad2: ad2),
 
                   /*  NftListView(index: 5, ad2: ad2),
                     NftListView(index: 6, ad2: ad2),
