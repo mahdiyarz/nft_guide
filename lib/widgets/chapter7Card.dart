@@ -81,7 +81,7 @@ class _Chapter7CardState extends State<Chapter7Card> {
                               onTap: () => Navigator.of(context).push(
                                 MaterialPageRoute(
                                     builder: (_) => ChapterPage(
-                                          nft: nftsData[5],
+                                          nft: nftsData[13],
                                         )),
                               ),
                               child: ListTile(
@@ -117,7 +117,7 @@ class _Chapter7CardState extends State<Chapter7Card> {
                             onTap: () => Navigator.of(context).push(
                               MaterialPageRoute(
                                   builder: (_) => ChapterPage(
-                                        nft: nftsData[6],
+                                        nft: nftsData[14],
                                       )),
                             ),
                             child: ListTile(
@@ -151,12 +151,12 @@ class _Chapter7CardState extends State<Chapter7Card> {
                             onTap: () => Navigator.of(context).push(
                               MaterialPageRoute(
                                   builder: (_) => ChapterPage(
-                                        nft: nftsData[7],
+                                        nft: nftsData[15],
                                       )),
                             ),
                             child: ListTile(
                               tileColor: Color.fromARGB(157, 32, 24, 24),
-                              title: Text('سخن پایانی',
+                              title: Text('نکات تکمیلی',
                                   style: TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold,
