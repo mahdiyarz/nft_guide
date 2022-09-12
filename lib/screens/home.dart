@@ -8,6 +8,7 @@ import 'package:nft_guide/widgets/chapter7Card.dart';
 import 'package:tapsell_plus/tapsell_plus.dart';
 import 'package:lottie/lottie.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../Games/gameModel.dart';
 import '../screens/chapterPage.dart';
@@ -92,6 +93,14 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
   Future dragVerticalDown() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setBool('firstDrag', false);
+  }
+
+  final Uri _url = Uri.parse('https://www.coffeete.ir/ParsString');
+
+  Future<void> _launchUrl() async {
+    if (!await launchUrl(_url)) {
+      throw 'Could not launch $_url';
+    }
   }
 
   @override
@@ -248,7 +257,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                 style: ElevatedButton.styleFrom(
                   primary: Color.fromARGB(255, 142, 183, 65).withOpacity(.6),
                 ),
-                onPressed: () => Navigator.pop(context, true),
+                onPressed: _launchUrl,
                 child: Text('قهوه تون با من!'),
               ),
             ],
@@ -368,7 +377,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                                 activePage: activePage,
                                 image: 'assets/images/buy-coffee.jpg',
                                 text: 'ما رو به صرف قهوه مهمون کن'),
-                            onTap: () {}),
+                            onTap: _launchUrl),
                         InkWell(
                           child: CarouselCard(
                               pagePosition: 3,

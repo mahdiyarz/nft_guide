@@ -30,6 +30,7 @@ dependencies:
   tapsell_plus: ^2.1.7
   shared_preferences: ^2.0.13
   lottie: ^1.4.2
+  url_launcher: ^6.1.5
   flutter:
     sdk: flutter
 
