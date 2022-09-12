@@ -10,17 +10,21 @@ class ChapterSlidePage extends StatelessWidget {
   String? describtion2;
   String? starnote2;
   String? titleSection;
+  List<String>? tableList;
+  List<String>? benefits;
 
-  ChapterSlidePage(
-      {Key? key,
-      this.image,
-      required this.describtion,
-      this.starnote,
-      this.describtion2,
-      this.image2,
-      this.starnote2,
-      this.titleSection})
-      : super(key: key);
+  ChapterSlidePage({
+    Key? key,
+    this.image,
+    required this.describtion,
+    this.starnote,
+    this.describtion2,
+    this.image2,
+    this.starnote2,
+    this.titleSection,
+    this.tableList,
+    this.benefits,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -118,9 +122,11 @@ class ChapterSlidePage extends StatelessWidget {
                           ),
                           Flexible(
                             child: Container(
+                              width: _width,
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
-                                child: Text(starnote.toString(),
+                                child: Text(
+                                    'starnote.toString() fds fdsf sfd sfsd ffdfdfdfd dfsfdsf',
                                     softWrap: true,
                                     style: TextStyle(
                                         color:
@@ -201,6 +207,7 @@ class ChapterSlidePage extends StatelessWidget {
                         children: [
                           Flexible(
                             child: Container(
+                              width: _width,
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(starnote2.toString(),
@@ -231,6 +238,34 @@ class ChapterSlidePage extends StatelessWidget {
                       ),
                     )
                   : SizedBox(),
+              // benefits != null
+              //     ?
+              Padding(
+                padding: const EdgeInsets.only(
+                  top: 10,
+                  right: 15,
+                  left: 15,
+                ),
+                child: Container(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(describtion,
+                        style: TextStyle(
+                          color: Color.fromARGB(255, 171, 171, 171),
+                          fontSize: 18.5,
+                          fontWeight: FontWeight.normal,
+                          height: 1.55,
+                          fontFamily: 'Vazir',
+                        ),
+                        textDirection: TextDirection.rtl,
+                        textAlign: TextAlign.center),
+                  ),
+                  decoration: BoxDecoration(
+                      color: Color.fromARGB(255, 52, 56, 59),
+                      borderRadius: BorderRadius.circular(8)),
+                ),
+              ),
+              // : const SizedBox(),
               SizedBox(
                 height: 10,
               )
