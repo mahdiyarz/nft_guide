@@ -183,64 +183,59 @@ class _Chapter7CardState extends State<Chapter7Card> {
                     ),
                   ),
                 ),
-                InkWell(
-                  onTap: isPressed
-                      ? (() {
-                          setState(() {
-                            isPressed = false;
-                            startCounting = false;
-                          });
-                        })
-                      : null,
-                  child: AnimatedContainer(
-                      duration: Duration(milliseconds: 1500),
-                      curve: Curves.bounceInOut,
-                      transform: Matrix4.translationValues(transform, 0, 0),
-                      decoration: BoxDecoration(
-                        shape: isPressed ? BoxShape.circle : BoxShape.rectangle,
-                        image: DecorationImage(
-                          image: AssetImage('images/7-scam2.jpg'),
-                          fit: BoxFit.cover,
-                          opacity: 140,
-                        ),
-                        color: const Color.fromARGB(255, 34, 33, 33),
-                        // borderRadius: BorderRadius.circular(15),
+                AnimatedContainer(
+                    duration: Duration(milliseconds: 1500),
+                    curve: Curves.bounceInOut,
+                    transform: Matrix4.translationValues(transform, 0, 0),
+                    decoration: BoxDecoration(
+                      shape: isPressed ? BoxShape.circle : BoxShape.rectangle,
+                      image: DecorationImage(
+                        image: AssetImage('images/7-scam2.jpg'),
+                        fit: BoxFit.cover,
+                        opacity: 140,
                       ),
-                      width: isPressed ? width2 : width1,
-                      height: isPressed ? width2 : width1,
-                      child: isPressed
-                          ? null
-                          : Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  'فصل هفتم',
-                                  textAlign: TextAlign.center,
-                                  style: const TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 30,
-                                  ),
+                      color: const Color.fromARGB(255, 34, 33, 33),
+                      // borderRadius: BorderRadius.circular(15),
+                    ),
+                    width: isPressed ? width2 : width1,
+                    height: isPressed ? width2 : width1,
+                    child: isPressed
+                        ? InkWell(onTap: (() {
+                            setState(() {
+                              isPressed = false;
+                              startCounting = false;
+                            });
+                          }))
+                        : Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'فصل هفتم',
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 30,
                                 ),
-                                FittedBox(
-                                  fit: BoxFit.fill,
-                                  child: Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 15),
-                                    child: Text(
-                                      'روش های معمول کلاه برداری',
-                                      textDirection: TextDirection.rtl,
-                                      style: const TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w400,
-                                        fontSize: 25,
-                                      ),
+                              ),
+                              FittedBox(
+                                fit: BoxFit.fill,
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 15),
+                                  child: Text(
+                                    'روش های معمول کلاه برداری',
+                                    textDirection: TextDirection.rtl,
+                                    style: const TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 25,
                                     ),
                                   ),
                                 ),
-                              ],
-                            )),
-                ),
+                              ),
+                            ],
+                          )),
               ],
             ),
           ),
