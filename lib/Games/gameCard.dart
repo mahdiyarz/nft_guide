@@ -11,12 +11,11 @@ class GameCard extends StatelessWidget {
             .push(MaterialPageRoute(builder: (_) => GameList()));
       },
       child: Card(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-        margin: EdgeInsets.symmetric(vertical: 6, horizontal: 10),
-        elevation: 2,
+        margin: const EdgeInsets.symmetric(
+          vertical: 2,
+        ),
         child: Container(
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
               image: DecorationImage(
                 image: AssetImage('images/gamepic.webp'),
                 fit: BoxFit.cover,
@@ -26,12 +25,12 @@ class GameCard extends StatelessWidget {
               // borderRadius: BorderRadius.circular(15),
             ),
             width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.width / 3.4,
+            height: MediaQuery.of(context).size.width / 2,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'ویژه نامه',
+                  'فصل هشتم',
                   textAlign: TextAlign.center,
                   style: const TextStyle(
                     color: Colors.white,
@@ -44,7 +43,7 @@ class GameCard extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 15),
                     child: Text(
-                      'بازی هایی که با آنها پولدار می شوید',
+                      'چگونه از بازی های NFT درآمد کسب کنید',
                       textDirection: TextDirection.rtl,
                       style: const TextStyle(
                         color: Colors.white,

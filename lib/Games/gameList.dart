@@ -60,7 +60,8 @@ class GameList extends StatelessWidget {
                           child: FittedBox(
                             fit: BoxFit.cover,
                             child: Text(
-                              '  هفت روش برای درآمد بیشتر از بازی های بلاکچین ',
+                              'چگونه از بازی های NFT درآمد کسب کنیم',
+                              textDirection: TextDirection.rtl,
                               style: TextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.w600,

@@ -93,7 +93,7 @@ class _ChapterPageState extends State<ChapterPage>
       backgroundColor: Color.fromARGB(255, 39, 39, 39),
       appBar: AppBar(
         title: Text(
-          widget.nft.title,
+          '${widget.nft.chapter}: ${widget.nft.title} ',
           style: TextStyle(
             color: Colors.white70,
             fontWeight: FontWeight.bold,
@@ -126,20 +126,20 @@ class _ChapterPageState extends State<ChapterPage>
                         controller: _controller,
                         itemBuilder: (ctx, index) {
                           return ChapterSlidePage(
-                              describtion:
-                                  widget.nft.chapterDetailList[index].text,
-                              describtion2:
-                                  widget.nft.chapterDetailList[index].text2,
-                              image: widget.nft.chapterDetailList[index].image,
-                              image2:
-                                  widget.nft.chapterDetailList[index].image2,
-                              starnote:
-                                  widget.nft.chapterDetailList[index].starnote,
-                              starnote2:
-                                  widget.nft.chapterDetailList[index].starnote2,
-                              titleSection: 'gjhgkjhkj'
-                              //widget.nft.chapterDetailList[index].titleSection,
-                              );
+                            describtion:
+                                widget.nft.chapterDetailList[index].text,
+                            describtion2:
+                                widget.nft.chapterDetailList[index].text2,
+                            image: widget.nft.chapterDetailList[index].image,
+                            image2: widget.nft.chapterDetailList[index].image2,
+                            starnote:
+                                widget.nft.chapterDetailList[index].starnote,
+                            starnote2:
+                                widget.nft.chapterDetailList[index].starnote2,
+                            titleSection: widget
+                                .nft.chapterDetailList[index].titleSection,
+                            //widget.nft.chapterDetailList[index].titleSection,
+                          );
                         }),
                   ),
                 ),
