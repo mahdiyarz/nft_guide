@@ -3,6 +3,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:nft_guide/widgets/chapter2Card.dart';
+import 'package:nft_guide/widgets/chapter7Card.dart';
 import 'package:tapsell_plus/tapsell_plus.dart';
 import 'package:lottie/lottie.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -39,7 +41,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
   NativeAdData? ad2;
   bool _bool = true;
   PageController _pageController =
-      PageController(viewportFraction: 0.8, initialPage: 1);
+      PageController(viewportFraction: 0.85, initialPage: 1);
   Random random = new Random();
   late int randomChapterIndex;
   late int randomGameIndex;
@@ -333,7 +335,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                 children: [
                   Container(
                     margin: EdgeInsets.only(top: 20),
-                    height: 200,
+                    height: 230,
                     child: PageView(
                       pageSnapping: true,
                       controller: _pageController,
@@ -424,11 +426,12 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                       ),
                       items: imageSliders,
                     ), */
-
+/* 
                   DividerNew(context, 'ویژه نامه ', Icons.not_accessible),
                   GameCard(),
-                  GameCard(),
-                  DividerNew(context, 'آشنایی با بلاکچین', Icons.abc_rounded),
+                  GameCard(), */
+                  DividerNew(
+                      context, 'پیش نیاز :مفاهیم بلاکچین', Icons.abc_rounded),
                   Container(
                     height: MediaQuery.of(context).size.width / 2.5,
                     color: Color.fromARGB(40, 8, 8, 8),
@@ -436,8 +439,9 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                       physics: const BouncingScrollPhysics(
                           parent: AlwaysScrollableScrollPhysics()),
                       scrollDirection: Axis.horizontal,
+                      reverse: true,
                       itemBuilder: (context, index) {
-                        return BlocChainCard(context);
+                        return BlocChainCard(context, index);
                       },
                       itemCount: 4,
                     ),
@@ -457,21 +461,23 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                           _isClick = true;
                         });
                       },
-                      child: NftListView(index: 0, ad2: ad2),
+                      child: NftListView(index: 4, ad2: ad2),
                     ),
                     _isClick == false
                         ? Lottie.asset('assets/lottie/click-animation.json')
                         : SizedBox(),
                   ]),
-                  NftListView(index: 1, ad2: ad2),
-                  NftListView(index: 2, ad2: ad2),
+                  Chapter2Card(),
+                  NftListView(index: 9, ad2: ad2),
                   (bannerDataMid != null)
                       ? AdBanner(data: bannerDataMid!)
                       : const SizedBox(
                           height: 0.1,
                         ),
-                  NftListView(index: 3, ad2: ad2),
-                  NftListView(index: 4, ad2: ad2),
+                  NftListView(index: 10, ad2: ad2),
+                  NftListView(index: 11, ad2: ad2),
+                  NftListView(index: 12, ad2: ad2),
+
                   /*  NftListView(index: 5, ad2: ad2),
                     NftListView(index: 6, ad2: ad2),
                     NftListView(index: 7, ad2: ad2),
@@ -484,6 +490,8 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                       : const SizedBox(
                           height: 0.1,
                         ),
+                  Chapter7Card(),
+                  GameCard(),
                 ],
               ),
             ),
