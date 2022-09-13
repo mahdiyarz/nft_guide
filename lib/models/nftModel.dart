@@ -7,6 +7,8 @@ class ChapterDetail {
   String? text2;
   String? starnote2;
   String? titleSection;
+  List<String>? tableList;
+  List<String>? benefits;
   ChapterDetail({
     this.image,
     required this.text,
@@ -15,6 +17,8 @@ class ChapterDetail {
     this.image2,
     this.starnote2,
     this.titleSection,
+    this.tableList,
+    this.benefits,
   });
 }
 
