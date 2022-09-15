@@ -1,4 +1,5 @@
 class ChapterDetail {
+  int? id;
   String? image;
 
   String text;
@@ -10,6 +11,7 @@ class ChapterDetail {
   List<String>? tableList;
   List<String>? benefits;
   ChapterDetail({
+    this.id,
     this.image,
     required this.text,
     this.starnote,
@@ -23,10 +25,12 @@ class ChapterDetail {
 }
 
 class Nfts {
+  int? id;
   String title, chapter, image;
   List<ChapterDetail> chapterDetailList;
 
   Nfts({
+    this.id,
     required this.chapterDetailList,
     required this.chapter,
     required this.title,
@@ -36,11 +40,13 @@ class Nfts {
 
 List<Nfts> nftsData = [
   Nfts(
+    id: 011,
     chapter: 'مقدمه',
     title: 'بلاکچین چیست',
     image: 'images/0-whatIsBlockchain.jpg',
     chapterDetailList: [
       ChapterDetail(
+          id: 01101,
           image: 'images/0-whatIsBlockchain.jpg',
           titleSection: 'بلاکچین چیست',
           text:
@@ -52,11 +58,13 @@ List<Nfts> nftsData = [
     ],
   ),
   Nfts(
+    id: 012,
     chapter: 'مقدمه',
     title: 'اتریوم چیست',
     image: 'images/0-Ethereum-1.jpg',
     chapterDetailList: [
       ChapterDetail(
+        id: 01201,
         image: 'images/0-Ethereum-1.jpg',
         titleSection: 'اتریوم چیست',
         text:
@@ -69,11 +77,13 @@ List<Nfts> nftsData = [
     ],
   ),
   Nfts(
+    id: 013,
     chapter: 'مقدمه',
     title: 'قرارداد هوشمند',
     image: 'images/0-smartContract.jpg',
     chapterDetailList: [
       ChapterDetail(
+        id: 01301,
         image: 'images/0-smartContract.jpg',
         titleSection: 'قرارداد هوشمند',
         text:
@@ -84,11 +94,13 @@ List<Nfts> nftsData = [
     ],
   ),
   Nfts(
+    id: 014,
     chapter: 'مقدمه',
     title: 'کیف پول',
     image: 'images/0-wallet.jpg',
     chapterDetailList: [
       ChapterDetail(
+        id: 01401,
         image: 'images/0-wallet.jpg',
         titleSection: 'کیف پول',
         text:
@@ -103,10 +115,12 @@ List<Nfts> nftsData = [
     ],
   ),
   Nfts(
+    id: 02,
     chapter: 'فصل اول',
     title: 'ان اف تی چیست',
     chapterDetailList: [
       ChapterDetail(
+          id: 0201,
           image2: 'images/chapter2.png',
           starnote2: 'Invidunt dolore sit sadipscing duo.',
           starnote: ' Neer his degree are cared save, childe. ',
@@ -117,6 +131,7 @@ List<Nfts> nftsData = [
               'Ipsum voluptua rebum et sed sed aliquyam diam ipsum dolor dolor, erat diam lorem et dolores et vero et takimata,.',
           image: 'images/chapter1.png'),
       ChapterDetail(
+        id: 0202,
         image2: 'images/chapter2.png',
         starnote2: 'Invidunt dolore sit sadipscing duo.',
         starnote: ' Neer his degree are cared save, childe. ',

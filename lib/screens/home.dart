@@ -441,9 +441,22 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                       scrollDirection: Axis.horizontal,
                       reverse: true,
                       itemBuilder: (context, index) {
-                        return BlocChainCard(context, index);
+                        List<int> myDataId = [011, 012, 013, 014];
+
+                        print('object $index');
+                        if (nftsData[index].id == myDataId[0]) {
+                          return BlocChainCard(context, index);
+                        } else if (nftsData[index].id == myDataId[1]) {
+                          return BlocChainCard(context, index);
+                        } else if (nftsData[index].id == myDataId[2]) {
+                          return BlocChainCard(context, index);
+                        } else if (nftsData[index].id == myDataId[3]) {
+                          return BlocChainCard(context, index);
+                        } else {
+                          return SizedBox();
+                        }
                       },
-                      itemCount: 4,
+                      itemCount: nftsData.length,
                     ),
                   ),
                   DividerNew(context, 'NFT آشنایی با ', Icons.abc_rounded),
