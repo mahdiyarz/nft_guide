@@ -100,7 +100,7 @@ class ChapterSlidePage extends StatelessWidget {
                           fontFamily: 'Vazir',
                         ),
                         textDirection: TextDirection.rtl,
-                        textAlign: TextAlign.center),
+                        textAlign: TextAlign.justify),
                   ),
                   decoration: BoxDecoration(
                       color: Color.fromARGB(255, 52, 56, 59),
@@ -126,8 +126,7 @@ class ChapterSlidePage extends StatelessWidget {
                               width: _width,
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
-                                child: Text(
-                                    'starnote.toString() fds fdsf sfd sfsd ffdfdfdfd dfsfdsf',
+                                child: Text(starnote.toString(),
                                     softWrap: true,
                                     style: TextStyle(
                                         color:
@@ -177,7 +176,7 @@ class ChapterSlidePage extends StatelessWidget {
                                     shrinkWrap: true,
                                     physics:
                                         const NeverScrollableScrollPhysics(),
-                                    itemCount: 5,
+                                    itemCount: benefits!.length,
                                     itemBuilder: (context, index) =>
                                         Directionality(
                                       textDirection: TextDirection.rtl,
@@ -192,7 +191,7 @@ class ChapterSlidePage extends StatelessWidget {
                                           ),
                                           SizedBox(width: 8),
                                           Flexible(
-                                            child: Text(describtion,
+                                            child: Text(benefits![index],
                                                 style: TextStyle(
                                                   color: Color.fromARGB(
                                                       255, 171, 171, 171),
@@ -229,7 +228,16 @@ class ChapterSlidePage extends StatelessWidget {
                           right: 15,
                           left: 15,
                         ),
-                        child: Container(),
+                        child: CustomTable(
+                          rowTitleFirst: 'بلاکچین',
+                          rowContentFirst: tableList![0],
+                          rowTitleSeconde: 'گس فی',
+                          rowContentSeconde: tableList![1],
+                          rowTitleThird: 'اندازه ی کالکشن',
+                          rowContentThird: tableList![2],
+                          rowTitleFourth: 'حجم معاملات',
+                          rowContentFourth: tableList![3],
+                        ),
                       ),
                     )
                   : SizedBox(),
@@ -270,7 +278,7 @@ class ChapterSlidePage extends StatelessWidget {
                                 fontFamily: 'Vazir',
                               ),
                               textDirection: TextDirection.rtl,
-                              textAlign: TextAlign.center),
+                              textAlign: TextAlign.justify),
                         ),
                         decoration: BoxDecoration(
                             color: Color.fromARGB(255, 52, 56, 59),

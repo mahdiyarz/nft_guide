@@ -24,10 +24,10 @@ class CustomTable extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        tableRow(0, '', _width, '', 5, 5, 0, 0),
-        tableRow(2, '', _width, '', 0, 0, 0, 0),
-        tableRow(2, '', _width, '', 0, 0, 0, 0),
-        tableRow(2, '', _width, '', 0, 0, 5, 5),
+        tableRow(0, rowTitleFirst, _width, rowContentFirst, 5, 5, 0, 0),
+        tableRow(2, rowTitleSeconde, _width, rowContentSeconde, 0, 0, 0, 0),
+        tableRow(2, rowTitleThird, _width, rowContentThird, 0, 0, 0, 0),
+        tableRow(2, rowTitleFourth, _width, rowContentFourth, 0, 0, 5, 5),
       ],
     );
   }
@@ -63,7 +63,15 @@ class CustomTable extends StatelessWidget {
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 3),
                 alignment: Alignment.center,
-                child: Text(rowTitle),
+                child: Text(
+                  rowTitle,
+                  style: TextStyle(
+                    color: Colors.black87,
+                    fontSize: 18.5,
+                    fontWeight: FontWeight.normal,
+                    height: 1.55,
+                  ),
+                ),
               ),
             ),
             Flexible(

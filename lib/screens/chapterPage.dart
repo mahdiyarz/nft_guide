@@ -140,6 +140,10 @@ class _ChapterPageState extends State<ChapterPage>
                                 widget.nft.chapterDetailList[index].starnote2,
                             titleSection: widget
                                 .nft.chapterDetailList[index].titleSection,
+                            benefits:
+                                widget.nft.chapterDetailList[index].benefits,
+                            tableList:
+                                widget.nft.chapterDetailList[index].tableList,
                             //widget.nft.chapterDetailList[index].titleSection,
                           );
                         }),
