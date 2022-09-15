@@ -73,7 +73,7 @@ class _ChapterPageState extends State<ChapterPage>
   Widget build(BuildContext context) {
     var _width = MediaQuery.of(context).size.width;
     return Scaffold(
-      bottomNavigationBar: dotindex != 0
+      bottomNavigationBar: widget.nft.chapterDetailList.length > 1
           ? BottomAppBar(
               elevation: 0,
               color: Color.fromARGB(255, 39, 39, 39),
