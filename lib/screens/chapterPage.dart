@@ -73,23 +73,25 @@ class _ChapterPageState extends State<ChapterPage>
   Widget build(BuildContext context) {
     var _width = MediaQuery.of(context).size.width;
     return Scaffold(
-      bottomNavigationBar: BottomAppBar(
-          elevation: 0,
-          color: Color.fromARGB(255, 39, 39, 39),
-          child: Container(
-            decoration: BoxDecoration(
-              // borderRadius: BorderRadius.only(
-              //     topLeft: Radius.circular(25), topRight: Radius.circular(25)),
-              color: Color.fromARGB(255, 50, 55, 61),
-            ),
-            child: Center(
-              child: TabPageSelector(
-                selectedColor: Color.fromARGB(255, 142, 183, 65),
-                controller: _dotcontroller,
-              ),
-            ),
-            height: 30,
-          )),
+      bottomNavigationBar: dotindex != 0
+          ? BottomAppBar(
+              elevation: 0,
+              color: Color.fromARGB(255, 39, 39, 39),
+              child: Container(
+                decoration: BoxDecoration(
+                  // borderRadius: BorderRadius.only(
+                  //     topLeft: Radius.circular(25), topRight: Radius.circular(25)),
+                  color: Color.fromARGB(255, 50, 55, 61),
+                ),
+                child: Center(
+                  child: TabPageSelector(
+                    selectedColor: Color.fromARGB(255, 142, 183, 65),
+                    controller: _dotcontroller,
+                  ),
+                ),
+                height: 30,
+              ))
+          : SizedBox(),
       backgroundColor: Color.fromARGB(255, 39, 39, 39),
       appBar: AppBar(
         title: Text(

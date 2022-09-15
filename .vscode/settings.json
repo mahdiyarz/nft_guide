@@ -25,5 +25,6 @@
         "نکات",
         "bazzar",
         "sibche"
-    ]
+    ],
+    "cmake.configureOnOpen": true
 }
