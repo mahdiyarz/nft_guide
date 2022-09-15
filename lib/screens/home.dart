@@ -30,6 +30,24 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> with TickerProviderStateMixin {
+  final List<int> myChaptersId = const [
+    011,
+    012,
+    013,
+    014,
+    021,
+    031,
+    032,
+    033,
+    034,
+    041,
+    051,
+    061,
+    071,
+    081,
+    082,
+    083,
+  ];
   AnimationController? _controller;
   Animation<double>? _animation1;
   Animation<double>? _animation2;
@@ -441,16 +459,14 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                       scrollDirection: Axis.horizontal,
                       reverse: true,
                       itemBuilder: (context, index) {
-                        List<int> myDataId = [011, 012, 013, 014];
-
-                        print('object $index');
-                        if (nftsData[index].id == myDataId[0]) {
+                        // print('object $index');
+                        if (nftsData[index].id == myChaptersId[0]) {
                           return BlocChainCard(context, index);
-                        } else if (nftsData[index].id == myDataId[1]) {
+                        } else if (nftsData[index].id == myChaptersId[1]) {
                           return BlocChainCard(context, index);
-                        } else if (nftsData[index].id == myDataId[2]) {
+                        } else if (nftsData[index].id == myChaptersId[2]) {
                           return BlocChainCard(context, index);
-                        } else if (nftsData[index].id == myDataId[3]) {
+                        } else if (nftsData[index].id == myChaptersId[3]) {
                           return BlocChainCard(context, index);
                         } else {
                           return SizedBox();
@@ -474,22 +490,37 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                           _isClick = true;
                         });
                       },
-                      child: NftListView(index: 4, ad2: ad2),
+                      child: NftListView(
+                          index: nftsData.indexWhere(
+                              (element) => element.id == myChaptersId[4]),
+                          ad2: ad2),
                     ),
                     _isClick == false
                         ? Lottie.asset('assets/lottie/click-animation.json')
                         : SizedBox(),
                   ]),
                   Chapter2Card(),
-                  NftListView(index: 9, ad2: ad2),
+                  NftListView(
+                      index: nftsData.indexWhere(
+                          (element) => element.id == myChaptersId[9]),
+                      ad2: ad2),
                   (bannerDataMid != null)
                       ? AdBanner(data: bannerDataMid!)
                       : const SizedBox(
                           height: 0.1,
                         ),
-                  NftListView(index: 10, ad2: ad2),
-                  NftListView(index: 11, ad2: ad2),
-                  NftListView(index: 12, ad2: ad2),
+                  NftListView(
+                      index: nftsData.indexWhere(
+                          (element) => element.id == myChaptersId[10]),
+                      ad2: ad2),
+                  NftListView(
+                      index: nftsData.indexWhere(
+                          (element) => element.id == myChaptersId[11]),
+                      ad2: ad2),
+                  NftListView(
+                      index: nftsData.indexWhere(
+                          (element) => element.id == myChaptersId[12]),
+                      ad2: ad2),
 
                   /*  NftListView(index: 5, ad2: ad2),
                     NftListView(index: 6, ad2: ad2),

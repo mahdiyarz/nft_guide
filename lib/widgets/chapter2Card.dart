@@ -9,6 +9,12 @@ class Chapter2Card extends StatefulWidget {
 }
 
 class _Chapter3CardState extends State<Chapter2Card> {
+  final List<int> _myChaptersId = const [
+    031,
+    032,
+    033,
+    034,
+  ];
   bool isPressed = false;
   bool startCounting = false;
   // double width = MediaQuery.of(widget.contexty).size.width;
@@ -80,7 +86,8 @@ class _Chapter3CardState extends State<Chapter2Card> {
                             onTap: () => Navigator.of(context).push(
                               MaterialPageRoute(
                                   builder: (_) => ChapterPage(
-                                        nft: nftsData[5],
+                                        nft: nftsData.firstWhere((element) =>
+                                            element.id == _myChaptersId[0]),
                                       )),
                             ),
                             child: ListTile(
@@ -97,7 +104,7 @@ class _Chapter3CardState extends State<Chapter2Card> {
                                 backgroundColor:
                                     Color.fromARGB(255, 142, 183, 65),
                                 child: Center(
-                                  child: Text('1',
+                                  child: Text('۱',
                                       style: TextStyle(
                                         color: Color.fromARGB(255, 39, 39, 39),
                                         fontSize: 20,
@@ -114,7 +121,8 @@ class _Chapter3CardState extends State<Chapter2Card> {
                             onTap: () => Navigator.of(context).push(
                               MaterialPageRoute(
                                   builder: (_) => ChapterPage(
-                                        nft: nftsData[6],
+                                        nft: nftsData.firstWhere((element) =>
+                                            element.id == _myChaptersId[1]),
                                       )),
                             ),
                             child: ListTile(
@@ -131,7 +139,7 @@ class _Chapter3CardState extends State<Chapter2Card> {
                                 backgroundColor:
                                     Color.fromARGB(255, 142, 183, 65),
                                 child: Center(
-                                  child: Text('2',
+                                  child: Text('۲',
                                       style: TextStyle(
                                         color: Color.fromARGB(255, 39, 39, 39),
                                         fontSize: 20,
@@ -148,7 +156,8 @@ class _Chapter3CardState extends State<Chapter2Card> {
                             onTap: () => Navigator.of(context).push(
                               MaterialPageRoute(
                                   builder: (_) => ChapterPage(
-                                        nft: nftsData[7],
+                                        nft: nftsData.firstWhere((element) =>
+                                            element.id == _myChaptersId[2]),
                                       )),
                             ),
                             child: ListTile(
@@ -165,7 +174,7 @@ class _Chapter3CardState extends State<Chapter2Card> {
                                 backgroundColor:
                                     Color.fromARGB(255, 142, 183, 65),
                                 child: Center(
-                                  child: Text('3',
+                                  child: Text('۳',
                                       style: TextStyle(
                                         color: Color.fromARGB(255, 39, 39, 39),
                                         fontSize: 20,
@@ -182,7 +191,8 @@ class _Chapter3CardState extends State<Chapter2Card> {
                             onTap: () => Navigator.of(context).push(
                               MaterialPageRoute(
                                   builder: (_) => ChapterPage(
-                                        nft: nftsData[8],
+                                        nft: nftsData.firstWhere((element) =>
+                                            element.id == _myChaptersId[3]),
                                       )),
                             ),
                             child: ListTile(
@@ -199,7 +209,7 @@ class _Chapter3CardState extends State<Chapter2Card> {
                                 backgroundColor:
                                     Color.fromARGB(255, 142, 183, 65),
                                 child: Center(
-                                  child: Text('4',
+                                  child: Text('۴',
                                       style: TextStyle(
                                         color: Color.fromARGB(255, 39, 39, 39),
                                         fontSize: 20,
