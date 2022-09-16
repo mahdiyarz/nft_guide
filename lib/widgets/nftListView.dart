@@ -4,8 +4,8 @@ import 'package:tapsell_plus/tapsell_plus.dart';
 import '../models/nftModel.dart';
 
 class NftListView extends StatelessWidget {
-  int index;
-  NativeAdData? ad2;
+  final int index;
+  final NativeAdData? ad2;
   NftListView({Key? key, required this.index, this.ad2}) : super(key: key);
 
   @override

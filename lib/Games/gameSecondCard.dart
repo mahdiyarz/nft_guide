@@ -5,7 +5,7 @@ import 'package:nft_guide/Games/gamescreens.dart';
 
 class GameSecondCard extends StatelessWidget {
   // widget of the card of game list
-  Game game;
+  final Game game;
   GameSecondCard({
     Key? key,
     required this.game,

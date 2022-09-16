@@ -12,7 +12,7 @@ class CustomDrawer extends StatefulWidget {
   final Animation<double>? animation1;
   final Animation<double>? animation2;
   final Animation<double>? animation3;
-  bool isBool;
+  late final bool isBool;
   CustomDrawer({
     required this.controller,
     required this.animation1,

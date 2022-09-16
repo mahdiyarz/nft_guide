@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:nft_guide/Games/articledatamodel.dart';
-import 'package:nft_guide/Games/slidepage.dart';
+import '../Games/articledatamodel.dart';
+import '../Games/slidepage.dart';
 
 class ArticlePage extends StatefulWidget {
   ArticlePage({Key? key}) : super(key: key);
@@ -77,13 +77,13 @@ class _ArticlePageState extends State<ArticlePage>
             itemBuilder: (ctx, index) {
               return SlidePageWidget(
                 titleCount: articleData[index].titleCount,
-                describtion: articleData[index].text,
+                description: articleData[index].text,
                 image: articleData[index].image,
                 title: articleData[index].title,
-                starnote: articleData[index].starnote,
-                describtion2: articleData[index].text2,
+                starNote: articleData[index].starnote,
+                description2: articleData[index].text2,
                 image2: articleData[index].image2,
-                starnote2: articleData[index].starnote2,
+                starNote2: articleData[index].starnote2,
               );
             }),
       ),

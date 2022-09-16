@@ -2,24 +2,24 @@ import 'package:flutter/material.dart';
 
 class SlidePageWidget extends StatelessWidget {
   // its a slide screen in article page screen
-  String describtion;
-  String? image;
-  String title;
-  String? starnote;
-  String? image2;
-  String? describtion2;
-  String? starnote2;
-  String? titleCount;
+  final String description;
+  final String? image;
+  final String title;
+  final String? starNote;
+  final String? image2;
+  final String? description2;
+  final String? starNote2;
+  final String? titleCount;
 
   SlidePageWidget(
       {Key? key,
-      required this.describtion,
+      required this.description,
       this.image,
       required this.title,
-      this.starnote,
-      this.describtion2,
+      this.starNote,
+      this.description2,
       this.image2,
-      this.starnote2,
+      this.starNote2,
       this.titleCount})
       : super(key: key);
 
@@ -108,7 +108,7 @@ class SlidePageWidget extends StatelessWidget {
                 child: Container(
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Text(describtion,
+                    child: Text(description,
                         style: TextStyle(
                           color: Color.fromARGB(255, 171, 171, 171),
                           fontSize: 18.5,
@@ -124,7 +124,7 @@ class SlidePageWidget extends StatelessWidget {
                       borderRadius: BorderRadius.circular(8)),
                 ),
               ),
-              starnote != null
+              starNote != null
                   ? Padding(
                       padding: const EdgeInsets.only(
                         top: 10,
@@ -142,7 +142,7 @@ class SlidePageWidget extends StatelessWidget {
                             child: Container(
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
-                                child: Text(starnote.toString(),
+                                child: Text(starNote.toString(),
                                     softWrap: true,
                                     style: TextStyle(
                                         color:
@@ -184,7 +184,7 @@ class SlidePageWidget extends StatelessWidget {
                       ),
                     )
                   : SizedBox(),
-              describtion2 != null
+              description2 != null
                   ? Padding(
                       padding: const EdgeInsets.only(
                         top: 10,
@@ -194,7 +194,7 @@ class SlidePageWidget extends StatelessWidget {
                       child: Container(
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Text(describtion2.toString(),
+                          child: Text(description2.toString(),
                               style: TextStyle(
                                 color: Color.fromARGB(255, 171, 171, 171),
                                 fontSize: 18.5,
@@ -211,7 +211,7 @@ class SlidePageWidget extends StatelessWidget {
                       ),
                     )
                   : SizedBox(),
-              starnote2 != null
+              starNote2 != null
                   ? Padding(
                       padding: const EdgeInsets.only(
                         top: 10,
@@ -225,7 +225,7 @@ class SlidePageWidget extends StatelessWidget {
                             child: Container(
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
-                                child: Text(starnote2.toString(),
+                                child: Text(starNote2.toString(),
                                     softWrap: true,
                                     style: TextStyle(
                                         color:

@@ -3,25 +3,24 @@ import 'package:nft_guide/widgets/custom_table.dart';
 
 class ChapterSlidePage extends StatelessWidget {
   // its a slide screen in article page screen
-  String describtion;
-  String? image;
-
-  String? starnote;
-  String? image2;
-  String? describtion2;
-  String? starnote2;
-  String? titleSection;
-  List<String>? tableList;
-  List<String>? benefits;
+  final String description;
+  final String? image;
+  final String? starNote;
+  final String? image2;
+  final String? description2;
+  final String? starNote2;
+  final String? titleSection;
+  final List<String>? tableList;
+  final List<String>? benefits;
 
   ChapterSlidePage({
     Key? key,
     this.image,
-    required this.describtion,
-    this.starnote,
-    this.describtion2,
+    required this.description,
+    this.starNote,
+    this.description2,
     this.image2,
-    this.starnote2,
+    this.starNote2,
     this.titleSection,
     this.tableList,
     this.benefits,
@@ -91,7 +90,7 @@ class ChapterSlidePage extends StatelessWidget {
                 child: Container(
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Text(describtion,
+                    child: Text(description,
                         style: TextStyle(
                           color: Color.fromARGB(255, 171, 171, 171),
                           fontSize: 18.5,
@@ -107,7 +106,7 @@ class ChapterSlidePage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(8)),
                 ),
               ),
-              starnote != null
+              starNote != null
                   ? Padding(
                       padding: const EdgeInsets.only(
                         top: 20,
@@ -126,7 +125,7 @@ class ChapterSlidePage extends StatelessWidget {
                               width: _width,
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
-                                child: Text(starnote.toString(),
+                                child: Text(starNote.toString(),
                                     softWrap: true,
                                     style: TextStyle(
                                         color:
@@ -147,6 +146,28 @@ class ChapterSlidePage extends StatelessWidget {
                             ),
                           ),
                         ],
+                      ),
+                    )
+                  : SizedBox(),
+              tableList != null
+                  ? Directionality(
+                      textDirection: TextDirection.rtl,
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                          top: 20,
+                          right: 15,
+                          left: 15,
+                        ),
+                        child: CustomTable(
+                          rowTitleFirst: 'بلاکچین',
+                          rowContentFirst: tableList![0],
+                          rowTitleSeconde: 'گس فی',
+                          rowContentSeconde: tableList![1],
+                          rowTitleThird: 'اندازه ی کالکشن',
+                          rowContentThird: tableList![2],
+                          rowTitleFourth: 'حجم معاملات',
+                          rowContentFourth: tableList![3],
+                        ),
                       ),
                     )
                   : SizedBox(),
@@ -219,28 +240,6 @@ class ChapterSlidePage extends StatelessWidget {
                       ),
                     )
                   : const SizedBox(),
-              tableList != null
-                  ? Directionality(
-                      textDirection: TextDirection.rtl,
-                      child: Padding(
-                        padding: const EdgeInsets.only(
-                          top: 20,
-                          right: 15,
-                          left: 15,
-                        ),
-                        child: CustomTable(
-                          rowTitleFirst: 'بلاکچین',
-                          rowContentFirst: tableList![0],
-                          rowTitleSeconde: 'گس فی',
-                          rowContentSeconde: tableList![1],
-                          rowTitleThird: 'اندازه ی کالکشن',
-                          rowContentThird: tableList![2],
-                          rowTitleFourth: 'حجم معاملات',
-                          rowContentFourth: tableList![3],
-                        ),
-                      ),
-                    )
-                  : SizedBox(),
               image2 != null
                   ? Padding(
                       padding: const EdgeInsets.only(
@@ -259,7 +258,7 @@ class ChapterSlidePage extends StatelessWidget {
                       ),
                     )
                   : SizedBox(),
-              describtion2 != null
+              description2 != null
                   ? Padding(
                       padding: const EdgeInsets.only(
                         top: 20,
@@ -269,7 +268,7 @@ class ChapterSlidePage extends StatelessWidget {
                       child: Container(
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Text(describtion2.toString(),
+                          child: Text(description2.toString(),
                               style: TextStyle(
                                 color: Color.fromARGB(255, 171, 171, 171),
                                 fontSize: 18.5,
@@ -286,7 +285,7 @@ class ChapterSlidePage extends StatelessWidget {
                       ),
                     )
                   : SizedBox(),
-              starnote2 != null
+              starNote2 != null
                   ? Padding(
                       padding: const EdgeInsets.only(
                         top: 20,
@@ -301,7 +300,7 @@ class ChapterSlidePage extends StatelessWidget {
                               width: _width,
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
-                                child: Text(starnote2.toString(),
+                                child: Text(starNote2.toString(),
                                     softWrap: true,
                                     style: TextStyle(
                                         color:

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class BuildBottomsheet extends StatelessWidget {
-  BuildContext context;
+  final BuildContext context;
   BuildBottomsheet({
     Key? key,
     required this.context,

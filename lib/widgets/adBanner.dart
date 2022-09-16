@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tapsell_plus/tapsell_plus.dart';
 
 class AdBanner extends StatelessWidget {
-  NativeAdData data;
+  final NativeAdData data;
   AdBanner({
     Key? key,
     required this.data,

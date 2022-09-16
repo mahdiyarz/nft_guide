@@ -3,13 +3,12 @@ import 'package:tapsell_plus/tapsell_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:lottie/lottie.dart';
 
-import '../Games/articledatamodel.dart';
 import '../models/nftModel.dart';
 import '../screens/chapterSlidePage.dart';
 
 class ChapterPage extends StatefulWidget {
-  Nfts nft;
-  NativeAdData? ad2;
+  final Nfts nft;
+  final NativeAdData? ad2;
 
   ChapterPage({
     Key? key,
@@ -71,7 +70,6 @@ class _ChapterPageState extends State<ChapterPage>
 
   @override
   Widget build(BuildContext context) {
-    var _width = MediaQuery.of(context).size.width;
     return Scaffold(
       bottomNavigationBar: widget.nft.chapterDetailList.length > 1
           ? BottomAppBar(
@@ -128,15 +126,15 @@ class _ChapterPageState extends State<ChapterPage>
                         controller: _controller,
                         itemBuilder: (ctx, index) {
                           return ChapterSlidePage(
-                            describtion:
+                            description:
                                 widget.nft.chapterDetailList[index].text,
-                            describtion2:
+                            description2:
                                 widget.nft.chapterDetailList[index].text2,
                             image: widget.nft.chapterDetailList[index].image,
                             image2: widget.nft.chapterDetailList[index].image2,
-                            starnote:
+                            starNote:
                                 widget.nft.chapterDetailList[index].starnote,
-                            starnote2:
+                            starNote2:
                                 widget.nft.chapterDetailList[index].starnote2,
                             titleSection: widget
                                 .nft.chapterDetailList[index].titleSection,
