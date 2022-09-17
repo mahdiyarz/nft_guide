@@ -356,6 +356,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                       onPageChanged: (page) {
                         setState(() {
                           activePage = page;
+                          pageIndex = page;
                         });
                       },
                       children: [
@@ -437,7 +438,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                                       bannerDataDown!.responseId.toString())),
                         InkWell(
                           child: CarouselCard(
-                              pagePosition: 6,
+                              pagePosition: bannerDataDown != null ? 6 : 5,
                               activePage: activePage,
                               image: carouselList[4].image,
                               text: carouselList[4].name,
@@ -445,7 +446,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                         ),
                         InkWell(
                           child: CarouselCard(
-                              pagePosition: 7,
+                              pagePosition: bannerDataDown != null ? 7 : 6,
                               activePage: activePage,
                               image: carouselList[5].image,
                               text: carouselList[5].name,

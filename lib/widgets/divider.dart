@@ -18,6 +18,7 @@ Widget DividerNew(
                 child: Text(
                   title,
                   textAlign: TextAlign.center,
+                  textDirection: TextDirection.rtl,
                   style: TextStyle(
                       color: Color.fromARGB(255, 171, 171, 171),
                       fontWeight: FontWeight.w600,
