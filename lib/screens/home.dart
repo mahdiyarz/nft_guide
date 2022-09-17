@@ -11,12 +11,8 @@ import 'package:tapsell_plus/tapsell_plus.dart';
 import 'package:lottie/lottie.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
-
-import '../models/gameModel.dart';
-import '../screens/chapterPage.dart';
 import '../widgets/divider.dart';
 import '../Games/gameCard.dart';
-import '../Games/gamescreens.dart';
 import '../models/nftModel.dart';
 import '../widgets/blockchainCard.dart';
 import '../widgets/carouselCard.dart';
