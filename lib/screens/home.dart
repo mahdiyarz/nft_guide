@@ -184,7 +184,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
       if (_pageController.hasClients) {
         _pageController.animateToPage(
           pageIndex,
-          duration: Duration(milliseconds: 600),
+          duration: Duration(milliseconds: 800),
           curve: Curves.easeIn,
         );
       }
@@ -364,13 +364,15 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                                 activePage: activePage,
                                 image: carouselList[0].image,
                                 text: carouselList[0].name),
-                            onTap: () => Navigator.of(context).push(
-                                  PageRouteBuilder(
-                                    opaque: false, // set to false
-                                    pageBuilder: (_, __, ___) =>
-                                        FamousNFT(data: carouselList[0]),
-                                  ),
-                                )),
+                            onTap: () {
+                              Navigator.of(context).push(
+                                PageRouteBuilder(
+                                  opaque: false, // set to false
+                                  pageBuilder: (_, __, ___) =>
+                                      FamousNFT(data: carouselList[0]),
+                                ),
+                              );
+                            }),
                         InkWell(
                             child: CarouselCard(
                                 tag: carouselList[1].name,
