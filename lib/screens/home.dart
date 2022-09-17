@@ -382,11 +382,13 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                                 activePage: activePage,
                                 image: carouselList[1].image,
                                 text: carouselList[1].name),
-                            onTap: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) =>
-                                      GameThumb(gameList[0])));
-                            }),
+                            onTap: () => Navigator.of(context).push(
+                                  PageRouteBuilder(
+                                    opaque: false, // set to false
+                                    pageBuilder: (_, __, ___) =>
+                                        FamousNFT(data: carouselList[1]),
+                                  ),
+                                )),
                         InkWell(
                             child: CarouselCard(
                                 tag: 'null',
@@ -396,21 +398,19 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                                 text: 'ما رو به صرف قهوه مهمون کن'),
                             onTap: _launchUrl),
                         InkWell(
-                          child: CarouselCard(
-                              tag: carouselList[2].name,
-                              pagePosition: 3,
-                              activePage: activePage,
-                              image: carouselList[2].image,
-                              text: carouselList[2].name),
-                          onTap: () => Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (_) => ChapterPage(
-                                nft: nftsData[0],
-                                ad2: ad2,
-                              ),
-                            ),
-                          ),
-                        ),
+                            child: CarouselCard(
+                                tag: carouselList[2].name,
+                                pagePosition: 3,
+                                activePage: activePage,
+                                image: carouselList[2].image,
+                                text: carouselList[2].name),
+                            onTap: () => Navigator.of(context).push(
+                                  PageRouteBuilder(
+                                    opaque: false, // set to false
+                                    pageBuilder: (_, __, ___) =>
+                                        FamousNFT(data: carouselList[2]),
+                                  ),
+                                )),
                         InkWell(
                             child: CarouselCard(
                                 tag: carouselList[3].name,
@@ -418,11 +418,13 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                                 activePage: activePage,
                                 image: carouselList[3].image,
                                 text: carouselList[3].name),
-                            onTap: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) =>
-                                      GameThumb(gameList[0])));
-                            }),
+                            onTap: () => Navigator.of(context).push(
+                                  PageRouteBuilder(
+                                    opaque: false, // set to false
+                                    pageBuilder: (_, __, ___) =>
+                                        FamousNFT(data: carouselList[3]),
+                                  ),
+                                )),
                         if (bannerDataDown != null)
                           InkWell(
                               child: CarouselCard(
@@ -436,21 +438,33 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                                   .nativeBannerAdClicked(
                                       bannerDataDown!.responseId.toString())),
                         InkWell(
-                          child: CarouselCard(
-                              pagePosition: bannerDataDown != null ? 6 : 5,
-                              activePage: activePage,
-                              image: carouselList[4].image,
-                              text: carouselList[4].name,
-                              tag: carouselList[4].name),
-                        ),
+                            child: CarouselCard(
+                                pagePosition: bannerDataDown != null ? 6 : 5,
+                                activePage: activePage,
+                                image: carouselList[4].image,
+                                text: carouselList[4].name,
+                                tag: carouselList[4].name),
+                            onTap: () => Navigator.of(context).push(
+                                  PageRouteBuilder(
+                                    opaque: false, // set to false
+                                    pageBuilder: (_, __, ___) =>
+                                        FamousNFT(data: carouselList[4]),
+                                  ),
+                                )),
                         InkWell(
-                          child: CarouselCard(
-                              pagePosition: bannerDataDown != null ? 7 : 6,
-                              activePage: activePage,
-                              image: carouselList[5].image,
-                              text: carouselList[5].name,
-                              tag: carouselList[5].name),
-                        ),
+                            child: CarouselCard(
+                                pagePosition: bannerDataDown != null ? 7 : 6,
+                                activePage: activePage,
+                                image: carouselList[5].image,
+                                text: carouselList[5].name,
+                                tag: carouselList[5].name),
+                            onTap: () => Navigator.of(context).push(
+                                  PageRouteBuilder(
+                                    opaque: false, // set to false
+                                    pageBuilder: (_, __, ___) =>
+                                        FamousNFT(data: carouselList[5]),
+                                  ),
+                                )),
                       ],
                     ),
                   ),
