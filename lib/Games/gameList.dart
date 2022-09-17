@@ -50,7 +50,7 @@ class GameList extends StatelessWidget {
                                 topRight: Radius.circular(10)),
                             image: DecorationImage(
                                 image: AssetImage(
-                                  'images/gamepic.webp',
+                                  'images/gamepic.jpg',
                                 ),
                                 fit: BoxFit.cover)),
                       ),
