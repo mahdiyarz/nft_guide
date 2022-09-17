@@ -287,6 +287,7 @@ List<Nfts> nftsData = [
           '+۱۰۰۰',
           'مشخص نیست',
         ],
+        image: 'assets/images/market_place/quint.jpg',
       ),
       ChapterDetail(
         id: 05102,
@@ -308,6 +309,7 @@ List<Nfts> nftsData = [
           '+۱۰۰۰۰۰',
           'بیشتر از ۵۰ هزار اتریوم در هفته',
         ],
+        image: 'assets/images/market_place/crypto.jpg',
       ),
       ChapterDetail(
         id: 05103,
@@ -328,6 +330,7 @@ List<Nfts> nftsData = [
           '+۱۰۰۰۰۰',
           'بیشتر از ۴۰ میلیون دلار در ماه',
         ],
+        image: 'assets/images/market_place/binance.jpg',
       ),
       ChapterDetail(
         id: 05104,
@@ -347,6 +350,7 @@ List<Nfts> nftsData = [
           '+۱۰۰۰۰۰۰',
           'بیشتر از ۵ میلیارد دلار در ماه',
         ],
+        image: 'assets/images/market_place/opensea.jpg',
       ),
       ChapterDetail(
         id: 05105,
@@ -366,6 +370,7 @@ List<Nfts> nftsData = [
           '+۶۰۰۰',
           'بیشتر از ۱۰۰ میلیون  دلار در ماه',
         ],
+        image: 'assets/images/market_place/nifty-gateway.jpg',
       ),
       ChapterDetail(
         id: 05106,
@@ -384,6 +389,7 @@ List<Nfts> nftsData = [
           'هنوز راه اندازی نشده	',
           'مشخص نیست',
         ],
+        image: 'assets/images/market_place/game-stop.jpg',
       ),
       ChapterDetail(
         id: 05107,
@@ -403,6 +409,7 @@ List<Nfts> nftsData = [
           '+۴۰۰۰۰۰',
           'بیشتر از ۳۹۰ هزار  دلار در هفته',
         ],
+        image: 'assets/images/market_place/rarible.jpg',
       ),
     ],
     image: 'images/4-marketplace.jpeg',
