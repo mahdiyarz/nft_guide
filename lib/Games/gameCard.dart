@@ -17,7 +17,7 @@ class GameCard extends StatelessWidget {
         child: Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('images/gamepic.webp'),
+                image: AssetImage('images/gamepic.jpg'),
                 fit: BoxFit.cover,
                 opacity: 140,
               ),
