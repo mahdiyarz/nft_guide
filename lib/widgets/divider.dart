@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-Widget DividerNew(BuildContext context, String title, IconData icon) {
+Widget DividerNew(
+    BuildContext context, String title, IconData icon, bool center) {
   return Container(
     decoration: BoxDecoration(
         color: Color.fromARGB(73, 0, 0, 0),
@@ -9,26 +10,42 @@ Widget DividerNew(BuildContext context, String title, IconData icon) {
     width: MediaQuery.of(context).size.width,
     height: 35,
     child: Row(
-      mainAxisAlignment: MainAxisAlignment.end,
+      mainAxisAlignment:
+          center ? MainAxisAlignment.center : MainAxisAlignment.end,
       children: [
-        Text(
-          title,
-          style: TextStyle(
-              color: Color.fromARGB(255, 171, 171, 171),
-              fontWeight: FontWeight.w600,
-              fontSize: 15,
-              fontFamily: 'Vazir'),
-        ),
-        SizedBox(
-          width: 7,
-        ),
-        Icon(
-          icon,
-          color: Color.fromARGB(255, 115, 102, 68),
-        ),
-        SizedBox(
-          width: 10,
-        )
+        center
+            ? Center(
+                child: Text(
+                  title,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      color: Color.fromARGB(255, 171, 171, 171),
+                      fontWeight: FontWeight.w600,
+                      fontSize: 15,
+                      fontFamily: 'Vazir'),
+                ),
+              )
+            : Text(
+                title,
+                style: TextStyle(
+                    color: Color.fromARGB(255, 171, 171, 171),
+                    fontWeight: FontWeight.w600,
+                    fontSize: 15,
+                    fontFamily: 'Vazir'),
+              ),
+        if (center == false)
+          SizedBox(
+            width: 7,
+          ),
+        if (center == false)
+          Icon(
+            icon,
+            color: Color.fromARGB(255, 115, 102, 68),
+          ),
+        if (center == false)
+          SizedBox(
+            width: 10,
+          )
       ],
     ),
   );
