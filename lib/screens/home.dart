@@ -3,6 +3,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:nft_guide/models/carouseModel.dart';
+import 'package:nft_guide/screens/famousNft.dart';
 import 'package:nft_guide/widgets/chapter2Card.dart';
 import 'package:nft_guide/widgets/chapter7Card.dart';
 import 'package:tapsell_plus/tapsell_plus.dart';
@@ -60,11 +62,6 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
   bool _bool = true;
   PageController _pageController =
       PageController(viewportFraction: 0.85, initialPage: 1);
-  Random random = new Random();
-  late int randomChapterIndex;
-  late int randomGameIndex;
-  late int randomChapterIndex2;
-  late int randomGameIndex2;
 
   var activePage = 1;
   var pageIndex = 1;
@@ -182,8 +179,8 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
       ..addListener(() {
         setState(() {});
       });
-    Timer.periodic(Duration(seconds: 5), (Timer timer) {
-      if (pageIndex < 5) {
+    Timer.periodic(Duration(seconds: 8), (Timer timer) {
+      if (pageIndex < 7) {
         pageIndex++;
       } else {
         pageIndex = 0;
@@ -196,7 +193,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
         );
       }
     });
-    createRandomNumber();
+
     super.initState();
   }
 
@@ -351,8 +348,8 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                 physics: const BouncingScrollPhysics(
                     parent: AlwaysScrollableScrollPhysics()),
                 children: [
+                  DividerNew(context, 'NFT های معروف', Icons.abc, true),
                   Container(
-                    margin: EdgeInsets.only(top: 20),
                     height: 230,
                     child: PageView(
                       pageSnapping: true,
@@ -360,71 +357,78 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                       onPageChanged: (page) {
                         setState(() {
                           activePage = page;
+                          pageIndex = page;
                         });
                       },
                       children: [
                         InkWell(
-                          child: CarouselCard(
-                              pagePosition: 0,
-                              activePage: activePage,
-                              image: nftsData[randomChapterIndex].image,
-                              text: nftsData[randomChapterIndex].title),
-                          onTap: () => Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (_) => ChapterPage(
-                                nft: nftsData[randomChapterIndex],
-                                ad2: ad2,
-                              ),
-                            ),
-                          ),
-                        ),
+                            child: CarouselCard(
+                                tag: carouselList[0].name,
+                                pagePosition: 0,
+                                activePage: activePage,
+                                image: carouselList[0].image,
+                                text: carouselList[0].name),
+                            onTap: () => Navigator.of(context).push(
+                                  PageRouteBuilder(
+                                    opaque: false, // set to false
+                                    pageBuilder: (_, __, ___) =>
+                                        FamousNFT(data: carouselList[0]),
+                                  ),
+                                )),
                         InkWell(
                             child: CarouselCard(
+                                tag: carouselList[1].name,
                                 pagePosition: 1,
                                 activePage: activePage,
-                                image: gameList[randomGameIndex].image[0],
-                                text: gameList[randomGameIndex].name),
-                            onTap: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) =>
-                                      GameThumb(gameList[randomGameIndex])));
-                            }),
+                                image: carouselList[1].image,
+                                text: carouselList[1].name),
+                            onTap: () => Navigator.of(context).push(
+                                  PageRouteBuilder(
+                                    opaque: false, // set to false
+                                    pageBuilder: (_, __, ___) =>
+                                        FamousNFT(data: carouselList[1]),
+                                  ),
+                                )),
                         InkWell(
                             child: CarouselCard(
+                                tag: 'null',
                                 pagePosition: 2,
                                 activePage: activePage,
                                 image: 'assets/images/buy-coffee.jpg',
                                 text: 'ما رو به صرف قهوه مهمون کن'),
                             onTap: _launchUrl),
                         InkWell(
-                          child: CarouselCard(
-                              pagePosition: 3,
-                              activePage: activePage,
-                              image: nftsData[randomChapterIndex2].image,
-                              text: nftsData[randomChapterIndex2].title),
-                          onTap: () => Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (_) => ChapterPage(
-                                nft: nftsData[randomChapterIndex2],
-                                ad2: ad2,
-                              ),
-                            ),
-                          ),
-                        ),
+                            child: CarouselCard(
+                                tag: carouselList[2].name,
+                                pagePosition: 3,
+                                activePage: activePage,
+                                image: carouselList[2].image,
+                                text: carouselList[2].name),
+                            onTap: () => Navigator.of(context).push(
+                                  PageRouteBuilder(
+                                    opaque: false, // set to false
+                                    pageBuilder: (_, __, ___) =>
+                                        FamousNFT(data: carouselList[2]),
+                                  ),
+                                )),
                         InkWell(
                             child: CarouselCard(
+                                tag: carouselList[3].name,
                                 pagePosition: 4,
                                 activePage: activePage,
-                                image: gameList[randomGameIndex2].image[0],
-                                text: gameList[randomGameIndex2].name),
-                            onTap: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) =>
-                                      GameThumb(gameList[randomGameIndex2])));
-                            }),
+                                image: carouselList[3].image,
+                                text: carouselList[3].name),
+                            onTap: () => Navigator.of(context).push(
+                                  PageRouteBuilder(
+                                    opaque: false, // set to false
+                                    pageBuilder: (_, __, ___) =>
+                                        FamousNFT(data: carouselList[3]),
+                                  ),
+                                )),
                         if (bannerDataDown != null)
                           InkWell(
                               child: CarouselCard(
+                                  tag: 'null',
                                   pagePosition: 5,
                                   activePage: activePage,
                                   image: bannerDataDown!.landscapeImageUrl
@@ -433,6 +437,34 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                               onTap: () => TapsellPlus.instance
                                   .nativeBannerAdClicked(
                                       bannerDataDown!.responseId.toString())),
+                        InkWell(
+                            child: CarouselCard(
+                                pagePosition: bannerDataDown != null ? 6 : 5,
+                                activePage: activePage,
+                                image: carouselList[4].image,
+                                text: carouselList[4].name,
+                                tag: carouselList[4].name),
+                            onTap: () => Navigator.of(context).push(
+                                  PageRouteBuilder(
+                                    opaque: false, // set to false
+                                    pageBuilder: (_, __, ___) =>
+                                        FamousNFT(data: carouselList[4]),
+                                  ),
+                                )),
+                        InkWell(
+                            child: CarouselCard(
+                                pagePosition: bannerDataDown != null ? 7 : 6,
+                                activePage: activePage,
+                                image: carouselList[5].image,
+                                text: carouselList[5].name,
+                                tag: carouselList[5].name),
+                            onTap: () => Navigator.of(context).push(
+                                  PageRouteBuilder(
+                                    opaque: false, // set to false
+                                    pageBuilder: (_, __, ___) =>
+                                        FamousNFT(data: carouselList[5]),
+                                  ),
+                                )),
                       ],
                     ),
                   ),
@@ -448,8 +480,8 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                   DividerNew(context, 'ویژه نامه ', Icons.not_accessible),
                   GameCard(),
                   GameCard(), */
-                  DividerNew(
-                      context, 'پیش نیاز :مفاهیم بلاکچین', Icons.abc_rounded),
+                  DividerNew(context, 'پیش نیاز :مفاهیم بلاکچین',
+                      Icons.abc_rounded, false),
                   Container(
                     height: MediaQuery.of(context).size.width / 2.5,
                     color: Color.fromARGB(40, 8, 8, 8),
@@ -475,7 +507,8 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                       itemCount: nftsData.length,
                     ),
                   ),
-                  DividerNew(context, 'NFT آشنایی با ', Icons.abc_rounded),
+                  DividerNew(
+                      context, 'NFT آشنایی با ', Icons.abc_rounded, false),
                   Stack(children: [
                     GestureDetector(
                       onTapDown: (details) {
@@ -559,19 +592,5 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
         ),
       ),
     );
-  }
-
-  void createRandomNumber() {
-    randomChapterIndex = random.nextInt(nftsData.length);
-    randomGameIndex = random.nextInt(gameList.length);
-    randomChapterIndex2 = random.nextInt(nftsData.length);
-    randomGameIndex2 = random.nextInt(gameList.length);
-    while (randomChapterIndex == randomChapterIndex2) {
-      randomChapterIndex2 = random.nextInt(nftsData.length);
-    }
-    while (randomGameIndex == randomGameIndex2) {
-      randomGameIndex2 = random.nextInt(gameList.length);
-    }
-    print(randomChapterIndex2);
   }
 }
