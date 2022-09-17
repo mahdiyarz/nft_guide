@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nft_guide/Games/gameModel.dart';
+import 'package:nft_guide/models/gameModel.dart';
 import 'package:nft_guide/Games/gameSecondCard.dart';
 
 import 'articlepage.dart';

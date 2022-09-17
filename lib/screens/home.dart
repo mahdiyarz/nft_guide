@@ -10,7 +10,7 @@ import 'package:lottie/lottie.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../Games/gameModel.dart';
+import '../models/gameModel.dart';
 import '../screens/chapterPage.dart';
 import '../widgets/divider.dart';
 import '../Games/gameCard.dart';

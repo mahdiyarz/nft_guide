@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'gameModel.dart';
+import '../models/gameModel.dart';
 
 class GameThumb extends StatefulWidget {
   // its the page that introduce games
