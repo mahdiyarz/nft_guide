@@ -412,7 +412,7 @@ List<Nfts> nftsData = [
         image: 'assets/images/market_place/rarible.jpg',
       ),
     ],
-    image: 'images/4-marketplace.jpeg',
+    image: 'assets/images/market_place/chapter4.jpg',
   ),
   Nfts(
     id: 061,
