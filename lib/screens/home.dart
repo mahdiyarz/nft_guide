@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:nft_guide/models/carouseModel.dart';
+import 'package:nft_guide/screens/famousNft.dart';
 import 'package:nft_guide/widgets/chapter2Card.dart';
 import 'package:nft_guide/widgets/chapter7Card.dart';
 import 'package:tapsell_plus/tapsell_plus.dart';
@@ -178,7 +179,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
       ..addListener(() {
         setState(() {});
       });
-    Timer.periodic(Duration(seconds: 5), (Timer timer) {
+    Timer.periodic(Duration(seconds: 8), (Timer timer) {
       if (pageIndex < 7) {
         pageIndex++;
       } else {
@@ -361,21 +362,19 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                       },
                       children: [
                         InkWell(
-                          child: CarouselCard(
-                              tag: carouselList[0].name,
-                              pagePosition: 0,
-                              activePage: activePage,
-                              image: carouselList[0].image,
-                              text: carouselList[0].name),
-                          onTap: () => Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (_) => ChapterPage(
-                                nft: nftsData[0],
-                                ad2: ad2,
-                              ),
-                            ),
-                          ),
-                        ),
+                            child: CarouselCard(
+                                tag: carouselList[0].name,
+                                pagePosition: 0,
+                                activePage: activePage,
+                                image: carouselList[0].image,
+                                text: carouselList[0].name),
+                            onTap: () => Navigator.of(context).push(
+                                  PageRouteBuilder(
+                                    opaque: false, // set to false
+                                    pageBuilder: (_, __, ___) =>
+                                        FamousNFT(data: carouselList[0]),
+                                  ),
+                                )),
                         InkWell(
                             child: CarouselCard(
                                 tag: carouselList[1].name,
