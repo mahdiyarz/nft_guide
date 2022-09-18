@@ -1,4 +1,5 @@
 import 'package:nft_guide/screens/home.dart';
+import 'package:nft_guide/screens/warning_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -17,9 +18,10 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
   }
 
   void _onIntroEnd(context) {
-    addBoolToSF();
-    Navigator.pushAndRemoveUntil(context,
-        MaterialPageRoute(builder: (context) => Home()), (route) => false);
+    Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(builder: (context) => WarningScreen()),
+        (route) => false);
   }
 
   Widget _buildFullscreenImage() {
@@ -92,9 +94,15 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
           decoration: pageDecoration,
         ),
         PageViewModel(
-          title: "Full Screen Page",
+          title: "قهوه ",
           body:
-              "Pages can be full screen as well.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc id euismod lectus, non tempor felis. Nam rutrum rhoncus est ac venenatis.",
+              "برای ساخت این برنامه تلاش زیادی شده است. ما تصمیم گرفتیم برنامه را کاملا رایگان در اختیار شما قرار دهیم،اما قسمت هایی رو تعبیه کردیم که اگه از برنامه خوشتون اومد بتونید مارو یک فنجان قهوه مهمان کنید و خستگی مارو در ببرید",
+          image: _buildImage('welcome4.png'),
+          decoration: pageDecoration,
+        ),
+        PageViewModel(
+          title: "Full Screen Page",
+          body: "قط اطلاعاتی جهت آشنایی بیشتر شما با NFT در اختیار شوید.",
           image: _buildFullscreenImage(),
           decoration: pageDecoration.copyWith(
               pageColor: Color.fromARGB(103, 0, 0, 0),
