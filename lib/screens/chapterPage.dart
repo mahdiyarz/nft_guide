@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:tapsell_plus/tapsell_plus.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:lottie/lottie.dart';
 
 import '../models/nftModel.dart';
+import '../provider/nft_provider.dart';
 import '../screens/chapterSlidePage.dart';
 
 class ChapterPage extends StatefulWidget {
@@ -22,28 +23,6 @@ class ChapterPage extends StatefulWidget {
 
 class _ChapterPageState extends State<ChapterPage>
     with SingleTickerProviderStateMixin {
-  bool _isPullRight = true;
-  Future isFirstPull() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    bool firstPull = prefs.getBool('firstPull') ?? true;
-
-    if (firstPull) {
-      await prefs.setBool('firstPull', false);
-      setState(() {
-        _isPullRight = false;
-      });
-    } else {
-      setState(() {
-        _isPullRight = true;
-      });
-    }
-  }
-
-  Future dragHorizontal() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setBool('firstPull', false);
-  }
-
   PageController _controller = PageController(
     initialPage: 0,
   );
@@ -58,8 +37,6 @@ class _ChapterPageState extends State<ChapterPage>
   int dotindex = 0;
 
   void initState() {
-    isFirstPull();
-
     super.initState();
     _dotcontroller = TabController(
       length: widget.nft.chapterDetailList.length,
@@ -70,6 +47,7 @@ class _ChapterPageState extends State<ChapterPage>
 
   @override
   Widget build(BuildContext context) {
+    Provider.of<NFTProvider>(context).isFirstPull();
     return Scaffold(
       bottomNavigationBar: widget.nft.chapterDetailList.length > 1
           ? BottomAppBar(
@@ -105,12 +83,12 @@ class _ChapterPageState extends State<ChapterPage>
         toolbarHeight: 40,
       ),
       body: GestureDetector(
-        onHorizontalDragStart: ((details) {
-          dragHorizontal();
-          setState(() {
-            _isPullRight = true;
-          });
-        }),
+        onHorizontalDragDown: widget.nft.chapterDetailList.length > 1
+            ? ((details) {
+                Provider.of<NFTProvider>(context, listen: false)
+                    .dragHorizontal();
+              })
+            : (details) {},
         child: Stack(
           children: [
             Column(
@@ -149,7 +127,9 @@ class _ChapterPageState extends State<ChapterPage>
                 ),
               ],
             ),
-            _isPullRight == false
+            Provider.of<NFTProvider>(context, listen: false).isPullRight ==
+                        false &&
+                    widget.nft.chapterDetailList.length > 1
                 ? Center(
                     child: Lottie.asset('assets/lottie/swipe-left.json'),
                   )

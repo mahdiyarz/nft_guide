@@ -1,16 +1,17 @@
 import 'dart:async';
-import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:nft_guide/models/carouseModel.dart';
-import 'package:nft_guide/screens/famousNft.dart';
-import 'package:nft_guide/widgets/chapter2Card.dart';
-import 'package:nft_guide/widgets/chapter7Card.dart';
+import 'package:nft_guide/provider/nft_provider.dart';
+import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:tapsell_plus/tapsell_plus.dart';
 import 'package:lottie/lottie.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:url_launcher/url_launcher.dart';
+
+import '../models/carouseModel.dart';
+import '../screens/famousNft.dart';
+import '../widgets/chapter2Card.dart';
+import '../widgets/chapter7Card.dart';
 import '../widgets/divider.dart';
 import '../Games/gameCard.dart';
 import '../models/nftModel.dart';
@@ -62,50 +63,6 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
   var activePage = 1;
   var pageIndex = 1;
 
-  bool _isClick = true;
-  Future isFirstClick() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    bool firstClick = prefs.getBool('firstClick') ?? true;
-
-    if (firstClick) {
-      await prefs.setBool('firstClick', false);
-      setState(() {
-        _isClick = false;
-      });
-    } else {
-      setState(() {
-        _isClick = true;
-      });
-    }
-  }
-
-  Future clickOnChapter() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setBool('firstClick', false);
-  }
-
-  bool _isDrag = true;
-  Future isFirstDrag() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    bool firstDrag = prefs.getBool('firstDrag') ?? true;
-
-    if (firstDrag) {
-      await prefs.setBool('firstdrag', false);
-      setState(() {
-        _isDrag = false;
-      });
-    } else {
-      setState(() {
-        _isDrag = true;
-      });
-    }
-  }
-
-  Future dragVerticalDown() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setBool('firstDrag', false);
-  }
-
   final Uri _url = Uri.parse('https://www.coffeete.ir/ParsString');
 
   Future<void> _launchUrl() async {
@@ -140,9 +97,6 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
 
   @override
   void initState() {
-    isFirstDrag();
-    isFirstClick();
-
     adloadmid();
     Timer(Duration(seconds: 10), () => adloaddown());
     Timer(Duration(seconds: 15), () => adloadsecondpage());
@@ -278,6 +232,8 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    Provider.of<NFTProvider>(context).isFirstDrag();
+    Provider.of<NFTProvider>(context).isFirstClick();
     double _width = MediaQuery.of(context).size.width;
     return WillPopScope(
       onWillPop: () async {
@@ -335,10 +291,8 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
           children: [
             GestureDetector(
               onVerticalDragDown: (details) {
-                dragVerticalDown();
-                setState(() {
-                  _isDrag = true;
-                });
+                Provider.of<NFTProvider>(context, listen: false)
+                    .dragVerticalDown();
               },
               child: ListView(
                 physics: const BouncingScrollPhysics(
@@ -509,24 +463,16 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                       context, 'NFT آشنایی با ', Icons.abc_rounded, false),
                   Stack(children: [
                     GestureDetector(
-                      onTapDown: (details) {
-                        clickOnChapter();
-                        setState(() {
-                          _isClick = true;
-                        });
-                      },
-                      onTapUp: (details) {
-                        clickOnChapter();
-                        setState(() {
-                          _isClick = true;
-                        });
-                      },
+                      onTapDown: (details) =>
+                          Provider.of<NFTProvider>(context, listen: false)
+                              .clickOnChapter(),
                       child: NftListView(
                           index: nftsData.indexWhere(
                               (element) => element.id == myChaptersId[4]),
                           ad2: ad2),
                     ),
-                    _isClick == false
+                    Provider.of<NFTProvider>(context, listen: false).isClick ==
+                            false
                         ? Lottie.asset('assets/lottie/click-animation.json')
                         : SizedBox(),
                   ]),
@@ -577,7 +523,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
               animation3: _animation3,
               controller: _controller,
             ),
-            _isDrag == false
+            Provider.of<NFTProvider>(context, listen: false).isDrag == false
                 ? Positioned(
                     bottom: 25,
                     left: 25,
