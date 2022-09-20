@@ -39,30 +39,20 @@ class WarningScreen extends StatelessWidget {
                 textDirection: TextDirection.rtl,
                 textAlign: TextAlign.justify),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              ElevatedButton(
-                  style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.red)),
-                  onPressed: () {
-                    SystemChannels.platform.invokeMethod('SystemNavigator.pop');
-                  },
-                  child: Text('قبول نمی کنم')),
-              ElevatedButton(
-                  style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(
-                    Color.fromARGB(255, 142, 183, 65),
-                  )),
-                  onPressed: () {
-                    addBoolToSF();
-                    Navigator.pushAndRemoveUntil(
-                        context,
-                        MaterialPageRoute(builder: (context) => Home()),
-                        (route) => false);
-                  },
-                  child: Text('قبول می کنم')),
-            ],
+          Center(
+            child: ElevatedButton(
+                style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(
+                  Color.fromARGB(255, 142, 183, 65),
+                )),
+                onPressed: () {
+                  addBoolToSF();
+                  Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(builder: (context) => Home()),
+                      (route) => false);
+                },
+                child: Text('قبول می کنم')),
           )
         ],
       )),
