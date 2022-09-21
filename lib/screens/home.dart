@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:nft_guide/models/carouseModel.dart';
 import 'package:nft_guide/screens/famousNft.dart';
+import 'package:nft_guide/widgets/chapter1Card.dart';
 import 'package:nft_guide/widgets/chapter2Card.dart';
 import 'package:nft_guide/widgets/chapter7Card.dart';
 import 'package:tapsell_plus/tapsell_plus.dart';
@@ -507,29 +508,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                   ),
                   DividerNew(
                       context, 'NFT آشنایی با ', Icons.abc_rounded, false),
-                  Stack(children: [
-                    GestureDetector(
-                      onTapDown: (details) {
-                        clickOnChapter();
-                        setState(() {
-                          _isClick = true;
-                        });
-                      },
-                      onTapUp: (details) {
-                        clickOnChapter();
-                        setState(() {
-                          _isClick = true;
-                        });
-                      },
-                      child: NftListView(
-                          index: nftsData.indexWhere(
-                              (element) => element.id == myChaptersId[4]),
-                          ad2: ad2),
-                    ),
-                    _isClick == false
-                        ? Lottie.asset('assets/lottie/click-animation.json')
-                        : SizedBox(),
-                  ]),
+                  Chapter1Card(),
                   Chapter2Card(),
                   NftListView(
                       index: nftsData.indexWhere(
