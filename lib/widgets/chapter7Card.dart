@@ -61,24 +61,6 @@ class _Chapter7CardState extends State<Chapter7Card> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        /*  InkWell(
-                            onTap: () {
-                              isPressed = false;
-                            },
-                            child: Container(
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Icon(Icons.close, color: Colors.white),
-                                  Text(
-                                    'بستن',
-                                    style: TextStyle(color: Colors.white),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ), */
-
                         Center(
                           child: Padding(
                             padding: const EdgeInsets.only(top: 4),
