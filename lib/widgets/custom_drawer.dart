@@ -12,7 +12,7 @@ class CustomDrawer extends StatefulWidget {
   final Animation<double>? animation1;
   final Animation<double>? animation2;
   final Animation<double>? animation3;
-  late final bool isBool;
+  bool? isBool;
   CustomDrawer({
     required this.controller,
     required this.animation1,
@@ -45,8 +45,8 @@ class _CustomDrawerState extends State<CustomDrawer> {
         filter: ImageFilter.blur(
             sigmaY: widget.animation1!.value, sigmaX: widget.animation1!.value),
         child: Container(
-          height: widget.isBool ? 0 : _height,
-          width: widget.isBool ? 0 : _width,
+          height: widget.isBool! ? 0 : _height,
+          width: widget.isBool! ? 0 : _width,
           color: Colors.black12,
           child: Center(
             child: Transform.scale(
