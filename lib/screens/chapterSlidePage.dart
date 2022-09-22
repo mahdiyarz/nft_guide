@@ -12,6 +12,7 @@ class ChapterSlidePage extends StatelessWidget {
   final String? titleSection;
   final List<String>? tableList;
   final List<String>? benefits;
+  final String? resourceInfo;
 
   ChapterSlidePage({
     Key? key,
@@ -24,7 +25,31 @@ class ChapterSlidePage extends StatelessWidget {
     this.titleSection,
     this.tableList,
     this.benefits,
+    this.resourceInfo,
   }) : super(key: key);
+
+  void _showModalBottomSheet(BuildContext ctx, String recourseInfo) {
+    showModalBottomSheet(
+        context: ctx,
+        builder: (_) {
+          return Container(
+            color: Color.fromARGB(255, 52, 56, 59),
+            padding: const EdgeInsets.symmetric(
+              horizontal: 10,
+              vertical: 8,
+            ),
+            child: Text(recourseInfo.toString(),
+                style: TextStyle(
+                  color: Color.fromARGB(255, 171, 171, 171),
+                  fontSize: 18.5,
+                  fontWeight: FontWeight.normal,
+                  height: 1.55,
+                ),
+                textDirection: TextDirection.rtl,
+                textAlign: TextAlign.justify),
+          );
+        });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -325,6 +350,30 @@ class ChapterSlidePage extends StatelessWidget {
                             color: Colors.amberAccent,
                           ),
                         ],
+                      ),
+                    )
+                  : SizedBox(),
+              resourceInfo != null
+                  ? Container(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 15,
+                        vertical: 8,
+                      ),
+                      width: _width,
+                      child: ElevatedButton.icon(
+                        style: ElevatedButton.styleFrom(
+                          primary: Color.fromARGB(255, 142, 183, 65),
+                        ),
+                        onPressed: resourceInfo != null
+                            ? () {
+                                return _showModalBottomSheet(
+                                  context,
+                                  resourceInfo as String,
+                                );
+                              }
+                            : () {},
+                        icon: Icon(Icons.recommend_outlined),
+                        label: Text('منبع این مقاله'),
                       ),
                     )
                   : SizedBox(),
