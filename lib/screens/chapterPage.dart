@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nft_guide/widgets/drag_right_animation.dart';
 import 'package:provider/provider.dart';
 import 'package:tapsell_plus/tapsell_plus.dart';
 import 'package:lottie/lottie.dart';
@@ -47,7 +48,6 @@ class _ChapterPageState extends State<ChapterPage>
 
   @override
   Widget build(BuildContext context) {
-    Provider.of<NFTProvider>(context).isFirstPull();
     return Scaffold(
       bottomNavigationBar: widget.nft.chapterDetailList.length > 1
           ? BottomAppBar(
@@ -127,13 +127,8 @@ class _ChapterPageState extends State<ChapterPage>
                 ),
               ],
             ),
-            Provider.of<NFTProvider>(context, listen: false).isPullRight ==
-                        false &&
-                    widget.nft.chapterDetailList.length > 1
-                ? Center(
-                    child: Lottie.asset('assets/lottie/swipe-left.json'),
-                  )
-                : SizedBox(),
+            DragRightAnimation(
+                chapterDatailLenght: widget.nft.chapterDetailList.length),
           ],
         ),
       ),

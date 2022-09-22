@@ -3,10 +3,10 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:nft_guide/provider/nft_provider.dart';
+import 'package:nft_guide/widgets/click_animation.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:tapsell_plus/tapsell_plus.dart';
-import 'package:lottie/lottie.dart';
 
 import '../models/carouseModel.dart';
 import '../screens/famousNft.dart';
@@ -19,6 +19,7 @@ import '../widgets/blockchainCard.dart';
 import '../widgets/carouselCard.dart';
 import '../widgets/custom_drawer.dart';
 import '../widgets/adBanner.dart';
+import '../widgets/drag_down_animation.dart';
 import '../widgets/nftListView.dart';
 
 class Home extends StatefulWidget {
@@ -232,8 +233,6 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    Provider.of<NFTProvider>(context).isFirstDrag();
-    Provider.of<NFTProvider>(context).isFirstClick();
     double _width = MediaQuery.of(context).size.width;
     return WillPopScope(
       onWillPop: () async {
@@ -461,21 +460,12 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                   ),
                   DividerNew(
                       context, 'NFT آشنایی با ', Icons.abc_rounded, false),
-                  Stack(children: [
-                    GestureDetector(
-                      onTapDown: (details) =>
-                          Provider.of<NFTProvider>(context, listen: false)
-                              .clickOnChapter(),
-                      child: NftListView(
-                          index: nftsData.indexWhere(
-                              (element) => element.id == myChaptersId[4]),
-                          ad2: ad2),
-                    ),
-                    Provider.of<NFTProvider>(context, listen: false).isClick ==
-                            false
-                        ? Lottie.asset('assets/lottie/click-animation.json')
-                        : SizedBox(),
-                  ]),
+                  ClickAnimation(
+                    clickableWidget: NftListView(
+                        index: nftsData.indexWhere(
+                            (element) => element.id == myChaptersId[4]),
+                        ad2: ad2),
+                  ),
                   Chapter2Card(),
                   NftListView(
                       index: nftsData.indexWhere(
@@ -523,15 +513,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
               animation3: _animation3,
               controller: _controller,
             ),
-            Provider.of<NFTProvider>(context, listen: false).isDrag == false
-                ? Positioned(
-                    bottom: 25,
-                    left: 25,
-                    child: Container(
-                        height: _width / 2,
-                        child: Lottie.asset('assets/lottie/swipe-up.json')),
-                  )
-                : SizedBox(),
+            DragDownAnimation(),
           ],
         ),
       ),
