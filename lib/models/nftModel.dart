@@ -10,7 +10,7 @@ class ChapterDetail {
   String? titleSection;
   List<String>? tableList;
   List<String>? benefits;
-  List<String>? resourceInfo;
+  List<Map<String, String>>? resourceInfo;
   ChapterDetail({
     required this.id,
     this.image,
@@ -48,6 +48,18 @@ List<Nfts> nftsData = [
     image: 'images/0-whatIsBlockchain.jpg',
     chapterDetailList: [
       ChapterDetail(
+          resourceInfo: [
+            {
+              'name': 'The Street Crypto: Bitcoin and cryptocurrency news',
+              'site':
+                  'https://www.thestreet.com/crypto/bitcoin/what-is-a-blockchain-the-simple-explanation'
+            },
+            {
+              'name': 'What Is Blockchain and How Does It Work? | Synopsys',
+              'site':
+                  'https://www.synopsys.com/glossary/what-is-blockchain.html'
+            }
+          ],
           id: 01101,
           image: 'images/0-whatIsBlockchain.jpg',
           titleSection: 'بلاکچین چیست',
@@ -66,6 +78,12 @@ List<Nfts> nftsData = [
     image: 'images/0-Ethereum-1.jpg',
     chapterDetailList: [
       ChapterDetail(
+        /*  resourceInfo: [
+          'https://www.forbes.com/advisor/investing/cryptocurrency/what-is-ethereum-ether/',
+          'https://www.investopedia.com/terms/e/ethereum.asp',
+          'https://originstamp.com/blog/what-is-ethereum-and-what-are-its-use-cases/',
+          'https://cointelegraph.com/defi-101/what-are-dapps-everything-there-is-to-know-about-decentralized-applications'
+        ], */
         id: 01201,
         image: 'images/0-Ethereum-1.jpg',
         titleSection: 'اتریوم چیست',
@@ -85,6 +103,10 @@ List<Nfts> nftsData = [
     image: 'images/0-smartContract.jpg',
     chapterDetailList: [
       ChapterDetail(
+        /* resourceInfo: [
+          'https://www.investopedia.com/terms/b/blockchain.asp',
+          'https://www.ibm.com/topics/smart-contracts'
+        ], */
         id: 01301,
         image: 'images/0-smartContract.jpg',
         titleSection: 'قرارداد هوشمند',
@@ -102,6 +124,11 @@ List<Nfts> nftsData = [
     image: 'images/0-wallet.jpg',
     chapterDetailList: [
       ChapterDetail(
+        /*  resourceInfo: [
+          'https://www.investopedia.com/terms/b/blockchain-wallet.asp',
+          'https://www.fool.com/investing/stock-market/market-sectors/financials/blockchain-stocks/blockchain-wallet/',
+          'https://www.softwaretestinghelp.com/what-is-a-blockchain-wallet/'
+        ], */
         id: 01401,
         image: 'images/0-wallet.jpg',
         titleSection: 'کیف پول',
@@ -266,6 +293,9 @@ List<Nfts> nftsData = [
     title: 'مینت کردن',
     chapterDetailList: [
       ChapterDetail(
+          /* resourceInfo: [
+            'https://pastel.network/how-much-does-minting-an-nft-cost/'
+          ], */
           id: 03101,
           text:
               'در ابتدا باید بدونید که خرید یک NFT با مینت کردن یک NFT کاملا متفاوت است ، در واقع با mint کردن شما یک چیز جدید در بلاکچین خلق می کنید. تبدیل کردن یک فایل دیجیتال  به یک دارایی دیجیتال در بلاکچین را Minting می گویند. یادتون باشه  NFT یک توکن است که حق مالکیت یک اثر را نشان می دهد ، پس توکن های مینت شده ارزشمند هستند و با عکس ها و اسکرین شات هایی که از اینور و اونور گرفتین فرق دارن، وقتی در خواست مینت یک آیتم را می دهید  باید مبلغی را به عنوان gas fee ( گس فی ) بپردازید در بخش های بعدی در مورد گس فی توضیح بیشتری میدیم ، البته راه های برای اینکه بتونید بدون پرداخت هزینه NFT بسازید هم وجود دارد که به آن ها هم خواهیم پرداخت',
@@ -279,6 +309,9 @@ List<Nfts> nftsData = [
     title: 'گس فی',
     chapterDetailList: [
       ChapterDetail(
+          /*  resourceInfo: [
+            'https://www.fool.com/investing/stock-market/market-sectors/financials/non-fungible-tokens/nft-gas-fees/'
+          ], */
           id: 03201,
           text:
               'اگر بخواهیم خلاصه بگوییم گس فی پولی است که برای مینت یک NFT  در شبکه بلاکچین اتریوم میپردازید ، ولی این پول چیست و چرا باید پرداخت شود ؟ در واقع این پولی است که به استخراج کنندگان بلاک چین برای پردازش تراکنش تعبیه شده در بلاک چین پرداخت می شود. همان طور که قبلا گفته شد بلاک چین یک شبکه غیر متمرکز است ، یک دفتر کل دیجیتال که تمام تراکنش های گذشته در آن ثبت می شود، این دفتر کل بین تمام ماینر ها (استخراج کننده ها ) توزیع شده است، این  کامپیوتر های قدرمند وظیفه مدیریت شبکه و تایید تراکنش ها را بر عهده دارد مانند ساخت یک NFT تایید خرید یا فروش  آن. مانند تمام سیستم های محاسباتی، انرژی زیادی برای محاسبه این تراکنش ها استفاده می شود، برای کمک به بازپرداخت ماینرها برای کاری که انجام می دهند، هر زمان که معامله ای درخواست شود، هزینه گاز یا همان گس فی  دریافت می شود.',
@@ -333,6 +366,11 @@ List<Nfts> nftsData = [
             'برای ایجاد کیف پول، باید اپلیکیشن کیف پول را دانلود کنید، یک نام کاربری و رمز عبور ارائه دهید، و کلیدهای خصوصی و عبارت بازیابی خود را به صورت آفلاین ذخیره کنید. کیف پول خودتان را حتمی خودتان بسازید و از کسی تقاضا نکنید این کار را برای شما انجام دهد. در نهایت رمز و عبارت پشتیبانی شما خیلی مهم است و نباید آن را در اختیار کسی قرار دهید. ',
       ),
       ChapterDetail(
+        /*  resourceInfo: [
+          'https://www.fool.com/investing/stock-market/market-sectors/financials/non-fungible-tokens/how-to-make-an-nft/',
+          'https://www.domusweb.it/en/news/2021/05/13/how-to-mint-your-own-nft-in-5-simple-steps.html',
+          'https://www.investopedia.com/how-to-create-an-nft-6362495'
+        ], */
         id: 03404,
         titleSection: 'آپلود و فروش',
         text:

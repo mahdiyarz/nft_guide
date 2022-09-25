@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nft_guide/widgets/custom_table.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ChapterSlidePage extends StatelessWidget {
   // its a slide screen in article page screen
@@ -12,7 +13,7 @@ class ChapterSlidePage extends StatelessWidget {
   final String? titleSection;
   final List<String>? tableList;
   final List<String>? benefits;
-  final List<String>? resourceInfo;
+  final List<Map<String, String>>? resourceInfo;
 
   ChapterSlidePage({
     Key? key,
@@ -28,7 +29,47 @@ class ChapterSlidePage extends StatelessWidget {
     this.resourceInfo,
   }) : super(key: key);
 
-  void _showModalBottomSheet(BuildContext ctx, List<String> recourseInfo) {
+  Future<void> _launchUrl(String site) async {
+    final Uri _url = Uri.parse(site);
+    if (!await launchUrl(_url)) {
+      throw 'Could not launch $_url';
+    }
+  }
+
+  MyTile(
+    String title,
+    VoidCallback voidCallback,
+  ) {
+    return Column(
+      children: [
+        ListTile(
+          tileColor: Colors.black.withOpacity(.08),
+          leading: CircleAvatar(
+            backgroundColor: Colors.black12,
+            child: Icon(
+              Icons.web,
+              color: Colors.white,
+            ),
+          ),
+          onTap: voidCallback,
+          title: Text(
+            title,
+            style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                letterSpacing: 1),
+          ),
+          trailing: Icon(
+            Icons.arrow_right,
+            color: Colors.white,
+          ),
+        ),
+      ],
+    );
+  }
+
+  void _showModalBottomSheet(
+      BuildContext ctx, List<Map<String, String>> recourseInfo) {
     showModalBottomSheet(
         context: ctx,
         builder: (_) {
@@ -39,17 +80,11 @@ class ChapterSlidePage extends StatelessWidget {
               vertical: 8,
             ),
             child: ListView.builder(
-              itemCount: resourceInfo!.length,
-              itemBuilder: (context, index) => Text(recourseInfo.toString(),
-                  style: TextStyle(
-                    color: Color.fromARGB(255, 171, 171, 171),
-                    fontSize: 18.5,
-                    fontWeight: FontWeight.normal,
-                    height: 1.55,
-                  ),
-                  textDirection: TextDirection.rtl,
-                  textAlign: TextAlign.justify),
-            ),
+                itemCount: resourceInfo!.length,
+                itemBuilder: (context, index) {
+                  return MyTile(resourceInfo![index]['name'] as String,
+                      () => _launchUrl(resourceInfo![index]['site'] as String));
+                }),
           );
         });
   }
@@ -371,7 +406,7 @@ class ChapterSlidePage extends StatelessWidget {
                             ? () {
                                 return _showModalBottomSheet(
                                   context,
-                                  resourceInfo as List<String>,
+                                  resourceInfo as List<Map<String, String>>,
                                 );
                               }
                             : () {},
