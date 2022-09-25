@@ -1,23 +1,11 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
-
-
 import 'package:nft_guide/widgets/chapter1Card.dart';
-
 import 'package:tapsell_plus/tapsell_plus.dart';
-import 'package:lottie/lottie.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
 import 'package:nft_guide/provider/nft_provider.dart';
-import 'package:nft_guide/widgets/click_animation.dart';
 import 'package:provider/provider.dart';
-
 import 'package:url_launcher/url_launcher.dart';
-
-
 import '../models/carouseModel.dart';
 import '../screens/famousNft.dart';
 import '../widgets/chapter2Card.dart';
@@ -470,9 +458,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                   ),
                   DividerNew(
                       context, 'NFT آشنایی با ', Icons.abc_rounded, false),
-
                   Chapter1Card(),
-
                   Chapter2Card(),
                   NftListView(
                       index: nftsData.indexWhere(
