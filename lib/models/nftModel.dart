@@ -78,12 +78,29 @@ List<Nfts> nftsData = [
     image: 'images/0-Ethereum-1.jpg',
     chapterDetailList: [
       ChapterDetail(
-        /*  resourceInfo: [
-          'https://www.forbes.com/advisor/investing/cryptocurrency/what-is-ethereum-ether/',
-          'https://www.investopedia.com/terms/e/ethereum.asp',
-          'https://originstamp.com/blog/what-is-ethereum-and-what-are-its-use-cases/',
-          'https://cointelegraph.com/defi-101/what-are-dapps-everything-there-is-to-know-about-decentralized-applications'
-        ], */
+        resourceInfo: [
+          {
+            'name': 'What Is Ethereum And How Does It Work? – Forbes Advisor',
+            'site':
+                'https://www.forbes.com/advisor/investing/cryptocurrency/what-is-ethereum-ether/',
+          },
+          {
+            'name': 'What Is Ethereum? (investopedia.com)',
+            'site': 'https://www.investopedia.com/terms/e/ethereum.asp',
+          },
+          {
+            'name':
+                'What Is Ethereum and What Are Its Use Cases? | OriginStamp',
+            'site':
+                'https://originstamp.com/blog/what-is-ethereum-and-what-are-its-use-cases/',
+          },
+          {
+            'name':
+                'What are DApps? Everything there is to know about decentralized applications (cointelegraph.com)',
+            'site':
+                'https://cointelegraph.com/defi-101/what-are-dapps-everything-there-is-to-know-about-decentralized-applications'
+          },
+        ],
         id: 01201,
         image: 'images/0-Ethereum-1.jpg',
         titleSection: 'اتریوم چیست',
@@ -103,10 +120,17 @@ List<Nfts> nftsData = [
     image: 'images/0-smartContract.jpg',
     chapterDetailList: [
       ChapterDetail(
-        /* resourceInfo: [
-          'https://www.investopedia.com/terms/b/blockchain.asp',
-          'https://www.ibm.com/topics/smart-contracts'
-        ], */
+        resourceInfo: [
+          {
+            'name':
+                'Blockchain Facts: What Is It, How It Works, and How It Can Be Used',
+            'site': 'https://www.investopedia.com/terms/b/blockchain.asp',
+          },
+          {
+            'name': 'What are smart contracts on blockchain?',
+            'site': 'https://www.ibm.com/topics/smart-contracts'
+          },
+        ],
         id: 01301,
         image: 'images/0-smartContract.jpg',
         titleSection: 'قرارداد هوشمند',
@@ -124,11 +148,24 @@ List<Nfts> nftsData = [
     image: 'images/0-wallet.jpg',
     chapterDetailList: [
       ChapterDetail(
-        /*  resourceInfo: [
-          'https://www.investopedia.com/terms/b/blockchain-wallet.asp',
-          'https://www.fool.com/investing/stock-market/market-sectors/financials/blockchain-stocks/blockchain-wallet/',
-          'https://www.softwaretestinghelp.com/what-is-a-blockchain-wallet/'
-        ], */
+        resourceInfo: [
+          {
+            'name': 'What Is a Blockchain Wallet? (investopedia.com)',
+            'site':
+                'https://www.investopedia.com/terms/b/blockchain-wallet.asp',
+          },
+          {
+            'name': 'What Is a Blockchain Wallet? (fool.com)',
+            'site':
+                'https://www.fool.com/investing/stock-market/market-sectors/financials/blockchain-stocks/blockchain-wallet/',
+          },
+          {
+            'name':
+                'What Is A Blockchain Wallet & How Does It Work? (softwaretestinghelp.com)',
+            'site':
+                'https://www.softwaretestinghelp.com/what-is-a-blockchain-wallet/'
+          },
+        ],
         id: 01401,
         image: 'images/0-wallet.jpg',
         titleSection: 'کیف پول',
@@ -166,6 +203,17 @@ List<Nfts> nftsData = [
             'و اما دارایی های غیر قابل معاوضه؛ فرض کنید شما به یک خیاط سفارش دوخت یک دست لباس رو میدید که کاملا منحصر به فرد برای شما دوخته میشه. لباس شما یک دارایی غیر قابل معاوضه محسوب میشه چون هیچ لباسی شبیه اون وجود نداره.',
       ),
       ChapterDetail(
+          resourceInfo: [
+            {
+              'name': 'NFT art: what is it, how it works and what it means',
+              'site': 'https://en.99designs.fr/blog/web-digital/nft-art/'
+            },
+            {
+              'name': 'NFTs, explained',
+              'site':
+                  'https://crowdlustro.com/articles/nfts/9758303d-6162-4c16-9fe0-110c8ec46b75'
+            }
+          ],
           id: 02103,
           text:
               'قبل از اینکه سراغ هر چیز دیگه ای بریم اول میخوام شکل ساده شده ای از NFT رو توضیح بدم. فرض کنید شما یک نقاشی دیجیتالی رو با کلی زحمت خلق کردین. به این امید که با فروش این نقاشی پول خوبی رو به جیب بزنید. همون شب سیستم شما هک میشه و یک نسخه از نقاشی شما در سیستم آقای هکر کپی میشه! حالا چطوری میتونید ثابت کنید که خالق اون اثر شما هستید؟ اینجاست که NFT به داد ما میرسه! چطوری؟',
@@ -174,15 +222,6 @@ List<Nfts> nftsData = [
           starnote2:
               'NFT میتونه کاور یک فیلم، یک قطعه موسیقی، یک گیف، یک ویدیو کوتاه و ... باشد',
           image2: 'images/1-artist.jpg'),
-      ChapterDetail(
-        id: 02102,
-        titleSection: '',
-        text: '',
-        starnote: '',
-        image2: '',
-        text2: '',
-        starnote2: '',
-      ),
     ],
     image: 'images/chapter1.png',
   ),
@@ -247,6 +286,7 @@ List<Nfts> nftsData = [
               'تو این روش هنرمندهایی که اثر خودشون رو به شکل NFT فروختن میتونن حق امتیاز فروش روی اثر خودشون بذارن که با هربار خرید و فروش درصدی به کیف پولشون اضافه بشه. البته این روش میتونه باعث لطمه به مارکتینگ اون NFT بزنه.',
           image: 'images/1-daramad02.jpg'),
       ChapterDetail(
+        titleSection: '',
         id: 02303,
         image2: 'images/1-daramad04.jpg',
         text:
@@ -293,9 +333,13 @@ List<Nfts> nftsData = [
     title: 'مینت کردن',
     chapterDetailList: [
       ChapterDetail(
-          /* resourceInfo: [
-            'https://pastel.network/how-much-does-minting-an-nft-cost/'
-          ], */
+          resourceInfo: [
+            {
+              'name': 'How Much Does Minting an NFT Cost?',
+              'site':
+                  'https://pastel.network/how-much-does-minting-an-nft-cost/'
+            },
+          ],
           id: 03101,
           text:
               'در ابتدا باید بدونید که خرید یک NFT با مینت کردن یک NFT کاملا متفاوت است ، در واقع با mint کردن شما یک چیز جدید در بلاکچین خلق می کنید. تبدیل کردن یک فایل دیجیتال  به یک دارایی دیجیتال در بلاکچین را Minting می گویند. یادتون باشه  NFT یک توکن است که حق مالکیت یک اثر را نشان می دهد ، پس توکن های مینت شده ارزشمند هستند و با عکس ها و اسکرین شات هایی که از اینور و اونور گرفتین فرق دارن، وقتی در خواست مینت یک آیتم را می دهید  باید مبلغی را به عنوان gas fee ( گس فی ) بپردازید در بخش های بعدی در مورد گس فی توضیح بیشتری میدیم ، البته راه های برای اینکه بتونید بدون پرداخت هزینه NFT بسازید هم وجود دارد که به آن ها هم خواهیم پرداخت',
@@ -309,9 +353,13 @@ List<Nfts> nftsData = [
     title: 'گس فی',
     chapterDetailList: [
       ChapterDetail(
-          /*  resourceInfo: [
-            'https://www.fool.com/investing/stock-market/market-sectors/financials/non-fungible-tokens/nft-gas-fees/'
-          ], */
+          resourceInfo: [
+            {
+              'name': 'NFT Gas Fees Explained',
+              'site':
+                  'https://www.fool.com/investing/stock-market/market-sectors/financials/non-fungible-tokens/nft-gas-fees/'
+            },
+          ],
           id: 03201,
           text:
               'اگر بخواهیم خلاصه بگوییم گس فی پولی است که برای مینت یک NFT  در شبکه بلاکچین اتریوم میپردازید ، ولی این پول چیست و چرا باید پرداخت شود ؟ در واقع این پولی است که به استخراج کنندگان بلاک چین برای پردازش تراکنش تعبیه شده در بلاک چین پرداخت می شود. همان طور که قبلا گفته شد بلاک چین یک شبکه غیر متمرکز است ، یک دفتر کل دیجیتال که تمام تراکنش های گذشته در آن ثبت می شود، این دفتر کل بین تمام ماینر ها (استخراج کننده ها ) توزیع شده است، این  کامپیوتر های قدرمند وظیفه مدیریت شبکه و تایید تراکنش ها را بر عهده دارد مانند ساخت یک NFT تایید خرید یا فروش  آن. مانند تمام سیستم های محاسباتی، انرژی زیادی برای محاسبه این تراکنش ها استفاده می شود، برای کمک به بازپرداخت ماینرها برای کاری که انجام می دهند، هر زمان که معامله ای درخواست شود، هزینه گاز یا همان گس فی  دریافت می شود.',
@@ -327,6 +375,12 @@ List<Nfts> nftsData = [
     title: 'لزی مینت',
     chapterDetailList: [
       ChapterDetail(
+          resourceInfo: [
+            {
+              'name': 'What is lazy Minting',
+              'site': 'https://www.lcx.com/what-is-lazy-minting/'
+            }
+          ],
           id: 03301,
           text:
               'برای اینکه بتوانید NFT خود را در بلاک چین ثبت کنید باید هزینه ای بپردازید ، خیلی از هنرمندان از ترس اینکه NFT هایی که ساخته اند بفروش نرود و هزینه Minting که پرداخت کرده به هدر برود ،آثار خود را به NFT تبدیل نمی کنند و از خیر NFT می گذرند.',
@@ -366,11 +420,23 @@ List<Nfts> nftsData = [
             'برای ایجاد کیف پول، باید اپلیکیشن کیف پول را دانلود کنید، یک نام کاربری و رمز عبور ارائه دهید، و کلیدهای خصوصی و عبارت بازیابی خود را به صورت آفلاین ذخیره کنید. کیف پول خودتان را حتمی خودتان بسازید و از کسی تقاضا نکنید این کار را برای شما انجام دهد. در نهایت رمز و عبارت پشتیبانی شما خیلی مهم است و نباید آن را در اختیار کسی قرار دهید. ',
       ),
       ChapterDetail(
-        /*  resourceInfo: [
-          'https://www.fool.com/investing/stock-market/market-sectors/financials/non-fungible-tokens/how-to-make-an-nft/',
-          'https://www.domusweb.it/en/news/2021/05/13/how-to-mint-your-own-nft-in-5-simple-steps.html',
-          'https://www.investopedia.com/how-to-create-an-nft-6362495'
-        ], */
+        resourceInfo: [
+          {
+            'name': 'How to Make an NFT (fool.com)',
+            'site':
+                'https://www.fool.com/investing/stock-market/market-sectors/financials/non-fungible-tokens/how-to-make-an-nft/',
+          },
+          {
+            'name':
+                'How to create your own NFT in 5 simple steps - Domus (domusweb.it)',
+            'site':
+                'https://www.domusweb.it/en/news/2021/05/13/how-to-mint-your-own-nft-in-5-simple-steps.html',
+          },
+          {
+            'name': 'How to Create an NFT (investopedia.com)',
+            'site': 'https://www.investopedia.com/how-to-create-an-nft-6362495'
+          },
+        ],
         id: 03404,
         titleSection: 'آپلود و فروش',
         text:
@@ -546,6 +612,13 @@ List<Nfts> nftsData = [
         image: 'assets/images/market_place/game-stop.jpg',
       ),
       ChapterDetail(
+        resourceInfo: [
+          {
+            'name':
+                'Best NFT Marketplaces Reviewed - Where to Buy NFTs in 2022 (business2community.com)',
+            'site': 'https://www.business2community.com/nft/best-marketplaces'
+          },
+        ],
         id: 05107,
         titleSection: 'Rarible',
         text:
@@ -584,6 +657,18 @@ List<Nfts> nftsData = [
               'توکنی که یک توسعه دهنده به صورت هدیه یا پاداش به شما بده یا اینکه بخاطر خرید و نگه داری یک آیتم به دارایی های شما اضافه کنه ایردراپ گفته می شود، ایدراپ بیشتر جنبه تبلیغاتی داره و یک جور استراتژی جلب توجه جامعه مجازی است.',
           image: 'images/5-airdrop.jpg'),
       ChapterDetail(
+          resourceInfo: [
+            {
+              'name': 'The Ultimate Guide to NFT Airdrops (nftplazas.com)',
+              'site': 'https://nftplazas.com/guide-nft-airdrops/'
+            },
+            {
+              'name':
+                  'Airdrop Beginner Guide: What is an Airdrop and How is it Work? (one37pm.com)',
+              'site':
+                  'https://www.one37pm.com/nft/what-is-an-airdrop#:~:text=An%20airdrop%20is%20a%20distribution,to%20a%20brand%20or%20experience.'
+            },
+          ],
           id: 06102,
           text:
               'یکی از معمول ترین نوع های ایردراپ مدل استاندارد آن است که توسعه دهنده درصدی از توکن های پروژه را با اعضایی که نام نویسی کرده اند تقسیم می کند. ، بعد از ثبت نام در یک ایردراپ ممکن است  فعالیت هایی برای شما در نظر گرفته شود مانند اشتراک گذاشتن پست هایی در رسانه های اجتماعی و یا چیز هایی مشابه آن.',
@@ -654,12 +739,29 @@ List<Nfts> nftsData = [
             'صادقانه بگوییم که این کار بسیار سختی است و به تلاش و تجربه بالایی نیاز دارد.',
       ),
       ChapterDetail(
-        id: 07107,
-        text:
-            'با استفاده از جستجوی عکس گوکل می توانید اطلاعات مهمی راجب به عکس پیدا کنید و ببینید که چقدر تنوع یا توکن های مشابه نمونه مورد خرید شما وجود دارد و یا چه مدت است که این تصویر در اینترنت وجود دارد.',
-        titleSection: 'جستجوی معکوس در گوگل ',
-        image: 'images/6-7-Reverse-Image-Search.png',
-      )
+          id: 07107,
+          text:
+              'با استفاده از جستجوی عکس گوکل می توانید اطلاعات مهمی راجب به عکس پیدا کنید و ببینید که چقدر تنوع یا توکن های مشابه نمونه مورد خرید شما وجود دارد و یا چه مدت است که این تصویر در اینترنت وجود دارد.',
+          titleSection: 'جستجوی معکوس در گوگل ',
+          image: 'images/6-7-Reverse-Image-Search.png',
+          resourceInfo: [
+            {
+              'name':
+                  'NFT Tips: 15 Pro Tips for Beginners + How to Invest in NFTs (justcreative.com)',
+              'site': 'https://justcreative.com/nft-tips-how-to-invest-in-nfts/'
+            },
+            {
+              'name':
+                  'Investing in NFTs: 12 Must-Read Tips to Spot the Best Projects (cryptopotato.com)',
+              'site': 'https://cryptopotato.com/nft-investmnet-tips/'
+            },
+            {
+              'name':
+                  '9 Tips for buying and trading NFTs like a Pro (swappable.io)',
+              'site':
+                  'https://swappable.io/blog/safety-tips-for-buying-selling-nfts-2/'
+            },
+          ])
     ],
   ),
   Nfts(
@@ -800,7 +902,42 @@ List<Nfts> nftsData = [
                 'هیچ کس نمی خواهد یک ایده بالقوه انقلابی را از دست بدهد.مطمئناً همه دوست دارند از فرصت های جدید برای سرمایه گذاری استفاده کنند، خبر خوب این است که ثروت های زیادی در دنیای کریپتو نهفته است ولی کلاه برداران هم از این موضوع با خبر هستند و از ترفند های زیادی استفاده می کنند تا از پول شما سود ببرند. ',
             text2:
                 'خوشبختانه اگر حواستان جمع باشد می توانید از این کلاهبرداری ها دوری کنید، همیشه هوشیار باشید، تا اطلاعات کامل بدست نیاورده اید خرید نکنید ، مطئن باشید که به اندازه کافی راجع به پروژه مورد نظر تحقیق کرده باشید و در نهایت مهم تر از همه از اطلاعات شخصی و رمز هایتان به خوبی محافظت کنید.',
-            image: 'images/7-finalnote.jpg')
+            image: 'images/7-finalnote.jpg',
+            resourceInfo: [
+              {
+                'name':
+                    'Sleepminting: How to Avoid the End of NFTs » Learning Cryptos',
+                'site':
+                    'https://www.learningcryptos.com/sleepminting-how-to-avoid-the-end-of-nfts/'
+              },
+              {
+                'name': 'NFT scams: 10 types + how to avoid NFT fraud | Norton',
+                'site':
+                    'https://us.norton.com/internetsecurity-online-scams-nft-scams.html'
+              },
+              {
+                'name': '7 Most Common NFT Scams (beincrypto.com)',
+                'site': 'https://beincrypto.com/learn/nft-scams/'
+              },
+              {
+                'name':
+                    '7 NFT scams: How to spot them and keep your assets safe | finder.com',
+                'site': 'https://www.finder.com/nft-scams'
+              },
+              {
+                'name':
+                    'Common NFT scams and how to avoid them | WeLiveSecurity',
+                'site':
+                    'https://www.welivesecurity.com/2022/05/23/common-nft-scams-how-avoid-them/#:~:text=Fake%20bids%20in%20NFT%20auctions,one%20with%20a%20lower%20value.'
+              },
+              {
+                'name':
+                    'How To Spot A ‘Fake’ NFT Mint. Just follow whale activites, and you’ll… | by The Prometheus Project | Medium',
+                'site':
+                    'https://medium.com/@ThePrometheusProject/how-to-spot-a-fake-nft-mint-5615f6417be0#id_token=eyJhbGciOiJSUzI1NiIsImtpZCI6IjQwMmYzMDViNzA1ODEzMjlmZjI4OWI1YjNhNjcyODM4MDZlY2E4OTMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJuYmYiOjE2NjE0MzEyNjYsImF1ZCI6IjIxNjI5NjAzNTgzNC1rMWs2cWUwNjBzMnRwMmEyamFtNGxqZGNtczAwc3R0Zy5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsInN1YiI6IjExMDY3NzI1MjY3MDkwMzA4NDYyMSIsImVtYWlsIjoic2luYS56cnBAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImF6cCI6IjIxNjI5NjAzNTgzNC1rMWs2cWUwNjBzMnRwMmEyamFtNGxqZGNtczAwc3R0Zy5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsIm5hbWUiOiJzaW5hIHpwIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hLS9BRmRadWNxd3F1R0Yya0tFTDJBQzhDbmZ5QU1BRFVVRjF0bmhhR3RfVGpoSktBPXM5Ni1jIiwiZ2l2ZW5fbmFtZSI6InNpbmEiLCJmYW1pbHlfbmFtZSI6InpwIiwiaWF0IjoxNjYxNDMxNTY2LCJleHAiOjE2NjE0MzUxNjYsImp0aSI6ImMzZGM5NTEyMTQ5N2JhOTczNWIxZjAyNzBlNTM3MWRiNDU5MmRhNzEifQ.iM5YOCbX_UqVM1GnJG39kkDfMAGPsU21ILvrX8uJMOV9gMgEuKrPWdgwZlMImiX0cLYQx7LScug6y32EA-2crshGtAHdDbo2HsZFk8jw7E4D2wrCqiaqypWILUgz29cRzb_ooZF76x7QVF3K2Hs-DOcNpt7pHPKxKilR-ZeaxqXzsDEucPFDEebfb5qCiUHhE6svT1TsGkZE_vy6z39N470DlkaiOPjfvdtGB0wWpI32HKAWpgmXKUG6WjLcbi-Pv0Or8r5ieR8o3FpXpaQ-O2GcmzZInGOF8ZGbpiRKkPBaQAlWJdhX9hcx49M2ta8mKfVRlxvDOc2m6YngY8Fuyw'
+              },
+              //{'name': '', 'site': ''},
+            ])
       ],
       chapter: 'فصل هفتم',
       title: 'روش های کلاهبرداری ',
