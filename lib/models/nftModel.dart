@@ -10,7 +10,7 @@ class ChapterDetail {
   String? titleSection;
   List<String>? tableList;
   List<String>? benefits;
-  String? resourceInfo;
+  List<String>? resourceInfo;
   ChapterDetail({
     required this.id,
     this.image,

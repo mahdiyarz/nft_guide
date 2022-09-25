@@ -12,7 +12,7 @@ class ChapterSlidePage extends StatelessWidget {
   final String? titleSection;
   final List<String>? tableList;
   final List<String>? benefits;
-  final String? resourceInfo;
+  final List<String>? resourceInfo;
 
   ChapterSlidePage({
     Key? key,
@@ -28,7 +28,7 @@ class ChapterSlidePage extends StatelessWidget {
     this.resourceInfo,
   }) : super(key: key);
 
-  void _showModalBottomSheet(BuildContext ctx, String recourseInfo) {
+  void _showModalBottomSheet(BuildContext ctx, List<String> recourseInfo) {
     showModalBottomSheet(
         context: ctx,
         builder: (_) {
@@ -38,15 +38,18 @@ class ChapterSlidePage extends StatelessWidget {
               horizontal: 10,
               vertical: 8,
             ),
-            child: Text(recourseInfo.toString(),
-                style: TextStyle(
-                  color: Color.fromARGB(255, 171, 171, 171),
-                  fontSize: 18.5,
-                  fontWeight: FontWeight.normal,
-                  height: 1.55,
-                ),
-                textDirection: TextDirection.rtl,
-                textAlign: TextAlign.justify),
+            child: ListView.builder(
+              itemCount: resourceInfo!.length,
+              itemBuilder: (context, index) => Text(recourseInfo.toString(),
+                  style: TextStyle(
+                    color: Color.fromARGB(255, 171, 171, 171),
+                    fontSize: 18.5,
+                    fontWeight: FontWeight.normal,
+                    height: 1.55,
+                  ),
+                  textDirection: TextDirection.rtl,
+                  textAlign: TextAlign.justify),
+            ),
           );
         });
   }
@@ -368,7 +371,7 @@ class ChapterSlidePage extends StatelessWidget {
                             ? () {
                                 return _showModalBottomSheet(
                                   context,
-                                  resourceInfo as String,
+                                  resourceInfo as List<String>,
                                 );
                               }
                             : () {},
