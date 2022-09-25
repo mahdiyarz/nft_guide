@@ -1,17 +1,27 @@
 import 'dart:async';
-import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:nft_guide/models/carouseModel.dart';
-import 'package:nft_guide/screens/famousNft.dart';
+
+
+
 import 'package:nft_guide/widgets/chapter1Card.dart';
-import 'package:nft_guide/widgets/chapter2Card.dart';
-import 'package:nft_guide/widgets/chapter7Card.dart';
+
 import 'package:tapsell_plus/tapsell_plus.dart';
 import 'package:lottie/lottie.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'package:nft_guide/provider/nft_provider.dart';
+import 'package:nft_guide/widgets/click_animation.dart';
+import 'package:provider/provider.dart';
+
 import 'package:url_launcher/url_launcher.dart';
+
+
+import '../models/carouseModel.dart';
+import '../screens/famousNft.dart';
+import '../widgets/chapter2Card.dart';
+import '../widgets/chapter7Card.dart';
 import '../widgets/divider.dart';
 import '../Games/gameCard.dart';
 import '../models/nftModel.dart';
@@ -19,6 +29,7 @@ import '../widgets/blockchainCard.dart';
 import '../widgets/carouselCard.dart';
 import '../widgets/custom_drawer.dart';
 import '../widgets/adBanner.dart';
+import '../widgets/drag_down_animation.dart';
 import '../widgets/nftListView.dart';
 
 class Home extends StatefulWidget {
@@ -63,50 +74,6 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
   var activePage = 1;
   var pageIndex = 1;
 
-  bool _isClick = true;
-  Future isFirstClick() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    bool firstClick = prefs.getBool('firstClick') ?? true;
-
-    if (firstClick) {
-      await prefs.setBool('firstClick', false);
-      setState(() {
-        _isClick = false;
-      });
-    } else {
-      setState(() {
-        _isClick = true;
-      });
-    }
-  }
-
-  Future clickOnChapter() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setBool('firstClick', false);
-  }
-
-  bool _isDrag = true;
-  Future isFirstDrag() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    bool firstDrag = prefs.getBool('firstDrag') ?? true;
-
-    if (firstDrag) {
-      await prefs.setBool('firstdrag', false);
-      setState(() {
-        _isDrag = false;
-      });
-    } else {
-      setState(() {
-        _isDrag = true;
-      });
-    }
-  }
-
-  Future dragVerticalDown() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setBool('firstDrag', false);
-  }
-
   final Uri _url = Uri.parse('https://www.coffeete.ir/ParsString');
 
   Future<void> _launchUrl() async {
@@ -141,9 +108,6 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
 
   @override
   void initState() {
-    isFirstDrag();
-    isFirstClick();
-
     adloadmid();
     Timer(Duration(seconds: 10), () => adloaddown());
     Timer(Duration(seconds: 15), () => adloadsecondpage());
@@ -336,10 +300,8 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
           children: [
             GestureDetector(
               onVerticalDragDown: (details) {
-                dragVerticalDown();
-                setState(() {
-                  _isDrag = true;
-                });
+                Provider.of<NFTProvider>(context, listen: false)
+                    .dragVerticalDown();
               },
               child: ListView(
                 physics: const BouncingScrollPhysics(
@@ -508,7 +470,9 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                   ),
                   DividerNew(
                       context, 'NFT آشنایی با ', Icons.abc_rounded, false),
+
                   Chapter1Card(),
+
                   Chapter2Card(),
                   NftListView(
                       index: nftsData.indexWhere(
@@ -556,15 +520,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
               animation3: _animation3,
               controller: _controller,
             ),
-            _isDrag == false
-                ? Positioned(
-                    bottom: 25,
-                    left: 25,
-                    child: Container(
-                        height: _width / 2,
-                        child: Lottie.asset('assets/lottie/swipe-up.json')),
-                  )
-                : SizedBox(),
+            DragDownAnimation(),
           ],
         ),
       ),

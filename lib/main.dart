@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:nft_guide/provider/nft_provider.dart';
 import 'package:nft_guide/screens/onboardingpage.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/services.dart';
 import 'package:tapsell_plus/tapsell_plus.dart';
@@ -12,7 +14,12 @@ Future<void> main() async {
     DeviceOrientation.portraitDown,
   ]);
 
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => NFTProvider(),
+      child: MaterialApp(home: MyApp()),
+    ),
+  );
   const appId =
       'nomtsmkpbgotkghmestkadrtsagaemenhchohbibpgbbdjiqicpicajmaltnamobjjrjli';
 
