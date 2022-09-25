@@ -9,11 +9,7 @@ class Chapter1Card extends StatefulWidget {
 }
 
 class _Chapter1CardState extends State<Chapter1Card> {
-  final List<int> _myChaptersId = const [
-    081,
-    082,
-    083,
-  ];
+  final List<int> _myChaptersId = const [021, 022, 023, 024];
   bool isPressed = false;
   bool startCounting = false;
   // double width = MediaQuery.of(widget.contexty).size.width;
@@ -111,7 +107,7 @@ class _Chapter1CardState extends State<Chapter1Card> {
                             ),
                             child: ListTile(
                               tileColor: Color.fromARGB(157, 32, 24, 24),
-                              title: Text('مزایا',
+                              title: Text('NFT مزایا',
                                   style: TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold,
@@ -146,7 +142,7 @@ class _Chapter1CardState extends State<Chapter1Card> {
                             ),
                             child: ListTile(
                               tileColor: Color.fromARGB(157, 32, 24, 24),
-                              title: Text('هشدار',
+                              title: Text('کسب درآمد',
                                   style: TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold,
@@ -159,6 +155,41 @@ class _Chapter1CardState extends State<Chapter1Card> {
                                     Color.fromARGB(255, 142, 183, 65),
                                 child: Center(
                                   child: Text('۳',
+                                      style: TextStyle(
+                                        color: Color.fromARGB(255, 39, 39, 39),
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                      )),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 4),
+                          child: InkWell(
+                            onTap: () => Navigator.of(context).push(
+                              MaterialPageRoute(
+                                  builder: (_) => ChapterPage(
+                                        nft: nftsData.firstWhere((element) =>
+                                            element.id == _myChaptersId[3]),
+                                      )),
+                            ),
+                            child: ListTile(
+                              tileColor: Color.fromARGB(157, 32, 24, 24),
+                              title: Text('مدیریت مالی',
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                      fontFamily: 'Vazir',
+                                      color:
+                                          Color.fromARGB(255, 171, 171, 171))),
+                              leading: CircleAvatar(
+                                radius: 20,
+                                backgroundColor:
+                                    Color.fromARGB(255, 142, 183, 65),
+                                child: Center(
+                                  child: Text('۴',
                                       style: TextStyle(
                                         color: Color.fromARGB(255, 39, 39, 39),
                                         fontSize: 20,

@@ -121,29 +121,80 @@ List<Nfts> nftsData = [
     chapterDetailList: [
       ChapterDetail(
           id: 02101,
-          image2: 'images/chapter2.png',
-          starnote2: 'Invidunt dolore sit sadipscing duo.',
-          starnote: ' Neer his degree are cared save, childe. ',
-          titleSection: 'this is title section',
-          text2:
-              ' See wide this shore vainly thy. The get raven name the floating the we i, reply and air of decorum.. ',
+          titleSection: 'NFT چیست',
           text:
-              'Ipsum voluptua rebum et sed sed aliquyam diam ipsum dolor dolor, erat diam lorem et dolores et vero et takimata,.',
-          image: 'images/chapter1.png'),
+              'اگه تا حالا درباره NFT چیزی نشنیدید بهتره یک نگاهی به اتصال اینترنت بندازید چون ممکنه قطع شده باشه و از اخبار دنیا عقب مونده باشید، تو یک سال اخیر خبر های NFT تقریبا همه جا شنیده میشه. تیکتاک، توییتر، سی ان ان  و هر جایی که میریم یک خبر از معاملات عجیب و نجومی NFT هست، سوال اینجاست NFT چیه؟ بدرد من میخوره؟ منم میتونم باهاش پول در بیارم؟',
+          image2: 'images/chapter2.png',
+          text2:
+              'NFT یک دارایی شخصی است که کاملا در دنیای دیجیتال وجود داره، نمیتونید لمسش کنید ولی میتونید مالکش باشید، NFT میتونه هر فایل دیجیتالی باشه مثلا یک کار هنری، مقاله، موزیک و حتی یک Meme که همین اواخر به قیمت 500 هزار دلار فروخته شد، سوالی که پیش میاد اینه که این توکن ها چطور می تونن به هنرمندان کمک کنن و باعث خلاقیت اونها بشن؟',
+          starnote2:
+              'NFT مخفف عبارت Non-Fungible Token به معنای "توکن غیرقابل معاوضه" می باشد.'),
       ChapterDetail(
         id: 02102,
-        image2: 'images/chapter2.png',
-        starnote2: 'Invidunt dolore sit sadipscing duo.',
-        starnote: ' Neer his degree are cared save, childe. ',
-        titleSection: 'this is title section',
-        text2:
-            ' See wide this shore vainly thy. The get raven name the floating the we i, reply and air of decorum.. ',
         text:
-            'Ipsum voluptua rebum et sed sed aliquyam diam ipsum dolor dolor, erat diam lorem et dolores et vero et takimata,.',
+            'در حالت کلی دارایی ها به دو دسته تقسیم میشن: دارایی های قابل معاوضه  و دارایی های غیرقابل معاوضه. برای درک دارایی های قابل معاوضه بهترین مثال همین پولی هستش که همه ما هر روز داریم ازش استفاده میکنیم. وقتی شما 10.000 تومن از پول خودتون رو با 10.000 تومن از پول دوست صمیمی تون مقایسه کنید متوجه میشید که از نظر شکل ظاهری و ارزش مادی هیچ فرقی باهم ندارن. پس اگر پول های خودتون رو باهم جابه جا کنید هیچ تغییری در ارزش دارایی خودتون ایجاد نکردید.',
+        text2:
+            'و اما دارایی های غیر قابل معاوضه؛ فرض کنید شما به یک خیاط سفارش دوخت یک دست لباس رو میدید که کاملا منحصر به فرد برای شما دوخته میشه. لباس شما یک دارایی غیر قابل معاوضه محسوب میشه چون هیچ لباسی شبیه اون وجود نداره.',
+      ),
+      ChapterDetail(
+          id: 02103,
+          text:
+              'قبل از اینکه سراغ هر چیز دیگه ای بریم اول میخوام شکل ساده شده ای از NFT رو توضیح بدم. فرض کنید شما یک نقاشی دیجیتالی رو با کلی زحمت خلق کردین. به این امید که با فروش این نقاشی پول خوبی رو به جیب بزنید. همون شب سیستم شما هک میشه و یک نسخه از نقاشی شما در سیستم آقای هکر کپی میشه! حالا چطوری میتونید ثابت کنید که خالق اون اثر شما هستید؟ اینجاست که NFT به داد ما میرسه! چطوری؟',
+          text2:
+              'اگر شما نقاشی دیجیتالی خودتون رو به NFT تبدیل کنید، حق مالکیت اون اثر تا زمانی که نقاشی رو نفروشید مال شماست و کسی نمیتونه ادعای مالکیت اثر رو داشته باشه.',
+          starnote2:
+              'NFT میتونه کاور یک فیلم، یک قطعه موسیقی، یک گیف، یک ویدیو کوتاه و ... باشد',
+          image2: 'images/1-artist.jpg'),
+      ChapterDetail(
+        id: 02102,
+        titleSection: '',
+        text: '',
+        starnote: '',
+        image2: '',
+        text2: '',
+        starnote2: '',
       ),
     ],
     image: 'images/chapter1.png',
   ),
+  Nfts(
+    id: 022,
+    chapter: 'فصل یک',
+    title: 'مزایا',
+    image: 'assets/images/article-ch4-1.jpg',
+    chapterDetailList: [
+      ChapterDetail(
+        id: 02202,
+        titleSection: '',
+        text: '',
+        starnote: '',
+        image2: '',
+        text2: '',
+        starnote2: '',
+      ),
+      ChapterDetail(
+        id: 02202,
+        titleSection: '',
+        text: '',
+        starnote: '',
+        image2: '',
+        text2: '',
+        starnote2: '',
+      ),
+    ],
+  ),
+  Nfts(
+      id: 023,
+      chapterDetailList: [ChapterDetail(id: 02202, text: 'adasd')],
+      chapter: 'فصل یک',
+      title: 'کسب درآمد',
+      image: 'assets/images/article-ch4-1.jpg'),
+  Nfts(
+      id: 024,
+      chapterDetailList: [ChapterDetail(id: 02203, text: 'adasd')],
+      chapter: 'فصل یک',
+      title: 'مدیریت مالی',
+      image: 'assets/images/article-ch4-1.jpg'),
   Nfts(
     id: 031,
     chapter: 'فصل دوم',
