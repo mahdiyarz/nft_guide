@@ -7,19 +7,23 @@
 </p>
 
 (put some descriptions)
-* this application teaches you many things about "NFT".
+* This application teaches you many things about "NFT".
 * We try to teach everyone in simple way from scratch on a beautiful and friendly environment.
+* First version of this application released on October 2022, First.
 
 # App Downloads
 To try the app you can download it from your favorite app store:
 
-* [bazzar](https://play.google.com/store/apps/)
-* [sibche](https://apps.apple.com/us/app/)
+* [Bazzar](https://play.google.com/store/apps/)
+* [Play Store](https://play.google.com/store/apps/)
+* [Sibche](https://apps.apple.com/us/app/)
+* [App Store](https://apps.apple.com/us/app/)
   
 # About Pars String Group
 
 ## Contanct Us
-pars.string@gmail.com
+* pars.string@gmail.com
+* [Follow us on LinkedIn](linkedin.com/pars-string)
 
 
 
