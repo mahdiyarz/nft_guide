@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nft_guide/models/gameModel.dart';
 import 'package:nft_guide/Games/gameSecondCard.dart';
+import 'package:nft_guide/widgets/click_animation.dart';
 
 import 'articlepage.dart';
 
@@ -30,57 +31,59 @@ class GameList extends StatelessWidget {
             physics: const BouncingScrollPhysics(
                 parent: AlwaysScrollableScrollPhysics()),
             children: [
-              InkWell(
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Stack(
-                    children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: Color.fromARGB(255, 52, 56, 59),
+              ClickAnimation(
+                clickableWidget: InkWell(
+                  child: Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Stack(
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Color.fromARGB(255, 52, 56, 59),
+                          ),
+                          height: 340,
                         ),
-                        height: 340,
-                      ),
-                      Container(
-                        height: 280,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(10),
-                                topRight: Radius.circular(10)),
-                            image: DecorationImage(
-                                image: AssetImage(
-                                  'images/gamepic.jpg',
-                                ),
-                                fit: BoxFit.cover)),
-                      ),
-                      Positioned.fill(
-                        child: Align(
-                          alignment: Alignment.bottomCenter,
-                          child: FittedBox(
-                            fit: BoxFit.cover,
-                            child: Text(
-                              'چگونه از بازی های NFT درآمد کسب کنیم',
-                              textDirection: TextDirection.rtl,
-                              style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w600,
-                                  fontFamily: 'Vazir',
-                                  color: Color.fromARGB(255, 171, 171, 171)),
-                              textAlign: TextAlign.center,
+                        Container(
+                          height: 280,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(10),
+                                  topRight: Radius.circular(10)),
+                              image: DecorationImage(
+                                  image: AssetImage(
+                                    'images/gamepic.jpg',
+                                  ),
+                                  fit: BoxFit.cover)),
+                        ),
+                        Positioned.fill(
+                          child: Align(
+                            alignment: Alignment.bottomCenter,
+                            child: FittedBox(
+                              fit: BoxFit.cover,
+                              child: Text(
+                                'چگونه از بازی های NFT درآمد کسب کنیم',
+                                textDirection: TextDirection.rtl,
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w600,
+                                    fontFamily: 'Vazir',
+                                    color: Color.fromARGB(255, 171, 171, 171)),
+                                textAlign: TextAlign.center,
+                              ),
                             ),
                           ),
+                          bottom: 15,
                         ),
-                        bottom: 15,
-                      )
-                    ],
+                      ],
+                    ),
                   ),
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => ArticlePage(),
+                    ));
+                  },
                 ),
-                onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => ArticlePage(),
-                  ));
-                },
               ),
               SizedBox(
                 height: 15,
