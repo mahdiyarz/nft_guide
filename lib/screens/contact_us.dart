@@ -1,7 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ContactUs extends StatelessWidget {
-  const ContactUs({Key? key}) : super(key: key);
+  ContactUs({Key? key}) : super(key: key);
+
+  final Uri _url = Uri.parse('https://www.linkedin.com/company/pars-string');
+
+  Future<void> _launchUrl() async {
+    if (!await launchUrl(_url)) {
+      throw 'Could not launch $_url';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -184,12 +193,15 @@ class ContactUs extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                                Text(
-                                  'linkedin.com/pars-string',
-                                  style: TextStyle(
-                                    color: Colors.white70,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 16,
+                                InkWell(
+                                  onTap: _launchUrl,
+                                  child: Text(
+                                    'linkedin.com/company/pars-string',
+                                    style: TextStyle(
+                                      color: Colors.white70,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16,
+                                    ),
                                   ),
                                 ),
                               ],
