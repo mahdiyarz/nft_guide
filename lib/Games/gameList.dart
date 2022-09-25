@@ -108,6 +108,7 @@ class GameList extends StatelessWidget {
               SizedBox(
                 height: 5,
               ),
+              GameSecondCard(game: gameList[8]),
               GameSecondCard(game: gameList[0]),
               GameSecondCard(game: gameList[1]),
               GameSecondCard(game: gameList[2]),

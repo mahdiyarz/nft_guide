@@ -3,17 +3,13 @@ import 'package:flutter/material.dart';
 import '../models/nftModel.dart';
 import '../screens/chapterPage.dart';
 
-class Chapter7Card extends StatefulWidget {
+class Chapter1Card extends StatefulWidget {
   @override
-  State<Chapter7Card> createState() => _Chapter7CardState();
+  State<Chapter1Card> createState() => _Chapter1CardState();
 }
 
-class _Chapter7CardState extends State<Chapter7Card> {
-  final List<int> _myChaptersId = const [
-    081,
-    082,
-    083,
-  ];
+class _Chapter1CardState extends State<Chapter1Card> {
+  final List<int> _myChaptersId = const [021, 022, 023, 024];
   bool isPressed = false;
   bool startCounting = false;
   // double width = MediaQuery.of(widget.contexty).size.width;
@@ -74,7 +70,7 @@ class _Chapter7CardState extends State<Chapter7Card> {
                               ),
                               child: ListTile(
                                 tileColor: Color.fromARGB(157, 32, 24, 24),
-                                title: Text('مقدمه',
+                                title: Text(' چیست NFT ',
                                     style: TextStyle(
                                         fontSize: 20,
                                         fontWeight: FontWeight.bold,
@@ -111,7 +107,7 @@ class _Chapter7CardState extends State<Chapter7Card> {
                             ),
                             child: ListTile(
                               tileColor: Color.fromARGB(157, 32, 24, 24),
-                              title: Text('روش ها',
+                              title: Text('NFT مزایا',
                                   style: TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold,
@@ -146,7 +142,7 @@ class _Chapter7CardState extends State<Chapter7Card> {
                             ),
                             child: ListTile(
                               tileColor: Color.fromARGB(157, 32, 24, 24),
-                              title: Text('نکات تکمیلی',
+                              title: Text('کسب درآمد',
                                   style: TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold,
@@ -169,6 +165,41 @@ class _Chapter7CardState extends State<Chapter7Card> {
                             ),
                           ),
                         ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 4),
+                          child: InkWell(
+                            onTap: () => Navigator.of(context).push(
+                              MaterialPageRoute(
+                                  builder: (_) => ChapterPage(
+                                        nft: nftsData.firstWhere((element) =>
+                                            element.id == _myChaptersId[3]),
+                                      )),
+                            ),
+                            child: ListTile(
+                              tileColor: Color.fromARGB(157, 32, 24, 24),
+                              title: Text('مدیریت مالی',
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                      fontFamily: 'Vazir',
+                                      color:
+                                          Color.fromARGB(255, 171, 171, 171))),
+                              leading: CircleAvatar(
+                                radius: 20,
+                                backgroundColor:
+                                    Color.fromARGB(255, 142, 183, 65),
+                                child: Center(
+                                  child: Text('۴',
+                                      style: TextStyle(
+                                        color: Color.fromARGB(255, 39, 39, 39),
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                      )),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -180,7 +211,7 @@ class _Chapter7CardState extends State<Chapter7Card> {
                     decoration: BoxDecoration(
                       shape: isPressed ? BoxShape.circle : BoxShape.rectangle,
                       image: DecorationImage(
-                        image: AssetImage('images/7-scam2.jpg'),
+                        image: AssetImage('images/chapter4.png'),
                         fit: BoxFit.cover,
                         opacity: 140,
                       ),
@@ -200,7 +231,7 @@ class _Chapter7CardState extends State<Chapter7Card> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                'فصل هفتم',
+                                'فصل اول',
                                 textAlign: TextAlign.center,
                                 style: const TextStyle(
                                   color: Colors.white,
@@ -214,7 +245,7 @@ class _Chapter7CardState extends State<Chapter7Card> {
                                   padding: const EdgeInsets.symmetric(
                                       horizontal: 15),
                                   child: Text(
-                                    'روش های معمول کلاه برداری',
+                                    'مقدمه',
                                     textDirection: TextDirection.rtl,
                                     style: const TextStyle(
                                       color: Colors.white,
