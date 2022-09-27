@@ -506,7 +506,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
               animation3: _animation3,
               controller: _controller,
             ),
-            DragDownAnimation(),
+            // DragDownAnimation(),
           ],
         ),
       ),
