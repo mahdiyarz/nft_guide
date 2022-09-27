@@ -73,23 +73,23 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
       globalFooter: SizedBox(height: 40),
       pages: [
         PageViewModel(
-          title: "Fractional shares",
+          title: "راهنمای جامع",
           body:
-              "Instead of having to buy an entire share, invest any amount you want.",
-          image: _buildImage('welcome1.png'),
-          decoration: pageDecoration,
-        ),
-        PageViewModel(
-          title: "Learn as you go",
-          body:
-              "Download the Stockpile app and master the market with our mini-lesson.",
+              "تمام اطلاعاتی که برای آشنایی با صنعت ان اف تی نیاز دارید در قالب یک برنامه در اختیار شماست",
           image: Image(image: AssetImage('assets/images/welcome2.gif')),
           decoration: pageDecoration,
         ),
         PageViewModel(
-          title: "Kids and teens",
+          title: "کاملا آفلاین",
           body:
-              "Kids and teens can track their stocks 24/7 and place trades that you approve.",
+              "تمام اطلاعات این برنامه به صورت آفلاین در اختیار شما قرار گرفته تا بتوانید حتی بدون دسترسی به اینترنت از اطلاعات آن استفاده کنید",
+          image: _buildImage('welcome1.png'),
+          decoration: pageDecoration,
+        ),
+        PageViewModel(
+          title: "بازی های بلاکچین",
+          body:
+              "معرفی بازی های بستر بلاکچین که می توانید از آنها درآمد کسب کنید",
           image: _buildImage('welcome3.jpg'),
           decoration: pageDecoration,
         ),
@@ -97,12 +97,13 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
           title: "قهوه ",
           body:
               "برای ساخت این برنامه تلاش زیادی شده است. ما تصمیم گرفتیم برنامه را کاملا رایگان در اختیار شما قرار دهیم،اما قسمت هایی رو تعبیه کردیم که اگه از برنامه خوشتون اومد بتونید مارو یک فنجان قهوه مهمان کنید و خستگی مارو در ببرید",
-          image: _buildImage('welcome4.png'),
+          image: _buildImage('welcome-coffe.jpg'),
           decoration: pageDecoration,
         ),
         PageViewModel(
-          title: "Full Screen Page",
-          body: "قط اطلاعاتی جهت آشنایی بیشتر شما با NFT در اختیار شوید.",
+          title: 'پیشنهادات و انتقادات',
+          body:
+              " تیم توسعه پارس استرینگ همواره پذیرای پیشنهادات و انتقادات سازنده شما است، امیدواریم که از سفر خود به دنیای ان اف تی لذت ببرید",
           image: _buildFullscreenImage(),
           decoration: pageDecoration.copyWith(
               pageColor: Color.fromARGB(103, 0, 0, 0),
@@ -130,7 +131,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
               color: Color.fromARGB(255, 171, 171, 171))),
       next: const Icon(Icons.arrow_forward_ios,
           color: Color.fromARGB(255, 142, 183, 65)),
-      done: const Text('پایان',
+      done: const Text('شروع',
           style: TextStyle(
               fontWeight: FontWeight.w600,
               fontSize: 18,
