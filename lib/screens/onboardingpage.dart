@@ -74,15 +74,13 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
       pages: [
         PageViewModel(
           title: "راهنمای جامع",
-          body:
-              "تمام اطلاعاتی که برای آشنایی با صنعت ان اف تی نیاز دارید در قالب یک برنامه در اختیار شماست",
+          body: "تمامی اطلاعات در قالب یک برنامه در اختیار شماست",
           image: Image(image: AssetImage('assets/images/welcome2.gif')),
           decoration: pageDecoration,
         ),
         PageViewModel(
           title: "کاملا آفلاین",
-          body:
-              "تمام اطلاعات این برنامه به صورت آفلاین در اختیار شما قرار گرفته تا بتوانید حتی بدون دسترسی به اینترنت از اطلاعات آن استفاده کنید",
+          body: "همیشه و همه جا بدون اینترنت راحت استفاده کنید",
           image: _buildImage('welcome1.png'),
           decoration: pageDecoration,
         ),
@@ -95,15 +93,13 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
         ),
         PageViewModel(
           title: "قهوه ",
-          body:
-              "برای ساخت این برنامه تلاش زیادی شده است. ما تصمیم گرفتیم برنامه را کاملا رایگان در اختیار شما قرار دهیم،اما قسمت هایی رو تعبیه کردیم که اگه از برنامه خوشتون اومد بتونید مارو یک فنجان قهوه مهمان کنید و خستگی مارو در ببرید",
+          body: "اگه از برنامه خوشتون اومد یه قهوه مارو مهمون کنید",
           image: _buildImage('welcome-coffe.jpg'),
           decoration: pageDecoration,
         ),
         PageViewModel(
           title: 'پیشنهادات و انتقادات',
-          body:
-              " تیم توسعه پارس استرینگ همواره پذیرای پیشنهادات و انتقادات سازنده شما است، امیدواریم که از سفر خود به دنیای ان اف تی لذت ببرید",
+          body: "همواره منتظر نظرات سازنده شما هستیم",
           image: _buildFullscreenImage(),
           decoration: pageDecoration.copyWith(
               pageColor: Color.fromARGB(103, 0, 0, 0),
