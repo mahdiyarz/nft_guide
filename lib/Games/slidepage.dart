@@ -117,7 +117,7 @@ class SlidePageWidget extends StatelessWidget {
                           fontFamily: 'Vazir',
                         ),
                         textDirection: TextDirection.rtl,
-                        textAlign: TextAlign.center),
+                        textAlign: TextAlign.justify),
                   ),
                   decoration: BoxDecoration(
                       color: Color.fromARGB(255, 52, 56, 59),
@@ -203,7 +203,7 @@ class SlidePageWidget extends StatelessWidget {
                                 fontFamily: 'Vazir',
                               ),
                               textDirection: TextDirection.rtl,
-                              textAlign: TextAlign.center),
+                              textAlign: TextAlign.justify),
                         ),
                         decoration: BoxDecoration(
                             color: Color.fromARGB(255, 52, 56, 59),
