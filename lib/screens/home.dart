@@ -17,7 +17,6 @@ import '../widgets/blockchainCard.dart';
 import '../widgets/carouselCard.dart';
 import '../widgets/custom_drawer.dart';
 import '../widgets/adBanner.dart';
-import '../widgets/drag_down_animation.dart';
 import '../widgets/nftListView.dart';
 
 class Home extends StatefulWidget {
@@ -192,42 +191,77 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
   }
 
   Future<bool?> showWarning(BuildContext context) async => showDialog<bool>(
-        context: context,
-        builder: (context) => Directionality(
+      context: context,
+      builder: (context) {
+        double width = MediaQuery.of(context).size.width;
+        return Directionality(
           textDirection: TextDirection.rtl,
           child: AlertDialog(
+            titleTextStyle:
+                TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            actionsOverflowAlignment: OverflowBarAlignment.center,
+            actionsOverflowDirection: VerticalDirection.up,
             backgroundColor: Color.fromARGB(255, 115, 102, 68),
             title: Text(
               'آیا می خواهید از برنامه خارج شوید؟',
               style: TextStyle(color: Colors.white),
             ),
             actions: [
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  elevation: 5,
-                  primary: Color.fromARGB(255, 142, 183, 65),
-                ),
-                onPressed: () => Navigator.pop(context, false),
-                child: Text('نه هنوز'),
-              ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  primary: Color.fromARGB(255, 142, 183, 65),
-                ),
-                onPressed: () => Navigator.pop(context, true),
-                child: Text('بله'),
-              ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  primary: Color.fromARGB(255, 142, 183, 65).withOpacity(.6),
-                ),
-                onPressed: _launchUrl,
-                child: Text('قهوه تون با من!'),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Container(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      // crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Expanded(
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              elevation: 5,
+                              backgroundColor:
+                                  Color.fromARGB(255, 142, 183, 65),
+                            ),
+                            onPressed: () => Navigator.pop(context, false),
+                            child: FittedBox(
+                                fit: BoxFit.scaleDown, child: Text('نه هنوز')),
+                          ),
+                        ),
+                        SizedBox(width: 5),
+                        Expanded(
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor:
+                                  Color.fromARGB(255, 142, 183, 65),
+                            ),
+                            onPressed: () => Navigator.pop(context, true),
+                            child: FittedBox(
+                                fit: BoxFit.scaleDown, child: Text('بله')),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  ElevatedButton.icon(
+                    icon: Icon(Icons.local_cafe_outlined),
+                    style: ElevatedButton.styleFrom(
+                      elevation: 0,
+                      backgroundColor:
+                          Color.fromARGB(255, 142, 183, 65).withOpacity(.6),
+                    ),
+                    onPressed: _launchUrl,
+                    label: FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Text(
+                          'قهوه تون با من!',
+                        )),
+                  ),
+                ],
               ),
             ],
           ),
-        ),
-      );
+        );
+      });
 
   @override
   Widget build(BuildContext context) {
