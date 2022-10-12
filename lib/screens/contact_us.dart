@@ -61,7 +61,7 @@ class ContactUs extends StatelessWidget {
                         backgroundColor: Colors.white70,
                         radius: 55,
                         child: Image.asset(
-                          'assets/images/pars-string.png',
+                          'assets/logo/pars_string.png',
                           fit: BoxFit.cover,
                         ),
                       ),
