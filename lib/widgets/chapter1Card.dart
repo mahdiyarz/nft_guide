@@ -18,7 +18,7 @@ class _Chapter1CardState extends State<Chapter1Card> {
   Widget build(BuildContext context) {
     double width1 = MediaQuery.of(context).size.width;
     double width2 = 150;
-    double transform = isPressed ? width1 / 2 : 0;
+    double transform = isPressed ? width1 / 1.75 : 0;
 
     return Card(
       margin: const EdgeInsets.symmetric(
