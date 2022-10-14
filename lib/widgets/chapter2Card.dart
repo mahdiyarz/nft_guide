@@ -23,7 +23,7 @@ class _Chapter3CardState extends State<Chapter2Card> {
   Widget build(BuildContext context) {
     double width1 = MediaQuery.of(context).size.width;
     double width2 = 150;
-    double transform = isPressed ? width1 / 2 : 0;
+    double transform = isPressed ? width1 / 1.75 : 0;
 
     return Card(
       margin: const EdgeInsets.symmetric(
@@ -127,7 +127,7 @@ class _Chapter3CardState extends State<Chapter2Card> {
                             ),
                             child: ListTile(
                               tileColor: Color.fromARGB(157, 32, 24, 24),
-                              title: Text('گس فی چیست',
+                              title: Text('گس فی',
                                   style: TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold,
