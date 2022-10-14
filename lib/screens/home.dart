@@ -329,7 +329,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                 physics: const BouncingScrollPhysics(
                     parent: AlwaysScrollableScrollPhysics()),
                 children: [
-                  DividerNew(context, 'NFT های معروف', Icons.abc, true),
+                  DividerNew(context, 'NFT های معروف', 'Icons.abc', true),
                   Container(
                     height: 230,
                     child: PageView(
@@ -464,7 +464,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                   GameCard(),
                   GameCard(), */
                   DividerNew(context, 'پیش نیاز :مفاهیم بلاکچین',
-                      Icons.abc_rounded, false),
+                      'assets/Icon/pishniazIcon.png', false),
                   Container(
                     height: MediaQuery.of(context).size.width / 2.5,
                     color: Color.fromARGB(40, 8, 8, 8),
@@ -491,7 +491,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                     ),
                   ),
                   DividerNew(
-                      context, 'NFT آشنایی با ', Icons.abc_rounded, false),
+                      context, 'NFT آشنایی با ', 'assets/Icon/nft.png', false),
                   Chapter1Card(),
                   Chapter2Card(),
                   NftListView(

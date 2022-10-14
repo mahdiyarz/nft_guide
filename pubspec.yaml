@@ -74,6 +74,7 @@ flutter:
     - assets/lottie/
     - assets/images/market_place/
     - assets/logo/
+    - assets/Icon/
 
   #   - images/a_dot_ham.jpeg
 

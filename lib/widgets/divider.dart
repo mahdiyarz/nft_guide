@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 Widget DividerNew(
-    BuildContext context, String title, IconData icon, bool center) {
+    BuildContext context, String title, String icon, bool center) {
   return Container(
     decoration: BoxDecoration(
         color: Color.fromARGB(73, 0, 0, 0),
@@ -39,9 +39,12 @@ Widget DividerNew(
             width: 7,
           ),
         if (center == false)
-          Icon(
-            icon,
-            color: Color.fromARGB(255, 115, 102, 68),
+          Center(
+            child: CircleAvatar(
+              backgroundColor: Color.fromARGB(255, 15, 3, 3),
+              child: Image.asset(icon),
+              radius: 12,
+            ),
           ),
         if (center == false)
           SizedBox(
