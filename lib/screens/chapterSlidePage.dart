@@ -95,6 +95,8 @@ class ChapterSlidePage extends StatelessWidget {
     return Scaffold(
         backgroundColor: Color.fromARGB(255, 39, 39, 39),
         body: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(
+              parent: AlwaysScrollableScrollPhysics()),
           child: Column(
             children: [
               image != null
