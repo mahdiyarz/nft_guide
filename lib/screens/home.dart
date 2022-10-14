@@ -463,8 +463,8 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                   DividerNew(context, 'ویژه نامه ', Icons.not_accessible),
                   GameCard(),
                   GameCard(), */
-                  DividerNew(context, 'پیش نیاز :مفاهیم بلاکچین',
-                      'assets/Icon/pishniazIcon.png', false),
+                  DividerNew(context, 'پیش نیاز - مفاهیم بلاکچین',
+                      'assets/Icon/blockchain.jpg', false),
                   Container(
                     height: MediaQuery.of(context).size.width / 2.5,
                     color: Color.fromARGB(40, 8, 8, 8),
@@ -491,7 +491,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                     ),
                   ),
                   DividerNew(
-                      context, 'NFT آشنایی با ', 'assets/Icon/nft.png', false),
+                      context, 'NFT آشنایی با ', 'assets/Icon/NFT.jpg', false),
                   Chapter1Card(),
                   Chapter2Card(),
                   NftListView(

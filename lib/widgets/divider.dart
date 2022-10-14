@@ -5,7 +5,7 @@ Widget DividerNew(
   return Container(
     decoration: BoxDecoration(
         color: Color.fromARGB(73, 0, 0, 0),
-        borderRadius: BorderRadius.circular(15)),
+        borderRadius: BorderRadius.circular(20)),
     margin: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
     width: MediaQuery.of(context).size.width,
     height: 35,
@@ -39,16 +39,16 @@ Widget DividerNew(
             width: 7,
           ),
         if (center == false)
-          Center(
-            child: CircleAvatar(
-              backgroundColor: Color.fromARGB(255, 15, 3, 3),
-              child: Image.asset(icon),
-              radius: 12,
-            ),
+          Container(
+            width: 25,
+            height: 25,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(50),
+                image: DecorationImage(image: AssetImage(icon), opacity: .4)),
           ),
         if (center == false)
           SizedBox(
-            width: 10,
+            width: 5,
           )
       ],
     ),
