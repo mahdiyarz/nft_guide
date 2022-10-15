@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:nft_guide/widgets/drag_down_animation.dart';
 import 'package:nft_guide/widgets/drag_right_animation.dart';
 import 'package:provider/provider.dart';
 import 'package:tapsell_plus/tapsell_plus.dart';
-import 'package:lottie/lottie.dart';
 
 import '../models/nftModel.dart';
 import '../provider/nft_provider.dart';
@@ -27,6 +27,7 @@ class _ChapterPageState extends State<ChapterPage>
   PageController _controller = PageController(
     initialPage: 0,
   );
+
   void changeDot(int x) {
     setState(() {
       dotindex = x.toInt();
@@ -48,6 +49,7 @@ class _ChapterPageState extends State<ChapterPage>
 
   @override
   Widget build(BuildContext context) {
+    double _width = MediaQuery.of(context).size.width;
     return Scaffold(
       bottomNavigationBar: widget.nft.chapterDetailList.length > 1
           ? BottomAppBar(
@@ -83,12 +85,22 @@ class _ChapterPageState extends State<ChapterPage>
         toolbarHeight: 40,
       ),
       body: GestureDetector(
-        onHorizontalDragDown: widget.nft.chapterDetailList.length > 1
-            ? ((details) {
-                Provider.of<NFTProvider>(context, listen: false)
-                    .dragHorizontal();
-              })
+        behavior: HitTestBehavior.translucent,
+        onHorizontalDragUpdate: widget.nft.chapterDetailList.length > 1
+            ? (details) {
+                if (details.delta.dx < 0) {
+                  Provider.of<NFTProvider>(context, listen: false)
+                      .dragHorizontal();
+                  // print('Drag: $details');
+                }
+              }
             : (details) {},
+        onVerticalDragUpdate: (details) {
+          if (details.delta.dy < 0) {
+            Provider.of<NFTProvider>(context, listen: false).dragVerticalDown();
+            // print('Drag: $details');
+          }
+        },
         child: Stack(
           children: [
             Column(
@@ -97,12 +109,14 @@ class _ChapterPageState extends State<ChapterPage>
                   child: Container(
                     height: MediaQuery.of(context).size.height,
                     child: PageView.builder(
+                        // physics: NeverScrollableScrollPhysics(),
 
                         // allowImplicitScrolling: true,
                         onPageChanged: changeDot,
                         itemCount: widget.nft.chapterDetailList.length,
                         controller: _controller,
                         itemBuilder: (ctx, index) {
+                          // _controller.page == 2 ? print('object') : SizedBox();
                           return ChapterSlidePage(
                             description:
                                 widget.nft.chapterDetailList[index].text,
@@ -129,8 +143,16 @@ class _ChapterPageState extends State<ChapterPage>
                 ),
               ],
             ),
-            DragRightAnimation(
-                chapterDatailLenght: widget.nft.chapterDetailList.length),
+            DragDownAnimation(),
+            Positioned(
+              left: _width / 3,
+              bottom: 0,
+              child: SizedBox(
+                width: _width / 3,
+                child: DragRightAnimation(
+                    chapterDatailLenght: widget.nft.chapterDetailList.length),
+              ),
+            ),
           ],
         ),
       ),
