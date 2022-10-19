@@ -1,31 +1,48 @@
+
+![Logo](https://i.postimg.cc/Qd6qgcby/pars-string.png)
+
+
 # NFT Guide
 
-<p align="center"> <a href="https://dart.dev" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/dartlang/dartlang-icon.svg" alt="dart" width="40" height="40"/> </a>  <a href="https://flutter.dev" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/flutterio/flutterio-icon.svg" alt="flutter" width="40" height="40"/> </a>  </p>
+This application teaches you many things about "NFT".
+We try to teach everyone in simple way from scratch on a beautiful and friendly environment. 
 
-<p align="center">
-(put a picture here)
-</p>
-
-(put some descriptions)
-* This application teaches you many things about "NFT".
-* We try to teach everyone in simple way from scratch on a beautiful and friendly environment.
-* First version of this application released on October 2022, First.
-
-# App Downloads
-To try the app you can download it from your favorite app store:
-
-* [Bazzar](https://play.google.com/store/apps/)
-* [Play Store](https://play.google.com/store/apps/)
-* [Sibche](https://apps.apple.com/us/app/)
-* [App Store](https://apps.apple.com/us/app/)
-  
-# About Pars String Group
-
-## Contanct Us
-* pars.string@gmail.com
-* [Follow us on LinkedIn](linkedin.com/pars-string)
+First version of this application released on October 2022, First.
 
 
+## Screenshots
 
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+
+## App Downloads
+
+ - [Bazzar](https://awesomeopensource.com/project/elangosundar/awesome-README-templates)
+ - [Play Store](https://github.com/matiassingers/awesome-readme)
+ - [Sibche](https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project)
+- [App Store](https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project)
+
+## Features
+
+- Light/dark mode toggle
+- Live previews
+- Fullscreen mode
+- Cross platform
+
+
+## Feedback
+
+If you have any feedback, please reach out to us at pars.string@gmail.com
+
+
+## Authors
+
+- [@mahdiyarz](https://www.github.com/mahdiyarz)
+- [@manticodes](https://www.github.com/manticodes)
+
+
+## 🔗 Links
+
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/company/pars-string)
 
 
