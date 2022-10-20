@@ -411,7 +411,7 @@ class ChapterSlidePage extends StatelessWidget {
                               }
                             : () {},
                         icon: Icon(Icons.recommend_outlined),
-                        label: Text('منبع این مقاله'),
+                        label: Text('منابع این مقاله'),
                       ),
                     )
                   : SizedBox(),
