@@ -51,7 +51,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
   String zoneIdBannerDown = '62795b1847a6dd582add9c56';
   NativeAdData? bannerDataMid;
   NativeAdData? bannerDataDown;
-  NativeAdData? ad2;
+
   bool _bool = true;
   PageController _pageController =
       PageController(viewportFraction: 0.85, initialPage: 1);
@@ -73,12 +73,6 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
     super.dispose();
   }
 
-  void setAd2Data(NativeAdData nativeAd) {
-    setState(() {
-      ad2 = nativeAd;
-    });
-  }
-
   void setMIdData(NativeAdData data) {
     setState(() {
       bannerDataMid = data;
@@ -95,7 +89,6 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
   void initState() {
     adloadmid();
     Timer(Duration(seconds: 10), () => adloaddown());
-    Timer(Duration(seconds: 15), () => adloadsecondpage());
 
     _controller = AnimationController(
         vsync: this, duration: const Duration(milliseconds: 600));
@@ -162,23 +155,6 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
       if (responseId.isNotEmpty) {
         TapsellPlus.instance.showNativeAd(responseId, onOpened: (nativeAd) {
           setDownData(nativeAd);
-        }, onError: (errorPayload) {
-          // Error when getting ad info
-        });
-      }
-    }).catchError((error) {
-      // Error requesting for an ad
-    });
-  }
-
-  adloadsecondpage() async {
-    TapsellPlus.instance
-        .requestNativeAd('627ff1c9faefa477a635d931')
-        .then((responseId) {
-      if (responseId.isNotEmpty) {
-        TapsellPlus.instance.showNativeAd(responseId, onOpened: (nativeAd) {
-          setAd2Data(nativeAd);
-          print(nativeAd.title);
         }, onError: (errorPayload) {
           // Error when getting ad info
         });
@@ -475,26 +451,26 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                 Chapter1Card(),
                 Chapter2Card(),
                 NftListView(
-                    index: nftsData
-                        .indexWhere((element) => element.id == myChaptersId[9]),
-                    ad2: ad2),
+                  index: nftsData
+                      .indexWhere((element) => element.id == myChaptersId[9]),
+                ),
                 (bannerDataMid != null)
                     ? AdBanner(data: bannerDataMid!)
                     : const SizedBox(
                         height: 0.1,
                       ),
                 NftListView(
-                    index: nftsData.indexWhere(
-                        (element) => element.id == myChaptersId[10]),
-                    ad2: ad2),
+                  index: nftsData
+                      .indexWhere((element) => element.id == myChaptersId[10]),
+                ),
                 NftListView(
-                    index: nftsData.indexWhere(
-                        (element) => element.id == myChaptersId[11]),
-                    ad2: ad2),
+                  index: nftsData
+                      .indexWhere((element) => element.id == myChaptersId[11]),
+                ),
                 NftListView(
-                    index: nftsData.indexWhere(
-                        (element) => element.id == myChaptersId[12]),
-                    ad2: ad2),
+                  index: nftsData
+                      .indexWhere((element) => element.id == myChaptersId[12]),
+                ),
                 (bannerDataDown != null)
                     ? AdBanner(data: bannerDataDown!)
                     : const SizedBox(
