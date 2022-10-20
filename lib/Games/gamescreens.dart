@@ -117,7 +117,9 @@ class _GameThumbState extends State<GameThumb> {
                               fontFamily: 'Vazir',
                             ),
                             children: [
-                              TextSpan(text: widget.game.alldescription),
+                              TextSpan(
+                                text: widget.game.alldescription,
+                              ),
                             ]),
                         maxLines: isReadmore ? null : 4,
                         overflow: isReadmore

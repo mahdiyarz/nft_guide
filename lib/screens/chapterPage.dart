@@ -74,6 +74,7 @@ class _ChapterPageState extends State<ChapterPage>
       appBar: AppBar(
         title: Text(
           '${widget.nft.chapter}: ${widget.nft.title} ',
+          textDirection: TextDirection.rtl,
           style: TextStyle(
             color: Colors.white70,
             fontWeight: FontWeight.bold,
