@@ -31,7 +31,7 @@ class ChapterSlidePage extends StatelessWidget {
 
   Future<void> _launchUrl(String site) async {
     final Uri _url = Uri.parse(site);
-    if (!await launchUrl(_url)) {
+    if (!await launchUrl(_url, mode: LaunchMode.externalApplication)) {
       throw 'Could not launch $_url';
     }
   }

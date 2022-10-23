@@ -7,7 +7,7 @@ class ContactUs extends StatelessWidget {
   final Uri _url = Uri.parse('https://www.linkedin.com/company/pars-string');
 
   Future<void> _launchUrl() async {
-    if (!await launchUrl(_url)) {
+    if (!await launchUrl(_url, mode: LaunchMode.externalApplication)) {
       throw 'Could not launch $_url';
     }
   }
