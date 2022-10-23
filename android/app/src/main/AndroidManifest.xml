@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.parsstring.nft_guide">
+    package="com.pars_string.nft_guide">
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <!-- Provide required visibility configuration for API level 30 and above -->

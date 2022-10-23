@@ -1,4 +1,4 @@
-package com.parsstring.nft_guide
+package com.pars_string.nft_guide
 
 import io.flutter.embedding.android.FlutterActivity
 
