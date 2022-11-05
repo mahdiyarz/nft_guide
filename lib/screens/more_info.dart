@@ -58,49 +58,54 @@ class MoreInformation extends StatelessWidget {
                             fit: BoxFit.cover,
                           ),
                         ),
-                        Column(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 20, vertical: 5),
-                              child: Text(
-                                'این نرم افزار جهت آگاهی بیشتر از تکنولوژی نو ظهور NFT برای شما کاربر گرامی توسط گروه نرم افزاری پارس استرینگ تهیه و تولید شده است.',
-                                style: TextStyle(
-                                  color: Colors.white70,
-                                  fontSize: 18,
+                        Container(
+                          height: _height / 1.5,
+                          child: SingleChildScrollView(
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 20, vertical: 5),
+                                  child: Text(
+                                    'این نرم افزار جهت آگاهی بیشتر از تکنولوژی نو ظهور NFT برای شما کاربر گرامی توسط گروه نرم افزاری پارس استرینگ تهیه و تولید شده است.',
+                                    style: TextStyle(
+                                      color: Colors.white70,
+                                      fontSize: 18,
+                                    ),
+                                    textDirection: TextDirection.rtl,
+                                    textAlign: TextAlign.justify,
+                                  ),
                                 ),
-                                textDirection: TextDirection.rtl,
-                                textAlign: TextAlign.justify,
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 20, vertical: 5),
-                              child: Text(
-                                'لازم به ذکر است که بازارهای مالی مخصوصا ارز های دیجیتال دارای نوسانات زیادی هستند. بنابراین صرفا با اطلاعات ارائه شده توسط این نرم افزار اقدام به سرمایه گذاری در این بازارها را نکنید.',
-                                style: TextStyle(
-                                  color: Colors.white70,
-                                  fontSize: 18,
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 20, vertical: 5),
+                                  child: Text(
+                                    'لازم به ذکر است که بازارهای مالی مخصوصا ارز های دیجیتال دارای نوسانات زیادی هستند. بنابراین صرفا با اطلاعات ارائه شده توسط این نرم افزار اقدام به سرمایه گذاری در این بازارها را نکنید.',
+                                    style: TextStyle(
+                                      color: Colors.white70,
+                                      fontSize: 18,
+                                    ),
+                                    textDirection: TextDirection.rtl,
+                                    textAlign: TextAlign.justify,
+                                  ),
                                 ),
-                                textDirection: TextDirection.rtl,
-                                textAlign: TextAlign.justify,
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 20, vertical: 10),
-                              child: Text(
-                                'هرگونه کپی برداری از اطلاعات مندرج در این نرم افزار بلامانع است. در صورت تمایل با ذکر منبع از ما حمایت کنید.',
-                                style: TextStyle(
-                                  color: Colors.white70,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 20, vertical: 10),
+                                  child: Text(
+                                    'هرگونه کپی برداری از اطلاعات مندرج در این نرم افزار بلامانع است. در صورت تمایل با ذکر منبع از ما حمایت کنید.',
+                                    style: TextStyle(
+                                      color: Colors.white70,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                    textDirection: TextDirection.rtl,
+                                    textAlign: TextAlign.right,
+                                  ),
                                 ),
-                                textDirection: TextDirection.rtl,
-                                textAlign: TextAlign.right,
-                              ),
+                              ],
                             ),
-                          ],
+                          ),
                         ),
                         const SizedBox(),
                         Column(
