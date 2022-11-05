@@ -192,8 +192,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               elevation: 5,
-                              backgroundColor:
-                                  Color.fromARGB(255, 142, 183, 65),
+                              primary: Color.fromARGB(255, 142, 183, 65),
                             ),
                             onPressed: () => Navigator.pop(context, false),
                             child: FittedBox(
@@ -204,8 +203,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                         Expanded(
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              backgroundColor:
-                                  Color.fromARGB(255, 142, 183, 65),
+                              primary: Color.fromARGB(255, 142, 183, 65),
                             ),
                             onPressed: () => Navigator.pop(context, true),
                             child: FittedBox(
@@ -219,7 +217,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                     icon: Icon(Icons.local_cafe_outlined),
                     style: ElevatedButton.styleFrom(
                       elevation: 0,
-                      backgroundColor:
+                      primary:
                           Color.fromARGB(255, 142, 183, 65).withOpacity(.6),
                     ),
                     onPressed: _launchUrl,

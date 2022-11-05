@@ -400,7 +400,7 @@ class ChapterSlidePage extends StatelessWidget {
                       width: _width,
                       child: ElevatedButton.icon(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Color.fromARGB(255, 142, 183, 65),
+                          primary: Color.fromARGB(255, 142, 183, 65),
                         ),
                         onPressed: resourceInfo != null
                             ? () {
