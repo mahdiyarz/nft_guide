@@ -65,149 +65,166 @@ class ContactUs extends StatelessWidget {
                           fit: BoxFit.cover,
                         ),
                       ),
-                      Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 20, vertical: 5),
-                            child: Text(
-                              'برای بهتر شدن هر چه بهتر این نرم افزار در آپدیت های بعدی، ما نیاز به شنیدن نظرات شما کاربران عزیز داریم. با ما بدون هیچ خجالت و تعارفی در ارتباط باشید.',
-                              style: TextStyle(
-                                color: Colors.white70,
-                                fontSize: 18,
+                      Container(
+                        height: _height / 1.5,
+                        child: SingleChildScrollView(
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 20, vertical: 5),
+                                child: Text(
+                                  'برای بهتر شدن هر چه بهتر این نرم افزار در آپدیت های بعدی، ما نیاز به شنیدن نظرات شما کاربران عزیز داریم. با ما بدون هیچ خجالت و تعارفی در ارتباط باشید.',
+                                  style: TextStyle(
+                                    color: Colors.white70,
+                                    fontSize: 18,
+                                  ),
+                                  textDirection: TextDirection.rtl,
+                                  textAlign: TextAlign.justify,
+                                ),
                               ),
-                              textDirection: TextDirection.rtl,
-                              textAlign: TextAlign.justify,
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 25),
-                            child: Column(
-                              children: [
-                                Row(
+                              Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 25),
+                                child: Column(
                                   children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(right: 8),
-                                      child: CircleAvatar(
-                                        backgroundColor: Colors.white38,
-                                        radius: 14,
-                                        child: Icon(
-                                          Icons.email,
-                                          color:
-                                              Color.fromARGB(255, 115, 102, 68),
-                                          size: 18,
+                                    Row(
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(right: 8),
+                                          child: CircleAvatar(
+                                            backgroundColor: Colors.white38,
+                                            radius: 14,
+                                            child: Icon(
+                                              Icons.email,
+                                              color: Color.fromARGB(
+                                                  255, 115, 102, 68),
+                                              size: 18,
+                                            ),
+                                          ),
                                         ),
-                                      ),
+                                        Text(
+                                          'pars.string@gmail.com',
+                                          style: TextStyle(
+                                            color: Colors.white70,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 16,
+                                          ),
+                                        )
+                                      ],
                                     ),
-                                    Text(
-                                      'pars.string@gmail.com',
-                                      style: TextStyle(
-                                        color: Colors.white70,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 16,
-                                      ),
-                                    )
+                                    SizedBox(height: 10),
+                                    Row(
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(right: 8),
+                                          child: CircleAvatar(
+                                            backgroundColor: Colors.white38,
+                                            radius: 14,
+                                            child: Icon(
+                                              Icons.call,
+                                              color: Color.fromARGB(
+                                                  255, 115, 102, 68),
+                                              size: 18,
+                                            ),
+                                          ),
+                                        ),
+                                        Text(
+                                          '+98 930 295 7659',
+                                          style: TextStyle(
+                                            color: Colors.white70,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 16,
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                    SizedBox(height: 10),
+                                    Row(
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(right: 8),
+                                          child: CircleAvatar(
+                                            backgroundColor: Colors.white38,
+                                            radius: 14,
+                                            child: Icon(
+                                              Icons.call,
+                                              color: Color.fromARGB(
+                                                  255, 115, 102, 68),
+                                              size: 18,
+                                            ),
+                                          ),
+                                        ),
+                                        Text(
+                                          '+98 939 154 3702',
+                                          style: TextStyle(
+                                            color: Colors.white70,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 16,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   ],
                                 ),
-                                SizedBox(height: 10),
-                                Row(
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(right: 8),
-                                      child: CircleAvatar(
-                                        backgroundColor: Colors.white38,
-                                        radius: 14,
-                                        child: Icon(
-                                          Icons.call,
-                                          color:
-                                              Color.fromARGB(255, 115, 102, 68),
-                                          size: 18,
-                                        ),
-                                      ),
-                                    ),
-                                    Text(
-                                      '+98 930 295 7659',
-                                      style: TextStyle(
-                                        color: Colors.white70,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 16,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                SizedBox(height: 10),
-                                Row(
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(right: 8),
-                                      child: CircleAvatar(
-                                        backgroundColor: Colors.white38,
-                                        radius: 14,
-                                        child: Icon(
-                                          Icons.call,
-                                          color:
-                                              Color.fromARGB(255, 115, 102, 68),
-                                          size: 18,
-                                        ),
-                                      ),
-                                    ),
-                                    Text(
-                                      '+98 939 154 3702',
-                                      style: TextStyle(
-                                        color: Colors.white70,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 16,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 20, vertical: 5),
-                            child: Text(
-                              'همچنین برای با خبر شدن از آخرین اخبار در ارتباط با جدید ترین نرم افزارها، آپدیت ها و... شبکه های اجتماعی گروه نرم افزاری پارس استرینگ را دنبال کنید.',
-                              style: TextStyle(
-                                color: Colors.white70,
-                                fontSize: 18,
                               ),
-                              textDirection: TextDirection.rtl,
-                              textAlign: TextAlign.justify,
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 25),
-                            child: Row(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(right: 8),
-                                  child: CircleAvatar(
-                                    backgroundColor: Colors.white38,
-                                    radius: 14,
-                                    child: Icon(
-                                      Icons.link,
-                                      color: Color.fromARGB(255, 115, 102, 68),
-                                      size: 18,
-                                    ),
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 20, vertical: 5),
+                                child: Text(
+                                  'همچنین برای با خبر شدن از آخرین اخبار در ارتباط با جدید ترین نرم افزارها، آپدیت ها و... شبکه های اجتماعی گروه نرم افزاری پارس استرینگ را دنبال کنید.',
+                                  style: TextStyle(
+                                    color: Colors.white70,
+                                    fontSize: 18,
+                                  ),
+                                  textDirection: TextDirection.rtl,
+                                  textAlign: TextAlign.justify,
+                                ),
+                              ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 25),
+                                child: FittedBox(
+                                  fit: BoxFit.scaleDown,
+                                  child: Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(right: 8),
+                                        child: CircleAvatar(
+                                          backgroundColor: Colors.white38,
+                                          radius: 14,
+                                          child: Icon(
+                                            Icons.link,
+                                            color: Color.fromARGB(
+                                                255, 115, 102, 68),
+                                            size: 18,
+                                          ),
+                                        ),
+                                      ),
+                                      InkWell(
+                                        onTap: _launchUrl,
+                                        child: Text(
+                                          'linkedin.com/company/pars-string',
+                                          style: TextStyle(
+                                            color: Colors.white70,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 14,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
-                                InkWell(
-                                  onTap: _launchUrl,
-                                  child: Text(
-                                    'linkedin.com/company/pars-string',
-                                    style: TextStyle(
-                                      color: Colors.white70,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 16,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
-                        ],
+                        ),
                       ),
                       const SizedBox(),
                       Column(
