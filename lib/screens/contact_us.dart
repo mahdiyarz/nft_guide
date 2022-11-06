@@ -1,18 +1,16 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:nft_guide/widgets/back_button.dart';
+import 'package:nft_guide/widgets/contact_detail.dart';
+import 'package:nft_guide/widgets/logo.dart';
+import 'package:nft_guide/widgets/sign.dart';
+import 'package:nft_guide/widgets/texts_on_menu.dart';
 
 class ContactUs extends StatelessWidget {
   ContactUs({Key? key}) : super(key: key);
 
   final Uri _url = Uri.parse('https://www.linkedin.com/company/pars-string');
-
-  Future<void> _launchUrl() async {
-    if (!await launchUrl(_url, mode: LaunchMode.externalApplication)) {
-      throw 'Could not launch $_url';
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,216 +34,47 @@ class ContactUs extends StatelessWidget {
               ),
               child: Stack(
                 children: [
-                  Positioned(
-                    left: _width / 90,
-                    top: _width / 90,
-                    child: Container(
-                      width: 35,
-                      height: 35,
-                      decoration: BoxDecoration(
-                        color: Colors.white38,
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: IconButton(
-                        onPressed: () {
-                          Navigator.of(context).pop();
-                        },
-                        icon: Icon(Icons.arrow_back_rounded),
-                        color: Color.fromARGB(255, 115, 102, 68),
-                        iconSize: 20,
-                        alignment: Alignment.center,
-                        padding: EdgeInsets.all(5),
-                      ),
-                    ),
-                  ),
+                  MyBackButton(width: _width),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      CircleAvatar(
-                        backgroundColor: Colors.white70,
-                        radius: 55,
-                        child: Image.asset(
-                          'assets/logo/pars_string.png',
-                          fit: BoxFit.cover,
-                        ),
-                      ),
+                      ParsStringLogo(),
                       Column(
                         children: [
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 20,
-                              vertical: 5,
-                            ),
-                            child: Text(
-                              'برای بهتر شدن هر چه بهتر این نرم افزار در آپدیت های بعدی، ما نیاز به شنیدن نظرات شما کاربران عزیز داریم. با ما بدون هیچ خجالت و تعارفی در ارتباط باشید.',
-                              style: TextStyle(
-                                color: Colors.white70,
-                                fontSize: 16,
-                              ),
-                              textScaleFactor:
-                                  ScaleSize.textScaleFactor(context),
-                              textDirection: TextDirection.rtl,
-                              textAlign: TextAlign.justify,
-                            ),
+                          TextsOnMenu(
+                            isBold: false,
+                            text:
+                                'برای بهتر شدن هر چه بهتر این نرم افزار در آپدیت های بعدی، ما نیاز به شنیدن نظرات شما کاربران عزیز داریم. با ما بدون هیچ خجالت و تعارفی در ارتباط باشید.',
                           ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 25),
-                            child: Column(
-                              children: [
-                                Row(
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(right: 8),
-                                      child: CircleAvatar(
-                                        backgroundColor: Colors.white38,
-                                        radius: 12,
-                                        child: Icon(
-                                          Icons.email,
-                                          color:
-                                              Color.fromARGB(255, 115, 102, 68),
-                                          size: 14,
-                                        ),
-                                      ),
-                                    ),
-                                    Text(
-                                      'pars.string@gmail.com',
-                                      style: TextStyle(
-                                        color: Colors.white70,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 14,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                SizedBox(height: 5),
-                                Row(
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(right: 8),
-                                      child: CircleAvatar(
-                                        backgroundColor: Colors.white38,
-                                        radius: 12,
-                                        child: Icon(
-                                          Icons.call,
-                                          color:
-                                              Color.fromARGB(255, 115, 102, 68),
-                                          size: 12,
-                                        ),
-                                      ),
-                                    ),
-                                    Text(
-                                      '+98 930 295 7659',
-                                      style: TextStyle(
-                                        color: Colors.white70,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 12,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                SizedBox(height: 5),
-                                Row(
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(right: 8),
-                                      child: CircleAvatar(
-                                        backgroundColor: Colors.white38,
-                                        radius: 12,
-                                        child: Icon(
-                                          Icons.call,
-                                          color:
-                                              Color.fromARGB(255, 115, 102, 68),
-                                          size: 14,
-                                        ),
-                                      ),
-                                    ),
-                                    Text(
-                                      '+98 939 154 3702',
-                                      style: TextStyle(
-                                        color: Colors.white70,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 12,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
+                          ContactDetail(
+                            text: 'pars.string@gmail.com',
+                            myIcon: Icons.mail,
                           ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 20,
-                              vertical: 5,
-                            ),
-                            child: Text(
-                              'همچنین برای با خبر شدن از آخرین اخبار در ارتباط با جدید ترین نرم افزارها، آپدیت ها و... شبکه های اجتماعی گروه نرم افزاری پارس استرینگ را دنبال کنید.',
-                              style: TextStyle(
-                                color: Colors.white70,
-                                fontSize: 16,
-                              ),
-                              textDirection: TextDirection.rtl,
-                              textAlign: TextAlign.justify,
-                              textScaleFactor:
-                                  ScaleSize.textScaleFactor(context),
-                            ),
+                          SizedBox(height: 5),
+                          ContactDetail(
+                            text: '+98 930 295 7659',
+                            myIcon: Icons.phone_in_talk,
                           ),
-                          Container(
-                            alignment: Alignment.centerLeft,
-                            padding: const EdgeInsets.symmetric(horizontal: 25),
-                            child: FittedBox(
-                              fit: BoxFit.scaleDown,
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(right: 8),
-                                    child: CircleAvatar(
-                                      backgroundColor: Colors.white38,
-                                      radius: 12,
-                                      child: Icon(
-                                        Icons.link,
-                                        color:
-                                            Color.fromARGB(255, 115, 102, 68),
-                                        size: 14,
-                                      ),
-                                    ),
-                                  ),
-                                  InkWell(
-                                    onTap: _launchUrl,
-                                    child: Text(
-                                      'linkedin.com/company/pars-string',
-                                      style: TextStyle(
-                                        color: Colors.white70,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 14,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
+                          SizedBox(height: 5),
+                          ContactDetail(
+                            text: '+98 939 154 3702',
+                            myIcon: Icons.phone_in_talk,
+                          ),
+                          SizedBox(height: 5),
+                          TextsOnMenu(
+                            isBold: false,
+                            text:
+                                'همچنین برای با خبر شدن از آخرین اخبار در ارتباط با جدید ترین نرم افزارها، آپدیت ها و... شبکه های اجتماعی گروه نرم افزاری پارس استرینگ را دنبال کنید.',
+                          ),
+                          ContactDetail(
+                            text: 'linkedin.com/company/pars-string',
+                            myIcon: Icons.link,
+                            url: _url,
                           ),
                         ],
                       ),
                       const SizedBox(),
-                      Column(
-                        children: const [
-                          Text(
-                            'Designed & Developed by Pars String Group',
-                            style: TextStyle(
-                              color: Colors.white54,
-                              fontSize: 10,
-                            ),
-                          ),
-                          Text(
-                            'pars.string@gmail.com',
-                            style: TextStyle(
-                              color: Colors.white54,
-                              fontSize: 10,
-                            ),
-                          )
-                        ],
-                      )
+                      ParsStringSign(),
                     ],
                   ),
                 ],
