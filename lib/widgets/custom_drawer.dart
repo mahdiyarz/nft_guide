@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../widgets/logo.dart';
+import '../widgets/sign.dart';
 import '../screens/contact_us.dart';
 import '../screens/more_info.dart';
 
@@ -92,14 +94,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                     Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        CircleAvatar(
-                          backgroundColor: Colors.white70,
-                          radius: 55,
-                          child: Image.asset(
-                            'assets/logo/pars_string.png',
-                            fit: BoxFit.cover,
-                          ),
-                        ),
+                        ParsStringLogo(),
                         Column(
                           children: [
                             MyTile(Icons.settings_outlined,
@@ -122,24 +117,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                           ],
                         ),
                         const SizedBox(),
-                        Column(
-                          children: const [
-                            Text(
-                              'Designed & Developed by Pars String Group',
-                              style: TextStyle(
-                                color: Colors.white54,
-                                fontSize: 10,
-                              ),
-                            ),
-                            Text(
-                              'pars.string@gmail.com',
-                              style: TextStyle(
-                                color: Colors.white54,
-                                fontSize: 10,
-                              ),
-                            )
-                          ],
-                        )
+                        ParsStringSign(),
                       ],
                     ),
                   ],
