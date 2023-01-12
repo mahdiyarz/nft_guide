@@ -17,10 +17,8 @@ First version of this application released on October 2022, First.
 
 ## App Downloads
 
- - [Bazzar](https://awesomeopensource.com/project/elangosundar/awesome-README-templates)
- - [Play Store](https://github.com/matiassingers/awesome-readme)
- - [Sibche](https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project)
-- [App Store](https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project)
+ - [Bazzar](https://cafebazaar.ir/app/com.pars_string.nft_guide)
+ - [Anardoni](https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project)
 
 ## Features
 
