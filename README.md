@@ -18,7 +18,7 @@ First version of this application released on October 2022, First.
 ## App Downloads
 
  - [Bazzar](https://cafebazaar.ir/app/com.pars_string.nft_guide)
- - [Anardoni](https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project)
+ - [Anardoni](https://anardoni.com/ios/app/PZ2JHDFiu)
 
 ## Features
 
