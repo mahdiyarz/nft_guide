@@ -5,9 +5,9 @@
 # NFT Guide
 
 This application teaches you many things about "NFT".
-We try to teach everyone in simple way from scratch on a beautiful and friendly environment. 
+We try to teach everyone simply from scratch in a beautiful and friendly environment. 
 
-First version of this application released on October 2022, First.
+The first version of this application was released on October 2022, First.
 
 
 ## Screenshots
@@ -22,9 +22,8 @@ First version of this application released on October 2022, First.
 
 ## Features
 
-- Light/dark mode toggle
-- Live previews
-- Fullscreen mode
+- Access to resource files
+- Works in offline mode
 - Cross platform
 
 
