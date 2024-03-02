@@ -11,11 +11,28 @@ The first version of this application was released on October 2022, First.
 
 
 ## Screenshots
+<div align="center"> 
+ <img src="https://s.cafebazaar.ir/images/upload/screenshot/com.pars_string.nft_guide-368129438801.jpg" alt="screenshot" />
+</div>
+<p style="font-size: 0;">&nbsp;</p>
+<div align="center"> 
+ <img src="https://s.cafebazaar.ir/images/upload/screenshot/com.pars_string.nft_guide-020667970059.jpg" alt="screenshot" />
+</div>
+<div align="center"> 
+ <img src="https://s.cafebazaar.ir/images/upload/screenshot/com.pars_string.nft_guide-449348007233.jpg" alt="screenshot" />
+</div>
+<p style="font-size: 0;">&nbsp;</p>
+<div align="center"> 
+ <img src="https://s.cafebazaar.ir/images/upload/screenshot/com.pars_string.nft_guide-970064288623.jpg" alt="screenshot" />
+</div>
+<div align="center"> 
+ <img src="https://s.cafebazaar.ir/images/upload/screenshot/com.pars_string.nft_guide-990751912391.jpg" alt="screenshot" />
+</div>
+<p style="font-size: 0;">&nbsp;</p>
 
-![App Screenshot](https://s.cafebazaar.ir/images/upload/screenshot/com.pars_string.nft_guide-990751912391.jpg)
-![App Screenshot](https://s.cafebazaar.ir/images/upload/screenshot/com.pars_string.nft_guide-970064288623.jpg)
-![App Screenshot](https://s.cafebazaar.ir/images/upload/screenshot/com.pars_string.nft_guide-449348007233.jpg)
-![App Screenshot](https://s.cafebazaar.ir/images/upload/screenshot/com.pars_string.nft_guide-020667970059.jpg)
+
+
+
 
 
 ## App Downloads
