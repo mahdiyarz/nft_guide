@@ -4,15 +4,18 @@
 
 # NFT Guide
 
-This application teaches you many things about "NFT".
-We try to teach everyone simply from scratch in a beautiful and friendly environment. 
-
-The first version of this application was released on October 2022, First.
+Welcome to our application, a vibrant and engaging platform for exploring the world of NFTs. Launched in October 2022, we're committed to making NFT education accessible and enjoyable for everyone. Our application offers a comprehensive, user-friendly guide to understanding NFTs, covering everything from the basics to advanced concepts. We've designed it to be both informative and entertaining, ensuring you gain a solid understanding of NFTs in a welcoming digital environment. Dive into our interactive modules and engaging content, and join us on this exciting journey to unlock the potential of NFTs.
 
 
 ## Screenshots
+<div align="center"> 
+ <img src="https://amazone-clone.storage.iran.liara.space/NFT%20MOCK.png" alt="screenshot" />
+</div>
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+
+
+
 
 
 ## App Downloads
@@ -36,7 +39,7 @@ If you have any feedback, please reach out to us at pars.string@gmail.com
 ## Authors
 
 - [@mahdiyarz](https://www.github.com/mahdiyarz)
-- [@manticodes](https://www.github.com/manticodes)
+- [@manticodes](https://github.com/Sinazrp)
 
 
 ## 🔗 Links
