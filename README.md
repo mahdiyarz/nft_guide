@@ -12,7 +12,10 @@ The first version of this application was released on October 2022, First.
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://s.cafebazaar.ir/images/upload/screenshot/com.pars_string.nft_guide-990751912391.jpg)
+![App Screenshot](https://s.cafebazaar.ir/images/upload/screenshot/com.pars_string.nft_guide-970064288623.jpg)
+![App Screenshot](https://s.cafebazaar.ir/images/upload/screenshot/com.pars_string.nft_guide-449348007233.jpg)
+![App Screenshot](https://s.cafebazaar.ir/images/upload/screenshot/com.pars_string.nft_guide-020667970059.jpg)
 
 
 ## App Downloads
