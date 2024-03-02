@@ -4,10 +4,7 @@
 
 # NFT Guide
 
-This application teaches you many things about "NFT".
-We try to teach everyone simply from scratch in a beautiful and friendly environment. 
-
-The first version of this application was released on October 2022, First.
+Dive into our application, a vibrant learning hub for NFTs, designed to simplify the complexities of this digital revolution. Launched in October 2022, we aim to make understanding NFTs a joyful journey, offering a friendly and engaging platform for all levels of learners.
 
 
 ## Screenshots
