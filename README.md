@@ -4,7 +4,7 @@
 
 # NFT Guide
 
-Dive into our application, a vibrant learning hub for NFTs, designed to simplify the complexities of this digital revolution. Launched in October 2022, we aim to make understanding NFTs a joyful journey, offering a friendly and engaging platform for all levels of learners.
+Welcome to our application, a vibrant and engaging platform for exploring the world of NFTs. Launched in October 2022, we're committed to making NFT education accessible and enjoyable for everyone. Our application offers a comprehensive, user-friendly guide to understanding NFTs, covering everything from the basics to advanced concepts. We've designed it to be both informative and entertaining, ensuring you gain a solid understanding of NFTs in a welcoming digital environment. Dive into our interactive modules and engaging content, and join us on this exciting journey to unlock the potential of NFTs.
 
 
 ## Screenshots
