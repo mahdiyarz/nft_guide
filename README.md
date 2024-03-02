@@ -42,7 +42,7 @@ If you have any feedback, please reach out to us at pars.string@gmail.com
 ## Authors
 
 - [@mahdiyarz](https://www.github.com/mahdiyarz)
-- [@manticodes](https://www.github.com/manticodes)
+- [@manticodes](https://github.com/Sinazrp)
 
 
 ## 🔗 Links
